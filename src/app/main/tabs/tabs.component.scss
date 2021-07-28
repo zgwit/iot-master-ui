@@ -1,0 +1,40 @@
+.tabs{
+
+  .title{
+    display: inline-block;
+    border: 1px solid #d9d9d9;
+    border-radius: 2px;
+    padding: 5px 10px;
+    margin: 2px;
+    background-color: #fafafa;
+    font-size: 14px;
+    //color: rgba(0, 0, 0, 0.65);
+
+    a{
+      color: rgba(0, 0, 0, 0.65);
+      text-decoration: none;
+    }
+
+    i {
+      margin-left: 4px;
+      transform: scale(0.8);
+      &:hover{
+        transform: scale(1.2);
+      }
+    }
+
+    &.active{
+      color: white;
+      a {
+        color: white;
+      }
+      border-color: transparent;
+      background-color: #1890ff;
+    }
+  }
+  .content{
+    padding: 15px;
+    background: #fff;
+    //height: 100%;
+  }
+}
