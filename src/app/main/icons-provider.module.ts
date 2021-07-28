@@ -7,30 +7,17 @@ import {
   DashboardOutline,
   SettingOutline,
   LogoutOutline,
-  ApiOutline,
-  ReloadOutline,
-  PlusOutline,
-  DeleteOutline,
-  AppstoreOutline,
-  AimOutline,
-  SwapOutline,
   ClusterOutline,
-  AlertOutline,
-  CloudUploadOutline,
-  ProjectOutline,
   BlockOutline,
-  DatabaseOutline,
-  EyeOutline,
-  AuditOutline,
   AppstoreAddOutline,
+  UserOutline,
 } from '@ant-design/icons-angular/icons';
 import {CommonModule} from '@angular/common';
 
 const icons = [
   // 菜单相关
-  MenuFoldOutline, MenuUnfoldOutline,   DashboardOutline, BlockOutline,
-  SettingOutline,
-  AppstoreAddOutline,ClusterOutline,LogoutOutline,
+  MenuFoldOutline, MenuUnfoldOutline, DashboardOutline, BlockOutline,
+  SettingOutline, AppstoreAddOutline, ClusterOutline, LogoutOutline, UserOutline,
   // 表格操作
 ];
 

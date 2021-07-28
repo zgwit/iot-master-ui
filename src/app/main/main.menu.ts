@@ -13,7 +13,7 @@ export let MainMenu = [
     // ]
   },
   {
-    title: '通道',
+    title: '通道管理',
     icon: 'block',
     children: [
       {
@@ -27,7 +27,7 @@ export let MainMenu = [
     ]
   },
   {
-    title: '项目',
+    title: '项目管理',
     icon: 'cluster',
     children: [
       {
@@ -48,20 +48,24 @@ export let MainMenu = [
       },
     ]
   },
-  // {
-  //   title: '用户管理',
-  //   icon: 'user',
-  //   open: false,
-  //   disable: true,
-  //   children: [
-  //     {
-  //       title: '用户管理',
-  //       router: 'users'
-  //     },
-  //   ]
-  // },
   {
-    title: '扩展',
+    title: '用户管理',
+    icon: 'user',
+    open: false,
+    disable: true,
+    children: [
+      {
+        title: '用户',
+        router: 'users'
+      },
+      {
+        title: '分组',
+        router: 'group'
+      },
+    ]
+  },
+  {
+    title: '系统扩展',
     icon: 'appstore-add',
     open: false,
     children: [
