@@ -1,40 +1,47 @@
 <app-editor [(ngModel)]="data" [submitting]="submitting" (submit)="submit()">
 
-  <div nz-form [formGroup]="validateForm" (ngSubmit)="submitForm(validateForm.value)">
-    <nz-divider nzText="基本信息" nzOrientation="left"></nz-divider>
-    <nz-form-item>
-      <nz-form-label [nzSpan]="5">名称</nz-form-label>
-      <nz-form-control [nzSpan]="12" nzErrorTip="">
-        <input nz-input formControlName="name" required/>
-      </nz-form-control>
-    </nz-form-item>
-    <nz-form-item>
-      <nz-form-label [nzSpan]="5">类型</nz-form-label>
-      <nz-form-control [nzSpan]="12" nzErrorTip="">
-        <nz-select formControlName="type">
-          <nz-option nzValue="tcp-server" nzLabel="TCP服务器"></nz-option>
-          <nz-option nzValue="tcp-client" nzLabel="TCP客户端"></nz-option>
-          <nz-option nzValue="udp-server" nzLabel="UDP服务器" nzDisabled></nz-option>
-          <nz-option nzValue="udp-client" nzLabel="UDP客户端" nzDisabled></nz-option>
-        </nz-select>
-      </nz-form-control>
-    </nz-form-item>
-    <nz-form-item>
-      <nz-form-label [nzSpan]="5">端口</nz-form-label>
-      <nz-form-control [nzSpan]="12" nzErrorTip="">
-        <!--      <input nz-input formControlName="port" type="number" min="1" max="65535"/>-->
-        <nz-input-number formControlName="port" [nzMin]="1" [nzMax]="65535" [nzStep]="1"></nz-input-number>
-      </nz-form-control>
-    </nz-form-item>
-    <nz-form-item>
-      <nz-form-label [nzSpan]="5">超时(s)</nz-form-label>
-      <nz-form-control [nzSpan]="12" nzErrorTip="">
-        <nz-input-number formControlName="timeout" [nzMin]="5" [nzMax]="600" [nzStep]="1"></nz-input-number>
-      </nz-form-control>
-    </nz-form-item>
+  <nz-tabset nzType="card" nzSize="small" [formGroup]="basicForm" (change)="change()">
+    <nz-tab nzTitle="基本信息">
+      <nz-form-item>
+        <nz-form-label [nzSpan]="5">名称</nz-form-label>
+        <nz-form-control [nzSpan]="12" nzErrorTip="">
+          <input nz-input formControlName="name" required/>
+        </nz-form-control>
+      </nz-form-item>
+      <nz-form-item>
+        <nz-form-label [nzSpan]="5">类型</nz-form-label>
+        <nz-form-control [nzSpan]="12" nzErrorTip="">
+          <nz-select formControlName="type">
+            <nz-option nzValue="tcp-server" nzLabel="TCP服务器"></nz-option>
+            <nz-option nzValue="tcp-client" nzLabel="TCP客户端"></nz-option>
+            <nz-option nzValue="udp-server" nzLabel="UDP服务器" nzDisabled></nz-option>
+            <nz-option nzValue="udp-client" nzLabel="UDP客户端" nzDisabled></nz-option>
+          </nz-select>
+        </nz-form-control>
+      </nz-form-item>
+      <nz-form-item *ngIf="basicForm.value.type==='tcp-client'">
+        <nz-form-label [nzSpan]="5">地址</nz-form-label>
+        <nz-form-control [nzSpan]="12" nzErrorTip="">
+          <input nz-input formControlName="address" required/>
+        </nz-form-control>
+      </nz-form-item>
+      <nz-form-item>
+        <nz-form-label [nzSpan]="5">端口</nz-form-label>
+        <nz-form-control [nzSpan]="12" nzErrorTip="">
+          <!--      <input nz-input formControlName="port" type="number" min="1" max="65535"/>-->
+          <nz-input-number formControlName="port" [nzMin]="1" [nzMax]="65535" [nzStep]="1"></nz-input-number>
+        </nz-form-control>
+      </nz-form-item>
+      <nz-form-item>
+        <nz-form-label [nzSpan]="5">超时(s)</nz-form-label>
+        <nz-form-control [nzSpan]="12" nzErrorTip="">
+          <nz-input-number formControlName="timeout" [nzMin]="5" [nzMax]="600" [nzStep]="1"></nz-input-number>
+        </nz-form-control>
+      </nz-form-item>
+    </nz-tab>
 
-    <nz-divider nzText="注册包" nzOrientation="left"></nz-divider>
-    <div formGroupName="register">
+
+    <nz-tab nzTitle="注册包" formGroupName="register">
       <nz-form-item>
         <nz-form-label [nzSpan]="5">启用</nz-form-label>
         <nz-form-control [nzSpan]="12" nzErrorTip="">
@@ -43,7 +50,7 @@
         </nz-form-control>
       </nz-form-item>
 
-      <div *ngIf="validateForm.value.register.enable">
+      <div *ngIf="basicForm.value.register.enable">
         <nz-form-item>
           <nz-form-label [nzSpan]="5">正则表达式</nz-form-label>
           <nz-form-control [nzSpan]="12" nzErrorTip="">
@@ -51,12 +58,9 @@
           </nz-form-control>
         </nz-form-item>
       </div>
-    </div>
+    </nz-tab>
 
-
-    <nz-divider nzText="心跳包" nzOrientation="left"></nz-divider>
-    <div formGroupName="heartbeat">
-
+    <nz-tab nzTitle="心跳包" formGroupName="heartbeat">
       <nz-form-item>
         <nz-form-label [nzSpan]="5">启用</nz-form-label>
         <nz-form-control [nzSpan]="12" nzErrorTip="">
@@ -65,7 +69,7 @@
         </nz-form-control>
       </nz-form-item>
 
-      <div *ngIf="validateForm.value.heartbeat.enable">
+      <div *ngIf="basicForm.value.heartbeat.enable">
 
         <nz-form-item>
           <nz-form-label [nzSpan]="5">间隔</nz-form-label>
@@ -88,12 +92,9 @@
           </nz-form-control>
         </nz-form-item>
       </div>
+    </nz-tab>
 
-    </div>
-
-    <nz-divider nzText="控制包" nzOrientation="left"></nz-divider>
-    <div formGroupName="control">
-
+    <nz-tab nzTitle="控制包" formGroupName="control">
       <nz-form-item>
         <nz-form-label [nzSpan]="5">启用</nz-form-label>
         <nz-form-control [nzSpan]="12" nzErrorTip="">
@@ -102,7 +103,7 @@
         </nz-form-control>
       </nz-form-item>
 
-      <div *ngIf="validateForm.value.control.enable">
+      <div *ngIf="basicForm.value.control.enable">
         <nz-form-item>
           <nz-form-label [nzSpan]="5">前缀</nz-form-label>
           <nz-form-control [nzSpan]="12" nzErrorTip="">
@@ -117,11 +118,9 @@
           </nz-form-control>
         </nz-form-item>
       </div>
-    </div>
+    </nz-tab>
 
-    <nz-divider nzText="协议适配器" nzOrientation="left"></nz-divider>
-    <div formGroupName="adapter">
-
+    <nz-tab nzTitle="协议适配" formGroupName="adapter">
       <nz-form-item>
         <nz-form-label [nzSpan]="5">启用</nz-form-label>
         <nz-form-control [nzSpan]="12" nzErrorTip="">
@@ -130,7 +129,7 @@
         </nz-form-control>
       </nz-form-item>
 
-      <div *ngIf="validateForm.value.adapter.enable">
+      <div *ngIf="basicForm.value.adapter.enable">
 
         <nz-form-item>
           <nz-form-label [nzSpan]="5">协议</nz-form-label>
@@ -149,8 +148,45 @@
           </nz-form-control>
         </nz-form-item>
       </div>
+    </nz-tab>
 
-    </div>
-  </div>
+    <nz-tab nzTitle="设备列表" formArrayName="devices">
+      <nz-table #devicesTable nzBordered [nzData]="devicesArray.controls" [nzFrontPagination]="false" nzSize="small">
+        <thead>
+        <tr>
+          <th>从机号</th>
+          <th>元件ID</th>
+          <th>操作</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr *ngFor="let data of devicesArray.controls; let i=index" [formGroupName]="i">
+            <td>
+              <nz-input-number formControlName="slave" [nzMin]="1" [nzMax]="65535" [nzStep]="1" nzSize="small"></nz-input-number>
+            </td>
+            <td>
+              <input nz-input formControlName="element_id" nzSize="small" required/>
+            </td>
+          <td>
+            <a (click)="deviceMoveUp(i)">上移</a>
+            <nz-divider nzType="vertical"></nz-divider>
+            <a (click)="deviceMoveDown(i)">下移</a>
+            <nz-divider nzType="vertical"></nz-divider>
+            <a (click)="deviceRemove(i)">删除</a>
+          </td>
+        </tr>
+        </tbody>
+      </nz-table>
+
+      <nz-space>
+        <button nz-button *nzSpaceItem nzType="default" (click)="deviceClear()">清空</button>
+        <button nz-button *nzSpaceItem nzType="default" (click)="deviceSort()">排序</button>
+        <button nz-button *nzSpaceItem nzType="primary" (click)="deviceAdd()">添加</button>
+      </nz-space>
+
+    </nz-tab>
+
+  </nz-tabset>
+
 
 </app-editor>

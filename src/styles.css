@@ -2,3 +2,9 @@
 
 @import '~codemirror/lib/codemirror';
 @import '~codemirror/theme/material';
+
+/* 让代码编辑器高度自适应 */
+.CodeMirror{
+  /*min-height: 400px; 最小高度会出问题 */
+  height: auto;
+}

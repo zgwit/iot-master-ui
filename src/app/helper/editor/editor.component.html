@@ -1,4 +1,4 @@
-<nz-tabset [nzTabBarExtraContent]="extraTemplate" [(nzSelectedIndex)]="tabIndex" [nzAnimated]="false">
+<nz-tabset class="tabs" [nzTabBarExtraContent]="extraTemplate" [(nzSelectedIndex)]="tabIndex" [nzAnimated]="false" nzSize="large">
   <nz-tab nzTitle="可视化">
     <ng-content *ngIf="tabIndex === 0"></ng-content>
   </nz-tab>
