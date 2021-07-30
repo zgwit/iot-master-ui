@@ -46,7 +46,7 @@ export class AcceptorComponent implements OnInit {
   }
 
   constructor(private tab: TabRef, private ms: NzModalService, private vcf: ViewContainerRef, private router: Router) {
-    tab.name = "接收器"
+    tab.name = "网络服务"
   }
 
   ngOnInit(): void {
