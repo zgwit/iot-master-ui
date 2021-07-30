@@ -23,7 +23,6 @@ import {TemplateEditComponent} from "./template-edit/template-edit.component";
 import {ElementEditComponent} from "./element-edit/element-edit.component";
 import {UserEditComponent} from "./user-edit/user-edit.component";
 import {GroupEditComponent} from "./group-edit/group-edit.component";
-import {ApiEditComponent} from "./api-edit/api-edit.component";
 import {AcceptorDetailComponent} from "./acceptor-detail/acceptor-detail.component";
 import {ProjectDetailComponent} from "./project-detail/project-detail.component";
 import {TunnelDetailComponent} from "./tunnel-detail/tunnel-detail.component";
@@ -43,7 +42,6 @@ const routes: Routes = [
       {path: '', redirectTo: 'dash'},
       {path: 'dash', component: DashComponent},
       {path: 'tunnel', component: TunnelComponent},
-      // {path: 'tunnel-edit', component: TunnelEditComponent},
       {path: 'tunnel/edit/:id', component: TunnelEditComponent},
       {path: 'tunnel/detail/:id', component: TunnelDetailComponent},
       {path: 'acceptor', component: AcceptorComponent},
