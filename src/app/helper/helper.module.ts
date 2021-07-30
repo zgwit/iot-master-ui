@@ -8,6 +8,7 @@ import {EditorComponent} from './editor/editor.component';
 import {JsEditorComponent} from './js-editor/js-editor.component';
 import {YamlEditorComponent} from './yaml-editor/yaml-editor.component';
 import {JsonEditorComponent} from './json-editor/json-editor.component';
+import {NzIconModule} from "ng-zorro-antd/icon";
 
 
 @NgModule({
@@ -28,7 +29,8 @@ import {JsonEditorComponent} from './json-editor/json-editor.component';
     CodemirrorModule,
     FormsModule,
     NzTabsModule,
-    NzButtonModule
+    NzButtonModule,
+    NzIconModule
   ]
 })
 export class HelperModule {

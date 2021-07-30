@@ -1,4 +1,4 @@
-<nz-tabset [nzTabBarExtraContent]="extraTemplate" [(nzSelectedIndex)]="tabIndex">
+<nz-tabset [nzTabBarExtraContent]="extraTemplate" [(nzSelectedIndex)]="tabIndex" [nzAnimated]="false">
   <nz-tab nzTitle="可视化">
     <ng-content *ngIf="tabIndex === 0"></ng-content>
   </nz-tab>
@@ -10,5 +10,7 @@
   </nz-tab>
 </nz-tabset>
 <ng-template #extraTemplate>
-  <button nz-button nzType="primary" (click)="submit.emit($event)">提交</button>
+  <button nz-button nzType="primary" nzShape="round" [nzLoading]="submitting" (click)="submit.emit($event)">
+    提交
+  </button>
 </ng-template>

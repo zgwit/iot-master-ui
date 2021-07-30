@@ -44,7 +44,7 @@ export class JsonEditorComponent implements OnInit, ControlValueAccessor {
   }
 
   writeValue(obj: any): void {
-    this._json = JSON.stringify(obj, undefined, '\t')
+    this._json = JSON.stringify(obj, undefined, '\t');
   }
 
 }

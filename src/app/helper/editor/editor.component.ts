@@ -14,19 +14,22 @@ import {ControlValueAccessor, NG_VALUE_ACCESSOR} from "@angular/forms";
   ]
 })
 export class EditorComponent implements OnInit, ControlValueAccessor {
-
+  @Input() submitting: any = false;
   @Output() submit = new EventEmitter<MouseEvent>();
 
   tabIndex = 0;
 
-  onChanged: any = () => {}
-  onTouched: any = () => {}
+  onChanged: any = () => {
+  }
+  onTouched: any = () => {
+  }
 
   //内容
   _val = "";
   get val() {
     return this._val
   }
+
   set val(y) {
     console.log('val', y)
     this._val = y;
@@ -35,7 +38,8 @@ export class EditorComponent implements OnInit, ControlValueAccessor {
     this.onTouched();
   }
 
-  constructor() { }
+  constructor() {
+  }
 
   ngOnInit(): void {
   }

@@ -1,4 +1,4 @@
-<app-editor (submit)="submit()">
+<app-editor [(ngModel)]="data" [submitting]="submitting" (submit)="submit()">
 
   <div nz-form [formGroup]="validateForm" (ngSubmit)="submitForm(validateForm.value)">
     <nz-divider nzText="基本信息" nzOrientation="left"></nz-divider>

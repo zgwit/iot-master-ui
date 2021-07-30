@@ -1,5 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from "@angular/forms";
+import {TabRef} from "../tabs/tabs.component";
 
 @Component({
   selector: 'app-acceptor-edit',
@@ -7,10 +8,16 @@ import {FormBuilder, FormGroup, Validators} from "@angular/forms";
   styleUrls: ['./acceptor-edit.component.scss']
 })
 export class AcceptorEditComponent implements OnInit {
+  submitting = false;
   validateForm: FormGroup;
-  adapter_options = "";
 
-  constructor(private fb: FormBuilder) {
+  data: any = {
+    name: '无名'
+  }
+
+  constructor(private fb: FormBuilder, private tab: TabRef) {
+    tab.name = "编辑接收器"
+
     this.validateForm = this.fb.group({
       name: ['', [Validators.required]],
       type: ['', [Validators.required]],
@@ -34,7 +41,7 @@ export class AcceptorEditComponent implements OnInit {
       adapter: this.fb.group({
         enable: [false, []],
         type: ['', []],
-        options: [{a:1}, []],
+        options: [{a: 1}, []],
       }),
       devices: this.fb.array([
         this.fb.group({
