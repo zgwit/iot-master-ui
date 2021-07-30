@@ -82,7 +82,9 @@ nz-header {
 }
 
 nz-content {
-  margin: 10px;
+  //margin: 10px;
+  overflow: auto;
+  flex: 1;
 }
 
 .inner-content {

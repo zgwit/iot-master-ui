@@ -3,6 +3,7 @@ import {NzTableQueryParams} from "ng-zorro-antd/table";
 import {TabRef} from "../tabs/tabs.component";
 import {NzModalService} from "ng-zorro-antd/modal";
 import {AcceptorEditComponent} from "../acceptor-edit/acceptor-edit.component";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-acceptor',
@@ -44,7 +45,7 @@ export class AcceptorComponent implements OnInit {
     this.loadDataFromServer(pageIndex, pageSize, sortField, sortOrder, filter);
   }
 
-  constructor(private tab: TabRef, private ms: NzModalService, private vcf: ViewContainerRef) {
+  constructor(private tab: TabRef, private ms: NzModalService, private vcf: ViewContainerRef, private router: Router) {
     tab.name = "接收器"
   }
 
@@ -53,6 +54,10 @@ export class AcceptorComponent implements OnInit {
   }
 
   create(): void {
+    this.router.navigate(["admin/acceptor-edit"]);
+
+    return;
+
     const modal = this.ms.create({
       nzTitle: '创建接收器',
       nzContent: AcceptorEditComponent,
@@ -70,7 +75,5 @@ export class AcceptorComponent implements OnInit {
       //nzAfterClose
     });
     modal.afterClose.subscribe(console.log)
-
-
   }
 }

@@ -1,4 +1,7 @@
+
 <div nz-form [formGroup]="validateForm" (ngSubmit)="submitForm(validateForm.value)">
+
+  <nz-divider nzText="基本信息" nzOrientation="left"></nz-divider>
   <nz-form-item>
     <nz-form-label [nzSpan]="5">名称</nz-form-label>
     <nz-form-control [nzSpan]="12" nzErrorTip="">
@@ -30,10 +33,29 @@
     </nz-form-control>
   </nz-form-item>
 
+  <nz-divider nzText="注册包" nzOrientation="left"></nz-divider>
+  <div formGroupName="register">
+    <nz-form-item>
+      <nz-form-label [nzSpan]="5">启用</nz-form-label>
+      <nz-form-control [nzSpan]="12" nzErrorTip="">
+        <!--          <input nz-input formControlName="enable" required/>-->
+        <nz-switch formControlName="enable"></nz-switch>
+      </nz-form-control>
+    </nz-form-item>
 
-  <nz-form-item>
-    <nz-form-label [nzSpan]="5">注册包</nz-form-label>
-    <nz-form-control formGroupName="register">
+    <div *ngIf="validateForm.value.register.enable">
+      <nz-form-item>
+        <nz-form-label [nzSpan]="5">正则表达式</nz-form-label>
+        <nz-form-control [nzSpan]="12" nzErrorTip="">
+          <input nz-input formControlName="regex"/>
+        </nz-form-control>
+      </nz-form-item>
+    </div>
+  </div>
+
+
+  <nz-divider nzText="心跳包" nzOrientation="left"></nz-divider>
+  <div formGroupName="heartbeat">
 
       <nz-form-item>
         <nz-form-label [nzSpan]="5">启用</nz-form-label>
@@ -43,31 +65,7 @@
         </nz-form-control>
       </nz-form-item>
 
-      <div *ngIf="validateForm.value.register.enable">
-        <nz-form-item>
-          <nz-form-label [nzSpan]="5">正则表达式</nz-form-label>
-          <nz-form-control [nzSpan]="12" nzErrorTip="">
-            <input nz-input formControlName="regex" required/>
-          </nz-form-control>
-        </nz-form-item>
-      </div>
-
-    </nz-form-control>
-  </nz-form-item>
-
-  <nz-form-item>
-    <nz-form-label [nzSpan]="5">心跳包</nz-form-label>
-    <nz-form-control formGroupName="register">
-
-      <nz-form-item>
-        <nz-form-label [nzSpan]="5">启用</nz-form-label>
-        <nz-form-control [nzSpan]="12" nzErrorTip="">
-          <!--          <input nz-input formControlName="enable" required/>-->
-          <nz-switch formControlName="enable"></nz-switch>
-        </nz-form-control>
-      </nz-form-item>
-
-      <div *ngIf="validateForm.value.register.enable">
+      <div *ngIf="validateForm.value.heartbeat.enable">
 
         <nz-form-item>
           <nz-form-label [nzSpan]="5">间隔</nz-form-label>
@@ -79,13 +77,65 @@
         <nz-form-item>
           <nz-form-label [nzSpan]="5">正则表达式</nz-form-label>
           <nz-form-control [nzSpan]="12" nzErrorTip="">
-            <input nz-input formControlName="regex" required/>
+            <input nz-input formControlName="regex"/>
+          </nz-form-control>
+        </nz-form-item>
+
+        <nz-form-item>
+          <nz-form-label [nzSpan]="5">内容</nz-form-label>
+          <nz-form-control [nzSpan]="12" nzErrorTip="">
+            <input nz-input formControlName="text"/>
           </nz-form-control>
         </nz-form-item>
       </div>
 
-    </nz-form-control>
-  </nz-form-item>
+    </div>
+
+  <nz-divider nzText="控制包" nzOrientation="left"></nz-divider>
+  <div formGroupName="control">
+
+      <nz-form-item>
+        <nz-form-label [nzSpan]="5">启用</nz-form-label>
+        <nz-form-control [nzSpan]="12" nzErrorTip="">
+          <!--          <input nz-input formControlName="enable" required/>-->
+          <nz-switch formControlName="enable"></nz-switch>
+        </nz-form-control>
+      </nz-form-item>
+
+      <div *ngIf="validateForm.value.control.enable">
+        <nz-form-item>
+          <nz-form-label [nzSpan]="5">前缀</nz-form-label>
+          <nz-form-control [nzSpan]="12" nzErrorTip="">
+            <input nz-input formControlName="prefix"/>
+          </nz-form-control>
+        </nz-form-item>
+
+        <nz-form-item>
+          <nz-form-label [nzSpan]="5">后缀</nz-form-label>
+          <nz-form-control [nzSpan]="12" nzErrorTip="">
+            <input nz-input formControlName="suffix"/>
+          </nz-form-control>
+        </nz-form-item>
+      </div>
+
+    </div>
+
+
+  <nz-divider nzText="协议适配器" nzOrientation="left"></nz-divider>
+  <div formGroupName="adapter">
+    <nz-form-item>
+      <nz-form-label [nzSpan]="5">协议</nz-form-label>
+      <nz-form-control [nzSpan]="12" nzErrorTip="">
+        <nz-select nzAllowClear formControlName="type">
+          <nz-option nzValue="modbus-tcp" nzLabel="Modbus TCP"></nz-option>
+          <nz-option nzValue="modbus-rtu" nzLabel="Modbus RTU"></nz-option>
+        </nz-select>
+      </nz-form-control>
+    </nz-form-item>
+  </div>
+
+
+
 
 
 </div>

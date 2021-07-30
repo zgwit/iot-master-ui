@@ -22,10 +22,24 @@ export class AcceptorEditComponent implements OnInit {
       heartbeat: this.fb.group({
         enable: [false, [Validators.required]],
         interval: [30, [Validators.required]],
-        regex: ['', [Validators.required]],
-        text: ['', [Validators.required]],
-        hex: ['', [Validators.required]],
+        text: ['', []],
+        regex: ['', []],
       }),
+      control: this.fb.group({
+        enable: [false, [Validators.required]],
+        prefix: ['', []],
+        suffix: ['', []],
+      }),
+      adapter: this.fb.group({
+        type: ['', []],
+        options: ['', []],
+      }),
+      devices: this.fb.array([
+        this.fb.group({
+          slave: ['', [Validators.required]],
+          element_id: ['', [Validators.required]],
+        })
+      ])
     });
     console.log(this.validateForm)
   }

@@ -1,6 +1,23 @@
-.tabs{
+:host{
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  overflow: auto;
+  height: 100%;
+  width: 100%;
+}
 
-  .title{
+.content {
+  flex: 1;
+
+  padding: 15px;
+  background: #fff;
+  overflow: auto;
+}
+
+.tabs {
+
+  .title {
     display: inline-block;
     border: 1px solid #d9d9d9;
     border-radius: 2px;
@@ -10,7 +27,7 @@
     font-size: 14px;
     //color: rgba(0, 0, 0, 0.65);
 
-    a{
+    a {
       color: rgba(0, 0, 0, 0.65);
       text-decoration: none;
     }
@@ -18,23 +35,27 @@
     i {
       margin-left: 4px;
       transform: scale(0.8);
-      &:hover{
+
+      &:hover {
         transform: scale(1.2);
       }
     }
 
-    &.active{
+    &.active {
       color: white;
+
       a {
         color: white;
       }
+
       border-color: transparent;
       background-color: #1890ff;
     }
   }
-  .content{
-    padding: 15px;
-    background: #fff;
-    //height: 100%;
-  }
+
+  //.content {
+  //  padding: 15px;
+  //  background: #fff;
+  //  //height: 100%;
+  //}
 }
