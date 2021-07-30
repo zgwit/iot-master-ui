@@ -21,7 +21,7 @@ export let MainMenu = [
         router: 'tunnel'
       },
       {
-        title: '接收器',
+        title: '网络服务',
         router: 'acceptor'
       },
     ]
@@ -39,12 +39,12 @@ export let MainMenu = [
         router: 'device'
       },
       {
-        title: '模板',
-        router: 'template'
+        title: '元件库',
+        router: 'element'
       },
       {
-        title: '元件',
-        router: 'element'
+        title: '模板库',
+        router: 'template'
       },
     ]
   },
@@ -78,7 +78,7 @@ export let MainMenu = [
         router: 'adapter'
       },
       {
-        title: '二次开发',
+        title: '接口',
         router: 'api'
       },
     ]
