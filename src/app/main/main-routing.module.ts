@@ -16,6 +16,7 @@ import {ApiComponent} from "./api/api.component";
 import {SettingComponent} from "./setting/setting.component";
 import {PasswordComponent} from "./password/password.component";
 import {AcceptorEditComponent} from "./acceptor-edit/acceptor-edit.component";
+import {EditComponent} from "./edit/edit.component";
 
 const routes: Routes = [
   {
@@ -23,6 +24,7 @@ const routes: Routes = [
     component: MainComponent,
     children: [
       {path: '', redirectTo: 'dash'},
+      {path: 'edit', component: EditComponent},
       {path: 'dash', component: DashComponent},
       {path: 'tunnel', component: TunnelComponent},
       {path: 'acceptor', component: AcceptorComponent},

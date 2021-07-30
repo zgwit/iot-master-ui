@@ -50,11 +50,14 @@ import {ApiComponent} from "./api/api.component";
 import {SettingComponent} from "./setting/setting.component";
 import {PasswordComponent} from "./password/password.component";
 import {AcceptorEditComponent} from "./acceptor-edit/acceptor-edit.component";
+import {CodemirrorModule} from "@ctrl/ngx-codemirror";
+import {EditComponent} from "./edit/edit.component";
 
 
 @NgModule({
   declarations: [
-    MainComponent, TabsComponent, DashComponent,
+    MainComponent, TabsComponent, EditComponent,
+    DashComponent,
     TunnelComponent,
     AcceptorComponent,
     AcceptorEditComponent,
@@ -76,6 +79,7 @@ import {AcceptorEditComponent} from "./acceptor-edit/acceptor-edit.component";
     ReactiveFormsModule,
     HttpClientModule,
     MainRoutingModule,
+    CodemirrorModule,
     IconsProviderModule,
     NzIconModule,
     NzLayoutModule,

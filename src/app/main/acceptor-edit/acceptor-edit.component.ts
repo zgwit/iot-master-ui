@@ -8,6 +8,7 @@ import {FormBuilder, FormGroup, Validators} from "@angular/forms";
 })
 export class AcceptorEditComponent implements OnInit {
   validateForm: FormGroup;
+  adapter_options = "";
 
   constructor(private fb: FormBuilder) {
     this.validateForm = this.fb.group({
@@ -16,21 +17,22 @@ export class AcceptorEditComponent implements OnInit {
       port: ['', [Validators.required]],
       timeout: ['', [Validators.required]],
       register: this.fb.group({
-        enable: [true, [Validators.required]],
-        regex: ['', [Validators.required]],
+        enable: [true, []],
+        regex: ['', []],
       }),
       heartbeat: this.fb.group({
-        enable: [false, [Validators.required]],
-        interval: [30, [Validators.required]],
+        enable: [false, []],
+        interval: [30, []],
         text: ['', []],
         regex: ['', []],
       }),
       control: this.fb.group({
-        enable: [false, [Validators.required]],
+        enable: [false, []],
         prefix: ['', []],
         suffix: ['', []],
       }),
       adapter: this.fb.group({
+        enable: [false, []],
         type: ['', []],
         options: ['', []],
       }),
