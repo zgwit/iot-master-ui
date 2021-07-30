@@ -17,8 +17,8 @@ export class AcceptorComponent implements OnInit {
   pageSize = 10;
   pageIndex = 1;
   filterGender = [
-    { text: 'male', value: 'male' },
-    { text: 'female', value: 'female' }
+    {text: 'male', value: 'male'},
+    {text: 'female', value: 'female'}
   ];
 
   loadDataFromServer(
@@ -38,7 +38,7 @@ export class AcceptorComponent implements OnInit {
 
   onQueryParamsChange(params: NzTableQueryParams): void {
     console.log(params);
-    const { pageSize, pageIndex, sort, filter } = params;
+    const {pageSize, pageIndex, sort, filter} = params;
     const currentSort = sort.find(item => item.value !== null);
     const sortField = (currentSort && currentSort.key) || null;
     const sortOrder = (currentSort && currentSort.value) || null;
@@ -54,10 +54,13 @@ export class AcceptorComponent implements OnInit {
   }
 
   create(): void {
-    this.router.navigate(["admin/acceptor-edit"]);
+    this.router.navigate(["admin/acceptor/create"]);
 
     return;
+  }
 
+  //废弃，编辑通道信息，用户，组 等可以使用
+  create2(): void {
     const modal = this.ms.create({
       nzTitle: '创建接收器',
       nzContent: AcceptorEditComponent,
