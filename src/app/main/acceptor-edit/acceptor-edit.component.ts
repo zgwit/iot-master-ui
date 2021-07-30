@@ -34,7 +34,7 @@ export class AcceptorEditComponent implements OnInit {
       adapter: this.fb.group({
         enable: [false, []],
         type: ['', []],
-        options: ['', []],
+        options: [{a:1}, []],
       }),
       devices: this.fb.array([
         this.fb.group({

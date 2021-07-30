@@ -1,7 +1,7 @@
-<app-edit (submit)="submit()">
+<app-editor (submit)="submit()">
 
   <div nz-form [formGroup]="validateForm" (ngSubmit)="submitForm(validateForm.value)">
-<!--    <nz-divider nzText="基本信息" nzOrientation="left"></nz-divider>-->
+    <nz-divider nzText="基本信息" nzOrientation="left"></nz-divider>
     <nz-form-item>
       <nz-form-label [nzSpan]="5">名称</nz-form-label>
       <nz-form-control [nzSpan]="12" nzErrorTip="">
@@ -145,8 +145,7 @@
         <nz-form-item>
           <nz-form-label [nzSpan]="5">协议参数</nz-form-label>
           <nz-form-control [nzSpan]="12">
-            <ngx-codemirror formControlName="options"
-                            [options]="{lineNumbers: true, theme: 'material', mode: 'yaml'}"></ngx-codemirror>
+            <app-yaml-editor formControlName="options"></app-yaml-editor>
           </nz-form-control>
         </nz-form-item>
       </div>
@@ -154,4 +153,4 @@
     </div>
   </div>
 
-</app-edit>
+</app-editor>

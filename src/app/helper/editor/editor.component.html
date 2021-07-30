@@ -1,0 +1,14 @@
+<nz-tabset [nzTabBarExtraContent]="extraTemplate" [(nzSelectedIndex)]="tabIndex">
+  <nz-tab nzTitle="可视化">
+    <ng-content *ngIf="tabIndex === 0"></ng-content>
+  </nz-tab>
+  <nz-tab nzTitle="YAML">
+    <app-yaml-editor [(ngModel)]="val" *ngIf="tabIndex === 1"></app-yaml-editor>
+  </nz-tab>
+  <nz-tab nzTitle="JSON">
+    <app-json-editor [(ngModel)]="val" *ngIf="tabIndex === 2"></app-json-editor>
+  </nz-tab>
+</nz-tabset>
+<ng-template #extraTemplate>
+  <button nz-button nzType="primary" (click)="submit.emit($event)">提交</button>
+</ng-template>
