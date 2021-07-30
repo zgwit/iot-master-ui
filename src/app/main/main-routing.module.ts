@@ -2,7 +2,19 @@ import {NgModule} from '@angular/core';
 import {Routes, RouterModule} from '@angular/router';
 import {MainComponent} from './main.component';
 import {DashComponent} from "./dash/dash.component";
-import {WelcomeComponent} from "./welcome/welcome.component";
+import {AcceptorComponent} from "./acceptor/acceptor.component";
+import {TunnelComponent} from "./tunnel/tunnel.component";
+import {ProjectComponent} from "./project/project.component";
+import {DeviceComponent} from "./device/device.component";
+import {TemplateComponent} from "./template/template.component";
+import {ElementComponent} from "./element/element.component";
+import {UserComponent} from "./user/user.component";
+import {GroupComponent} from "./group/group.component";
+import {PluginComponent} from "./plugin/plugin.component";
+import {AdapterComponent} from "./adapter/adapter.component";
+import {ApiComponent} from "./api/api.component";
+import {SettingComponent} from "./setting/setting.component";
+import {PasswordComponent} from "./password/password.component";
 
 const routes: Routes = [
   {
@@ -11,8 +23,19 @@ const routes: Routes = [
     children: [
       {path: '', redirectTo: 'dash'},
       {path: 'dash', component: DashComponent},
-      {path: 'welcome', component: WelcomeComponent},
-
+      {path: 'tunnel', component: TunnelComponent},
+      {path: 'acceptor', component: AcceptorComponent},
+      {path: 'project', component: ProjectComponent},
+      {path: 'device', component: DeviceComponent},
+      {path: 'template', component: TemplateComponent},
+      {path: 'element', component: ElementComponent},
+      {path: 'user', component: UserComponent},
+      {path: 'group', component: GroupComponent},
+      {path: 'plugin', component: PluginComponent},
+      {path: 'adapter', component: AdapterComponent},
+      {path: 'api', component: ApiComponent},
+      {path: 'setting', component: SettingComponent},
+      {path: 'password', component: PasswordComponent},
 
       {path: '**', redirectTo: 'dash'},
     ]

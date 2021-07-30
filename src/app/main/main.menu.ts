@@ -28,23 +28,23 @@ export let MainMenu = [
   },
   {
     title: '项目管理',
-    icon: 'cluster',
+    icon: 'cluster', //project
     children: [
       {
         title: '项目',
-        router: 'a'
+        router: 'project'
       },
       {
         title: '设备',
-        router: 'a'
+        router: 'device'
       },
       {
         title: '模板',
-        router: 'b'
+        router: 'template'
       },
       {
         title: '元件',
-        router: 'areas'
+        router: 'element'
       },
     ]
   },
@@ -56,7 +56,7 @@ export let MainMenu = [
     children: [
       {
         title: '用户',
-        router: 'users'
+        router: 'user'
       },
       {
         title: '分组',
@@ -71,15 +71,15 @@ export let MainMenu = [
     children: [
       {
         title: '插件',
-        router: 'keyword'
+        router: 'plugin'
       },
       {
         title: '协议',
-        router: 'setting-company'
+        router: 'adapter'
       },
       {
         title: '二次开发',
-        router: 'setting-company'
+        router: 'api'
       },
     ]
   },
@@ -89,12 +89,12 @@ export let MainMenu = [
     open: false,
     children: [
       {
-        title: '系统',
+        title: '系统设置',
         router: 'setting'
       },
       {
         title: '修改密码',
-        router: 'setting'
+        router: 'password'
       },
     ]
   },

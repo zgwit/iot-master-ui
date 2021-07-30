@@ -36,10 +36,39 @@ import {NzProgressModule} from 'ng-zorro-antd/progress';
 import {NzCardModule} from 'ng-zorro-antd/card';
 import {NzUploadModule} from 'ng-zorro-antd/upload';
 import {TabsComponent} from "./tabs/tabs.component";
+import {TunnelComponent} from "./tunnel/tunnel.component";
+import {AcceptorComponent} from "./acceptor/acceptor.component";
+import {ProjectComponent} from "./project/project.component";
+import {DeviceComponent} from "./device/device.component";
+import {TemplateComponent} from "./template/template.component";
+import {ElementComponent} from "./element/element.component";
+import {UserComponent} from "./user/user.component";
+import {GroupComponent} from "./group/group.component";
+import {PluginComponent} from "./plugin/plugin.component";
+import {AdapterComponent} from "./adapter/adapter.component";
+import {ApiComponent} from "./api/api.component";
+import {SettingComponent} from "./setting/setting.component";
+import {PasswordComponent} from "./password/password.component";
+import {AcceptorEditComponent} from "./acceptor-edit/acceptor-edit.component";
 
 
 @NgModule({
-  declarations: [MainComponent, TabsComponent, DashComponent,
+  declarations: [
+    MainComponent, TabsComponent, DashComponent,
+    TunnelComponent,
+    AcceptorComponent,
+    AcceptorEditComponent,
+    ProjectComponent,
+    DeviceComponent,
+    TemplateComponent,
+    ElementComponent,
+    UserComponent,
+    GroupComponent,
+    PluginComponent,
+    AdapterComponent,
+    ApiComponent,
+    SettingComponent,
+    PasswordComponent,
   ],
   imports: [
     CommonModule,
