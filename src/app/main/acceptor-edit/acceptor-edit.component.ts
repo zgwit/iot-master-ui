@@ -13,22 +13,21 @@ export class AcceptorEditComponent implements OnInit {
   basicForm: FormGroup = new FormGroup({});
   devicesArray: FormArray = new FormArray([]);
 
-  data: any = {
-    name: '无名'
-  }
+  data: any = {}
 
   constructor(private fb: FormBuilder, private tab: TabRef) {
-    tab.name = "编辑接收器";
-    this.buildForm()
+    tab.name = "编辑网络服务";
+    this.buildForm();
+    this.data = this.basicForm.value; //生成默认值
   }
 
   buildForm(): void {
     this.basicForm = this.fb.group({
-      name: ['', [Validators.required]],
-      type: ['', [Validators.required]],
+      name: ['新建服务', [Validators.required]],
+      type: ['tcp-server', [Validators.required]],
       address: ['', [Validators.required]],
-      port: ['', [Validators.required]],
-      timeout: ['', [Validators.required]],
+      port: [1843, [Validators.required]],
+      timeout: [30, [Validators.required]],
 
       register: this.fb.group({
         enable: [true, []],
@@ -45,14 +44,9 @@ export class AcceptorEditComponent implements OnInit {
       }), adapter: this.fb.group({
         enable: [false, []],
         type: ['', []],
-        options: [{a: 1}, []],
+        options: [{}, []],
       }),
-      devices: this.devicesArray = this.fb.array([
-        this.fb.group({
-          slave: [1, [Validators.required]],
-          element_id: ['', [Validators.required]],
-        })
-      ])
+      devices: this.devicesArray = this.fb.array([])
     });
   }
 
@@ -80,7 +74,7 @@ export class AcceptorEditComponent implements OnInit {
     if (i > 0) {
       const c = this.devicesArray.at(i);
       this.devicesArray.removeAt(i);
-      this.devicesArray.insert(i-1, c);
+      this.devicesArray.insert(i - 1, c);
     }
   }
 
@@ -88,7 +82,7 @@ export class AcceptorEditComponent implements OnInit {
     if (i < this.devicesArray.length - 1) {
       const c = this.devicesArray.at(i);
       this.devicesArray.removeAt(i);
-      this.devicesArray.insert(i+1, c);
+      this.devicesArray.insert(i + 1, c);
     }
   }
 
@@ -101,7 +95,7 @@ export class AcceptorEditComponent implements OnInit {
   }
 
   deviceSort() {
-    this.devicesArray.controls.sort((a,b) =>{
+    this.devicesArray.controls.sort((a, b) => {
       return a.value.slave - b.value.slave;
     })
   }
