@@ -1,6 +1,6 @@
 import {Component, OnInit, ViewContainerRef} from '@angular/core';
 import {NzTableQueryParams} from "ng-zorro-antd/table";
-import {TabRef} from "../tabs/tabs.component";
+import {TabRef} from "../../helper/tabs/tabs.component";
 import {NzModalService} from "ng-zorro-antd/modal";
 import {AcceptorEditComponent} from "../acceptor-edit/acceptor-edit.component";
 import {Router} from "@angular/router";

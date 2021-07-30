@@ -9,16 +9,20 @@ import {JsEditorComponent} from './js-editor/js-editor.component';
 import {YamlEditorComponent} from './yaml-editor/yaml-editor.component';
 import {JsonEditorComponent} from './json-editor/json-editor.component';
 import {NzIconModule} from "ng-zorro-antd/icon";
+import {TabsComponent} from "./tabs/tabs.component";
+import {RouterModule} from "@angular/router";
 
 
 @NgModule({
   declarations: [
+    TabsComponent,
     EditorComponent,
     JsEditorComponent,
     YamlEditorComponent,
     JsonEditorComponent
   ],
   exports: [
+    TabsComponent,
     EditorComponent,
     JsEditorComponent,
     YamlEditorComponent,
@@ -30,7 +34,8 @@ import {NzIconModule} from "ng-zorro-antd/icon";
     FormsModule,
     NzTabsModule,
     NzButtonModule,
-    NzIconModule
+    NzIconModule,
+    RouterModule
   ]
 })
 export class HelperModule {

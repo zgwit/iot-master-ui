@@ -1,6 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {FormArray, FormBuilder, FormGroup, Validators} from "@angular/forms";
-import {TabRef} from "../tabs/tabs.component";
+import {TabRef} from "../../helper/tabs/tabs.component";
 
 @Component({
   selector: 'app-acceptor-edit',

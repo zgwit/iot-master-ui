@@ -9,7 +9,7 @@ import {
 } from '@angular/core';
 import {ActivatedRoute, ActivationEnd, NavigationEnd, Router, RouterLinkWithHref} from '@angular/router';
 import {Subscription} from 'rxjs';
-import {MainComponent} from "../main.component";
+import {MainComponent} from "../../main/main.component";
 
 @Component({
   selector: 'app-tabs',

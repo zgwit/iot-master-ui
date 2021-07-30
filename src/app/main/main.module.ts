@@ -35,7 +35,6 @@ import {NzRadioModule} from 'ng-zorro-antd/radio';
 import {NzProgressModule} from 'ng-zorro-antd/progress';
 import {NzCardModule} from 'ng-zorro-antd/card';
 import {NzUploadModule} from 'ng-zorro-antd/upload';
-import {TabsComponent} from "./tabs/tabs.component";
 import {TunnelComponent} from "./tunnel/tunnel.component";
 import {AcceptorComponent} from "./acceptor/acceptor.component";
 import {ProjectComponent} from "./project/project.component";
@@ -55,7 +54,7 @@ import {HelperModule} from "../helper/helper.module";
 
 @NgModule({
   declarations: [
-    MainComponent, TabsComponent,
+    MainComponent,
     DashComponent,
     TunnelComponent,
     AcceptorComponent,
