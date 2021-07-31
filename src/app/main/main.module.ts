@@ -79,6 +79,8 @@ import {TemplateEditDevicesComponent} from "./template-edit-devices/template-edi
 import {ElementEditVariablesComponent} from "./element-edit-variables/element-edit-variables.component";
 import {ElementEditCommandsComponent} from "./element-edit-commands/element-edit-commands.component";
 import {ElementEditCollectorsComponent} from "./element-edit-collectors/element-edit-collectors.component";
+import {NzTimePickerModule} from "ng-zorro-antd/time-picker";
+import {ProjectEditCommandsComponent} from "./project-edit-commands/project-edit-commands.component";
 
 
 @NgModule({
@@ -89,7 +91,8 @@ import {ElementEditCollectorsComponent} from "./element-edit-collectors/element-
     AcceptorComponent, AcceptorDetailComponent,
     AcceptorEditComponent, AcceptorEditDevicesComponent,
     ProjectComponent, ProjectDetailComponent,
-    ProjectEditComponent, ProjectEditJobsComponent, ProjectEditVariablesComponent, ProjectEditDevicesComponent, ProjectEditStrategiesComponent,
+    ProjectEditComponent, ProjectEditJobsComponent, ProjectEditCommandsComponent,
+    ProjectEditVariablesComponent, ProjectEditDevicesComponent, ProjectEditStrategiesComponent,
     DeviceComponent, DeviceDetailComponent,
     DeviceEditComponent, DeviceEditJobsComponent,
     TemplateComponent, TemplateDetailComponent,
@@ -139,6 +142,7 @@ import {ElementEditCollectorsComponent} from "./element-edit-collectors/element-
     NzUploadModule,
     HelperModule,
     NzDropDownModule,
+    NzTimePickerModule,
   ],
   bootstrap: [MainComponent]
 })

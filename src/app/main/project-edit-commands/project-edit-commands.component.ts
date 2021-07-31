@@ -2,18 +2,18 @@ import {Component, forwardRef, OnInit} from '@angular/core';
 import {ControlValueAccessor, FormArray, FormBuilder, FormGroup, NG_VALUE_ACCESSOR, Validators} from "@angular/forms";
 
 @Component({
-  selector: 'app-element-edit-collectors',
-  templateUrl: './element-edit-collectors.component.html',
-  styleUrls: ['./element-edit-collectors.component.scss'],
+  selector: 'app-project-edit-commands',
+  templateUrl: './project-edit-commands.component.html',
+  styleUrls: ['./project-edit-commands.component.scss'],
   providers: [
     {
       provide: NG_VALUE_ACCESSOR,
-      useExisting: forwardRef(() => ElementEditCollectorsComponent),
+      useExisting: forwardRef(() => ProjectEditCommandsComponent),
       multi: true
     }
   ]
 })
-export class ElementEditCollectorsComponent implements OnInit, ControlValueAccessor {
+export class ProjectEditCommandsComponent implements OnInit {
   onChanged: any = () => {
   }
   onTouched: any = () => {
@@ -33,10 +33,8 @@ export class ElementEditCollectorsComponent implements OnInit, ControlValueAcces
     this.formGroup = this.fb.group({
       items: this.formArray = this.fb.array(this.items.map((d: any) => {
         return this.fb.group({
-          interval: [d.interval, [Validators.required]],
-          crontab: [d.crontab, [Validators.required]],
-          address: [d.address, [Validators.required]],
-          length: [d.length, [Validators.required]],
+          name: [d.name, [Validators.required]],
+          command: [d.command, [Validators.required]],
         })
       }))
     })
@@ -44,10 +42,8 @@ export class ElementEditCollectorsComponent implements OnInit, ControlValueAcces
 
   add() {
     this.formArray.push(this.fb.group({
-          interval: [60, [Validators.required]],
-          crontab: ['', [Validators.required]],
-          address: ['', [Validators.required]],
-          length: [0, [Validators.required]],
+          name: ['', [Validators.required]],
+          command: ['', [Validators.required]],
     }))
     //复制controls，让表格可以刷新
     this.formArray.controls = [...this.formArray.controls];
@@ -83,7 +79,7 @@ export class ElementEditCollectorsComponent implements OnInit, ControlValueAcces
 
   sort() {
     this.formArray.controls.sort((a, b) => {
-      return a.value.address - b.value.address;
+      return a.value.slave - b.value.slave;
     });
     this.change();
   }

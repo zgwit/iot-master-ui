@@ -10,11 +10,19 @@
       </nz-form-item>
 
       <nz-form-item>
+        <nz-form-label [nzSpan]="5">元件ID</nz-form-label>
+        <nz-form-control [nzSpan]="12" nzErrorTip="">
+          <input nz-input formControlName="element_id" required/>
+        </nz-form-control>
+      </nz-form-item>
+
+      <nz-form-item>
         <nz-form-label [nzSpan]="5">通道ID</nz-form-label>
         <nz-form-control [nzSpan]="12" nzErrorTip="">
           <input nz-input formControlName="tunnel_id" required/>
         </nz-form-control>
       </nz-form-item>
+
 
       <nz-form-item>
         <nz-form-label [nzSpan]="5">从机号</nz-form-label>

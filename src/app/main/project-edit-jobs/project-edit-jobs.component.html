@@ -1,18 +1,28 @@
 <nz-table nzBordered [nzData]="formArray.controls" [nzFrontPagination]="false" nzSize="small" [formGroup]="formGroup">
   <thead>
   <tr>
-    <th>从机号</th>
-    <th>元件ID</th>
+    <th>名称</th>
+    <th>时间</th>
+    <th>命令</th>
+    <th>启用</th>
     <th>操作</th>
   </tr>
   </thead>
   <tbody formGroupName="items">
   <tr *ngFor="let data of formArray.controls; let i=index" [formGroupName]="i">
     <td>
-      <nz-input-number formControlName="slave" [nzMin]="1" [nzMax]="65535" [nzStep]="1" nzSize="small" (change)="change()"></nz-input-number>
+      <input nz-input formControlName="name" nzSize="small" (change)="change()" required/>
     </td>
     <td>
-      <input nz-input formControlName="element_id" nzSize="small" (change)="change()" required/>
+      <!-- <nz-time-picker formControlName="time" nzFormat="HH:mm" (change)="change()"></nz-time-picker>-->
+      <input nz-input formControlName="crontab" nzSize="small" placeholder="" (change)="change()" required/>
+    </td>
+    <td>
+      <input nz-input formControlName="commands" nzSize="small" placeholder="例如：启动, 转速 100" (change)="change()"
+             required/>
+    </td>
+    <td>
+      <nz-switch formControlName="enable"></nz-switch>
     </td>
     <td>
       <a (click)="moveUp(i)">上移</a>

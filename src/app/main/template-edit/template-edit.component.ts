@@ -15,12 +15,10 @@ export class TemplateEditComponent implements OnInit {
   submitting = false;
 
   basicForm: FormGroup = new FormGroup({});
-  devicesArray: FormArray = new FormArray([]);
-  jobsArray: FormArray = new FormArray([]);
-  strategiesArray: FormArray = new FormArray([]);
 
   data: any = {
     "name": "新建模板",
+    "commands": [],
     "variables": [],
     "devices": [],
     "jobs": [],
@@ -38,10 +36,11 @@ export class TemplateEditComponent implements OnInit {
     this.basicForm = this.fb.group({
       name: [this.data.name, [Validators.required]],
 
-      variables: [this.data.variables],
-      devices: [this.data.devices],
-      jobs: [this.data.jobs],
-      strategies: [this.data.strategies],
+      commands: [this.data.commands || []],
+      variables: [this.data.variables || []],
+      devices: [this.data.devices || []],
+      jobs: [this.data.jobs || []],
+      strategies: [this.data.strategies || []],
     });
   }
 

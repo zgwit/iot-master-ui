@@ -33,7 +33,8 @@ export class TemplateEditDevicesComponent implements OnInit, ControlValueAccesso
     this.formGroup = this.fb.group({
       items: this.formArray = this.fb.array(this.items.map((d: any) => {
         return this.fb.group({
-          slave: [d.slave, [Validators.required]], //应该是最大值+1
+          name: [d.name, [Validators.required]],
+          type: [d.type, [Validators.required]],
           element_id: [d.element_id, [Validators.required]],
         })
       }))
@@ -42,7 +43,8 @@ export class TemplateEditDevicesComponent implements OnInit, ControlValueAccesso
 
   add() {
     this.formArray.push(this.fb.group({
-      slave: [this.formArray.controls.length + 1, [Validators.required]], //应该是最大值+1
+      name: ['', [Validators.required]],
+      type: ['', [Validators.required]],
       element_id: ['', [Validators.required]],
     }))
     //复制controls，让表格可以刷新

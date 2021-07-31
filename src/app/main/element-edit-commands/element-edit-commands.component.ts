@@ -23,18 +23,20 @@ export class ElementEditCommandsComponent implements OnInit, ControlValueAccesso
   formGroup = new FormGroup({});
   formArray: FormArray = new FormArray([]);
 
-  constructor(private fb: FormBuilder) { }
+  constructor(private fb: FormBuilder) {
+  }
 
   ngOnInit(): void {
     this.buildForm();
   }
 
-  buildForm(): void{
+  buildForm(): void {
     this.formGroup = this.fb.group({
       items: this.formArray = this.fb.array(this.items.map((d: any) => {
         return this.fb.group({
-          slave: [d.slave, [Validators.required]], //应该是最大值+1
-          element_id: [d.element_id, [Validators.required]],
+          name: [d.name, [Validators.required]],
+          variable: [d.variable, [Validators.required]],
+          value: [d.value, [Validators.required]],
         })
       }))
     })
@@ -42,12 +44,12 @@ export class ElementEditCommandsComponent implements OnInit, ControlValueAccesso
 
   add() {
     this.formArray.push(this.fb.group({
-      slave: [this.formArray.controls.length + 1, [Validators.required]], //应该是最大值+1
-      element_id: ['', [Validators.required]],
+      name: ['', [Validators.required]],
+      variable: ['', [Validators.required]],
+      value: [undefined, [Validators.required]],
     }))
     //复制controls，让表格可以刷新
     this.formArray.controls = [...this.formArray.controls];
-    //this.devicesArray = new FormArray([...this.devicesArray.controls]);
   }
 
   moveUp(i: number) {
@@ -85,7 +87,7 @@ export class ElementEditCommandsComponent implements OnInit, ControlValueAccesso
     this.change();
   }
 
-  change(){
+  change() {
     this.onChanged(this.formArray.value);
     this.onTouched();
   }

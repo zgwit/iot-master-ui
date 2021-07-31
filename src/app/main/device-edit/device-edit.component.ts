@@ -19,8 +19,9 @@ export class DeviceEditComponent implements OnInit {
 
   data: any = {
     "name": "新建设备",
+    "element_id": "",
     "tunnel_id": "",
-    "slave": 1843,
+    "slave": 1,
     "jobs": []
   }
 
@@ -34,8 +35,9 @@ export class DeviceEditComponent implements OnInit {
   buildForm(): void {
     this.basicForm = this.fb.group({
       name: [this.data.name, [Validators.required]],
-      tunnel_id: [this.data.address, [Validators.required]],
-      slave: [this.data.port, [Validators.required]],
+      element_id: [this.data.element_id, [Validators.required]],
+      tunnel_id: [this.data.tunnel_id, [Validators.required]],
+      slave: [this.data.slave, [Validators.required]],
       jobs: [this.data.jobs],
     });
   }

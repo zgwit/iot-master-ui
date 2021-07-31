@@ -1,18 +1,22 @@
 <nz-table nzBordered [nzData]="formArray.controls" [nzFrontPagination]="false" nzSize="small" [formGroup]="formGroup">
   <thead>
   <tr>
-    <th>从机号</th>
-    <th>元件ID</th>
+    <th>名称</th>
+    <th>变量</th>
+    <th>值</th>
     <th>操作</th>
   </tr>
   </thead>
   <tbody formGroupName="items">
   <tr *ngFor="let data of formArray.controls; let i=index" [formGroupName]="i">
     <td>
-      <nz-input-number formControlName="slave" [nzMin]="1" [nzMax]="65535" [nzStep]="1" nzSize="small" (change)="change()"></nz-input-number>
+      <input nz-input formControlName="name" nzSize="small" (change)="change()" required/>
     </td>
     <td>
-      <input nz-input formControlName="element_id" nzSize="small" (change)="change()" required/>
+      <input nz-input formControlName="variable" nzSize="small" (change)="change()" required/>
+    </td>
+    <td>
+      <input nz-input formControlName="value" nzSize="small" placeholder="默认值" (change)="change()" required/>
     </td>
     <td>
       <a (click)="moveUp(i)">上移</a>

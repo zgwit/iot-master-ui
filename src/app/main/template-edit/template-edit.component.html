@@ -10,12 +10,16 @@
       </nz-form-item>
     </nz-tab>
 
-    <nz-tab nzTitle="变量">
+    <nz-tab nzTitle="参数变量">
       <app-project-edit-variables formControlName="variables"></app-project-edit-variables>
     </nz-tab>
 
-    <nz-tab nzTitle="设备">
+    <nz-tab nzTitle="初始设备">
       <app-template-edit-devices formControlName="devices"></app-template-edit-devices>
+    </nz-tab>
+
+    <nz-tab nzTitle="控制命令">
+      <app-project-edit-commands formControlName="commands"></app-project-edit-commands>
     </nz-tab>
 
     <nz-tab nzTitle="定时任务">
