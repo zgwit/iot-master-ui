@@ -84,7 +84,7 @@ export class AcceptorEditComponent implements OnInit {
         type: [this.data.adapter.type, []],
         options: [this.data.adapter.options, []],
       }),
-      devices: this.devicesArray = this.fb.array(this.data.devices.map((d: any)=>{
+      devices: this.devicesArray = this.fb.array(this.data.devices.map((d: any) => {
         return {
           slave: [d.slave, [Validators.required]], //应该是最大值+1
           element_id: [d.element_id, [Validators.required]],
@@ -97,20 +97,20 @@ export class AcceptorEditComponent implements OnInit {
   }
 
 
-  load(): void{
-    this.rs.get('acceptor/'+this.id+'/detail').subscribe(res=>{
+  load(): void {
+    this.rs.get('acceptor/' + this.id + '/detail').subscribe(res => {
       this.data = res.data;
       this.buildForm();
     })
   }
 
-  submit(): void{
+  submit(): void {
     this.submitting = true
-    const uri = this.id ? 'acceptor/'+this.id+'/setting' : 'acceptor/create';
-    this.rs.post(uri, this.data).subscribe(res=>{
+    const uri = this.id ? 'acceptor/' + this.id + '/setting' : 'acceptor/create';
+    this.rs.post(uri, this.data).subscribe(res => {
       this.message.success("提交成功");
       this.tab.Close();
-    }, error => {}, ()=>{
+    }).add(() => {
       this.submitting = false;
     })
   }

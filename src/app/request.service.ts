@@ -1,7 +1,7 @@
 import {Injectable} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import {catchError, filter, map} from 'rxjs/operators';
-import {Observable, of} from 'rxjs';
+import {Observable, of, throwError} from 'rxjs';
 import {Router} from '@angular/router';
 import {NzMessageService} from 'ng-zorro-antd/message';
 
@@ -38,7 +38,7 @@ export class RequestService {
         if (ret && ret.error) {
           // 有错误统一显示并不是好的做法
           this.message.create('error', ret.error);
-          // throw new Error(ret.error); //会阻断 complete
+          throw ret.error; //不抛出Error类型，方便外面直接处理
         }
         return ret;
       })

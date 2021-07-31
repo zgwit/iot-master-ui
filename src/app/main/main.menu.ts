@@ -17,12 +17,12 @@ export let MainMenu = [
     icon: 'block',
     children: [
       {
-        title: '通道',
-        router: 'tunnel'
-      },
-      {
         title: '网络服务',
         router: 'acceptor'
+      },
+      {
+        title: '数据通道',
+        router: 'tunnel'
       },
     ]
   },

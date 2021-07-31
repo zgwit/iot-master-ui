@@ -5,7 +5,6 @@ import {NzModalService} from "ng-zorro-antd/modal";
 import {AcceptorEditComponent} from "../acceptor-edit/acceptor-edit.component";
 import {Router} from "@angular/router";
 import {RequestService} from "../../request.service";
-import {PageListComponent} from "../../helper/page-list/page-list.component";
 
 @Component({
   selector: 'app-acceptor',
@@ -20,8 +19,8 @@ export class AcceptorComponent implements OnInit {
   pageSize = 20;
   pageIndex = 1;
   filterGender = [
-    {text: 'male', value: 'male'},
-    {text: 'female', value: 'female'}
+    {text: 'TCP服务器', value: 'tcp-server'},
+    {text: 'TCP客户端', value: 'tcp-client'}
   ];
 
   params: any = {};
@@ -50,10 +49,7 @@ export class AcceptorComponent implements OnInit {
       console.log('res', res);
       this.datum = res.data;
       this.total = res.total;
-
-    }, error => {
-
-    }, ()=>{
+    }).add(() => {
       this.loading = false;
     });
   }
@@ -85,4 +81,15 @@ export class AcceptorComponent implements OnInit {
     modal.afterClose.subscribe(console.log)
   }
 
+  enable(i: number) {
+
+  }
+
+  disable(i: number) {
+
+  }
+
+  remove(i: number) {
+
+  }
 }
