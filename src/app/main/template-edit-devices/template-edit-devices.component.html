@@ -1,1 +1,32 @@
-<p>template-edit-devices works!</p>
+<nz-table nzBordered [nzData]="formArray.controls" [nzFrontPagination]="false" nzSize="small" [formGroup]="formGroup">
+  <thead>
+  <tr>
+    <th>从机号</th>
+    <th>元件ID</th>
+    <th>操作</th>
+  </tr>
+  </thead>
+  <tbody formGroupName="items">
+  <tr *ngFor="let data of formArray.controls; let i=index" [formGroupName]="i">
+    <td>
+      <nz-input-number formControlName="slave" [nzMin]="1" [nzMax]="65535" [nzStep]="1" nzSize="small" (change)="change()"></nz-input-number>
+    </td>
+    <td>
+      <input nz-input formControlName="element_id" nzSize="small" (change)="change()" required/>
+    </td>
+    <td>
+      <a (click)="moveUp(i)">上移</a>
+      <nz-divider nzType="vertical"></nz-divider>
+      <a (click)="moveDown(i)">下移</a>
+      <nz-divider nzType="vertical"></nz-divider>
+      <a (click)="remove(i)">删除</a>
+    </td>
+  </tr>
+  </tbody>
+</nz-table>
+
+<nz-space>
+  <button nz-button *nzSpaceItem nzType="default" (click)="clear()">清空</button>
+  <button nz-button *nzSpaceItem nzType="default" (click)="sort()">排序</button>
+  <button nz-button *nzSpaceItem nzType="primary" (click)="add()">添加</button>
+</nz-space>

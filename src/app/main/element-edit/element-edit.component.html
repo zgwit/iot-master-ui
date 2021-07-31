@@ -1,1 +1,28 @@
-<p>element-edit works!</p>
+<app-editor [(ngModel)]="data" [submitting]="submitting" (submit)="submit()">
+
+  <nz-tabset nzType="card" nzSize="small" [formGroup]="basicForm" (change)="change()">
+    <nz-tab nzTitle="基本信息">
+      <nz-form-item>
+        <nz-form-label [nzSpan]="5">名称</nz-form-label>
+        <nz-form-control [nzSpan]="12" nzErrorTip="">
+          <input nz-input formControlName="name" required/>
+        </nz-form-control>
+      </nz-form-item>
+    </nz-tab>
+
+    <nz-tab nzTitle="变量">
+      <app-element-edit-variables formControlName="variables"></app-element-edit-variables>
+    </nz-tab>
+
+    <nz-tab nzTitle="命令">
+      <app-element-edit-commands formControlName="commands"></app-element-edit-commands>
+    </nz-tab>
+
+    <nz-tab nzTitle="采集器">
+      <app-element-edit-collectors formControlName="collectors"></app-element-edit-collectors>
+    </nz-tab>
+
+  </nz-tabset>
+
+
+</app-editor>

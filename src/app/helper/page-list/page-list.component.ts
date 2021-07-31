@@ -10,8 +10,8 @@ export class PageListComponent implements OnInit {
   @Output() search = new EventEmitter<string>()
   @Output() refresh = new EventEmitter()
   @Output() create = new EventEmitter()
-  @Input() loading = false;
-  @Input() createDisabled = false;
+  @Input() loading: any = false;
+  @Input() createDisabled: any = false;
 
   keyword = '';
 

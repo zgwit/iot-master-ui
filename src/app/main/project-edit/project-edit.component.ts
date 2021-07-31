@@ -50,7 +50,7 @@ export class ProjectEditComponent implements OnInit {
 
 
   load(): void {
-    this.rs.get('acceptor/' + this.id + '/detail').subscribe(res => {
+    this.rs.get('project/' + this.id + '/detail').subscribe(res => {
       this.data = res.data;
       this.buildForm();
     })
@@ -58,7 +58,7 @@ export class ProjectEditComponent implements OnInit {
 
   submit(): void {
     this.submitting = true
-    const uri = this.id ? 'acceptor/' + this.id + '/setting' : 'acceptor/create';
+    const uri = this.id ? 'project/' + this.id + '/setting' : 'project/create';
     this.rs.post(uri, this.data).subscribe(res => {
       this.message.success("提交成功");
       this.tab.Close();
