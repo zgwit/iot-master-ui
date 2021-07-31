@@ -2,6 +2,8 @@ import {Component, OnInit} from '@angular/core';
 import {FormArray, FormBuilder, FormGroup, Validators} from "@angular/forms";
 import {TabRef} from "../../helper/tabs/tabs.component";
 import {ActivatedRoute} from "@angular/router";
+import {RequestService} from "../../request.service";
+import {NzMessageService} from "ng-zorro-antd/message";
 
 @Component({
   selector: 'app-acceptor-edit',
@@ -44,9 +46,10 @@ export class AcceptorEditComponent implements OnInit {
     "devices": []
   }
 
-  constructor(private fb: FormBuilder, private tab: TabRef, private route: ActivatedRoute) {
+  constructor(private fb: FormBuilder, private tab: TabRef, private route: ActivatedRoute, private rs: RequestService, private message: NzMessageService) {
     this.id = route.snapshot.paramMap.get('id');
     tab.name = this.id ? "编辑网络服务" : "新建网络服务";
+    if (this.id) this.load();
     this.buildForm();
   }
 
@@ -93,9 +96,23 @@ export class AcceptorEditComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  submit(): any {
 
+  load(): void{
+    this.rs.get('acceptor/'+this.id+'/detail').subscribe(res=>{
+      this.data = res.data;
+      this.buildForm();
+    })
+  }
 
+  submit(): void{
+    this.submitting = true
+    const uri = this.id ? 'acceptor/'+this.id+'/setting' : 'acceptor/create';
+    this.rs.post(uri, this.data).subscribe(res=>{
+      this.message.success("提交成功");
+      this.tab.Close();
+    }, error => {}, ()=>{
+      this.submitting = false;
+    })
   }
 
   change() {

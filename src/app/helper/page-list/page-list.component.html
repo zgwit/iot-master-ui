@@ -1,0 +1,37 @@
+<div class="toolbar">
+
+  <form nz-space (submit)="search.emit(keyword)">
+    <button *nzSpaceItem nz-button [nzLoading]="loading" (click)="refresh.emit()">
+      <i nz-icon nzType="reload"></i>
+      刷新
+    </button>
+
+    <button *nzSpaceItem nz-button (click)="create.emit()">
+      <i nz-icon nzType="plus"></i>
+      新建
+    </button>
+
+    <nz-input-group *nzSpaceItem nzSearch nzPrefixIcon="search" [nzAddOnAfter]="suffixIconButton" [nzSuffix]="suffixIconClear">
+      <input type="text" nz-input placeholder="关键字" [(ngModel)]="keyword" [ngModelOptions]="{standalone: true}"/>
+    </nz-input-group>
+    <ng-template #suffixIconButton>
+      <button nz-button nzSearch (click)="search.emit(keyword)">
+        搜索
+      </button>
+    </ng-template>
+    <ng-template #suffixIconClear>
+        <i nz-icon nzType="close" *ngIf="keyword" (click)="keyword=''; search.emit(keyword)"></i>
+    </ng-template>
+
+  </form>
+
+  <nz-space style="float: right">
+    <button *nzSpaceItem nz-button (click)="tab.Close()" nzType="primary" nzShape="round">
+<!--      <i nz-icon nzType="close"></i>-->
+      关闭
+    </button>
+  </nz-space>
+
+</div>
+
+<ng-content></ng-content>

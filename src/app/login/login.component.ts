@@ -1,6 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
-import {ApiService} from '../api.service';
+import {RequestService} from '../request.service';
 import {Router} from '@angular/router';
 
 @Component({
@@ -11,7 +11,7 @@ import {Router} from '@angular/router';
 export class LoginComponent implements OnInit {
   validateForm!: FormGroup;
 
-  constructor(private fb: FormBuilder, private ca: ApiService, private router: Router) {
+  constructor(private fb: FormBuilder, private rs: RequestService, private router: Router) {
   }
 
   submitForm(): void {
@@ -24,7 +24,7 @@ export class LoginComponent implements OnInit {
       return;
     }
 
-    this.ca.post('login', this.validateForm.value).subscribe(res => {
+    this.rs.post('login', this.validateForm.value).subscribe(res => {
       console.log('res:', res);
       //this.us.setUser(res.data);
 

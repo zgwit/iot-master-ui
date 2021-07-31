@@ -10,10 +10,10 @@ import {environment} from '../environments/environment';
 @Injectable({
   providedIn: 'root'
 })
-export class ApiService {
+export class RequestService {
 
-  public base = '/api/';
-  // public base = environment.host;
+  public base = '/api/'; //使用ng server proxy.config.json
+  //public base = environment.host;
 
   constructor(private http: HttpClient, private message: NzMessageService, private route: Router) {
   }

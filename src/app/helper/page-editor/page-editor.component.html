@@ -10,7 +10,10 @@
   </nz-tab>
 </nz-tabset>
 <ng-template #extraTemplate>
-  <button nz-button nzType="primary" nzShape="round" [nzLoading]="submitting" (click)="submit.emit($event)">
-    提交
-  </button>
+  <nz-space>
+    <button *nzSpaceItem nz-button (click)="cancel()" nzShape="round">取消</button>
+    <button *nzSpaceItem nz-button nzType="primary" nzShape="round" [nzLoading]="submitting" (click)="submit.emit($event)">
+      提交
+    </button>
+  </nz-space>
 </ng-template>

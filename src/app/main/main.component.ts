@@ -3,7 +3,7 @@ import {
   OnInit,
 } from '@angular/core';
 import {MainMenu} from './main.menu';
-import {ApiService} from '../api.service';
+import {RequestService} from '../request.service';
 import {Router} from '@angular/router';
 
 
@@ -18,7 +18,7 @@ export class MainComponent implements OnInit {
 
   menus: Array<any> = [];
 
-  constructor(private as: ApiService, private route: Router) {
+  constructor(private rs: RequestService, private route: Router) {
     this.initMenu();
   }
 
@@ -30,7 +30,7 @@ export class MainComponent implements OnInit {
   }
 
   logout(): void {
-    this.as.get('logout').subscribe(res => {
+    this.rs.get('logout').subscribe(res => {
       this.route.navigate(['/login']);
     });
   }

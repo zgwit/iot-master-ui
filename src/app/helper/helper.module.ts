@@ -4,29 +4,36 @@ import {FormsModule} from "@angular/forms";
 import {CodemirrorModule} from "@ctrl/ngx-codemirror";
 import {NzTabsModule} from "ng-zorro-antd/tabs";
 import {NzButtonModule} from "ng-zorro-antd/button";
-import {EditorComponent} from './editor/editor.component';
+import {PageEditorComponent} from './page-editor/page-editor.component';
 import {JsEditorComponent} from './js-editor/js-editor.component';
 import {YamlEditorComponent} from './yaml-editor/yaml-editor.component';
 import {JsonEditorComponent} from './json-editor/json-editor.component';
 import {NzIconModule} from "ng-zorro-antd/icon";
 import {TabsComponent} from "./tabs/tabs.component";
 import {RouterModule} from "@angular/router";
+import {NzSpaceModule} from "ng-zorro-antd/space";
+import { PageListComponent } from './page-list/page-list.component';
+import { PageDetailComponent } from './page-detail/page-detail.component';
+import {NzInputModule} from "ng-zorro-antd/input";
 
 
 @NgModule({
   declarations: [
     TabsComponent,
-    EditorComponent,
+    PageEditorComponent,
     JsEditorComponent,
     YamlEditorComponent,
-    JsonEditorComponent
+    JsonEditorComponent,
+    PageListComponent,
+    PageDetailComponent
   ],
   exports: [
     TabsComponent,
-    EditorComponent,
+    PageEditorComponent,
     JsEditorComponent,
     YamlEditorComponent,
-    JsonEditorComponent
+    JsonEditorComponent,
+    PageListComponent
   ],
   imports: [
     CommonModule,
@@ -35,7 +42,9 @@ import {RouterModule} from "@angular/router";
     NzTabsModule,
     NzButtonModule,
     NzIconModule,
-    RouterModule
+    RouterModule,
+    NzSpaceModule,
+    NzInputModule
   ]
 })
 export class HelperModule {

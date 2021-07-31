@@ -4,6 +4,8 @@ import {TabRef} from "../../helper/tabs/tabs.component";
 import {NzModalService} from "ng-zorro-antd/modal";
 import {AcceptorEditComponent} from "../acceptor-edit/acceptor-edit.component";
 import {Router} from "@angular/router";
+import {RequestService} from "../../request.service";
+import {PageListComponent} from "../../helper/page-list/page-list.component";
 
 @Component({
   selector: 'app-acceptor',
@@ -11,46 +13,49 @@ import {Router} from "@angular/router";
   styleUrls: ['./acceptor.component.scss']
 })
 export class AcceptorComponent implements OnInit {
-  total = 1;
   datum: any[] = [];
+
   loading = false;
-  pageSize = 10;
+  total = 1;
+  pageSize = 20;
   pageIndex = 1;
   filterGender = [
     {text: 'male', value: 'male'},
     {text: 'female', value: 'female'}
   ];
 
-  loadDataFromServer(
-    pageIndex: number,
-    pageSize: number,
-    sortField: string | null,
-    sortOrder: string | null,
-    filter: Array<{ key: string; value: string[] }>
-  ): void {
-    //this.loading = true;
-    // this.api.getUsers(pageIndex, pageSize, sortField, sortOrder, filter).subscribe(data => {
-    //   this.loading = false;
-    //   this.total = 200; // mock the total data here
-    //   this.listOfRandomUser = data.results;
-    // });
-  }
+  params: any = {};
 
-  onQueryParamsChange(params: NzTableQueryParams): void {
-    console.log(params);
-    const {pageSize, pageIndex, sort, filter} = params;
-    const currentSort = sort.find(item => item.value !== null);
-    const sortField = (currentSort && currentSort.key) || null;
-    const sortOrder = (currentSort && currentSort.value) || null;
-    this.loadDataFromServer(pageIndex, pageSize, sortField, sortOrder, filter);
-  }
-
-  constructor(private tab: TabRef, private ms: NzModalService, private vcf: ViewContainerRef, private router: Router) {
+  constructor(private tab: TabRef, private ms: NzModalService, private vcf: ViewContainerRef, private router: Router, private rs: RequestService) {
     tab.name = "网络服务"
   }
 
   ngOnInit(): void {
-    this.loadDataFromServer(this.pageIndex, this.pageSize, null, null, []);
+    //this.load();
+  }
+
+  search(keyword: string) {
+    this.params.keyword = keyword;
+    this.load();
+  }
+
+  onQuery(params: NzTableQueryParams) {
+    this.params = params;
+    this.load();
+  }
+
+  load(): void {
+    this.loading = true;
+    this.rs.post('acceptor/list', this.params).subscribe(res => {
+      console.log('res', res);
+      this.datum = res.data;
+      this.total = res.total;
+
+    }, error => {
+
+    }, ()=>{
+      this.loading = false;
+    });
   }
 
   create(): void {
@@ -79,4 +84,5 @@ export class AcceptorComponent implements OnInit {
     });
     modal.afterClose.subscribe(console.log)
   }
+
 }

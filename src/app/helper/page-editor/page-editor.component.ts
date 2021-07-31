@@ -1,19 +1,20 @@
 import {Component, EventEmitter, forwardRef, Input, OnInit, Output} from '@angular/core';
 import {ControlValueAccessor, NG_VALUE_ACCESSOR} from "@angular/forms";
+import {TabRef} from "../tabs/tabs.component";
 
 @Component({
   selector: 'app-editor',
-  templateUrl: './editor.component.html',
-  styleUrls: ['./editor.component.scss'],
+  templateUrl: './page-editor.component.html',
+  styleUrls: ['./page-editor.component.scss'],
   providers: [
     {
       provide: NG_VALUE_ACCESSOR,
-      useExisting: forwardRef(() => EditorComponent),
+      useExisting: forwardRef(() => PageEditorComponent),
       multi: true
     }
   ]
 })
-export class EditorComponent implements OnInit, ControlValueAccessor {
+export class PageEditorComponent implements OnInit, ControlValueAccessor {
   @Input() submitting: any = false;
   @Output() submit = new EventEmitter<MouseEvent>();
 
@@ -38,7 +39,7 @@ export class EditorComponent implements OnInit, ControlValueAccessor {
     this.onTouched();
   }
 
-  constructor() {
+  constructor(private tab: TabRef) {
   }
 
   ngOnInit(): void {
@@ -56,4 +57,7 @@ export class EditorComponent implements OnInit, ControlValueAccessor {
     this._val = obj
   }
 
+  cancel() {
+    this.tab.Close()
+  }
 }

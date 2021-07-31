@@ -23,7 +23,7 @@ export class JsEditorComponent implements OnInit, ControlValueAccessor {
     return this._js
   }
   set js(y) {
-    console.log('js editor', y)
+    console.log('js page-editor', y)
     this._js = y;
 
     this.onChanged(y);

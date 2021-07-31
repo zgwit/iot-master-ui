@@ -23,7 +23,7 @@ export class JsonEditorComponent implements OnInit, ControlValueAccessor {
     return this._json
   }
   set json(y) {
-    console.log('json editor', y)
+    console.log('json page-editor', y)
     this._json = y;
 
     this.onChanged(JSON.parse(y));

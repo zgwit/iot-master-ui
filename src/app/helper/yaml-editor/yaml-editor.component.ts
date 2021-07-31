@@ -24,7 +24,7 @@ export class YamlEditorComponent implements OnInit, ControlValueAccessor {
     return this._yaml
   }
   set yaml(y) {
-    console.log('yaml editor', y)
+    console.log('yaml page-editor', y)
     this._yaml = y;
 
     this.onChanged(YAML.parse(y));
