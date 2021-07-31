@@ -1,1 +1,67 @@
-<p>device-edit works!</p>
+<app-editor [(ngModel)]="data" [submitting]="submitting" (submit)="submit()">
+
+  <nz-tabset nzType="card" nzSize="small" [formGroup]="basicForm" (change)="change()">
+    <nz-tab nzTitle="基本信息">
+      <nz-form-item>
+        <nz-form-label [nzSpan]="5">名称</nz-form-label>
+        <nz-form-control [nzSpan]="12" nzErrorTip="">
+          <input nz-input formControlName="name" required/>
+        </nz-form-control>
+      </nz-form-item>
+
+      <nz-form-item>
+        <nz-form-label [nzSpan]="5">通道ID</nz-form-label>
+        <nz-form-control [nzSpan]="12" nzErrorTip="">
+          <input nz-input formControlName="tunnel_id" required/>
+        </nz-form-control>
+      </nz-form-item>
+
+      <nz-form-item>
+        <nz-form-label [nzSpan]="5">从机号</nz-form-label>
+        <nz-form-control [nzSpan]="12" nzErrorTip="">
+          <!--      <input nz-input formControlName="port" type="number" min="1" max="65535"/>-->
+          <nz-input-number formControlName="slave" [nzMin]="1" [nzMax]="65535" [nzStep]="1"></nz-input-number>
+        </nz-form-control>
+      </nz-form-item>
+    </nz-tab>
+
+    <nz-tab nzTitle="定时任务" formArrayName="jobs">
+      <nz-table #devicesTable nzBordered [nzData]="jobsArray.controls" [nzFrontPagination]="false" nzSize="small">
+        <thead>
+        <tr>
+          <th>定时</th>
+          <th>命令</th>
+          <th>操作</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr *ngFor="let data of jobsArray.controls; let i=index" [formGroupName]="i">
+            <td>
+              <input nz-input formControlName="crontab" nzSize="small" required/>
+            </td>
+            <td>
+              <input nz-input formControlName="commands" nzSize="small" required/>
+            </td>
+          <td>
+            <a (click)="deviceMoveUp(i)">上移</a>
+            <nz-divider nzType="vertical"></nz-divider>
+            <a (click)="deviceMoveDown(i)">下移</a>
+            <nz-divider nzType="vertical"></nz-divider>
+            <a (click)="deviceRemove(i)">删除</a>
+          </td>
+        </tr>
+        </tbody>
+      </nz-table>
+
+      <nz-space>
+        <button nz-button *nzSpaceItem nzType="default" (click)="jobClear()">清空</button>
+        <button nz-button *nzSpaceItem nzType="default" (click)="jobSort()">排序</button>
+        <button nz-button *nzSpaceItem nzType="primary" (click)="jobAdd()">添加</button>
+      </nz-space>
+
+    </nz-tab>
+
+  </nz-tabset>
+
+
+</app-editor>
