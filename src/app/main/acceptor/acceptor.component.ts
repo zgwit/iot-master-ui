@@ -2,7 +2,6 @@ import {Component, OnInit, ViewContainerRef} from '@angular/core';
 import {NzTableQueryParams} from "ng-zorro-antd/table";
 import {TabRef} from "../../helper/tabs/tabs.component";
 import {NzModalService} from "ng-zorro-antd/modal";
-import {AcceptorEditComponent} from "../acceptor-edit/acceptor-edit.component";
 import {Router} from "@angular/router";
 import {RequestService} from "../../request.service";
 
@@ -58,27 +57,6 @@ export class AcceptorComponent implements OnInit {
     this.router.navigate(["admin/acceptor/create"]);
 
     return;
-  }
-
-  //废弃，编辑通道信息，用户，组 等可以使用
-  create2(): void {
-    const modal = this.ms.create({
-      nzTitle: '创建接收器',
-      nzContent: AcceptorEditComponent,
-      nzViewContainerRef: this.vcf,
-      nzComponentParams: {
-        //title: 'title in component',
-        //subtitle: 'component sub title，will be changed after 2 sec'
-      },
-      nzMaskClosable: false,
-      nzOnOk: component => {
-        //console.log(component);
-        //return new Promise(resolve => setTimeout(resolve, 1000))
-        return component.submit();
-      },
-      //nzAfterClose
-    });
-    modal.afterClose.subscribe(console.log)
   }
 
   enable(i: number) {

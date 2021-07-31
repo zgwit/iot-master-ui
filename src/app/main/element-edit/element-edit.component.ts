@@ -1,5 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import {FormArray, FormBuilder, FormGroup, Validators} from "@angular/forms";
+import {FormBuilder, FormGroup, Validators} from "@angular/forms";
 import {TabRef} from "../../helper/tabs/tabs.component";
 import {ActivatedRoute} from "@angular/router";
 import {RequestService} from "../../request.service";

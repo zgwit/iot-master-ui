@@ -2,7 +2,6 @@ import {Component, OnInit, ViewContainerRef} from '@angular/core';
 import {NzTableQueryParams} from "ng-zorro-antd/table";
 import {TabRef} from "../../helper/tabs/tabs.component";
 import {NzModalService} from "ng-zorro-antd/modal";
-import {TunnelEditComponent} from "../tunnel-edit/tunnel-edit.component";
 import {Router} from "@angular/router";
 import {RequestService} from "../../request.service";
 
