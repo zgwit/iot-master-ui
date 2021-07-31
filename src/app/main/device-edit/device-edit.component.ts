@@ -36,13 +36,7 @@ export class DeviceEditComponent implements OnInit {
       name: [this.data.name, [Validators.required]],
       tunnel_id: [this.data.address, [Validators.required]],
       slave: [this.data.port, [Validators.required]],
-
-      jobs: this.jobsArray = this.fb.array(this.data.jobs.map((d: any) => {
-        return {
-          crontab: [d.crontab, [Validators.required]], //应该是最大值+1
-          commands: [d.commands, [Validators.required]],
-        }
-      })),
+      jobs: [this.data.jobs],
     });
   }
 
@@ -71,44 +65,5 @@ export class DeviceEditComponent implements OnInit {
   change() {
     //console.log('change', e)
     this.data = this.basicForm.value;
-  }
-
-  jobAdd() {
-    this.jobsArray.push(this.fb.group({
-      crontab: [this.jobsArray.controls.length + 1, [Validators.required]], //应该是最大值+1
-      commands: ['', [Validators.required]],
-    }))
-    //复制controls，让表格可以刷新
-    this.jobsArray.controls = [...this.jobsArray.controls];
-  }
-
-  deviceMoveUp(i: number) {
-    if (i > 0) {
-      const c = this.jobsArray.at(i);
-      this.jobsArray.removeAt(i);
-      this.jobsArray.insert(i - 1, c);
-    }
-  }
-
-  deviceMoveDown(i: number) {
-    if (i < this.jobsArray.length - 1) {
-      const c = this.jobsArray.at(i);
-      this.jobsArray.removeAt(i);
-      this.jobsArray.insert(i + 1, c);
-    }
-  }
-
-  deviceRemove(i: number) {
-    this.jobsArray.removeAt(i)
-  }
-
-  jobClear() {
-    this.jobsArray.clear();
-  }
-
-  jobSort() {
-    this.jobsArray.controls.sort((a, b) => {
-      return a.value.slave - b.value.slave;
-    })
   }
 }

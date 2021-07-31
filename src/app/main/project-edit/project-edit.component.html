@@ -1,1 +1,32 @@
-<p>project-edit works!</p>
+<app-editor [(ngModel)]="data" [submitting]="submitting" (submit)="submit()">
+
+  <nz-tabset nzType="card" nzSize="small" [formGroup]="basicForm" (change)="change()">
+    <nz-tab nzTitle="基本信息">
+      <nz-form-item>
+        <nz-form-label [nzSpan]="5">名称</nz-form-label>
+        <nz-form-control [nzSpan]="12" nzErrorTip="">
+          <input nz-input formControlName="name" required/>
+        </nz-form-control>
+      </nz-form-item>
+    </nz-tab>
+
+    <nz-tab nzTitle="变量">
+      <app-project-edit-variables formControlName="variables"></app-project-edit-variables>
+    </nz-tab>
+
+    <nz-tab nzTitle="设备">
+      <app-project-edit-devices formControlName="devices"></app-project-edit-devices>
+    </nz-tab>
+
+    <nz-tab nzTitle="定时任务">
+      <app-project-edit-jobs formControlName="jobs"></app-project-edit-jobs>
+    </nz-tab>
+
+    <nz-tab nzTitle="控制策略">
+      <app-project-edit-strategies formControlName="strategies"></app-project-edit-strategies>
+    </nz-tab>
+
+  </nz-tabset>
+
+
+</app-editor>

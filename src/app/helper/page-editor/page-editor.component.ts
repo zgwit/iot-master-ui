@@ -19,6 +19,7 @@ export class PageEditorComponent implements OnInit, ControlValueAccessor {
   @Output() submit = new EventEmitter<MouseEvent>();
 
   tabIndex = 0;
+  tabIndex2 = 0;
 
   onChanged: any = () => {
   }

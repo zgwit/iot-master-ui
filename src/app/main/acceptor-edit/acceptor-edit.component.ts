@@ -15,7 +15,6 @@ export class AcceptorEditComponent implements OnInit {
   submitting = false;
 
   basicForm: FormGroup = new FormGroup({});
-  devicesArray: FormArray = new FormArray([]);
 
   data: any = {
     "name": "新建服务",
@@ -84,12 +83,8 @@ export class AcceptorEditComponent implements OnInit {
         type: [this.data.adapter.type, []],
         options: [this.data.adapter.options, []],
       }),
-      devices: this.devicesArray = this.fb.array(this.data.devices.map((d: any) => {
-        return {
-          slave: [d.slave, [Validators.required]], //应该是最大值+1
-          element_id: [d.element_id, [Validators.required]],
-        }
-      })),
+
+      devices: [this.data.devices, []],
     });
   }
 
@@ -120,43 +115,4 @@ export class AcceptorEditComponent implements OnInit {
     this.data = this.basicForm.value;
   }
 
-  deviceAdd() {
-    this.devicesArray.push(this.fb.group({
-      slave: [this.devicesArray.controls.length + 1, [Validators.required]], //应该是最大值+1
-      element_id: ['', [Validators.required]],
-    }))
-    //复制controls，让表格可以刷新
-    this.devicesArray.controls = [...this.devicesArray.controls];
-    //this.devicesArray = new FormArray([...this.devicesArray.controls]);
-  }
-
-  deviceMoveUp(i: number) {
-    if (i > 0) {
-      const c = this.devicesArray.at(i);
-      this.devicesArray.removeAt(i);
-      this.devicesArray.insert(i - 1, c);
-    }
-  }
-
-  deviceMoveDown(i: number) {
-    if (i < this.devicesArray.length - 1) {
-      const c = this.devicesArray.at(i);
-      this.devicesArray.removeAt(i);
-      this.devicesArray.insert(i + 1, c);
-    }
-  }
-
-  deviceRemove(i: number) {
-    this.devicesArray.removeAt(i)
-  }
-
-  deviceClear() {
-    this.devicesArray.clear();
-  }
-
-  deviceSort() {
-    this.devicesArray.controls.sort((a, b) => {
-      return a.value.slave - b.value.slave;
-    })
-  }
 }

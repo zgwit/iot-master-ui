@@ -25,40 +25,8 @@
       </nz-form-item>
     </nz-tab>
 
-    <nz-tab nzTitle="定时任务" formArrayName="jobs">
-      <nz-table #devicesTable nzBordered [nzData]="jobsArray.controls" [nzFrontPagination]="false" nzSize="small">
-        <thead>
-        <tr>
-          <th>定时</th>
-          <th>命令</th>
-          <th>操作</th>
-        </tr>
-        </thead>
-        <tbody>
-        <tr *ngFor="let data of jobsArray.controls; let i=index" [formGroupName]="i">
-            <td>
-              <input nz-input formControlName="crontab" nzSize="small" required/>
-            </td>
-            <td>
-              <input nz-input formControlName="commands" nzSize="small" required/>
-            </td>
-          <td>
-            <a (click)="deviceMoveUp(i)">上移</a>
-            <nz-divider nzType="vertical"></nz-divider>
-            <a (click)="deviceMoveDown(i)">下移</a>
-            <nz-divider nzType="vertical"></nz-divider>
-            <a (click)="deviceRemove(i)">删除</a>
-          </td>
-        </tr>
-        </tbody>
-      </nz-table>
-
-      <nz-space>
-        <button nz-button *nzSpaceItem nzType="default" (click)="jobClear()">清空</button>
-        <button nz-button *nzSpaceItem nzType="default" (click)="jobSort()">排序</button>
-        <button nz-button *nzSpaceItem nzType="primary" (click)="jobAdd()">添加</button>
-      </nz-space>
-
+    <nz-tab nzTitle="定时任务">
+      <app-device-edit-jobs formControlName="jobs"></app-device-edit-jobs>
     </nz-tab>
 
   </nz-tabset>

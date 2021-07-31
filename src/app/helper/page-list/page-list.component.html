@@ -6,7 +6,7 @@
       刷新
     </button>
 
-    <button *nzSpaceItem nz-button (click)="create.emit()">
+    <button *nzSpaceItem nz-button (click)="create.emit()" [hidden]="createDisabled">
       <i nz-icon nzType="plus"></i>
       新建
     </button>

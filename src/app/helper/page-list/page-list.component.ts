@@ -11,6 +11,8 @@ export class PageListComponent implements OnInit {
   @Output() refresh = new EventEmitter()
   @Output() create = new EventEmitter()
   @Input() loading = false;
+  @Input() createDisabled = false;
+
   keyword = '';
 
   constructor(public tab: TabRef) { }

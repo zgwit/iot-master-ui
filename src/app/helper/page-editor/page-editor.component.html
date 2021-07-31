@@ -1,12 +1,18 @@
-<nz-tabset class="tabs" [nzTabBarExtraContent]="extraTemplate" [(nzSelectedIndex)]="tabIndex" [nzAnimated]="false" nzSize="large">
-  <nz-tab nzTitle="可视化">
+<nz-tabset class="tabs" [nzTabBarExtraContent]="extraTemplate" [(nzSelectedIndex)]="tabIndex" [nzAnimated]="false">
+  <nz-tab nzTitle="标准视图">
     <ng-content *ngIf="tabIndex === 0"></ng-content>
   </nz-tab>
-  <nz-tab nzTitle="YAML">
-    <app-yaml-editor [(ngModel)]="val" *ngIf="tabIndex === 1"></app-yaml-editor>
-  </nz-tab>
-  <nz-tab nzTitle="JSON">
-    <app-json-editor [(ngModel)]="val" *ngIf="tabIndex === 2"></app-json-editor>
+  <nz-tab nzTitle="专家模式">
+
+    <nz-tabset nzType="card" [(nzSelectedIndex)]="tabIndex2" *ngIf="tabIndex === 1">
+      <nz-tab nzTitle="YAML">
+        <app-yaml-editor [(ngModel)]="val" *ngIf="tabIndex2 === 0"></app-yaml-editor>
+      </nz-tab>
+      <nz-tab nzTitle="JSON">
+        <app-json-editor [(ngModel)]="val" *ngIf="tabIndex2 === 1"></app-json-editor>
+      </nz-tab>
+    </nz-tabset>
+
   </nz-tab>
 </nz-tabset>
 <ng-template #extraTemplate>

@@ -69,6 +69,16 @@ import {AcceptorDetailComponent} from "./acceptor-detail/acceptor-detail.compone
 import {TemplateComponent} from "./template/template.component";
 import {GroupDetailComponent} from "./group-detail/group-detail.component";
 import {NzDropDownModule} from "ng-zorro-antd/dropdown";
+import {AcceptorEditDevicesComponent} from "./acceptor-edit-devices/acceptor-edit-devices.component";
+import {ProjectEditJobsComponent} from "./project-edit-jobs/project-edit-jobs.component";
+import {ProjectEditVariablesComponent} from "./project-edit-variables/project-edit-variables.component";
+import {ProjectEditDevicesComponent} from "./project-edit-devices/project-edit-devices.component";
+import {ProjectEditStrategiesComponent} from "./project-edit-strategies/project-edit-strategies.component";
+import {DeviceEditJobsComponent} from "./device-edit-jobs/device-edit-jobs.component";
+import {TemplateEditDevicesComponent} from "./template-edit-devices/template-edit-devices.component";
+import {ElementEditVariablesComponent} from "./element-edit-variables/element-edit-variables.component";
+import {ElementEditCommandsComponent} from "./element-edit-commands/element-edit-commands.component";
+import {ElementEditCollectorsComponent} from "./element-edit-collectors/element-edit-collectors.component";
 
 
 @NgModule({
@@ -76,11 +86,16 @@ import {NzDropDownModule} from "ng-zorro-antd/dropdown";
     MainComponent,
     DashComponent,
     TunnelComponent, TunnelEditComponent, TunnelDetailComponent, TunnelMonitorComponent,
-    AcceptorComponent, AcceptorEditComponent, AcceptorDetailComponent,
-    ProjectComponent, ProjectEditComponent, ProjectDetailComponent,
-    DeviceComponent, DeviceEditComponent, DeviceDetailComponent,
-    TemplateComponent, TemplateEditComponent, TemplateDetailComponent,
-    ElementComponent, ElementEditComponent, ElementDetailComponent,
+    AcceptorComponent, AcceptorDetailComponent,
+    AcceptorEditComponent, AcceptorEditDevicesComponent,
+    ProjectComponent, ProjectDetailComponent,
+    ProjectEditComponent, ProjectEditJobsComponent, ProjectEditVariablesComponent, ProjectEditDevicesComponent, ProjectEditStrategiesComponent,
+    DeviceComponent, DeviceDetailComponent,
+    DeviceEditComponent, DeviceEditJobsComponent,
+    TemplateComponent, TemplateDetailComponent,
+    TemplateEditComponent, TemplateEditDevicesComponent,
+    ElementComponent, ElementDetailComponent,
+    ElementEditComponent, ElementEditVariablesComponent, ElementEditCommandsComponent, ElementEditCollectorsComponent,
     UserComponent, UserEditComponent, UserDetailComponent,
     GroupComponent, GroupEditComponent, GroupDetailComponent,
     PluginComponent, PluginDetailComponent,
@@ -89,42 +104,42 @@ import {NzDropDownModule} from "ng-zorro-antd/dropdown";
     SettingComponent,
     PasswordComponent,
   ],
-    imports: [
-        CommonModule,
-        FormsModule,
-        ReactiveFormsModule,
-        HttpClientModule,
-        MainRoutingModule,
-        IconsProviderModule,
-        NzIconModule,
-        NzLayoutModule,
-        NzMenuModule,
-        NzToolTipModule,
-        NzTableModule,
-        NzModalModule,
-        NzFormModule,
-        NzButtonModule,
-        NzInputModule,
-        NzCheckboxModule,
-        NzSwitchModule,
-        NzPopconfirmModule,
-        NzDividerModule,
-        NzDrawerModule,
-        NzSelectModule,
-        NzSpaceModule,
-        NzInputNumberModule,
-        NzStatisticModule,
-        NzTabsModule,
-        NzCollapseModule,
-        // NgxEchartsModule.forRoot({echarts}),
-        NzTransferModule,
-        NzRadioModule,
-        NzProgressModule,
-        NzCardModule,
-        NzUploadModule,
-        HelperModule,
-        NzDropDownModule,
-    ],
+  imports: [
+    CommonModule,
+    FormsModule,
+    ReactiveFormsModule,
+    HttpClientModule,
+    MainRoutingModule,
+    IconsProviderModule,
+    NzIconModule,
+    NzLayoutModule,
+    NzMenuModule,
+    NzToolTipModule,
+    NzTableModule,
+    NzModalModule,
+    NzFormModule,
+    NzButtonModule,
+    NzInputModule,
+    NzCheckboxModule,
+    NzSwitchModule,
+    NzPopconfirmModule,
+    NzDividerModule,
+    NzDrawerModule,
+    NzSelectModule,
+    NzSpaceModule,
+    NzInputNumberModule,
+    NzStatisticModule,
+    NzTabsModule,
+    NzCollapseModule,
+    // NgxEchartsModule.forRoot({echarts}),
+    NzTransferModule,
+    NzRadioModule,
+    NzProgressModule,
+    NzCardModule,
+    NzUploadModule,
+    HelperModule,
+    NzDropDownModule,
+  ],
   bootstrap: [MainComponent]
 })
 export class MainModule {

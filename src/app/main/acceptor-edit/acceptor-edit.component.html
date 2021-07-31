@@ -150,40 +150,8 @@
       </div>
     </nz-tab>
 
-    <nz-tab nzTitle="设备列表" formArrayName="devices">
-      <nz-table #devicesTable nzBordered [nzData]="devicesArray.controls" [nzFrontPagination]="false" nzSize="small">
-        <thead>
-        <tr>
-          <th>从机号</th>
-          <th>元件ID</th>
-          <th>操作</th>
-        </tr>
-        </thead>
-        <tbody>
-        <tr *ngFor="let data of devicesArray.controls; let i=index" [formGroupName]="i">
-            <td>
-              <nz-input-number formControlName="slave" [nzMin]="1" [nzMax]="65535" [nzStep]="1" nzSize="small"></nz-input-number>
-            </td>
-            <td>
-              <input nz-input formControlName="element_id" nzSize="small" required/>
-            </td>
-          <td>
-            <a (click)="deviceMoveUp(i)">上移</a>
-            <nz-divider nzType="vertical"></nz-divider>
-            <a (click)="deviceMoveDown(i)">下移</a>
-            <nz-divider nzType="vertical"></nz-divider>
-            <a (click)="deviceRemove(i)">删除</a>
-          </td>
-        </tr>
-        </tbody>
-      </nz-table>
-
-      <nz-space>
-        <button nz-button *nzSpaceItem nzType="default" (click)="deviceClear()">清空</button>
-        <button nz-button *nzSpaceItem nzType="default" (click)="deviceSort()">排序</button>
-        <button nz-button *nzSpaceItem nzType="primary" (click)="deviceAdd()">添加</button>
-      </nz-space>
-
+    <nz-tab nzTitle="设备列表">
+      <app-acceptor-edit-devices formControlName="devices"></app-acceptor-edit-devices>
     </nz-tab>
 
   </nz-tabset>
