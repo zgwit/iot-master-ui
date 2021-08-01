@@ -18,6 +18,7 @@
       <th nzColumnKey="tunnel_id">通道ID</th>
       <th nzColumnKey="slave">从机号</th>
       <th>状态</th>
+      <th nzColumnKey="_id" [nzSortFn]="true">创建时间</th>
       <th nzWidth="100">操作</th>
     </tr>
     </thead>
@@ -27,6 +28,7 @@
       <td>{{ data.tunnel_id }}</td>
       <td>{{ data.slave }}</td>
       <td></td>
+      <td>{{data._id | objectIdToDate | date:'short'}}</td>
       <td>
         <a [routerLink]="'/admin/device/detail/'+data._id">详情</a>
         <nz-divider nzType="vertical"></nz-divider>

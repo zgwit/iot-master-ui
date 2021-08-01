@@ -18,6 +18,7 @@
       <th nzColumnKey="manufacturer" [nzSortFn]="true">厂商</th>
       <th nzColumnKey="version" [nzSortFn]="true">型号</th>
       <th>状态</th>
+      <th nzColumnKey="_id" [nzSortFn]="true">创建时间</th>
       <th nzWidth="100">操作</th>
     </tr>
     </thead>
@@ -27,6 +28,7 @@
       <td>{{ data.manufacturer }}</td>
       <td>{{ data.version }}</td>
       <td></td>
+      <td>{{data._id | objectIdToDate | date:'short'}}</td>
       <td>
         <a [routerLink]="'/admin/element/detail/'+data._id">详情</a>
         <nz-divider nzType="vertical"></nz-divider>

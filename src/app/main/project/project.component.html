@@ -17,6 +17,7 @@
       <th nzColumnKey="name" [nzSortFn]="true">名称</th>
 
       <th>状态</th>
+      <th nzColumnKey="_id" [nzSortFn]="true">创建时间</th>
       <th nzWidth="100">操作</th>
     </tr>
     </thead>
@@ -24,6 +25,7 @@
     <tr *ngFor="let data of datum; let i=index">
       <td>{{ data.name }}</td>
       <td></td>
+      <td>{{data._id | objectIdToDate | date:'short'}}</td>
       <td>
         <a [routerLink]="'/admin/project/detail/'+data._id">详情</a>
         <nz-divider nzType="vertical"></nz-divider>
