@@ -5,6 +5,7 @@
     <th>地址</th>
     <th>类型</th>
     <th>倍率</th>
+    <th>保存</th>
     <th>操作</th>
   </tr>
   </thead>
@@ -17,10 +18,23 @@
       <input nz-input formControlName="address" nzSize="small" (change)="change()" required/>
     </td>
     <td>
-      <input nz-input formControlName="type" nzSize="small" (change)="change()" required/>
+<!--      <input nz-input formControlName="type" nzSize="small" (change)="change()" required/>-->
+      <nz-select formControlName="type" nzSize="small" (change)="change()" required style="width: 100px">
+        <nz-option nzValue="boolean" nzLabel="BOOLEAN"></nz-option>
+        <nz-option nzValue="word" nzLabel="WORD"></nz-option>
+        <nz-option nzValue="dword" nzLabel="DWORD"></nz-option>
+        <nz-option nzValue="float" nzLabel="FLOAT"></nz-option>
+        <nz-option nzValue="double" nzLabel="DOUBLE"></nz-option>
+        <nz-option nzValue="uint8" nzLabel="UINT8"></nz-option>
+        <nz-option nzValue="uint16" nzLabel="UINT16"></nz-option>
+        <nz-option nzValue="uint32" nzLabel="UINT32"></nz-option>
+      </nz-select>
     </td>
     <td>
       <input nz-input type="number" formControlName="ratio" nzSize="small" (change)="change()" required/>
+    </td>
+    <td>
+      <nz-switch formControlName="store" nzSize="small" (change)="change()"></nz-switch>
     </td>
     <td>
       <a (click)="moveUp(i)">上移</a>

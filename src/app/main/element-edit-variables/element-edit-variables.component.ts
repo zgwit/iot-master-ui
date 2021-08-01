@@ -37,6 +37,7 @@ export class ElementEditVariablesComponent implements OnInit, ControlValueAccess
           address: [d.address, [Validators.required]],
           type: [d.type, [Validators.required]],
           ratio: [d.ratio, [Validators.required]],
+          store: [d.store, [Validators.required]],
         })
       }))
     })
@@ -48,6 +49,7 @@ export class ElementEditVariablesComponent implements OnInit, ControlValueAccess
       address: ['', [Validators.required]],
       type: ['word', [Validators.required]],
       ratio: [1, [Validators.required]],
+      store: [true, [Validators.required]],
     }))
     //复制controls，让表格可以刷新
     this.formArray.controls = [...this.formArray.controls];
