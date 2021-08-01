@@ -27,7 +27,7 @@ import {ObjectIdToDatePipe} from './object-id-to-date.pipe';
     JsonEditorComponent,
     PageListComponent,
     PageDetailComponent,
-    ObjectIdToDatePipe
+    ObjectIdToDatePipe,
   ],
   exports: [
     TabsComponent,
@@ -36,7 +36,7 @@ import {ObjectIdToDatePipe} from './object-id-to-date.pipe';
     YamlEditorComponent,
     JsonEditorComponent,
     PageListComponent,
-    ObjectIdToDatePipe
+    ObjectIdToDatePipe,
   ],
   imports: [
     CommonModule,
