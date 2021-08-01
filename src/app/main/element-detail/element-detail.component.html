@@ -1,1 +1,18 @@
-<p>element-detail works!</p>
+
+
+<nz-tabset>
+  <nz-tab nzTitle="基本信息">
+    <p>{{data|json}}</p>
+  </nz-tab>
+  <nz-tab nzTitle="设备实例">
+    <ng-template nz-tab>
+      <app-element-device [_id]="id"></app-element-device>
+    </ng-template>
+  </nz-tab>
+  <nz-tab nzTitle="事件记录">
+    <ng-template nz-tab>
+      <app-event type="element" [_id]="id"></app-event>
+    </ng-template>
+  </nz-tab>
+
+</nz-tabset>

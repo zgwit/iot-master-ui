@@ -1,4 +1,4 @@
-<app-page-list (create)="create()" (refresh)="load()" (search)="search($event)" [loading]="loading">
+<app-page-list noCreate (refresh)="load()" (search)="search($event)" [loading]="loading">
 
   <nz-table
     nzSize="small"
@@ -15,7 +15,8 @@
     <thead>
     <tr>
       <th nzColumnKey="name" [nzSortFn]="true">名称</th>
-      <th nzColumnKey="template_id">模板ID</th>
+      <th nzColumnKey="tunnel_id">通道ID</th>
+      <th nzColumnKey="slave">从机号</th>
       <th>状态</th>
       <th nzColumnKey="_id" [nzSortFn]="true">创建时间</th>
       <th nzWidth="100">操作</th>
@@ -24,13 +25,14 @@
     <tbody>
     <tr *ngFor="let data of datum; let i=index">
       <td>{{ data.name }}</td>
-      <td>{{ data.template_id }}</td>
+      <td>{{ data.tunnel_id }}</td>
+      <td>{{ data.slave }}</td>
       <td></td>
       <td>{{data._id | objectIdToDate | date:'short'}}</td>
       <td>
-        <a [routerLink]="'/admin/project/detail/'+data._id">详情</a>
+        <a [routerLink]="'/admin/device/detail/'+data._id">详情</a>
         <nz-divider nzType="vertical"></nz-divider>
-        <a [routerLink]="'/admin/project/edit/'+data._id">编辑</a>
+        <a [routerLink]="'/admin/device/edit/'+data._id">编辑</a>
         <nz-divider nzType="vertical"></nz-divider>
         <a nz-dropdown [nzDropdownMenu]="menu" nzTrigger="click">
           更多

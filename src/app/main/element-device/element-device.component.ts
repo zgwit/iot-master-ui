@@ -1,0 +1,69 @@
+import {Component, Input, OnInit} from '@angular/core';
+import {NzTableQueryParams} from "ng-zorro-antd/table";
+import {Router} from "@angular/router";
+import {RequestService} from "../../request.service";
+
+@Component({
+  selector: 'app-element-device',
+  templateUrl: './element-device.component.html',
+  styleUrls: ['./element-device.component.scss']
+})
+export class ElementDeviceComponent implements OnInit {
+  @Input() _id = '';
+
+  datum: any[] = [];
+
+  loading = false;
+  total = 1;
+  pageSize = 20;
+  pageIndex = 1;
+
+  params: any = {};
+
+  constructor(private router: Router, private rs: RequestService) {
+  }
+
+  ngOnInit(): void {
+    //this.load();
+  }
+
+  search(keyword: string) {
+    this.params.keyword = keyword;
+    this.load();
+  }
+
+  onQuery(params: NzTableQueryParams) {
+    this.params = params;
+    this.load();
+  }
+
+  load(): void {
+    this.loading = true;
+    this.rs.post(`element/${this._id}/device/list`, this.params).subscribe(res => {
+      console.log('res', res);
+      this.datum = res.data;
+      this.total = res.total;
+    }).add(() => {
+      this.loading = false;
+    });
+  }
+
+  create(): void {
+    this.router.navigate(["admin/device/create"]);
+
+    return;
+  }
+
+
+  enable(i: number) {
+
+  }
+
+  disable(i: number) {
+
+  }
+
+  remove(i: number) {
+
+  }
+}
