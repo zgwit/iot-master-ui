@@ -1,1 +1,17 @@
-<p>project-detail works!</p>
+
+
+<nz-tabset>
+  <nz-tab nzTitle="基本信息">
+    <p>{{data|json}}</p>
+  </nz-tab>
+  <nz-tab nzTitle="可视化">
+    <ng-template nz-tab>
+    </ng-template>
+  </nz-tab>
+  <nz-tab nzTitle="事件记录">
+    <ng-template nz-tab>
+      <app-event type="project" [_id]="id"></app-event>
+    </ng-template>
+  </nz-tab>
+
+</nz-tabset>
