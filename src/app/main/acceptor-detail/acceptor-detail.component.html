@@ -3,12 +3,12 @@
 <nz-tabset>
   <nz-tab nzTitle="通道">
     <ng-template nz-tab>
-      <app-acceptor-tunnel [acceptor_id]="id"></app-acceptor-tunnel>
+      <app-acceptor-tunnel [_id]="id"></app-acceptor-tunnel>
     </ng-template>
   </nz-tab>
-  <nz-tab>
+  <nz-tab nzTitle="事件">
     <ng-template nz-tab>
-      <app-event></app-event>
+      <app-event type="acceptor" [_id]="id"></app-event>
     </ng-template>
   </nz-tab>
 

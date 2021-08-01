@@ -16,7 +16,6 @@ import {PageListComponent} from './page-list/page-list.component';
 import {PageDetailComponent} from './page-detail/page-detail.component';
 import {NzInputModule} from "ng-zorro-antd/input";
 import {ObjectIdToDatePipe} from './object-id-to-date.pipe';
-import { InnerListComponent } from './inner-list/inner-list.component';
 
 
 @NgModule({
@@ -29,18 +28,16 @@ import { InnerListComponent } from './inner-list/inner-list.component';
     PageListComponent,
     PageDetailComponent,
     ObjectIdToDatePipe,
-    InnerListComponent,
   ],
-    exports: [
-        TabsComponent,
-        PageEditorComponent,
-        JsEditorComponent,
-        YamlEditorComponent,
-        JsonEditorComponent,
-        PageListComponent,
-        ObjectIdToDatePipe,
-        InnerListComponent,
-    ],
+  exports: [
+    TabsComponent,
+    PageEditorComponent,
+    JsEditorComponent,
+    YamlEditorComponent,
+    JsonEditorComponent,
+    PageListComponent,
+    ObjectIdToDatePipe,
+  ],
   imports: [
     CommonModule,
     CodemirrorModule,

@@ -1,1 +1,34 @@
-<p>event works!</p>
+<app-page-list noCreate (refresh)="load()" (search)="search($event)" [loading]="loading">
+
+  <nz-table
+    nzSize="small"
+    [nzShowPagination]="datum.length > pageSize"
+    [nzData]="datum"
+    [nzFrontPagination]="false"
+    [nzLoading]="loading"
+    [nzTotal]="total"
+    [nzPageSize]="pageSize"
+    [nzPageIndex]="pageIndex"
+
+    (nzQueryParams)="onQuery($event)"
+  >
+    <thead>
+    <tr>
+      <th>用户</th>
+      <th nzColumnKey="event" [nzSortFn]="true">事件</th>
+      <th>内容</th>
+      <th nzColumnKey="_id" [nzSortFn]="true">时间</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let data of datum; let i=index">
+      <td>{{ data.user_id }}</td>
+      <td>{{ data.event }}</td>
+      <td>{{ data.data | json }}</td>
+      <td>{{data._id | objectIdToDate | date:'short'}}</td>
+    </tr>
+    </tbody>
+  </nz-table>
+
+
+</app-page-list>

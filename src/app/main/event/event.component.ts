@@ -1,4 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
+import {NzTableQueryParams} from "ng-zorro-antd/table";
+import {Router} from "@angular/router";
+import {RequestService} from "../../request.service";
 
 @Component({
   selector: 'app-event',
@@ -6,10 +9,48 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./event.component.scss']
 })
 export class EventComponent implements OnInit {
+  @Input() type = '';
+  @Input() _id = '';
 
-  constructor() { }
+  datum: any[] = [];
 
-  ngOnInit(): void {
+  loading = false;
+  total = 1;
+  pageSize = 20;
+  pageIndex = 1;
+
+  params: any = {};
+
+  constructor(private router: Router, private rs: RequestService) {
   }
 
+  ngOnInit(): void {
+    //this.load();
+  }
+
+  search(keyword: string) {
+    this.params.keyword = keyword;
+    this.load();
+  }
+
+  onQuery(params: NzTableQueryParams) {
+    this.params = params;
+    this.load();
+  }
+
+  load(): void {
+    this.loading = true;
+    this.rs.post(`${this.type}/${this._id}/event/list`, this.params).subscribe(res => {
+      console.log('res', res);
+      this.datum = res.data;
+      this.total = res.total;
+    }).add(() => {
+      this.loading = false;
+    });
+  }
+
+
+  remove(i: number) {
+
+  }
 }

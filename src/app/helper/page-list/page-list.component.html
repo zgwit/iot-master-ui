@@ -6,7 +6,7 @@
       刷新
     </button>
 
-    <button *nzSpaceItem type="button" nz-button (click)="create.emit()" [hidden]="createDisabled">
+    <button *nzSpaceItem type="button" nz-button (click)="create.emit()" [hidden]="noCreate">
       <i nz-icon nzType="plus"></i>
       新建
     </button>
@@ -22,16 +22,11 @@
     <ng-template #suffixIconClear>
         <i nz-icon nzType="close" *ngIf="keyword" (click)="keyword=''; search.emit(keyword)"></i>
     </ng-template>
-
   </form>
 
-  <nz-space style="float: right">
-    <button type="button" *nzSpaceItem nz-button (click)="tab.Close()" nzType="primary" nzShape="round">
-<!--      <i nz-icon nzType="close"></i>-->
-      关闭
-    </button>
-  </nz-space>
-
+  <span style="float: right">
+    <ng-content select=".right"></ng-content>
+  </span>
 </div>
 
 <ng-content></ng-content>

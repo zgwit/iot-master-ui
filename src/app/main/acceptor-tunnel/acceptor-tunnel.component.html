@@ -1,4 +1,4 @@
-<app-inner-list createDisabled (refresh)="load()" (search)="search($event)" [loading]="loading">
+<app-page-list noCreate (refresh)="load()" (search)="search($event)" [loading]="loading">
 
   <nz-table
     nzSize="small"
@@ -15,7 +15,7 @@
     <thead>
     <tr>
       <th nzColumnKey="name" [nzSortFn]="true">名称</th>
-      <th nzColumnKey="name" [nzSortFn]="true">SN</th>
+      <th nzColumnKey="sn" [nzSortFn]="true">SN</th>
       <th nzColumnKey="remote">远程地址</th>
       <th>状态</th>
       <th nzColumnKey="_id" [nzSortFn]="true">创建时间</th>
@@ -51,4 +51,4 @@
   </nz-table>
 
 
-</app-inner-list>
+</app-page-list>

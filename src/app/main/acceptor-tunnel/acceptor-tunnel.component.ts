@@ -9,8 +9,8 @@ import {RequestService} from "../../request.service";
   styleUrls: ['./acceptor-tunnel.component.scss']
 })
 export class AcceptorTunnelComponent implements OnInit {
-  @Input() acceptor_id = '';
-  
+  @Input() _id = '';
+
   datum: any[] = [];
 
   loading = false;
@@ -39,7 +39,7 @@ export class AcceptorTunnelComponent implements OnInit {
 
   load(): void {
     this.loading = true;
-    this.rs.post(`acceptor/${this.acceptor_id}/tunnel/list`, this.params).subscribe(res => {
+    this.rs.post(`acceptor/${this._id}/tunnel/list`, this.params).subscribe(res => {
       console.log('res', res);
       this.datum = res.data;
       this.total = res.total;

@@ -7,21 +7,18 @@ import {TabRef} from "../tabs/tabs.component";
   styleUrls: ['./page-list.component.scss']
 })
 export class PageListComponent implements OnInit {
-  @Output() search = new EventEmitter<string>()
-  @Output() refresh = new EventEmitter()
-  @Output() create = new EventEmitter()
+  @Output() search = new EventEmitter<string>();
+  @Output() refresh = new EventEmitter();
+  @Output() create = new EventEmitter();
+
   @Input() loading: any = false;
-  @Input() createDisabled: any = false;
+  @Input() noCreate: any = false;
 
   keyword = '';
 
-  constructor(public tab: TabRef) { }
+  constructor() { }
 
   ngOnInit(): void {
-  }
-
-  close(): void{
-    this.tab.Close()
   }
 
 }
