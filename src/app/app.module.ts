@@ -1,5 +1,5 @@
 import {BrowserModule} from '@angular/platform-browser';
-import {NgModule} from '@angular/core';
+import {LOCALE_ID, NgModule} from '@angular/core';
 
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {CommonModule} from '@angular/common';
@@ -21,7 +21,7 @@ import {NzCheckboxModule} from 'ng-zorro-antd/checkbox';
 import {NzIconModule} from 'ng-zorro-antd/icon';
 import {NzMessageModule} from 'ng-zorro-antd/message';
 
-registerLocaleData(zh);
+registerLocaleData(zh, 'zh');
 
 @NgModule({
   declarations: [
@@ -45,7 +45,7 @@ registerLocaleData(zh);
     NzMessageModule,
     IconsProviderModule,
   ],
-  providers: [{ provide: NZ_I18N, useValue: zh_CN }],
+  providers: [{ provide: NZ_I18N, useValue: zh_CN }, {provide: LOCALE_ID, useValue: 'zh' }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

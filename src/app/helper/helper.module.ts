@@ -12,9 +12,10 @@ import {NzIconModule} from "ng-zorro-antd/icon";
 import {TabsComponent} from "./tabs/tabs.component";
 import {RouterModule} from "@angular/router";
 import {NzSpaceModule} from "ng-zorro-antd/space";
-import { PageListComponent } from './page-list/page-list.component';
-import { PageDetailComponent } from './page-detail/page-detail.component';
+import {PageListComponent} from './page-list/page-list.component';
+import {PageDetailComponent} from './page-detail/page-detail.component';
 import {NzInputModule} from "ng-zorro-antd/input";
+import {ObjectIdToDatePipe} from './object-id-to-date.pipe';
 
 
 @NgModule({
@@ -25,7 +26,8 @@ import {NzInputModule} from "ng-zorro-antd/input";
     YamlEditorComponent,
     JsonEditorComponent,
     PageListComponent,
-    PageDetailComponent
+    PageDetailComponent,
+    ObjectIdToDatePipe
   ],
   exports: [
     TabsComponent,
@@ -33,7 +35,8 @@ import {NzInputModule} from "ng-zorro-antd/input";
     JsEditorComponent,
     YamlEditorComponent,
     JsonEditorComponent,
-    PageListComponent
+    PageListComponent,
+    ObjectIdToDatePipe
   ],
   imports: [
     CommonModule,
