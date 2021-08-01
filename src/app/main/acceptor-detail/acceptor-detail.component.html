@@ -1,12 +1,15 @@
-<p>{{data|json}}</p>
+
 
 <nz-tabset>
-  <nz-tab nzTitle="通道">
+  <nz-tab nzTitle="基本信息">
+    <p>{{data|json}}</p>
+  </nz-tab>
+  <nz-tab nzTitle="数据通道">
     <ng-template nz-tab>
       <app-acceptor-tunnel [_id]="id"></app-acceptor-tunnel>
     </ng-template>
   </nz-tab>
-  <nz-tab nzTitle="事件">
+  <nz-tab nzTitle="事件记录">
     <ng-template nz-tab>
       <app-event type="acceptor" [_id]="id"></app-event>
     </ng-template>

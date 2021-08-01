@@ -83,32 +83,33 @@ import {NzTimePickerModule} from "ng-zorro-antd/time-picker";
 import {ProjectEditCommandsComponent} from "./project-edit-commands/project-edit-commands.component";
 import {EventComponent} from "./event/event.component";
 import {AcceptorTunnelComponent} from "./acceptor-tunnel/acceptor-tunnel.component";
+import {TunnelDeviceComponent} from "./tunnel-device/tunnel-device.component";
 
 
 @NgModule({
-  declarations: [
-    MainComponent,
-    DashComponent,
-    TunnelComponent, TunnelEditComponent, TunnelDetailComponent, TunnelMonitorComponent,
-    AcceptorComponent, AcceptorDetailComponent,
-    AcceptorEditComponent, AcceptorEditDevicesComponent,
-    ProjectComponent, ProjectDetailComponent,
-    ProjectEditComponent, ProjectEditJobsComponent, ProjectEditCommandsComponent,
-    ProjectEditVariablesComponent, ProjectEditDevicesComponent, ProjectEditStrategiesComponent,
-    DeviceComponent, DeviceDetailComponent,
-    DeviceEditComponent, DeviceEditJobsComponent,
-    TemplateComponent, TemplateDetailComponent,
-    TemplateEditComponent, TemplateEditDevicesComponent,
-    ElementComponent, ElementDetailComponent,
-    ElementEditComponent, ElementEditVariablesComponent, ElementEditCommandsComponent, ElementEditCollectorsComponent,
-    UserComponent, UserEditComponent, UserDetailComponent,
-    GroupComponent, GroupEditComponent, GroupDetailComponent,
-    PluginComponent, PluginDetailComponent,
-    AdapterComponent, AdapterDetailComponent,
-    ApiComponent,
-    SettingComponent,
-    PasswordComponent, EventComponent, AcceptorTunnelComponent,
-  ],
+    declarations: [
+        MainComponent,
+        DashComponent,
+        TunnelComponent, TunnelEditComponent, TunnelDetailComponent, TunnelMonitorComponent,
+        AcceptorComponent, AcceptorDetailComponent,
+        AcceptorEditComponent, AcceptorEditDevicesComponent,
+        ProjectComponent, ProjectDetailComponent,
+        ProjectEditComponent, ProjectEditJobsComponent, ProjectEditCommandsComponent,
+        ProjectEditVariablesComponent, ProjectEditDevicesComponent, ProjectEditStrategiesComponent,
+        DeviceComponent, DeviceDetailComponent,
+        DeviceEditComponent, DeviceEditJobsComponent,
+        TemplateComponent, TemplateDetailComponent,
+        TemplateEditComponent, TemplateEditDevicesComponent,
+        ElementComponent, ElementDetailComponent,
+        ElementEditComponent, ElementEditVariablesComponent, ElementEditCommandsComponent, ElementEditCollectorsComponent,
+        UserComponent, UserEditComponent, UserDetailComponent,
+        GroupComponent, GroupEditComponent, GroupDetailComponent,
+        PluginComponent, PluginDetailComponent,
+        AdapterComponent, AdapterDetailComponent,
+        ApiComponent,
+        SettingComponent,
+        PasswordComponent, EventComponent, AcceptorTunnelComponent, TunnelDeviceComponent,
+    ],
   imports: [
     CommonModule,
     FormsModule,

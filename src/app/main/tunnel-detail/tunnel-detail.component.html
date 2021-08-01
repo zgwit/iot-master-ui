@@ -1,1 +1,23 @@
-<p>tunnel-detail works!</p>
+
+
+<nz-tabset>
+  <nz-tab nzTitle="基本信息">
+    <p>{{data|json}}</p>
+  </nz-tab>
+  <nz-tab nzTitle="数据监控">
+    <ng-template nz-tab>
+      <app-tunnel-monitor [_id]="id"></app-tunnel-monitor>
+    </ng-template>
+  </nz-tab>
+  <nz-tab nzTitle="相关设备">
+    <ng-template nz-tab>
+      <app-tunnel-device [_id]="id"></app-tunnel-device>
+    </ng-template>
+  </nz-tab>
+  <nz-tab nzTitle="事件记录">
+    <ng-template nz-tab>
+      <app-event type="tunnel" [_id]="id"></app-event>
+    </ng-template>
+  </nz-tab>
+
+</nz-tabset>
