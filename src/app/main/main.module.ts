@@ -86,6 +86,7 @@ import {AcceptorTunnelComponent} from "./acceptor-tunnel/acceptor-tunnel.compone
 import {TunnelDeviceComponent} from "./tunnel-device/tunnel-device.component";
 import {ElementDeviceComponent} from "./element-device/element-device.component";
 import {TemplateProjectComponent} from "./template-project/template-project.component";
+import {DeviceProjectComponent} from "./device-project/device-project.component";
 
 
 @NgModule({
@@ -110,7 +111,7 @@ import {TemplateProjectComponent} from "./template-project/template-project.comp
         AdapterComponent, AdapterDetailComponent,
         ApiComponent,
         SettingComponent,
-        PasswordComponent, EventComponent, AcceptorTunnelComponent, TunnelDeviceComponent, ElementDeviceComponent, TemplateProjectComponent,
+        PasswordComponent, EventComponent, AcceptorTunnelComponent, TunnelDeviceComponent, ElementDeviceComponent, TemplateProjectComponent, DeviceProjectComponent,
     ],
   imports: [
     CommonModule,
