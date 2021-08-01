@@ -1,1 +1,15 @@
-<p>acceptor-detail works!</p>
+<p>{{data|json}}</p>
+
+<nz-tabset>
+  <nz-tab nzTitle="通道">
+    <ng-template nz-tab>
+      <app-acceptor-tunnel [acceptor_id]="id"></app-acceptor-tunnel>
+    </ng-template>
+  </nz-tab>
+  <nz-tab>
+    <ng-template nz-tab>
+      <app-event></app-event>
+    </ng-template>
+  </nz-tab>
+
+</nz-tabset>

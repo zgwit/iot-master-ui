@@ -1,12 +1,12 @@
 <div class="toolbar">
 
   <form nz-space (submit)="search.emit(keyword)">
-    <button *nzSpaceItem  type="button" nz-button [nzLoading]="loading" (click)="refresh.emit()">
+    <button *nzSpaceItem type="button" nz-button [nzLoading]="loading" (click)="refresh.emit()">
       <i nz-icon nzType="reload"></i>
       刷新
     </button>
 
-    <button *nzSpaceItem type="button" nz-button (click)="create.emit()" [hidden]="createDisabled">
+    <button *nzSpaceItem nz-button (click)="create.emit()" [hidden]="createDisabled">
       <i nz-icon nzType="plus"></i>
       新建
     </button>
@@ -15,7 +15,7 @@
       <input type="text" nz-input placeholder="关键字" [(ngModel)]="keyword" [ngModelOptions]="{standalone: true}"/>
     </nz-input-group>
     <ng-template #suffixIconButton>
-      <button type="button" nz-button nzSearch (click)="search.emit(keyword)">
+      <button nz-button type="button" nzSearch (click)="search.emit(keyword)">
         搜索
       </button>
     </ng-template>
@@ -24,13 +24,6 @@
     </ng-template>
 
   </form>
-
-  <nz-space style="float: right">
-    <button type="button" *nzSpaceItem nz-button (click)="tab.Close()" nzType="primary" nzShape="round">
-<!--      <i nz-icon nzType="close"></i>-->
-      关闭
-    </button>
-  </nz-space>
 
 </div>
 

@@ -1,7 +1,6 @@
-import {Component, OnInit, ViewContainerRef} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {NzTableQueryParams} from "ng-zorro-antd/table";
 import {TabRef} from "../../helper/tabs/tabs.component";
-import {NzModalService} from "ng-zorro-antd/modal";
 import {Router} from "@angular/router";
 import {RequestService} from "../../request.service";
 
@@ -24,7 +23,7 @@ export class DeviceComponent implements OnInit {
 
   params: any = {};
 
-  constructor(private tab: TabRef, private ms: NzModalService, private vcf: ViewContainerRef, private router: Router, private rs: RequestService) {
+  constructor(private tab: TabRef, private router: Router, private rs: RequestService) {
     tab.name = "设备"
   }
 

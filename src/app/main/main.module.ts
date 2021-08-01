@@ -81,6 +81,8 @@ import {ElementEditCommandsComponent} from "./element-edit-commands/element-edit
 import {ElementEditCollectorsComponent} from "./element-edit-collectors/element-edit-collectors.component";
 import {NzTimePickerModule} from "ng-zorro-antd/time-picker";
 import {ProjectEditCommandsComponent} from "./project-edit-commands/project-edit-commands.component";
+import {EventComponent} from "./event/event.component";
+import {AcceptorTunnelComponent} from "./acceptor-tunnel/acceptor-tunnel.component";
 
 
 @NgModule({
@@ -105,7 +107,7 @@ import {ProjectEditCommandsComponent} from "./project-edit-commands/project-edit
     AdapterComponent, AdapterDetailComponent,
     ApiComponent,
     SettingComponent,
-    PasswordComponent,
+    PasswordComponent, EventComponent, AcceptorTunnelComponent,
   ],
   imports: [
     CommonModule,

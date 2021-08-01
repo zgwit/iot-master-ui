@@ -1,15 +1,16 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 import {NzTableQueryParams} from "ng-zorro-antd/table";
-import {TabRef} from "../../helper/tabs/tabs.component";
 import {Router} from "@angular/router";
 import {RequestService} from "../../request.service";
 
 @Component({
-  selector: 'app-template',
-  templateUrl: './template.component.html',
-  styleUrls: ['./template.component.scss']
+  selector: 'app-acceptor-tunnel',
+  templateUrl: './acceptor-tunnel.component.html',
+  styleUrls: ['./acceptor-tunnel.component.scss']
 })
-export class TemplateComponent implements OnInit {
+export class AcceptorTunnelComponent implements OnInit {
+  @Input() acceptor_id = '';
+  
   datum: any[] = [];
 
   loading = false;
@@ -19,8 +20,7 @@ export class TemplateComponent implements OnInit {
 
   params: any = {};
 
-  constructor(private tab: TabRef, private router: Router, private rs: RequestService) {
-    tab.name = "模板库"
+  constructor(private router: Router, private rs: RequestService) {
   }
 
   ngOnInit(): void {
@@ -39,19 +39,13 @@ export class TemplateComponent implements OnInit {
 
   load(): void {
     this.loading = true;
-    this.rs.post('template/list', this.params).subscribe(res => {
+    this.rs.post(`acceptor/${this.acceptor_id}/tunnel/list`, this.params).subscribe(res => {
       console.log('res', res);
       this.datum = res.data;
       this.total = res.total;
     }).add(() => {
       this.loading = false;
     });
-  }
-
-  create(): void {
-    this.router.navigate(["admin/template/create"]);
-
-    return;
   }
 
 
