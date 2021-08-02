@@ -8,6 +8,38 @@
           <input nz-input formControlName="name" required/>
         </nz-form-control>
       </nz-form-item>
+
+      <nz-form-item>
+        <nz-form-label [nzSpan]="5">类型</nz-form-label>
+        <nz-form-control [nzSpan]="12" nzErrorTip="">
+          <input nz-input formControlName="type" required/>
+        </nz-form-control>
+      </nz-form-item>
+
+      <nz-form-item>
+        <nz-form-label [nzSpan]="5">协议</nz-form-label>
+        <nz-form-control [nzSpan]="12" nzErrorTip="">
+          <nz-select formControlName="protocol">
+            <nz-option nzValue="modbus-rtu" nzLabel="Modbus RTU"></nz-option>
+            <nz-option nzValue="modbus-tcp" nzLabel="Modbus TCP"></nz-option>
+          </nz-select>
+        </nz-form-control>
+      </nz-form-item>
+
+      <nz-form-item>
+        <nz-form-label [nzSpan]="5">生产厂家</nz-form-label>
+        <nz-form-control [nzSpan]="12" nzErrorTip="">
+          <input nz-input formControlName="manufacturer"/>
+        </nz-form-control>
+      </nz-form-item>
+
+      <nz-form-item>
+        <nz-form-label [nzSpan]="5">版本号</nz-form-label>
+        <nz-form-control [nzSpan]="12" nzErrorTip="">
+          <input nz-input formControlName="version"/>
+        </nz-form-control>
+      </nz-form-item>
+
     </nz-tab>
 
     <nz-tab nzTitle="变量映射">
