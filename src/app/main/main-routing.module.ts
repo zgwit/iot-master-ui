@@ -11,7 +11,7 @@ import {ElementComponent} from "./element/element.component";
 import {UserComponent} from "./user/user.component";
 import {GroupComponent} from "./group/group.component";
 import {PluginComponent} from "./plugin/plugin.component";
-import {AdapterComponent} from "./adapter/adapter.component";
+import {ProtocolComponent} from "./protocol/protocol.component";
 import {ApiComponent} from "./api/api.component";
 import {SettingComponent} from "./setting/setting.component";
 import {PasswordComponent} from "./password/password.component";
@@ -32,7 +32,7 @@ import {ElementDetailComponent} from "./element-detail/element-detail.component"
 import {UserDetailComponent} from "./user-detail/user-detail.component";
 import {GroupDetailComponent} from "./group-detail/group-detail.component";
 import {PluginDetailComponent} from "./plugin-detail/plugin-detail.component";
-import {AdapterDetailComponent} from "./adapter-detail/adapter-detail.component";
+import {ProtocolDetailComponent} from "./protocol-detail/protocol-detail.component";
 
 const routes: Routes = [
   {
@@ -74,8 +74,8 @@ const routes: Routes = [
       {path: 'group/detail/:id', component: GroupDetailComponent},
       {path: 'plugin', component: PluginComponent},
       {path: 'plugin/detail/:id', component: PluginDetailComponent},
-      {path: 'adapter', component: AdapterComponent},
-      {path: 'adapter/detail/:id', component: AdapterDetailComponent},
+      {path: 'protocol', component: ProtocolComponent},
+      {path: 'protocol/detail/:id', component: ProtocolDetailComponent},
       {path: 'api', component: ApiComponent},
       {path: 'setting', component: SettingComponent},
       {path: 'password', component: PasswordComponent},

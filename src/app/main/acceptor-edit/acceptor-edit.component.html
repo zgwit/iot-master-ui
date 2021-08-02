@@ -117,6 +117,13 @@
             <input nz-input formControlName="suffix"/>
           </nz-form-control>
         </nz-form-item>
+
+        <nz-form-item>
+          <nz-form-label [nzSpan]="5">响应脚本</nz-form-label>
+          <nz-form-control [nzSpan]="12" nzErrorTip="">
+            <app-js-editor formControlName="script"></app-js-editor>
+          </nz-form-control>
+        </nz-form-item>
       </div>
     </nz-tab>
 

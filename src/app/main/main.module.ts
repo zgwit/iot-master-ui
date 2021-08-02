@@ -40,7 +40,7 @@ import {TunnelComponent} from "./tunnel/tunnel.component";
 import {TunnelEditComponent} from "./tunnel-edit/tunnel-edit.component";
 import {GroupEditComponent} from "./group-edit/group-edit.component";
 import {ProjectComponent} from "./project/project.component";
-import {AdapterComponent} from "./adapter/adapter.component";
+import {ProtocolComponent} from "./protocol/protocol.component";
 import {SettingComponent} from "./setting/setting.component";
 import {PasswordComponent} from "./password/password.component";
 import {TunnelMonitorComponent} from "./tunnel-monitor/tunnel-monitor.component";
@@ -54,7 +54,7 @@ import {TemplateDetailComponent} from "./template-detail/template-detail.compone
 import {ElementEditComponent} from "./element-edit/element-edit.component";
 import {UserDetailComponent} from "./user-detail/user-detail.component";
 import {TunnelDetailComponent} from "./tunnel-detail/tunnel-detail.component";
-import {AdapterDetailComponent} from "./adapter-detail/adapter-detail.component";
+import {ProtocolDetailComponent} from "./protocol-detail/protocol-detail.component";
 import {ProjectEditComponent} from "./project-edit/project-edit.component";
 import {UserEditComponent} from "./user-edit/user-edit.component";
 import {AcceptorComponent} from "./acceptor/acceptor.component";
@@ -109,7 +109,7 @@ import {ElementTemplateComponent} from "./element-template/element-template.comp
     UserComponent, UserEditComponent, UserDetailComponent,
     GroupComponent, GroupEditComponent, GroupDetailComponent,
     PluginComponent, PluginDetailComponent,
-    AdapterComponent, AdapterDetailComponent,
+    ProtocolComponent, ProtocolDetailComponent,
     ApiComponent,
     SettingComponent,
     PasswordComponent, EventComponent, AcceptorTunnelComponent, TunnelDeviceComponent, ElementDeviceComponent, TemplateProjectComponent, DeviceProjectComponent, ElementTemplateComponent,

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {TabRef} from "../../helper/tabs/tabs.component";
 
 @Component({
   selector: 'app-dash',
@@ -7,7 +8,9 @@ import { Component, OnInit } from '@angular/core';
 })
 export class DashComponent implements OnInit {
 
-  constructor() { }
+  constructor(private tab: TabRef) {
+    tab.name = "控制台"
+  }
 
   ngOnInit(): void {
   }

@@ -35,7 +35,8 @@ export class AcceptorEditComponent implements OnInit {
     "control": {
       "enable": false,
       "prefix": "",
-      "suffix": ""
+      "suffix": "",
+      "script": ""
     },
     "adapter": {
       "enable": false,
@@ -76,6 +77,7 @@ export class AcceptorEditComponent implements OnInit {
         enable: [this.data.control.enable, []],
         prefix: [this.data.control.prefix, []],
         suffix: [this.data.control.suffix, []],
+        script: [this.data.control.script, []],
       }),
 
       adapter: this.fb.group({

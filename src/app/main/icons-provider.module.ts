@@ -11,6 +11,7 @@ import {
   BlockOutline,
   AppstoreAddOutline,
   UserOutline,
+  FormOutline,
 } from '@ant-design/icons-angular/icons';
 import {CommonModule} from '@angular/common';
 
@@ -19,6 +20,7 @@ const icons = [
   MenuFoldOutline, MenuUnfoldOutline, DashboardOutline, BlockOutline,
   SettingOutline, AppstoreAddOutline, ClusterOutline, LogoutOutline, UserOutline,
   // 表格操作
+  FormOutline,
 ];
 
 @NgModule({

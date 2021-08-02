@@ -75,7 +75,7 @@ export let MainMenu = [
       },
       {
         title: '协议',
-        router: 'adapter'
+        router: 'protocol'
       },
       {
         title: '接口',
