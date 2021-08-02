@@ -3,6 +3,7 @@ import {NzTableQueryParams} from "ng-zorro-antd/table";
 import {TabRef} from "../../helper/tabs/tabs.component";
 import {Router} from "@angular/router";
 import {RequestService} from "../../request.service";
+import {parseTableQuery} from "../../helper/lib";
 
 @Component({
   selector: 'app-tunnel',
@@ -17,7 +18,7 @@ export class TunnelComponent implements OnInit {
   pageSize = 20;
   pageIndex = 1;
 
-  params: any = {};
+  params: any = {filter: {}};
 
   constructor(private tab: TabRef, private router: Router, private rs: RequestService) {
     tab.name = "数据通道"
@@ -28,12 +29,15 @@ export class TunnelComponent implements OnInit {
   }
 
   search(keyword: string) {
-    this.params.keyword = keyword;
+    if (keyword)
+      this.params.filter.$or = [{name: {$regex: keyword}}, {type: {$regex: keyword}}];
+    else
+      delete this.params.filter.$or;
     this.load();
   }
 
   onQuery(params: NzTableQueryParams) {
-    this.params = params;
+    parseTableQuery(params, this.params);
     this.load();
   }
 

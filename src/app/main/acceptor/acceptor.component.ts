@@ -3,6 +3,7 @@ import {NzTableQueryParams} from "ng-zorro-antd/table";
 import {TabRef} from "../../helper/tabs/tabs.component";
 import {Router} from "@angular/router";
 import {RequestService} from "../../request.service";
+import {parseTableQuery} from "../../helper/lib";
 
 @Component({
   selector: 'app-acceptor',
@@ -21,7 +22,7 @@ export class AcceptorComponent implements OnInit {
     {text: 'TCP客户端', value: 'tcp-client'}
   ];
 
-  params: any = {};
+  params: any = {filter: {}};
 
   constructor(private tab: TabRef, private router: Router, private rs: RequestService) {
     tab.name = "网络服务"
@@ -32,12 +33,15 @@ export class AcceptorComponent implements OnInit {
   }
 
   search(keyword: string) {
-    this.params.keyword = keyword;
+    if (keyword)
+      this.params.filter.$or = [{name: {$regex: keyword}}, {type: {$regex: keyword}}, {address: {$regex: keyword}}];
+    else
+      delete this.params.filter.$or;
     this.load();
   }
 
   onQuery(params: NzTableQueryParams) {
-    this.params = params;
+    parseTableQuery(params, this.params);
     this.load();
   }
 

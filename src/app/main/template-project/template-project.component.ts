@@ -2,6 +2,7 @@ import {Component, Input, OnInit} from '@angular/core';
 import {NzTableQueryParams} from "ng-zorro-antd/table";
 import {Router} from "@angular/router";
 import {RequestService} from "../../request.service";
+import {parseTableQuery} from "../../helper/lib";
 
 @Component({
   selector: 'app-template-project',
@@ -18,7 +19,7 @@ export class TemplateProjectComponent implements OnInit {
   pageSize = 20;
   pageIndex = 1;
 
-  params: any = {};
+  params: any = {filter: {}};
 
   constructor(private router: Router, private rs: RequestService) {
   }
@@ -28,18 +29,22 @@ export class TemplateProjectComponent implements OnInit {
   }
 
   search(keyword: string) {
-    this.params.keyword = keyword;
+    if (keyword)
+      this.params.filter.$or = [{name: {$regex: keyword}}, {type: {$regex: keyword}}];
+    else
+      delete this.params.filter.$or;
     this.load();
   }
 
   onQuery(params: NzTableQueryParams) {
-    this.params = params;
+    parseTableQuery(params, this.params);
     this.load();
   }
 
   load(): void {
     this.loading = true;
-    this.rs.post(`template/${this._id}/project/list`, this.params).subscribe(res => {
+    this.params.filter.template_id = this._id;
+    this.rs.post('project/list', this.params).subscribe(res => {
       console.log('res', res);
       this.datum = res.data;
       this.total = res.total;

@@ -19,7 +19,7 @@ export class EventComponent implements OnInit {
   pageSize = 20;
   pageIndex = 1;
 
-  params: any = {};
+  params: any = {filter: {}};
 
   constructor(private router: Router, private rs: RequestService) {
   }
