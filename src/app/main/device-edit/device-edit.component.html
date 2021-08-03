@@ -31,6 +31,14 @@
           <nz-input-number formControlName="slave" [nzMin]="1" [nzMax]="65535" [nzStep]="1"></nz-input-number>
         </nz-form-control>
       </nz-form-item>
+
+      <nz-form-item>
+        <nz-form-label [nzSpan]="5">启用</nz-form-label>
+        <nz-form-control [nzSpan]="12" nzErrorTip="">
+          <nz-switch formControlName="enable"></nz-switch>
+        </nz-form-control>
+      </nz-form-item>
+
     </nz-tab>
 
     <nz-tab nzTitle="定时任务">

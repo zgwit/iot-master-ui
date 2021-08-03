@@ -1,6 +1,6 @@
 <app-editor [(ngModel)]="data" [submitting]="submitting" (submit)="submit()">
 
-  <nz-tabset nzType="card" nzSize="small" [formGroup]="basicForm" (change)="change()">
+  <nz-tabset nzType="card" nzSize="small" [formGroup]="basicForm">
     <nz-tab nzTitle="基本信息">
       <nz-form-item>
         <nz-form-label [nzSpan]="5">名称</nz-form-label>
@@ -21,7 +21,7 @@
         <nz-form-control [nzSpan]="12" nzErrorTip="">
           <nz-select formControlName="protocol" (ngModelChange)="onProtocolChange($event)">
             <nz-option *ngFor="let p of protocols"
-              [nzValue]="p.name" [nzLabel]="p.label || p.name"></nz-option>
+                       [nzValue]="p.name" [nzLabel]="p.label || p.name"></nz-option>
           </nz-select>
         </nz-form-control>
       </nz-form-item>
@@ -54,6 +54,9 @@
       <app-element-edit-collectors formControlName="collectors" [codes]="codes"></app-element-edit-collectors>
     </nz-tab>
 
+    <nz-tab nzTitle="脚本">
+      <app-element-edit-scripts formControlName="scripts"></app-element-edit-scripts>
+    </nz-tab>
   </nz-tabset>
 
 

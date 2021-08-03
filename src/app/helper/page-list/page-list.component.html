@@ -1,5 +1,4 @@
-<div class="toolbar">
-
+<app-toolbar>
   <form nz-space (submit)="search.emit(keyword)">
     <button *nzSpaceItem  type="button" nz-button [nzLoading]="loading" (click)="refresh.emit()">
       <i nz-icon nzType="reload"></i>
@@ -20,13 +19,14 @@
       </button>
     </ng-template>
     <ng-template #suffixIconClear>
-        <i nz-icon nzType="close" *ngIf="keyword" (click)="keyword=''; search.emit(keyword)"></i>
+      <i nz-icon nzType="close" *ngIf="keyword" (click)="keyword=''; search.emit(keyword)"></i>
     </ng-template>
   </form>
 
   <span style="float: right">
     <ng-content select=".right"></ng-content>
   </span>
-</div>
+
+</app-toolbar>
 
 <ng-content></ng-content>

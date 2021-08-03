@@ -8,6 +8,7 @@
           <input nz-input formControlName="name" required/>
         </nz-form-control>
       </nz-form-item>
+
       <nz-form-item>
         <nz-form-label [nzSpan]="5">类型</nz-form-label>
         <nz-form-control [nzSpan]="12" nzErrorTip="">
@@ -19,12 +20,14 @@
           </nz-select>
         </nz-form-control>
       </nz-form-item>
+
       <nz-form-item *ngIf="basicForm.value.type==='tcp-client'">
         <nz-form-label [nzSpan]="5">地址</nz-form-label>
         <nz-form-control [nzSpan]="12" nzErrorTip="">
           <input nz-input formControlName="address" required/>
         </nz-form-control>
       </nz-form-item>
+
       <nz-form-item>
         <nz-form-label [nzSpan]="5">端口</nz-form-label>
         <nz-form-control [nzSpan]="12" nzErrorTip="">
@@ -32,12 +35,21 @@
           <nz-input-number formControlName="port" [nzMin]="1" [nzMax]="65535" [nzStep]="1"></nz-input-number>
         </nz-form-control>
       </nz-form-item>
+
       <nz-form-item>
         <nz-form-label [nzSpan]="5">超时(s)</nz-form-label>
         <nz-form-control [nzSpan]="12" nzErrorTip="">
           <nz-input-number formControlName="timeout" [nzMin]="5" [nzMax]="600" [nzStep]="1"></nz-input-number>
         </nz-form-control>
       </nz-form-item>
+
+      <nz-form-item>
+        <nz-form-label [nzSpan]="5">启用</nz-form-label>
+        <nz-form-control [nzSpan]="12" nzErrorTip="">
+          <nz-switch formControlName="enable"></nz-switch>
+        </nz-form-control>
+      </nz-form-item>
+
     </nz-tab>
 
 

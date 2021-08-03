@@ -22,6 +22,7 @@ export class AcceptorEditComponent implements OnInit {
     "address": "",
     "port": 1843,
     "timeout": 30,
+    "enable": true,
     "register": {
       "enable": true,
       "regex": ""
@@ -60,6 +61,7 @@ export class AcceptorEditComponent implements OnInit {
       address: [this.data.address, [Validators.required]],
       port: [this.data.port, [Validators.required]],
       timeout: [this.data.timeout, [Validators.required]],
+      enable: [this.data.enable, [Validators.required]],
 
       register: this.fb.group({
         enable: [this.data.register.enable, []],

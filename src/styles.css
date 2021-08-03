@@ -12,3 +12,22 @@
 nz-select {
   width: 100%;
 }
+
+.ant-tabs-card .ant-tabs-nav,
+.ant-tabs-card .ant-tabs-nav
+{
+  margin: 0;
+}
+
+.ant-tabs-card .ant-tabs-content-holder {
+  border: 1px solid #F0F0F0;
+}
+.ant-tabs-card .ant-tabs-content {
+  padding: 16px;
+}
+.ant-tabs-top .ant-tabs-content-holder {
+  border-top: none;
+}
+.ant-tabs-left .ant-tabs-content-holder {
+  border-left: none;
+}

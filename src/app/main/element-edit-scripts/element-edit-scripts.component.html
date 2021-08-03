@@ -1,0 +1,58 @@
+<app-toolbar>
+  <nz-space>
+    <button nz-button *nzSpaceItem nzType="default" (click)="clear()">清空</button>
+    <button nz-button *nzSpaceItem nzType="default" (click)="sort()">排序</button>
+    <button nz-button *nzSpaceItem nzType="primary" (click)="add()">添加</button>
+  </nz-space>
+</app-toolbar>
+
+
+<div [formGroup]="formGroup">
+  <nz-tabset nzTabPosition="left" nzType="editable-card" nzSize="small" (nzAdd)="add()" (nzClose)="onRemove($event)" formGroupName="items">
+    <nz-tab *ngFor="let data of formArray.controls; let i=index"
+            nzClosable (close)="remove(i)"
+            [nzTitle]="data.value.name || '未命名'" [formGroupName]="i">
+      <div class="content">
+
+        <nz-form-item>
+          <nz-form-label [nzSpan]="5">名称</nz-form-label>
+          <nz-form-control [nzSpan]="12" nzErrorTip="">
+            <input nz-input formControlName="name" (change)="change()" />
+          </nz-form-control>
+        </nz-form-item>
+
+        <nz-form-item>
+          <nz-form-label [nzSpan]="5">定时</nz-form-label>
+          <nz-form-control [nzSpan]="12" nzErrorTip="">
+            <input nz-input formControlName="crontab" (change)="change()" />
+          </nz-form-control>
+        </nz-form-item>
+
+        <nz-form-item>
+          <nz-form-label [nzSpan]="5">监听</nz-form-label>
+          <nz-form-control [nzSpan]="12" nzErrorTip="">
+            <nz-select nzAllowClear nzMode="tags" formControlName="watches" (ngModelChange)="change()"></nz-select>
+          </nz-form-control>
+        </nz-form-item>
+
+        <nz-form-item>
+          <nz-form-label [nzSpan]="5">启用</nz-form-label>
+          <nz-form-control [nzSpan]="12" nzErrorTip="">
+            <nz-switch formControlName="enable" (ngModelChange)="change()"></nz-switch>
+          </nz-form-control>
+        </nz-form-item>
+
+        <nz-form-item>
+          <nz-form-label [nzSpan]="5">脚本</nz-form-label>
+          <nz-form-control [nzSpan]="12" nzErrorTip="">
+            <app-js-editor formControlName="script" (ngModelChange)="change()"></app-js-editor>
+          </nz-form-control>
+        </nz-form-item>
+
+      </div>
+
+    </nz-tab>
+
+  </nz-tabset>
+
+</div>

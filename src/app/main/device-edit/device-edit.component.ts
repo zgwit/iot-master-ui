@@ -22,6 +22,7 @@ export class DeviceEditComponent implements OnInit {
     "element_id": "",
     "tunnel_id": "",
     "slave": 1,
+    "enable": true,
     "jobs": []
   }
 
@@ -38,6 +39,7 @@ export class DeviceEditComponent implements OnInit {
       element_id: [this.data.element_id, [Validators.required]],
       tunnel_id: [this.data.tunnel_id, [Validators.required]],
       slave: [this.data.slave, [Validators.required]],
+      enable: [this.data.enable, [Validators.required]],
       jobs: [this.data.jobs],
     });
   }

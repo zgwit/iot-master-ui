@@ -26,6 +26,7 @@ export class ElementEditComponent implements OnInit {
     "variables": [],
     "commands": [],
     "collectors": [],
+    "scripts": [],
   }
 
   constructor(private fb: FormBuilder, private tab: TabRef, private route: ActivatedRoute, private rs: RequestService, private message: NzMessageService) {
@@ -46,6 +47,7 @@ export class ElementEditComponent implements OnInit {
       variables: [this.data.variables],
       commands: [this.data.commands],
       collectors: [this.data.collectors],
+      scripts: [this.data.scripts || []],
     });
   }
 

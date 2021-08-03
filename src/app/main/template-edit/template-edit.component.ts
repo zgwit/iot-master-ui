@@ -23,6 +23,7 @@ export class TemplateEditComponent implements OnInit {
     "devices": [],
     "jobs": [],
     "strategies": [],
+    "scripts": [],
   }
 
   constructor(private fb: FormBuilder, private tab: TabRef, private route: ActivatedRoute, private rs: RequestService, private message: NzMessageService) {
@@ -41,6 +42,7 @@ export class TemplateEditComponent implements OnInit {
       devices: [this.data.devices || []],
       jobs: [this.data.jobs || []],
       strategies: [this.data.strategies || []],
+      scripts: [this.data.scripts || []],
     });
   }
 

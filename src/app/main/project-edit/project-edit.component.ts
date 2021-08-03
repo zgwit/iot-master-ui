@@ -18,11 +18,13 @@ export class ProjectEditComponent implements OnInit {
 
   data: any = {
     "name": "新建项目",
+    "enable": true,
     "commands": [],
     "variables": [],
     "devices": [],
     "jobs": [],
     "strategies": [],
+    "scripts": [],
   }
 
   constructor(private fb: FormBuilder, private tab: TabRef, private route: ActivatedRoute, private rs: RequestService, private message: NzMessageService) {
@@ -35,12 +37,14 @@ export class ProjectEditComponent implements OnInit {
   buildForm(): void {
     this.basicForm = this.fb.group({
       name: [this.data.name, [Validators.required]],
+      enable: [this.data.enable, [Validators.required]],
 
       commands: [this.data.commands || []],
       variables: [this.data.variables || []],
       devices: [this.data.devices || []],
       jobs: [this.data.jobs || []],
       strategies: [this.data.strategies || []],
+      scripts: [this.data.scripts || []],
     });
   }
 

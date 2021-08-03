@@ -8,6 +8,13 @@
           <input nz-input formControlName="name" required/>
         </nz-form-control>
       </nz-form-item>
+
+      <nz-form-item>
+        <nz-form-label [nzSpan]="5">启用</nz-form-label>
+        <nz-form-control [nzSpan]="12" nzErrorTip="">
+          <nz-switch formControlName="enable"></nz-switch>
+        </nz-form-control>
+      </nz-form-item>
     </nz-tab>
 
     <nz-tab nzTitle="参数变量">
@@ -28,6 +35,10 @@
 
     <nz-tab nzTitle="控制策略">
       <app-project-edit-strategies formControlName="strategies"></app-project-edit-strategies>
+    </nz-tab>
+
+    <nz-tab nzTitle="脚本">
+      <app-element-edit-scripts formControlName="scripts"></app-element-edit-scripts>
     </nz-tab>
 
   </nz-tabset>
