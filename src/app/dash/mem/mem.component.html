@@ -1,0 +1,10 @@
+<nz-statistic
+  [nzValue]="(info.usage | number: '1.0-2')!"
+  nzTitle="内存"
+  nzSuffix="%"
+></nz-statistic>
+
+<div>
+  {{info.used | filesize}} / {{info.size | filesize}}
+</div>
+
