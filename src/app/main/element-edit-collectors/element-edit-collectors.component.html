@@ -18,7 +18,7 @@
       <input nz-input formControlName="crontab" nzSize="small" (change)="change()" required/>
     </td>
     <td>
-      <nz-select formControlName="code" nzSize="small" (ngModelChange)="change()" (change)="change()" required style="width: 100px">
+      <nz-select formControlName="code" nzSize="small" (ngModelChange)="change()" (change)="change()" required style="min-width: 100px">
         <nz-option *ngFor="let code of codes"
                    [nzValue]="code.code" [nzLabel]="code.name"></nz-option>
       </nz-select>

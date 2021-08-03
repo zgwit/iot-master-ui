@@ -35,6 +35,7 @@ export class ProjectEditDevicesComponent implements OnInit, ControlValueAccessor
         return this.fb.group({
           device_id: [d.device_id, [Validators.required]],
           name: [d.name, [Validators.required]],
+          tags: [d.tags, [Validators.required]],
           type: [d.type, [Validators.required]],
         })
       }))
@@ -45,6 +46,7 @@ export class ProjectEditDevicesComponent implements OnInit, ControlValueAccessor
     this.formArray.push(this.fb.group({
       device_id: ['', [Validators.required]],
       name: ['', [Validators.required]],
+      tags: [[], [Validators.required]],
       type: ['', [Validators.required]],
     }))
     //复制controls，让表格可以刷新

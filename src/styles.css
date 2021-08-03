@@ -8,3 +8,7 @@
   /*min-height: 400px; 最小高度会出问题 */
   height: auto;
 }
+
+nz-select {
+  width: 100%;
+}
