@@ -52,6 +52,10 @@ export class ElementEditComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.rs.get('protocol/list').subscribe(res => {
+      this.protocols = res.data;
+      this._checkCodes();
+    })
   }
 
 
@@ -61,10 +65,6 @@ export class ElementEditComponent implements OnInit {
       this.buildForm();
       this._checkCodes();
     });
-    this.rs.get('protocol/list').subscribe(res => {
-      this.protocols = res.data;
-      this._checkCodes();
-    })
   }
 
   _checkCodes(): void{

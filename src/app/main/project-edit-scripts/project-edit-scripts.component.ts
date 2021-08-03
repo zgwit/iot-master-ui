@@ -2,18 +2,18 @@ import {Component, forwardRef, Input, OnInit} from '@angular/core';
 import {ControlValueAccessor, FormArray, FormBuilder, FormGroup, NG_VALUE_ACCESSOR, Validators} from "@angular/forms";
 
 @Component({
-  selector: 'app-element-edit-scripts',
-  templateUrl: './element-edit-scripts.component.html',
-  styleUrls: ['./element-edit-scripts.component.scss'],
+  selector: 'app-project-edit-scripts',
+  templateUrl: './project-edit-scripts.component.html',
+  styleUrls: ['./project-edit-scripts.component.scss'],
   providers: [
     {
       provide: NG_VALUE_ACCESSOR,
-      useExisting: forwardRef(() => ElementEditScriptsComponent),
+      useExisting: forwardRef(() => ProjectEditScriptsComponent),
       multi: true
     }
   ]
 })
-export class ElementEditScriptsComponent implements OnInit, ControlValueAccessor {
+export class ProjectEditScriptsComponent implements OnInit, ControlValueAccessor {
   @Input() codes: any = [];
 
   onChanged: any = () => {

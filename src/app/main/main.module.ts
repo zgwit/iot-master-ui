@@ -89,7 +89,7 @@ import {TemplateProjectComponent} from "./template-project/template-project.comp
 import {DeviceProjectComponent} from "./device-project/device-project.component";
 import {ElementTemplateComponent} from "./element-template/element-template.component";
 import {DashModule} from "../dash/dash.module";
-import {ElementEditScriptsComponent} from "./element-edit-scripts/element-edit-scripts.component";
+import {ProjectEditScriptsComponent} from "./project-edit-scripts/project-edit-scripts.component";
 
 
 @NgModule({
@@ -114,7 +114,7 @@ import {ElementEditScriptsComponent} from "./element-edit-scripts/element-edit-s
     ProtocolComponent, ProtocolDetailComponent,
     ApiComponent,
     SettingComponent,
-    PasswordComponent, EventComponent, AcceptorTunnelComponent, TunnelDeviceComponent, ElementDeviceComponent, TemplateProjectComponent, DeviceProjectComponent, ElementTemplateComponent, ElementEditScriptsComponent,
+    PasswordComponent, EventComponent, AcceptorTunnelComponent, TunnelDeviceComponent, ElementDeviceComponent, TemplateProjectComponent, DeviceProjectComponent, ElementTemplateComponent, ProjectEditScriptsComponent,
   ],
   imports: [
     CommonModule,
