@@ -1,4 +1,4 @@
-import {Component, forwardRef, OnInit} from '@angular/core';
+import {Component, forwardRef, Input, OnInit} from '@angular/core';
 import {ControlValueAccessor, FormArray, FormBuilder, FormGroup, NG_VALUE_ACCESSOR, Validators} from "@angular/forms";
 
 @Component({
@@ -14,6 +14,8 @@ import {ControlValueAccessor, FormArray, FormBuilder, FormGroup, NG_VALUE_ACCESS
   ]
 })
 export class ElementEditVariablesComponent implements OnInit, ControlValueAccessor {
+  @Input() codes: any = [];
+
   onChanged: any = () => {
   }
   onTouched: any = () => {
@@ -23,17 +25,19 @@ export class ElementEditVariablesComponent implements OnInit, ControlValueAccess
   formGroup = new FormGroup({});
   formArray: FormArray = new FormArray([]);
 
-  constructor(private fb: FormBuilder) { }
+  constructor(private fb: FormBuilder) {
+  }
 
   ngOnInit(): void {
     this.buildForm();
   }
 
-  buildForm(): void{
+  buildForm(): void {
     this.formGroup = this.fb.group({
       items: this.formArray = this.fb.array(this.items.map((d: any) => {
         return this.fb.group({
           name: [d.name, [Validators.required]],
+          code: [d.code, [Validators.required]],
           address: [d.address, [Validators.required]],
           type: [d.type, [Validators.required]],
           ratio: [d.ratio, [Validators.required]],
@@ -46,13 +50,15 @@ export class ElementEditVariablesComponent implements OnInit, ControlValueAccess
   add() {
     this.formArray.push(this.fb.group({
       name: ['', [Validators.required]],
-      address: ['', [Validators.required]],
+      code: [1, [Validators.required]],
+      address: [0, [Validators.required]],
       type: ['word', [Validators.required]],
       ratio: [1, [Validators.required]],
       store: [true, [Validators.required]],
     }))
     //复制controls，让表格可以刷新
     this.formArray.controls = [...this.formArray.controls];
+    this.change();
   }
 
   moveUp(i: number) {
@@ -90,7 +96,7 @@ export class ElementEditVariablesComponent implements OnInit, ControlValueAccess
     this.change();
   }
 
-  change(){
+  change() {
     this.onChanged(this.formArray.value);
     this.onTouched();
   }

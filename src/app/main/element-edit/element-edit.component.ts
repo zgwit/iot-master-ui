@@ -13,6 +13,8 @@ import {NzMessageService} from "ng-zorro-antd/message";
 export class ElementEditComponent implements OnInit {
   id: any;
   submitting = false;
+  protocols: any = [];
+  codes: any = [];
 
   basicForm: FormGroup = new FormGroup({});
   data: any = {
@@ -55,13 +57,26 @@ export class ElementEditComponent implements OnInit {
     this.rs.get('element/' + this.id + '/detail').subscribe(res => {
       this.data = res.data;
       this.buildForm();
+      this._checkCodes();
+    });
+    this.rs.get('protocol/list').subscribe(res => {
+      this.protocols = res.data;
+      this._checkCodes();
+    })
+  }
+
+  _checkCodes(): void{
+    this.protocols.forEach((p: any) => {
+      if (p.name === this.data.protocol) {
+        this.codes = p.codes;
+      }
     })
   }
 
   submit(): void {
     this.submitting = true
     const uri = this.id ? 'element/' + this.id + '/setting' : 'element/create';
-    this.rs.post(uri, this.data).subscribe(res => {
+    this.rs.post(uri, this.basicForm.value).subscribe(res => {
       this.message.success("提交成功");
       this.tab.Close();
     }).add(() => {
@@ -74,4 +89,13 @@ export class ElementEditComponent implements OnInit {
     this.data = this.basicForm.value;
   }
 
+  onProtocolChange($event: string) {
+    console.log($event)
+    this.protocols.forEach((p: any) => {
+      if (p.name === $event) {
+        this.codes = p.codes;
+      }
+    })
+
+  }
 }

@@ -11,7 +11,7 @@
       <nz-form-item>
         <nz-form-label [nzSpan]="5">类型</nz-form-label>
         <nz-form-control [nzSpan]="12" nzErrorTip="">
-          <nz-select formControlName="type">
+          <nz-select formControlName="type" (ngModelChange)="change()" (change)="change()">
             <nz-option nzValue="tcp-server" nzLabel="TCP服务器"></nz-option>
             <nz-option nzValue="tcp-client" nzLabel="TCP客户端"></nz-option>
             <nz-option nzValue="udp-server" nzLabel="UDP服务器" nzDisabled></nz-option>
@@ -141,7 +141,7 @@
         <nz-form-item>
           <nz-form-label [nzSpan]="5">协议</nz-form-label>
           <nz-form-control [nzSpan]="12" nzErrorTip="">
-            <nz-select nzAllowClear formControlName="type">
+            <nz-select nzAllowClear formControlName="type" (ngModelChange)="change()" (change)="change()">
               <nz-option nzValue="modbus-tcp" nzLabel="Modbus TCP"></nz-option>
               <nz-option nzValue="modbus-rtu" nzLabel="Modbus RTU"></nz-option>
             </nz-select>

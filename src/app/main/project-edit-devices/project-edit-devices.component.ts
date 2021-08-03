@@ -49,6 +49,7 @@ export class ProjectEditDevicesComponent implements OnInit, ControlValueAccessor
     }))
     //复制controls，让表格可以刷新
     this.formArray.controls = [...this.formArray.controls];
+    this.change();
   }
 
   moveUp(i: number) {

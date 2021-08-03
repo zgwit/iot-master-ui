@@ -3,6 +3,7 @@
   <tr>
     <th>间隔(s)</th>
     <th>定时</th>
+    <th>功能码</th>
     <th>地址</th>
     <th>长度</th>
     <th>操作</th>
@@ -17,10 +18,17 @@
       <input nz-input formControlName="crontab" nzSize="small" (change)="change()" required/>
     </td>
     <td>
-      <input nz-input formControlName="address" nzSize="small" (change)="change()" required/>
+      <nz-select formControlName="code" nzSize="small" (ngModelChange)="change()" (change)="change()" required style="width: 100px">
+        <nz-option *ngFor="let code of codes"
+                   [nzValue]="code.code" [nzLabel]="code.name"></nz-option>
+      </nz-select>
     </td>
     <td>
-      <nz-input-number formControlName="length" [nzMin]="1" [nzMax]="65535" [nzStep]="1" nzSize="small" (change)="change()"></nz-input-number>
+<!--      <input nz-input formControlName="address" nzSize="small" (change)="change()" required/>-->
+      <nz-input-number formControlName="address" [nzMin]="1" [nzMax]="65535" [nzStep]="1" nzSize="small" (change)="change()" required></nz-input-number>
+    </td>
+    <td>
+      <nz-input-number formControlName="length" [nzMin]="1" [nzMax]="65535" [nzStep]="1" nzSize="small" (change)="change()" required></nz-input-number>
     </td>
     <td>
       <a (click)="moveUp(i)">上移</a>

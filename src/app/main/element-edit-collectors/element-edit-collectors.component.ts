@@ -1,4 +1,4 @@
-import {Component, forwardRef, OnInit} from '@angular/core';
+import {Component, forwardRef, Input, OnInit} from '@angular/core';
 import {ControlValueAccessor, FormArray, FormBuilder, FormGroup, NG_VALUE_ACCESSOR, Validators} from "@angular/forms";
 
 @Component({
@@ -14,6 +14,8 @@ import {ControlValueAccessor, FormArray, FormBuilder, FormGroup, NG_VALUE_ACCESS
   ]
 })
 export class ElementEditCollectorsComponent implements OnInit, ControlValueAccessor {
+  @Input() codes: any = [];
+
   onChanged: any = () => {
   }
   onTouched: any = () => {
@@ -35,6 +37,7 @@ export class ElementEditCollectorsComponent implements OnInit, ControlValueAcces
         return this.fb.group({
           interval: [d.interval, [Validators.required]],
           crontab: [d.crontab, [Validators.required]],
+          code: [d.code, [Validators.required]],
           address: [d.address, [Validators.required]],
           length: [d.length, [Validators.required]],
         })
@@ -46,11 +49,13 @@ export class ElementEditCollectorsComponent implements OnInit, ControlValueAcces
     this.formArray.push(this.fb.group({
           interval: [60, [Validators.required]],
           crontab: ['', [Validators.required]],
-          address: ['', [Validators.required]],
+          code: [1, [Validators.required]],
+          address: [0, [Validators.required]],
           length: [0, [Validators.required]],
     }))
     //复制controls，让表格可以刷新
     this.formArray.controls = [...this.formArray.controls];
+    this.change();
   }
 
   moveUp(i: number) {

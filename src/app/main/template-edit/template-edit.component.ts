@@ -58,7 +58,7 @@ export class TemplateEditComponent implements OnInit {
   submit(): void {
     this.submitting = true
     const uri = this.id ? 'template/' + this.id + '/setting' : 'template/create';
-    this.rs.post(uri, this.data).subscribe(res => {
+    this.rs.post(uri, this.basicForm.value).subscribe(res => {
       this.message.success("提交成功");
       this.tab.Close();
     }).add(() => {

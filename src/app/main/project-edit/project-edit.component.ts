@@ -58,7 +58,7 @@ export class ProjectEditComponent implements OnInit {
   submit(): void {
     this.submitting = true
     const uri = this.id ? 'project/' + this.id + '/setting' : 'project/create';
-    this.rs.post(uri, this.data).subscribe(res => {
+    this.rs.post(uri, this.basicForm.value).subscribe(res => {
       this.message.success("提交成功");
       this.tab.Close();
     }).add(() => {

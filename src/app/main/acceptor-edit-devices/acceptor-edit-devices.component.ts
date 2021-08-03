@@ -47,6 +47,7 @@ export class AcceptorEditDevicesComponent implements OnInit, ControlValueAccesso
     }))
     //复制controls，让表格可以刷新
     this.formArray.controls = [...this.formArray.controls];
+    this.change();
   }
 
   moveUp(i: number) {

@@ -1,1 +1,18 @@
-<p>dash works!</p>
+
+<nz-row [nzGutter]="16">
+  <nz-col [nzSpan]="12">
+    <nz-card>
+      <app-dash-cpu></app-dash-cpu>
+    </nz-card>
+  </nz-col>
+  <nz-col [nzSpan]="12">
+    <nz-card>
+      <app-dash-mem></app-dash-mem>
+    </nz-card>
+  </nz-col>
+  <nz-col [nzSpan]="12">
+    <nz-card>
+      <app-dash-disk></app-dash-disk>
+    </nz-card>
+  </nz-col>
+</nz-row>

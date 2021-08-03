@@ -19,9 +19,9 @@
       <nz-form-item>
         <nz-form-label [nzSpan]="5">协议</nz-form-label>
         <nz-form-control [nzSpan]="12" nzErrorTip="">
-          <nz-select formControlName="protocol">
-            <nz-option nzValue="modbus-rtu" nzLabel="Modbus RTU"></nz-option>
-            <nz-option nzValue="modbus-tcp" nzLabel="Modbus TCP"></nz-option>
+          <nz-select formControlName="protocol" (ngModelChange)="onProtocolChange($event)">
+            <nz-option *ngFor="let p of protocols"
+              [nzValue]="p.name" [nzLabel]="p.label || p.name"></nz-option>
           </nz-select>
         </nz-form-control>
       </nz-form-item>
@@ -34,7 +34,7 @@
       </nz-form-item>
 
       <nz-form-item>
-        <nz-form-label [nzSpan]="5">版本号</nz-form-label>
+        <nz-form-label [nzSpan]="5">型号</nz-form-label>
         <nz-form-control [nzSpan]="12" nzErrorTip="">
           <input nz-input formControlName="version"/>
         </nz-form-control>
@@ -43,7 +43,7 @@
     </nz-tab>
 
     <nz-tab nzTitle="变量映射">
-      <app-element-edit-variables formControlName="variables"></app-element-edit-variables>
+      <app-element-edit-variables formControlName="variables" [codes]="codes"></app-element-edit-variables>
     </nz-tab>
 
     <nz-tab nzTitle="控制命令">
@@ -51,7 +51,7 @@
     </nz-tab>
 
     <nz-tab nzTitle="采集器">
-      <app-element-edit-collectors formControlName="collectors"></app-element-edit-collectors>
+      <app-element-edit-collectors formControlName="collectors" [codes]="codes"></app-element-edit-collectors>
     </nz-tab>
 
   </nz-tabset>

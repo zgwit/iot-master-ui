@@ -2,6 +2,7 @@
   <thead>
   <tr>
     <th>名称</th>
+    <th>功能码</th>
     <th>地址</th>
     <th>类型</th>
     <th>倍率</th>
@@ -15,11 +16,18 @@
       <input nz-input formControlName="name" nzSize="small" (change)="change()" required/>
     </td>
     <td>
-      <input nz-input formControlName="address" nzSize="small" (change)="change()" required/>
+      <nz-select formControlName="code" nzSize="small" (ngModelChange)="change()" (change)="change()" required style="width: 100px">
+        <nz-option *ngFor="let code of codes"
+          [nzValue]="code.code" [nzLabel]="code.name"></nz-option>
+      </nz-select>
+    </td>
+    <td>
+<!--      <input nz-input formControlName="address" nzSize="small" (change)="change()" required/>-->
+      <nz-input-number formControlName="address" [nzMin]="1" [nzMax]="65535" [nzStep]="1" nzSize="small" (change)="change()" required></nz-input-number>
     </td>
     <td>
 <!--      <input nz-input formControlName="type" nzSize="small" (change)="change()" required/>-->
-      <nz-select formControlName="type" nzSize="small" (change)="change()" required style="width: 100px">
+      <nz-select formControlName="type" nzSize="small" (ngModelChange)="change()" (change)="change()" required style="width: 100px">
         <nz-option nzValue="boolean" nzLabel="BOOLEAN"></nz-option>
         <nz-option nzValue="word" nzLabel="WORD"></nz-option>
         <nz-option nzValue="dword" nzLabel="DWORD"></nz-option>
@@ -31,7 +39,7 @@
       </nz-select>
     </td>
     <td>
-      <input nz-input type="number" formControlName="ratio" nzSize="small" (change)="change()" required/>
+      <input nz-input type="number" formControlName="ratio" nzSize="small" (ngModelChange)="change()" (change)="change()" required/>
     </td>
     <td>
       <nz-switch formControlName="store" nzSize="small" (change)="change()"></nz-switch>

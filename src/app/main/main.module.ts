@@ -88,6 +88,7 @@ import {ElementDeviceComponent} from "./element-device/element-device.component"
 import {TemplateProjectComponent} from "./template-project/template-project.component";
 import {DeviceProjectComponent} from "./device-project/device-project.component";
 import {ElementTemplateComponent} from "./element-template/element-template.component";
+import {DashModule} from "../dash/dash.module";
 
 
 @NgModule({
@@ -150,6 +151,7 @@ import {ElementTemplateComponent} from "./element-template/element-template.comp
     HelperModule,
     NzDropDownModule,
     NzTimePickerModule,
+    DashModule,
   ],
   bootstrap: [MainComponent]
 })

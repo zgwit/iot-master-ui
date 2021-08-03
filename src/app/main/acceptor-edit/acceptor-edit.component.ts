@@ -104,7 +104,7 @@ export class AcceptorEditComponent implements OnInit {
   submit(): void {
     this.submitting = true
     const uri = this.id ? 'acceptor/' + this.id + '/setting' : 'acceptor/create';
-    this.rs.post(uri, this.data).subscribe(res => {
+    this.rs.post(uri, this.basicForm.value).subscribe(res => {
       this.message.success("提交成功");
       this.tab.Close();
     }).add(() => {
