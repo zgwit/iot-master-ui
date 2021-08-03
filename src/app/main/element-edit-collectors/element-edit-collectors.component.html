@@ -33,8 +33,7 @@
       </nz-select>
     </td>
     <td>
-<!--      <input nz-input formControlName="address" nzSize="small" (change)="change()" required/>-->
-      <nz-input-number formControlName="address" [nzMin]="1" [nzMax]="65535" [nzStep]="1" nzSize="small" (change)="change()" required></nz-input-number>
+      <nz-input-number formControlName="address" [nzMin]="0" [nzMax]="65535" [nzStep]="1" nzSize="small" (change)="change()" required></nz-input-number>
     </td>
     <td>
       <nz-input-number formControlName="length" [nzMin]="1" [nzMax]="65535" [nzStep]="1" nzSize="small" (change)="change()" required></nz-input-number>

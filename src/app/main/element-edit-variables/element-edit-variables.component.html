@@ -10,6 +10,7 @@
 <nz-table [nzData]="formArray.controls" [nzFrontPagination]="false" nzSize="small" [formGroup]="formGroup">
   <thead>
   <tr>
+    <th>变量</th>
     <th>名称</th>
     <th>功能码</th>
     <th>地址</th>
@@ -25,26 +26,20 @@
       <input nz-input formControlName="name" nzSize="small" (change)="change()" required/>
     </td>
     <td>
+      <input nz-input formControlName="label" nzSize="small" (change)="change()"/>
+    </td>
+    <td>
       <nz-select formControlName="code" nzSize="small" (ngModelChange)="change()" (change)="change()" required style="width: 100px">
         <nz-option *ngFor="let code of codes"
           [nzValue]="code.code" [nzLabel]="code.name"></nz-option>
       </nz-select>
     </td>
     <td>
-<!--      <input nz-input formControlName="address" nzSize="small" (change)="change()" required/>-->
-      <nz-input-number formControlName="address" [nzMin]="1" [nzMax]="65535" [nzStep]="1" nzSize="small" (change)="change()" required></nz-input-number>
+      <nz-input-number formControlName="address" [nzMin]="0" [nzMax]="65535" [nzStep]="1" nzSize="small" (change)="change()" required></nz-input-number>
     </td>
     <td>
-<!--      <input nz-input formControlName="type" nzSize="small" (change)="change()" required/>-->
-      <nz-select formControlName="type" nzSize="small" (ngModelChange)="change()" (change)="change()" required style="width: 100px">
-        <nz-option nzValue="boolean" nzLabel="BOOLEAN"></nz-option>
-        <nz-option nzValue="word" nzLabel="WORD"></nz-option>
-        <nz-option nzValue="dword" nzLabel="DWORD"></nz-option>
-        <nz-option nzValue="float" nzLabel="FLOAT"></nz-option>
-        <nz-option nzValue="double" nzLabel="DOUBLE"></nz-option>
-        <nz-option nzValue="uint8" nzLabel="UINT8"></nz-option>
-        <nz-option nzValue="uint16" nzLabel="UINT16"></nz-option>
-        <nz-option nzValue="uint32" nzLabel="UINT32"></nz-option>
+      <nz-select formControlName="type" nzSize="small" (ngModelChange)="change()" (change)="change()" required>
+        <nz-option *ngFor="let dt of dataTypes" [nzValue]="dt.value" [nzLabel]="dt.name"></nz-option>
       </nz-select>
     </td>
     <td>

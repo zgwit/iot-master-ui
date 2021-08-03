@@ -10,6 +10,7 @@
 <nz-table [nzData]="formArray.controls" [nzFrontPagination]="false" nzSize="small" [formGroup]="formGroup">
   <thead>
   <tr>
+    <th>变量</th>
     <th>名称</th>
     <th>类型</th>
     <th>默认</th>
@@ -22,10 +23,15 @@
       <input nz-input formControlName="name" nzSize="small" (change)="change()" required/>
     </td>
     <td>
-      <input nz-input formControlName="type" nzSize="small" (change)="change()" required/>
+      <input nz-input formControlName="label" nzSize="small" (change)="change()"/>
     </td>
     <td>
-      <input nz-input formControlName="default" nzSize="small" (change)="change()" required/>
+      <nz-select formControlName="type" nzSize="small" (ngModelChange)="change()" (change)="change()" required>
+        <nz-option *ngFor="let dt of dataTypes" [nzValue]="dt.value" [nzLabel]="dt.name"></nz-option>
+      </nz-select>
+    </td>
+    <td>
+      <input nz-input formControlName="default" nzSize="small" (change)="change()"/>
     </td>
     <td>
       <a (click)="moveUp(i)">上移</a>

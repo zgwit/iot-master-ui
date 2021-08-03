@@ -1,5 +1,6 @@
 import {Component, forwardRef, Input, OnInit} from '@angular/core';
 import {ControlValueAccessor, FormArray, FormBuilder, FormGroup, NG_VALUE_ACCESSOR, Validators} from "@angular/forms";
+import {DataTypes} from "../../helper/lib";
 
 @Component({
   selector: 'app-element-edit-variables',
@@ -24,6 +25,7 @@ export class ElementEditVariablesComponent implements OnInit, ControlValueAccess
   items: any[] = [];
   formGroup = new FormGroup({});
   formArray: FormArray = new FormArray([]);
+  dataTypes = DataTypes;
 
   constructor(private fb: FormBuilder) {
   }
@@ -37,6 +39,7 @@ export class ElementEditVariablesComponent implements OnInit, ControlValueAccess
       items: this.formArray = this.fb.array(this.items.map((d: any) => {
         return this.fb.group({
           name: [d.name, [Validators.required]],
+          label: [d.label, []],
           code: [d.code, [Validators.required]],
           address: [d.address, [Validators.required]],
           type: [d.type, [Validators.required]],
@@ -50,6 +53,7 @@ export class ElementEditVariablesComponent implements OnInit, ControlValueAccess
   add() {
     this.formArray.push(this.fb.group({
       name: ['', [Validators.required]],
+      label: ['', []],
       code: [1, [Validators.required]],
       address: [0, [Validators.required]],
       type: ['word', [Validators.required]],
