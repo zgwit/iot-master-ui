@@ -13,7 +13,6 @@ import {TabsComponent} from "./tabs/tabs.component";
 import {RouterModule} from "@angular/router";
 import {NzSpaceModule} from "ng-zorro-antd/space";
 import {PageListComponent} from './page-list/page-list.component';
-import {PageDetailComponent} from './page-detail/page-detail.component';
 import {NzInputModule} from "ng-zorro-antd/input";
 import {ObjectIdToDatePipe} from './object-id-to-date.pipe';
 
@@ -26,7 +25,6 @@ import {ObjectIdToDatePipe} from './object-id-to-date.pipe';
     YamlEditorComponent,
     JsonEditorComponent,
     PageListComponent,
-    PageDetailComponent,
     ObjectIdToDatePipe,
   ],
   exports: [
