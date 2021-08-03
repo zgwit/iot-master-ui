@@ -68,6 +68,8 @@ export class TemplateComponent implements OnInit {
   }
 
   remove(i: number) {
-
+    this.rs.delete('template/'+this.datum[i]._id+'/delete').subscribe(res=>{
+      this.datum.splice(i, 1);
+    });
   }
 }
