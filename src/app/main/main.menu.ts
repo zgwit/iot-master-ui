@@ -59,7 +59,7 @@ export let MainMenu = [
         router: 'user'
       },
       {
-        title: '分组',
+        title: '群组',
         router: 'group'
       },
     ]

@@ -91,6 +91,7 @@ import {ElementTemplateComponent} from "./element-template/element-template.comp
 import {DashModule} from "../dash/dash.module";
 import {ProjectEditScriptsComponent} from "./project-edit-scripts/project-edit-scripts.component";
 import {UserGroupComponent} from "./user-group/user-group.component";
+import {GroupUserComponent} from "./group-user/group-user.component";
 
 
 @NgModule({
@@ -115,7 +116,7 @@ import {UserGroupComponent} from "./user-group/user-group.component";
         ProtocolComponent, ProtocolDetailComponent,
         ApiComponent,
         SettingComponent,
-        PasswordComponent, EventComponent, AcceptorTunnelComponent, TunnelDeviceComponent, ElementDeviceComponent, TemplateProjectComponent, DeviceProjectComponent, ElementTemplateComponent, ProjectEditScriptsComponent, UserGroupComponent,
+        PasswordComponent, EventComponent, AcceptorTunnelComponent, TunnelDeviceComponent, ElementDeviceComponent, TemplateProjectComponent, DeviceProjectComponent, ElementTemplateComponent, ProjectEditScriptsComponent, UserGroupComponent, GroupUserComponent,
     ],
   imports: [
     CommonModule,
