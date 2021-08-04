@@ -11,6 +11,7 @@
 
 nz-select {
   width: 100%;
+  min-width: 120px;
 }
 
 .ant-tabs-card .ant-tabs-nav,

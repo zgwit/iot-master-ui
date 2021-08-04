@@ -90,32 +90,33 @@ import {DeviceProjectComponent} from "./device-project/device-project.component"
 import {ElementTemplateComponent} from "./element-template/element-template.component";
 import {DashModule} from "../dash/dash.module";
 import {ProjectEditScriptsComponent} from "./project-edit-scripts/project-edit-scripts.component";
+import {UserGroupComponent} from "./user-group/user-group.component";
 
 
 @NgModule({
-  declarations: [
-    MainComponent,
-    DashComponent,
-    TunnelComponent, TunnelEditComponent, TunnelDetailComponent, TunnelMonitorComponent,
-    AcceptorComponent, AcceptorDetailComponent,
-    AcceptorEditComponent, AcceptorEditDevicesComponent,
-    ProjectComponent, ProjectDetailComponent,
-    ProjectEditComponent, ProjectEditJobsComponent, ProjectEditCommandsComponent,
-    ProjectEditVariablesComponent, ProjectEditDevicesComponent, ProjectEditStrategiesComponent,
-    DeviceComponent, DeviceDetailComponent,
-    DeviceEditComponent, DeviceEditJobsComponent,
-    TemplateComponent, TemplateDetailComponent,
-    TemplateEditComponent, TemplateEditDevicesComponent,
-    ElementComponent, ElementDetailComponent,
-    ElementEditComponent, ElementEditVariablesComponent, ElementEditCommandsComponent, ElementEditCollectorsComponent,
-    UserComponent, UserEditComponent, UserDetailComponent,
-    GroupComponent, GroupEditComponent, GroupDetailComponent,
-    PluginComponent, PluginDetailComponent,
-    ProtocolComponent, ProtocolDetailComponent,
-    ApiComponent,
-    SettingComponent,
-    PasswordComponent, EventComponent, AcceptorTunnelComponent, TunnelDeviceComponent, ElementDeviceComponent, TemplateProjectComponent, DeviceProjectComponent, ElementTemplateComponent, ProjectEditScriptsComponent,
-  ],
+    declarations: [
+        MainComponent,
+        DashComponent,
+        TunnelComponent, TunnelEditComponent, TunnelDetailComponent, TunnelMonitorComponent,
+        AcceptorComponent, AcceptorDetailComponent,
+        AcceptorEditComponent, AcceptorEditDevicesComponent,
+        ProjectComponent, ProjectDetailComponent,
+        ProjectEditComponent, ProjectEditJobsComponent, ProjectEditCommandsComponent,
+        ProjectEditVariablesComponent, ProjectEditDevicesComponent, ProjectEditStrategiesComponent,
+        DeviceComponent, DeviceDetailComponent,
+        DeviceEditComponent, DeviceEditJobsComponent,
+        TemplateComponent, TemplateDetailComponent,
+        TemplateEditComponent, TemplateEditDevicesComponent,
+        ElementComponent, ElementDetailComponent,
+        ElementEditComponent, ElementEditVariablesComponent, ElementEditCommandsComponent, ElementEditCollectorsComponent,
+        UserComponent, UserEditComponent, UserDetailComponent,
+        GroupComponent, GroupEditComponent, GroupDetailComponent,
+        PluginComponent, PluginDetailComponent,
+        ProtocolComponent, ProtocolDetailComponent,
+        ApiComponent,
+        SettingComponent,
+        PasswordComponent, EventComponent, AcceptorTunnelComponent, TunnelDeviceComponent, ElementDeviceComponent, TemplateProjectComponent, DeviceProjectComponent, ElementTemplateComponent, ProjectEditScriptsComponent, UserGroupComponent,
+    ],
   imports: [
     CommonModule,
     FormsModule,

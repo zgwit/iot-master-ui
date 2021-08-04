@@ -1,1 +1,24 @@
-<p>user-detail works!</p>
+
+
+<nz-tabset [nzTabBarExtraContent]="extraTemplate">
+  <nz-tab nzTitle="基本信息">
+    <p>{{data|json}}</p>
+  </nz-tab>
+  <nz-tab nzTitle="群组">
+    <ng-template nz-tab>
+      <app-user-group [_id]="id"></app-user-group>
+    </ng-template>
+  </nz-tab>
+  <nz-tab nzTitle="日志">
+    <ng-template nz-tab>
+      <app-event type="user" [_id]="id"></app-event>
+    </ng-template>
+  </nz-tab>
+
+</nz-tabset>
+
+<ng-template #extraTemplate>
+  <a [routerLink]="'/admin/user/edit/'+id">
+    <i nz-icon nzType="form"></i>
+  </a>
+</ng-template>

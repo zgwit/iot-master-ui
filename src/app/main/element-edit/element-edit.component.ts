@@ -14,7 +14,7 @@ export class ElementEditComponent implements OnInit {
   id: any;
   submitting = false;
   protocols: any = [];
-  codes: any = [];
+  codes: any = [{name:'请选择协议'}];
 
   basicForm: FormGroup = new FormGroup({});
   data: any = {

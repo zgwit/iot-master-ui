@@ -15,6 +15,7 @@
     <th>功能码</th>
     <th>地址</th>
     <th>长度</th>
+    <th>启用</th>
     <th>操作</th>
   </tr>
   </thead>
@@ -37,6 +38,9 @@
     </td>
     <td>
       <nz-input-number formControlName="length" [nzMin]="1" [nzMax]="65535" [nzStep]="1" nzSize="small" (change)="change()" required></nz-input-number>
+    </td>
+    <td>
+      <nz-switch formControlName="enable"></nz-switch>
     </td>
     <td>
       <a (click)="moveUp(i)">上移</a>
