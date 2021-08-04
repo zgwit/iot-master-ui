@@ -97,9 +97,11 @@ import {ChooseService} from "./choose.service";
 import {UserBrowserComponent} from "./user-browser/user-browser.component";
 import {DeviceBrowserComponent} from "./device-browser/device-browser.component";
 import {TemplateBrowserComponent} from "./template-browser/template-browser.component";
-import {ProtocolBrowserComponent} from "./protocol-browser/protocol-browser.component";
 import {ElementBrowserComponent} from "./element-browser/element-browser.component";
 import {DragDropModule} from "@angular/cdk/drag-drop";
+import {ChooseDeviceComponent} from "./choose-device/choose-device.component";
+import {ChooseElementComponent} from "./choose-element/choose-element.component";
+import {ChooseTemplateComponent} from "./choose-template/choose-template.component";
 
 
 @NgModule({
@@ -127,7 +129,8 @@ import {DragDropModule} from "@angular/cdk/drag-drop";
     PasswordComponent, EventComponent, AcceptorTunnelComponent, TunnelDeviceComponent,
     ElementDeviceComponent, TemplateProjectComponent, DeviceProjectComponent, ElementTemplateComponent,
     ProjectEditScriptsComponent, UserGroupComponent, GroupUserComponent,
-    GroupBrowserComponent, UserBrowserComponent, DeviceBrowserComponent, TemplateBrowserComponent, ProtocolBrowserComponent, ElementBrowserComponent,
+    GroupBrowserComponent, UserBrowserComponent, DeviceBrowserComponent, TemplateBrowserComponent, ElementBrowserComponent,
+    ChooseDeviceComponent, ChooseElementComponent, ChooseTemplateComponent,
   ],
   imports: [
     CommonModule,

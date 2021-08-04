@@ -15,7 +15,7 @@ import {NzSpaceModule} from "ng-zorro-antd/space";
 import {PageListComponent} from './page-list/page-list.component';
 import {NzInputModule} from "ng-zorro-antd/input";
 import {ObjectIdToDatePipe} from './object-id-to-date.pipe';
-import { ToolbarComponent } from './toolbar/toolbar.component';
+import {ToolbarComponent} from './toolbar/toolbar.component';
 
 
 @NgModule({
@@ -29,16 +29,16 @@ import { ToolbarComponent } from './toolbar/toolbar.component';
     ObjectIdToDatePipe,
     ToolbarComponent,
   ],
-    exports: [
-        TabsComponent,
-        PageEditorComponent,
-        JsEditorComponent,
-        YamlEditorComponent,
-        JsonEditorComponent,
-        PageListComponent,
-        ObjectIdToDatePipe,
-        ToolbarComponent,
-    ],
+  exports: [
+    TabsComponent,
+    PageEditorComponent,
+    JsEditorComponent,
+    YamlEditorComponent,
+    JsonEditorComponent,
+    PageListComponent,
+    ObjectIdToDatePipe,
+    ToolbarComponent,
+  ],
   imports: [
     CommonModule,
     CodemirrorModule,

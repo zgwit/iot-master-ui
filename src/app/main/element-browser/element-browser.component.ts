@@ -1,7 +1,5 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {NzTableQueryParams} from "ng-zorro-antd/table";
-import {TabRef} from "../../helper/tabs/tabs.component";
-import {Router} from "@angular/router";
 import {RequestService} from "../../request.service";
 import {parseTableQuery} from "../../helper/lib";
 import {NzModalRef} from "ng-zorro-antd/modal";
@@ -26,12 +24,12 @@ export class ElementBrowserComponent implements OnInit {
   checked = false;
   indeterminate = false;
   setCheckedOfId = new Set<string>();
-  tableData: any[] = [];
+  tableData: readonly any[] = [];
 
   ids: string[] = [];
 
   onCurrentPageDataChange(currentPageData: readonly any[]): void {
-    this.tableData = currentPageData.filter(({enable}) => enable);
+    this.tableData = currentPageData;
     this.refreshCheckedStatus();
   }
 
@@ -62,8 +60,7 @@ export class ElementBrowserComponent implements OnInit {
   }
 
   onItemClick(data: any) {
-    if (data.enable)
-      this.onItemChecked(data._id, !this.setCheckedOfId.has(data._id))
+    this.onItemChecked(data._id, !this.setCheckedOfId.has(data._id))
   }
 
   constructor(private rs: RequestService, private mr: NzModalRef) {

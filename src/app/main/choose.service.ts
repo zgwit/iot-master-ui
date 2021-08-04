@@ -1,10 +1,7 @@
-import {Injectable, ViewContainerRef} from '@angular/core';
+import {Injectable} from '@angular/core';
 import {NzModalService} from "ng-zorro-antd/modal";
 import {GroupBrowserComponent} from "./group-browser/group-browser.component";
-import {MainModule} from "./main.module";
-import {map} from "rxjs/operators";
 import {UserBrowserComponent} from "./user-browser/user-browser.component";
-import {ProtocolBrowserComponent} from "./protocol-browser/protocol-browser.component";
 import {TemplateBrowserComponent} from "./template-browser/template-browser.component";
 import {ElementBrowserComponent} from "./element-browser/element-browser.component";
 import {DeviceBrowserComponent} from "./device-browser/device-browser.component";
@@ -57,14 +54,6 @@ export class ChooseService {
     const modal = this.ms.create({
       nzTitle: '选择模板',
       nzContent: TemplateBrowserComponent,
-    });
-    return modal.afterClose
-  }
-
-  chooseProtocol() {
-    const modal = this.ms.create({
-      nzTitle: '选择协议',
-      nzContent: ProtocolBrowserComponent,
     });
     return modal.afterClose
   }

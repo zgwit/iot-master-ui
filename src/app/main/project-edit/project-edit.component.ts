@@ -37,6 +37,7 @@ export class ProjectEditComponent implements OnInit {
   buildForm(): void {
     this.basicForm = this.fb.group({
       name: [this.data.name, [Validators.required]],
+      template_id: [this.data.template_id, []],
       enable: [this.data.enable, [Validators.required]],
 
       commands: [this.data.commands || []],

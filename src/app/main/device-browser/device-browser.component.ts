@@ -1,7 +1,5 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {NzTableQueryParams} from "ng-zorro-antd/table";
-import {TabRef} from "../../helper/tabs/tabs.component";
-import {Router} from "@angular/router";
 import {RequestService} from "../../request.service";
 import {parseTableQuery} from "../../helper/lib";
 import {NzModalRef} from "ng-zorro-antd/modal";

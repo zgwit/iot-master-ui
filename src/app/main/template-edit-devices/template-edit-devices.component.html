@@ -10,23 +10,22 @@
 <nz-table [nzData]="formArray.controls" [nzFrontPagination]="false" nzSize="small" [formGroup]="formGroup">
   <thead>
   <tr>
+    <th>元件ID</th>
     <th>名称</th>
     <th>标签</th>
-    <th>类型</th>
-    <th>元件ID</th>
     <th>操作</th>
   </tr>
   </thead>
   <tbody formGroupName="items" cdkDropList (cdkDropListDropped)="drop($event)" style="cursor: move">
   <tr *ngFor="let data of formArray.controls; let i=index" [formGroupName]="i" cdkDrag>
     <td>
+      <app-choose-element formControlName="element_id" (ngModelChange)="change()" (change)="change()" required></app-choose-element>
+    </td>
+    <td>
       <input nz-input formControlName="name" nzSize="small" (change)="change()" required/>
     </td>
     <td>
       <nz-select nzAllowClear nzMode="tags" formControlName="tags" nzSize="small" (ngModelChange)="change()"></nz-select>
-    </td>
-    <td>
-      <input nz-input formControlName="element_id" nzSize="small" (change)="change()" required/>
     </td>
     <td>
       <a (click)="moveUp(i)">上移</a>

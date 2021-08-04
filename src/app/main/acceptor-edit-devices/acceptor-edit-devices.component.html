@@ -18,10 +18,10 @@
   <tbody formGroupName="items" cdkDropList (cdkDropListDropped)="drop($event)" style="cursor: move">
   <tr *ngFor="let data of formArray.controls; let i=index" [formGroupName]="i" cdkDrag>
     <td>
-      <nz-input-number formControlName="slave" [nzMin]="1" [nzMax]="65535" [nzStep]="1" nzSize="small" (change)="change()"></nz-input-number>
+      <app-choose-element formControlName="element_id" (ngModelChange)="change()" (change)="change()" required></app-choose-element>
     </td>
     <td>
-      <input nz-input formControlName="element_id" nzSize="small" (change)="change()" placeholder="TODO 点击选择元件" required/>
+      <nz-input-number formControlName="slave" [nzMin]="1" [nzMax]="65535" [nzStep]="1" nzSize="small" (change)="change()"></nz-input-number>
     </td>
     <td>
       <a (click)="moveUp(i)">上移</a>
@@ -33,4 +33,3 @@
   </tr>
   </tbody>
 </nz-table>
-

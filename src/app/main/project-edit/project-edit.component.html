@@ -10,6 +10,14 @@
       </nz-form-item>
 
       <nz-form-item>
+        <nz-form-label [nzSpan]="5">模板</nz-form-label>
+        <nz-form-control [nzSpan]="12" nzErrorTip="">
+<!--          <input nz-input formControlName="template_id" required/>-->
+          <app-choose-template formControlName="template_id"></app-choose-template>
+        </nz-form-control>
+      </nz-form-item>
+
+      <nz-form-item>
         <nz-form-label [nzSpan]="5">启用</nz-form-label>
         <nz-form-control [nzSpan]="12" nzErrorTip="">
           <nz-switch formControlName="enable"></nz-switch>

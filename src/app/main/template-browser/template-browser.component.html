@@ -25,7 +25,6 @@
       <td [nzChecked]="setCheckedOfId.has(data._id)" [nzDisabled]="!data.enable"
           (nzCheckedChange)="onItemChecked(data._id, $event)"
       ></td>
-      <td>{{ data.username }}</td>
       <td>{{ data.name }}</td>
       <td>{{data._id | objectIdToDate | date:'short'}}</td>
     </tr>
