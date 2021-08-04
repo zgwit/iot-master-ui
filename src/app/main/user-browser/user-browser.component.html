@@ -16,7 +16,10 @@
     <thead>
     <tr>
       <th [nzShowCheckbox]="multiple" [nzChecked]="checked" [nzIndeterminate]="indeterminate" (nzCheckedChange)="onAllChecked($event)"></th>
-      <th nzColumnKey="name" [nzSortFn]="true">名称</th>
+      <th nzColumnKey="username" [nzSortFn]="true">用户名</th>
+      <th nzColumnKey="name" [nzSortFn]="true">姓名</th>
+      <th nzColumnKey="cellphone">手机号</th>
+      <th nzColumnKey="email">邮箱</th>
       <th>状态</th>
       <th nzColumnKey="_id" [nzSortFn]="true">创建时间</th>
     </tr>
@@ -26,7 +29,10 @@
       <td [nzChecked]="setCheckedOfId.has(data._id)" [nzDisabled]="!data.enable"
           (nzCheckedChange)="onItemChecked(data._id, $event)"
       ></td>
+      <td>{{ data.username }}</td>
       <td>{{ data.name }}</td>
+      <td>{{ data.cellphone }}</td>
+      <td>{{ data.email }}</td>
       <td></td>
       <td>{{data._id | objectIdToDate | date:'short'}}</td>
     </tr>

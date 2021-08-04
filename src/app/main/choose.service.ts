@@ -3,6 +3,7 @@ import {NzModalService} from "ng-zorro-antd/modal";
 import {GroupBrowserComponent} from "./group-browser/group-browser.component";
 import {MainModule} from "./main.module";
 import {map} from "rxjs/operators";
+import {UserBrowserComponent} from "./user-browser/user-browser.component";
 
 @Injectable({
   providedIn: "root"
@@ -12,25 +13,20 @@ export class ChooseService {
   constructor(private ms: NzModalService) {
   }
 
-  chooseGroup() {
+  chooseGroup(params?: any) {
     const modal = this.ms.create({
       nzTitle: '选择群组',
       nzContent: GroupBrowserComponent,
-      //nzViewContainerRef: this.viewContainerRef,
-      nzComponentParams: {
-        //title: 'title in component',
-        //subtitle: 'component sub title，will be changed after 2 sec'
-      },
-      nzOnOk: () => {
+      nzComponentParams: params,
+    });
+    return modal.afterClose
+  }
 
-      },
-      nzFooter: [
-        {
-          label: 'change component title from outside',
-          onClick: c => {
-          }
-        }
-      ]
+  chooseUser(params?: any) {
+    const modal = this.ms.create({
+      nzTitle: '选择用户',
+      nzContent: UserBrowserComponent,
+      nzComponentParams: params,
     });
     return modal.afterClose
   }
