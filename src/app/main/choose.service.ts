@@ -4,6 +4,10 @@ import {GroupBrowserComponent} from "./group-browser/group-browser.component";
 import {MainModule} from "./main.module";
 import {map} from "rxjs/operators";
 import {UserBrowserComponent} from "./user-browser/user-browser.component";
+import {ProtocolBrowserComponent} from "./protocol-browser/protocol-browser.component";
+import {TemplateBrowserComponent} from "./template-browser/template-browser.component";
+import {ElementBrowserComponent} from "./element-browser/element-browser.component";
+import {DeviceBrowserComponent} from "./device-browser/device-browser.component";
 
 @Injectable({
   providedIn: "root"
@@ -27,6 +31,40 @@ export class ChooseService {
       nzTitle: '选择用户',
       nzContent: UserBrowserComponent,
       nzComponentParams: params,
+    });
+    return modal.afterClose
+  }
+
+  chooseDevice(params?: any) {
+    const modal = this.ms.create({
+      nzTitle: '选择设备',
+      nzContent: DeviceBrowserComponent,
+      nzComponentParams: params,
+    });
+    return modal.afterClose
+  }
+
+  chooseElement(params?: any) {
+    const modal = this.ms.create({
+      nzTitle: '选择元件',
+      nzContent: ElementBrowserComponent,
+      nzComponentParams: params,
+    });
+    return modal.afterClose
+  }
+
+  chooseTemplate() {
+    const modal = this.ms.create({
+      nzTitle: '选择模板',
+      nzContent: TemplateBrowserComponent,
+    });
+    return modal.afterClose
+  }
+
+  chooseProtocol() {
+    const modal = this.ms.create({
+      nzTitle: '选择协议',
+      nzContent: ProtocolBrowserComponent,
     });
     return modal.afterClose
   }

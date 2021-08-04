@@ -98,6 +98,7 @@ import {UserBrowserComponent} from "./user-browser/user-browser.component";
 import {DeviceBrowserComponent} from "./device-browser/device-browser.component";
 import {TemplateBrowserComponent} from "./template-browser/template-browser.component";
 import {ProtocolBrowserComponent} from "./protocol-browser/protocol-browser.component";
+import {ElementBrowserComponent} from "./element-browser/element-browser.component";
 
 
 @NgModule({
@@ -125,7 +126,7 @@ import {ProtocolBrowserComponent} from "./protocol-browser/protocol-browser.comp
     PasswordComponent, EventComponent, AcceptorTunnelComponent, TunnelDeviceComponent,
     ElementDeviceComponent, TemplateProjectComponent, DeviceProjectComponent, ElementTemplateComponent,
     ProjectEditScriptsComponent, UserGroupComponent, GroupUserComponent,
-    GroupBrowserComponent, UserBrowserComponent, DeviceBrowserComponent, TemplateBrowserComponent, ProtocolBrowserComponent,
+    GroupBrowserComponent, UserBrowserComponent, DeviceBrowserComponent, TemplateBrowserComponent, ProtocolBrowserComponent, ElementBrowserComponent,
   ],
   imports: [
     CommonModule,

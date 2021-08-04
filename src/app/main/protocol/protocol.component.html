@@ -6,11 +6,10 @@
 >
   <thead>
   <tr>
-    <th nzColumnKey="name">名称</th>
-    <th nzColumnKey="label">显示名称</th>
-    <th nzColumnKey="script">脚本</th>
+    <th nzColumnKey="name" [nzSortFn]="true">名称</th>
+    <th nzColumnKey="label" [nzSortFn]="true">显示名称</th>
+    <th nzColumnKey="script" [nzSortFn]="true">脚本</th>
     <th nzColumnKey="version">版本</th>
-    <th nzWidth="100">操作</th>
   </tr>
   </thead>
   <tbody>
@@ -19,7 +18,6 @@
     <td>{{ data.label }}</td>
     <td>{{ data.script }}</td>
     <td>{{ data.version }}</td>
-    <td></td>
   </tr>
   </tbody>
 </nz-table>

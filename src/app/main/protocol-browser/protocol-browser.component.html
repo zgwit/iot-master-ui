@@ -1,1 +1,43 @@
-<p>protocol-browser works!</p>
+<app-page-list noCreate (refresh)="load()" (search)="search($event)" [loading]="loading">
+
+  <nz-table
+    #pluginTable
+    nzSize="small"
+    [nzData]="datum"
+    [nzLoading]="loading"
+  >
+    <thead>
+    <tr>
+      <th [nzShowCheckbox]="multiple" [nzChecked]="checked" [nzIndeterminate]="indeterminate"
+          (nzCheckedChange)="onAllChecked($event)"></th>
+      <th nzColumnKey="name" [nzSortFn]="true">名称</th>
+      <th nzColumnKey="label" [nzSortFn]="true">显示名称</th>
+      <th nzColumnKey="script" [nzSortFn]="true">脚本</th>
+      <th nzColumnKey="version">版本</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let data of pluginTable.data; let i=index" (click)="onItemClick(data)">
+      <td [nzChecked]="setCheckedOfId.has(data._id)" [nzDisabled]="!data.enable"
+          (nzCheckedChange)="onItemChecked(data._id, $event)"
+      ></td>
+      <td>{{ data.username }}</td>
+      <td>{{ data.name }}</td>
+      <td>{{ data.label }}</td>
+      <td>{{ data.script }}</td>
+      <td>{{ data.version }}</td>
+    </tr>
+    </tbody>
+  </nz-table>
+
+  <div *ngIf="multiple && setCheckedOfId.size">
+    已经选择了 {{ setCheckedOfId.size }} 项
+  </div>
+
+
+</app-page-list>
+
+<div *nzModalFooter>
+  <button nz-button nzType="default" (click)="cancel()">取消</button>
+  <button nz-button nzType="primary" (click)="ok()">确定</button>
+</div>
