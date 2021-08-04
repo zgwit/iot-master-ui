@@ -1,4 +1,4 @@
-<app-page-list (create)="create()" (refresh)="load()" (search)="search($event)" [loading]="loading">
+<app-page-list (create)="create()" createButtonText="添加成员" (refresh)="load()" (search)="search($event)" [loading]="loading">
 
   <nz-table
     nzSize="small"
@@ -32,7 +32,7 @@
       <td></td>
       <td>{{data.member_id | objectIdToDate | date:'short'}}</td>
       <td>
-        <a nz-popconfirm nzPopconfirmTitle="确定删除？" (nzOnConfirm)="remove(i)">删除</a>
+        <a nz-popconfirm nzPopconfirmTitle="确定删除？" (nzOnConfirm)="remove(data, i)">删除</a>
       </td>
     </tr>
     </tbody>

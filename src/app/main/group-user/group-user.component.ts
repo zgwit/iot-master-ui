@@ -53,11 +53,27 @@ export class GroupUserComponent implements OnInit {
     });
   }
 
-  remove(i: number) {
-
+  remove(data:any, i: number) {
+    this.rs.delete(`member/${data.member_id}/delete`).subscribe(res=>{
+      this.datum.splice(i, 1);
+      //TODO toast
+    });
   }
 
   create() {
-    this.cs.chooseUser().subscribe(console.log);
+    this.cs.chooseUser({
+      multiple: true
+    }).subscribe(users => {
+      users.forEach((u: string) => {
+        this.rs.post('member/create', {
+          group_id: this._id,
+          user_id: u,
+        }).subscribe(res => {
+          console.log("加入成功");
+          //TODO toast
+
+        })
+      })
+    });
   }
 }

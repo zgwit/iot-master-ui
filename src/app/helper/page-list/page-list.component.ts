@@ -13,6 +13,7 @@ export class PageListComponent implements OnInit {
 
   @Input() loading: any = false;
   @Input() noCreate: any = false;
+  @Input() createButtonText = "新建";
 
   keyword = '';
 

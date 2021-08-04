@@ -1,4 +1,4 @@
-<app-page-list (create)="create()" (refresh)="load()" (search)="search($event)" [loading]="loading">
+<app-page-list (create)="create()" createButtonText="加入群组" (refresh)="load()" (search)="search($event)" [loading]="loading">
 
   <nz-table
     nzSize="small"
@@ -24,7 +24,7 @@
       <td>{{ data.name }}</td>
       <td>{{data.member_id | objectIdToDate | date:'short'}}</td>
       <td>
-        <a nz-popconfirm nzPopconfirmTitle="确定退出？" (nzOnConfirm)="remove(i)">退出</a>
+        <a nz-popconfirm nzPopconfirmTitle="确定退出？" (nzOnConfirm)="remove(data, i)">退出</a>
       </td>
     </tr>
     </tbody>

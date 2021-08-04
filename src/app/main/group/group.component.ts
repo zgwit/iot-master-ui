@@ -70,8 +70,8 @@ export class GroupComponent implements OnInit {
 
   }
 
-  remove(i: number) {
-    this.rs.delete('group/'+this.datum[i]._id+'/delete').subscribe(res=>{
+  remove(data: any, i: number) {
+    this.rs.delete(`group/${data._id}/delete`).subscribe(res=>{
       this.datum.splice(i, 1);
     });
   }

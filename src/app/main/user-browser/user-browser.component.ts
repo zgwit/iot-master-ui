@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 import {NzTableQueryParams} from "ng-zorro-antd/table";
 import {TabRef} from "../../helper/tabs/tabs.component";
 import {Router} from "@angular/router";
@@ -21,6 +21,7 @@ export class UserBrowserComponent implements OnInit {
 
   params: any = {filter: {}};
 
+  @Input()
   multiple = false;
   checked = false;
   indeterminate = false;
@@ -101,7 +102,7 @@ export class UserBrowserComponent implements OnInit {
   }
 
   ok() {
-    //this.mr.close(this.multiple ? this.ids : (this.ids.length && this.ids[0]));
-    this.mr.close(this.ids.length ? (this.multiple ? this.ids : this.ids[0]) : undefined);
+    this.mr.close(this.multiple ? this.ids : (this.ids.length && this.ids[0]));
+    //this.mr.close(this.ids.length ? (this.multiple ? this.ids : this.ids[0]) : undefined);
   }
 }

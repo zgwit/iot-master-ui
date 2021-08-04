@@ -58,8 +58,8 @@ export class ElementComponent implements OnInit {
     return;
   }
 
-  remove(i: number) {
-    this.rs.delete('element/'+this.datum[i]._id+'/delete').subscribe(res=>{
+  remove(data: any, i: number) {
+    this.rs.delete(`element/${data._id}/delete`).subscribe(res=>{
       this.datum.splice(i, 1);
     });
   }

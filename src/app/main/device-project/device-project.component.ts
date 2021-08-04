@@ -68,7 +68,10 @@ export class DeviceProjectComponent implements OnInit {
 
   }
 
-  remove(i: number) {
+  remove(data: any, i: number) {
+    this.rs.delete(`project/${data._id}/delete`).subscribe(res=>{
+      this.datum.splice(i, 1);
+    });
 
   }
 }

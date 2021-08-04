@@ -70,7 +70,7 @@ export class UserComponent implements OnInit {
 
   }
 
-  remove(i: number) {
+  remove(data: any, i: number) {
     this.rs.delete('user/'+this.datum[i]._id+'/delete').subscribe(res=>{
       this.datum.splice(i, 1);
     });

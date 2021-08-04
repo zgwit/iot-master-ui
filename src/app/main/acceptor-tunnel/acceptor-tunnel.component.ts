@@ -62,7 +62,10 @@ export class AcceptorTunnelComponent implements OnInit {
 
   }
 
-  remove(i: number) {
+  remove(data: any, i: number) {
+    this.rs.delete(`tunnel/${data._id}/delete`).subscribe(res=>{
+      this.datum.splice(i, 1);
+    });
 
   }
 }

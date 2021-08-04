@@ -53,11 +53,26 @@ export class UserGroupComponent implements OnInit {
     });
   }
 
-  remove(i: number) {
-
+  remove(data: any, i: number) {
+    this.rs.delete(`member/${data.member_id}/delete`).subscribe(res => {
+      this.datum.splice(i, 1);
+      //TODO toast
+    });
   }
 
   create() {
-    this.cs.chooseGroup().subscribe(console.log);
+    this.cs.chooseGroup({
+      multiple: true
+    }).subscribe(groups => {
+      groups.forEach((g: string) => {
+        this.rs.post('member/create', {
+          user_id: this._id,
+          group_id: g,
+        }).subscribe(res => {
+          console.log("加入成功")
+          //TODO toast
+        })
+      })
+    });
   }
 }

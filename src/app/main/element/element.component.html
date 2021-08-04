@@ -40,7 +40,7 @@
         </a>
         <nz-dropdown-menu #menu="nzDropdownMenu">
           <ul nz-menu>
-            <li nz-menu-item nzDanger nz-popconfirm nzPopconfirmTitle="确定删除？" (nzOnConfirm)="remove(i)">删除</li>
+            <li nz-menu-item nzDanger nz-popconfirm nzPopconfirmTitle="确定删除？" (nzOnConfirm)="remove(data, i)">删除</li>
           </ul>
         </nz-dropdown-menu>
       </td>

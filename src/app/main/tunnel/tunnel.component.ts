@@ -67,8 +67,8 @@ export class TunnelComponent implements OnInit {
 
   }
 
-  remove(i: number) {
-    this.rs.delete('tunnel/'+this.datum[i]._id+'/delete').subscribe(res=>{
+  remove(data: any, i: number) {
+    this.rs.delete(`tunnel/${data._id}/delete`).subscribe(res=>{
       this.datum.splice(i, 1);
     });
   }

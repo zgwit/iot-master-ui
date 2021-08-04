@@ -1,16 +1,17 @@
 <app-toolbar>
   <form nz-space (submit)="search.emit(keyword)">
-    <button *nzSpaceItem  type="button" nz-button [nzLoading]="loading" (click)="refresh.emit()">
+    <button *nzSpaceItem type="button" nz-button [nzLoading]="loading" (click)="refresh.emit()">
       <i nz-icon nzType="reload"></i>
       刷新
     </button>
 
     <button *nzSpaceItem type="button" nz-button (click)="create.emit()" [hidden]="noCreate">
       <i nz-icon nzType="plus"></i>
-      新建
+      {{createButtonText}}
     </button>
 
-    <nz-input-group *nzSpaceItem nzSearch nzPrefixIcon="search" [nzAddOnAfter]="suffixIconButton" [nzSuffix]="suffixIconClear">
+    <nz-input-group *nzSpaceItem nzSearch nzPrefixIcon="search" [nzAddOnAfter]="suffixIconButton"
+                    [nzSuffix]="suffixIconClear">
       <input type="text" nz-input placeholder="关键字" [(ngModel)]="keyword" [ngModelOptions]="{standalone: true}"/>
     </nz-input-group>
     <ng-template #suffixIconButton>

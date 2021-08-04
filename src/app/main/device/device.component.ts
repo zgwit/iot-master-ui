@@ -67,8 +67,8 @@ export class DeviceComponent implements OnInit {
 
   }
 
-  remove(i: number) {
-    this.rs.delete('device/'+this.datum[i]._id+'/delete').subscribe(res=>{
+  remove(data: any, i: number) {
+    this.rs.delete(`device/${data._id}/delete`).subscribe(res=>{
       this.datum.splice(i, 1);
     });
   }

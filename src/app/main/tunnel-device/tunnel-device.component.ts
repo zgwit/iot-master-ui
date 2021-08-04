@@ -68,7 +68,7 @@ export class TunnelDeviceComponent implements OnInit {
 
   }
 
-  remove(i: number) {
+  remove(data: any, i: number) {
 
   }
 }

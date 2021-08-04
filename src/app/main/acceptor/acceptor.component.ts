@@ -70,8 +70,8 @@ export class AcceptorComponent implements OnInit {
 
   }
 
-  remove(i: number) {
-    this.rs.delete('acceptor/'+this.datum[i]._id+'/delete').subscribe(res=>{
+  remove(data: any, i: number) {
+    this.rs.delete(`acceptor/${data._id}/delete`).subscribe(res=>{
       this.datum.splice(i, 1);
     });
   }
