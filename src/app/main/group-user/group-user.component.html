@@ -1,0 +1,42 @@
+<app-page-list (refresh)="load()" (search)="search($event)" [loading]="loading">
+
+  <nz-table
+    nzSize="small"
+    [nzShowPagination]="datum.length > pageSize"
+    [nzData]="datum"
+    [nzFrontPagination]="false"
+    [nzLoading]="loading"
+    [nzTotal]="total"
+    [nzPageSize]="pageSize"
+    [nzPageIndex]="pageIndex"
+
+    (nzQueryParams)="onQuery($event)"
+  >
+    <thead>
+    <tr>
+      <th nzColumnKey="username" [nzSortFn]="true">用户名</th>
+      <th nzColumnKey="name" [nzSortFn]="true">姓名</th>
+      <th nzColumnKey="cellphone">手机号</th>
+      <th nzColumnKey="email">邮箱</th>
+      <th>状态</th>
+      <th nzColumnKey="member_id" [nzSortFn]="true">加入时间</th>
+      <th nzWidth="100">操作</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let data of datum; let i=index">
+      <td>{{ data.username }}</td>
+      <td>{{ data.name }}</td>
+      <td>{{ data.cellphone }}</td>
+      <td>{{ data.email }}</td>
+      <td></td>
+      <td>{{data.member_id | objectIdToDate | date:'short'}}</td>
+      <td>
+        <a nz-popconfirm nzPopconfirmTitle="确定删除？" (nzOnConfirm)="remove(i)">删除</a>
+      </td>
+    </tr>
+    </tbody>
+  </nz-table>
+
+
+</app-page-list>

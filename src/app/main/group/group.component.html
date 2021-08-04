@@ -1,1 +1,50 @@
-<p>group works!</p>
+<app-page-list (create)="create()" (refresh)="load()" (search)="search($event)" [loading]="loading">
+
+  <nz-table
+    nzSize="small"
+    [nzShowPagination]="datum.length > pageSize"
+    [nzData]="datum"
+    [nzFrontPagination]="false"
+    [nzLoading]="loading"
+    [nzTotal]="total"
+    [nzPageSize]="pageSize"
+    [nzPageIndex]="pageIndex"
+
+    (nzQueryParams)="onQuery($event)"
+  >
+    <thead>
+    <tr>
+      <th nzColumnKey="name" [nzSortFn]="true">名称</th>
+      <th>状态</th>
+      <th nzColumnKey="_id" [nzSortFn]="true">创建时间</th>
+      <th nzWidth="100">操作</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let data of datum; let i=index">
+      <td>{{ data.name }}</td>
+      <td></td>
+      <td>{{data._id | objectIdToDate | date:'short'}}</td>
+      <td>
+        <a [routerLink]="'/admin/group/detail/'+data._id">详情</a>
+        <nz-divider nzType="vertical"></nz-divider>
+        <a [routerLink]="'/admin/group/edit/'+data._id">编辑</a>
+        <nz-divider nzType="vertical"></nz-divider>
+        <a nz-dropdown [nzDropdownMenu]="menu" nzTrigger="click">
+          更多
+          <i nz-icon nzType="down"></i>
+        </a>
+        <nz-dropdown-menu #menu="nzDropdownMenu">
+          <ul nz-menu>
+            <li nz-menu-item (click)="enable(i)">启用</li>
+            <li nz-menu-item (click)="disable(i)">禁用</li>
+            <li nz-menu-item nzDanger nz-popconfirm nzPopconfirmTitle="确定删除？" (nzOnConfirm)="remove(i)">删除</li>
+          </ul>
+        </nz-dropdown-menu>
+      </td>
+    </tr>
+    </tbody>
+  </nz-table>
+
+
+</app-page-list>

@@ -62,6 +62,7 @@ export class ElementEditComponent implements OnInit {
   load(): void {
     this.rs.get('element/' + this.id + '/detail').subscribe(res => {
       this.data = res.data;
+      this.tab.name += '[' + this.data.name + ']';
       this.buildForm();
       this._checkCodes();
     });

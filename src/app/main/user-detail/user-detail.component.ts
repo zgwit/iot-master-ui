@@ -22,8 +22,9 @@ export class UserDetailComponent implements OnInit {
   }
 
   load(): void {
-    this.rs.get(`user/${this.id}/detail`).subscribe(res=>{
+    this.rs.get(`user/${this.id}/detail`).subscribe(res => {
       this.data = res.data;
+      this.tab.name += '[' + this.data.name + ']';
     });
   }
 

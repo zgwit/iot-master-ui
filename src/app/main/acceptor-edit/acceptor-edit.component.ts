@@ -99,6 +99,7 @@ export class AcceptorEditComponent implements OnInit {
   load(): void {
     this.rs.get('acceptor/' + this.id + '/detail').subscribe(res => {
       this.data = res.data;
+      this.tab.name += '[' + this.data.name + ']';
       this.buildForm();
     })
   }

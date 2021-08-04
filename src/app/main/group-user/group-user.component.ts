@@ -5,11 +5,11 @@ import {RequestService} from "../../request.service";
 import {parseTableQuery} from "../../helper/lib";
 
 @Component({
-  selector: 'app-user-group',
-  templateUrl: './user-group.component.html',
-  styleUrls: ['./user-group.component.scss']
+  selector: 'app-group-user',
+  templateUrl: './group-user.component.html',
+  styleUrls: ['./group-user.component.scss']
 })
-export class UserGroupComponent implements OnInit {
+export class GroupUserComponent implements OnInit {
   @Input() _id = '';
 
   datum: any[] = [];
@@ -43,7 +43,7 @@ export class UserGroupComponent implements OnInit {
 
   load(): void {
     this.loading = true;
-    this.rs.post(`user/${this._id}/group`, this.params).subscribe(res => {
+    this.rs.post(`group/${this._id}/user`, this.params).subscribe(res => {
       console.log('res', res);
       this.datum = res.data;
       this.total = res.total;
