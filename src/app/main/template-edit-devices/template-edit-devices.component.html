@@ -12,6 +12,7 @@
   <tr>
     <th>元件ID</th>
     <th>名称</th>
+    <th>别名</th>
     <th>标签</th>
     <th>操作</th>
   </tr>
@@ -23,6 +24,9 @@
     </td>
     <td>
       <input nz-input formControlName="name" nzSize="small" (change)="change()" required/>
+    </td>
+    <td>
+      <input nz-input formControlName="alias" nzSize="small" (change)="change()" required/>
     </td>
     <td>
       <nz-select nzAllowClear nzMode="tags" formControlName="tags" nzSize="small" (ngModelChange)="change()"></nz-select>

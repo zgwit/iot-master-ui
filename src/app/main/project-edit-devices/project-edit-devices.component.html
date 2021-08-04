@@ -12,25 +12,24 @@
   <tr>
     <th>设备ID</th>
     <th>名称</th>
+    <th>别名</th>
     <th>标签</th>
-    <th>类型</th>
     <th>操作</th>
   </tr>
   </thead>
   <tbody formGroupName="items" cdkDropList (cdkDropListDropped)="drop($event)" style="cursor: move">
   <tr *ngFor="let data of formArray.controls; let i=index" [formGroupName]="i" cdkDrag>
     <td>
-<!--      <input nz-input formControlName="device_id" nzSize="small" (change)="change()" required/>-->
       <app-choose-device formControlName="device_id" (change)="change()"></app-choose-device>
     </td>
     <td>
       <input nz-input formControlName="name" nzSize="small" (change)="change()" required/>
     </td>
     <td>
-      <nz-select nzAllowClear nzMode="tags" formControlName="tags" nzSize="small" (ngModelChange)="change()"></nz-select>
+      <input nz-input formControlName="alias" nzSize="small" (change)="change()" required/>
     </td>
     <td>
-      <input nz-input formControlName="type" nzSize="small" (change)="change()" required/>
+      <nz-select nzAllowClear nzMode="tags" formControlName="tags" nzSize="small" (ngModelChange)="change()"></nz-select>
     </td>
     <td>
       <a (click)="moveUp(i)">上移</a>

@@ -34,9 +34,9 @@ export class ProjectEditDevicesComponent implements OnInit, ControlValueAccessor
       items: this.formArray = this.fb.array(this.items.map((d: any) => {
         return this.fb.group({
           device_id: [d.device_id, [Validators.required]],
-          name: [d.name, [Validators.required]],
-          tags: [d.tags, [Validators.required]],
-          type: [d.type, [Validators.required]],
+          name: [d.name, []],
+          tags: [d.tags, []],
+          alias: [d.type, [Validators.required]],
         })
       }))
     })
@@ -45,9 +45,9 @@ export class ProjectEditDevicesComponent implements OnInit, ControlValueAccessor
   add() {
     this.formArray.push(this.fb.group({
       device_id: ['', [Validators.required]],
-      name: ['', [Validators.required]],
-      tags: [[], [Validators.required]],
-      type: ['', [Validators.required]],
+      name: ['', []],
+      tags: [[], []],
+      alias: ['', [Validators.required]],
     }))
     //复制controls，让表格可以刷新
     this.formArray.controls = [...this.formArray.controls];
