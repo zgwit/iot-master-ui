@@ -16,8 +16,8 @@
     <th>操作</th>
   </tr>
   </thead>
-  <tbody formGroupName="items">
-  <tr *ngFor="let data of formArray.controls; let i=index" [formGroupName]="i">
+  <tbody formGroupName="items" cdkDropList (cdkDropListDropped)="drop($event)" style="cursor: move">
+  <tr *ngFor="let data of formArray.controls; let i=index" [formGroupName]="i" cdkDrag>
     <td>
       <!-- <nz-time-picker formControlName="time" nzFormat="HH:mm" (change)="change()"></nz-time-picker>-->
       <input nz-input formControlName="crontab" nzSize="small" placeholder="" (change)="change()" required/>

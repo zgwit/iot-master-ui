@@ -49,6 +49,7 @@ export class DeviceEditJobsComponent implements OnInit, ControlValueAccessor  {
     }))
     //复制controls，让表格可以刷新
     this.formArray.controls = [...this.formArray.controls];
+    this.change();
   }
 
   moveUp(i: number) {
@@ -86,7 +87,9 @@ export class DeviceEditJobsComponent implements OnInit, ControlValueAccessor  {
     this.change();
   }
 
-  change(){
+  change() {
+    this.formArray.markAsDirty();
+    this.formArray.updateValueAndValidity();
     this.onChanged(this.formArray.value);
     this.onTouched();
   }
@@ -102,5 +105,11 @@ export class DeviceEditJobsComponent implements OnInit, ControlValueAccessor  {
   writeValue(obj: any): void {
     this.items = obj;
     this.buildForm();
+  }
+
+  drop($event: any) {
+    const item = this.formArray.controls.splice($event.previousIndex, 1);
+    this.formArray.controls.splice($event.currentIndex, 0, ...item);
+    this.change();
   }
 }

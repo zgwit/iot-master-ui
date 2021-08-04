@@ -23,13 +23,14 @@ export class AcceptorEditDevicesComponent implements OnInit, ControlValueAccesso
   formGroup = new FormGroup({});
   formArray: FormArray = new FormArray([]);
 
-  constructor(private fb: FormBuilder) { }
+  constructor(private fb: FormBuilder) {
+  }
 
   ngOnInit(): void {
     this.buildForm();
   }
 
-  buildForm(): void{
+  buildForm(): void {
     this.formGroup = this.fb.group({
       items: this.formArray = this.fb.array(this.items.map((d: any) => {
         return this.fb.group({
@@ -85,7 +86,9 @@ export class AcceptorEditDevicesComponent implements OnInit, ControlValueAccesso
     this.change();
   }
 
-  change(){
+  change() {
+    this.formArray.markAsDirty();
+    this.formArray.updateValueAndValidity();
     this.onChanged(this.formArray.value);
     this.onTouched();
   }
@@ -101,5 +104,11 @@ export class AcceptorEditDevicesComponent implements OnInit, ControlValueAccesso
   writeValue(obj: any): void {
     this.items = obj;
     this.buildForm();
+  }
+
+  drop($event: any) {
+    const item = this.formArray.controls.splice($event.previousIndex, 1);
+    this.formArray.controls.splice($event.currentIndex, 0, ...item);
+    this.change();
   }
 }

@@ -99,6 +99,7 @@ import {DeviceBrowserComponent} from "./device-browser/device-browser.component"
 import {TemplateBrowserComponent} from "./template-browser/template-browser.component";
 import {ProtocolBrowserComponent} from "./protocol-browser/protocol-browser.component";
 import {ElementBrowserComponent} from "./element-browser/element-browser.component";
+import {DragDropModule} from "@angular/cdk/drag-drop";
 
 
 @NgModule({
@@ -165,6 +166,7 @@ import {ElementBrowserComponent} from "./element-browser/element-browser.compone
     NzDropDownModule,
     NzTimePickerModule,
     DashModule,
+    DragDropModule,
   ],
   bootstrap: [MainComponent],
   providers: [ChooseService]

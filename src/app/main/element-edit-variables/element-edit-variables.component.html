@@ -20,8 +20,8 @@
     <th>操作</th>
   </tr>
   </thead>
-  <tbody formGroupName="items">
-  <tr *ngFor="let data of formArray.controls; let i=index" [formGroupName]="i">
+  <tbody formGroupName="items" cdkDropList (cdkDropListDropped)="drop($event)" style="cursor: move">
+  <tr *ngFor="let data of formArray.controls; let i=index" [formGroupName]="i" cdkDrag>
     <td>
       <input nz-input formControlName="name" nzSize="small" (change)="change()" required/>
     </td>

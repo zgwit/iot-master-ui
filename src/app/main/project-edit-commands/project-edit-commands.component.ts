@@ -85,7 +85,9 @@ export class ProjectEditCommandsComponent implements OnInit {
     this.change();
   }
 
-  change(){
+  change() {
+    this.formArray.markAsDirty();
+    this.formArray.updateValueAndValidity();
     this.onChanged(this.formArray.value);
     this.onTouched();
   }
@@ -101,5 +103,11 @@ export class ProjectEditCommandsComponent implements OnInit {
   writeValue(obj: any): void {
     this.items = obj;
     this.buildForm();
+  }
+
+  drop($event: any) {
+    const item = this.formArray.controls.splice($event.previousIndex, 1);
+    this.formArray.controls.splice($event.currentIndex, 0, ...item);
+    this.change();
   }
 }

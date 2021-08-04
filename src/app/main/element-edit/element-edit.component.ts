@@ -44,9 +44,9 @@ export class ElementEditComponent implements OnInit {
       manufacturer: [this.data.manufacturer, []],
       version: [this.data.version, []],
 
-      variables: [this.data.variables],
-      commands: [this.data.commands],
-      collectors: [this.data.collectors],
+      variables: [this.data.variables || []],
+      commands: [this.data.commands || []],
+      collectors: [this.data.collectors || []],
       scripts: [this.data.scripts || []],
     });
   }
