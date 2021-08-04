@@ -92,32 +92,37 @@ import {DashModule} from "../dash/dash.module";
 import {ProjectEditScriptsComponent} from "./project-edit-scripts/project-edit-scripts.component";
 import {UserGroupComponent} from "./user-group/user-group.component";
 import {GroupUserComponent} from "./group-user/group-user.component";
+import {GroupBrowserComponent} from "./group-browser/group-browser.component";
+import {ChooseService} from "./choose.service";
 
 
 @NgModule({
-    declarations: [
-        MainComponent,
-        DashComponent,
-        TunnelComponent, TunnelEditComponent, TunnelDetailComponent, TunnelMonitorComponent,
-        AcceptorComponent, AcceptorDetailComponent,
-        AcceptorEditComponent, AcceptorEditDevicesComponent,
-        ProjectComponent, ProjectDetailComponent,
-        ProjectEditComponent, ProjectEditJobsComponent, ProjectEditCommandsComponent,
-        ProjectEditVariablesComponent, ProjectEditDevicesComponent, ProjectEditStrategiesComponent,
-        DeviceComponent, DeviceDetailComponent,
-        DeviceEditComponent, DeviceEditJobsComponent,
-        TemplateComponent, TemplateDetailComponent,
-        TemplateEditComponent, TemplateEditDevicesComponent,
-        ElementComponent, ElementDetailComponent,
-        ElementEditComponent, ElementEditVariablesComponent, ElementEditCommandsComponent, ElementEditCollectorsComponent,
-        UserComponent, UserEditComponent, UserDetailComponent,
-        GroupComponent, GroupEditComponent, GroupDetailComponent,
-        PluginComponent, PluginDetailComponent,
-        ProtocolComponent, ProtocolDetailComponent,
-        ApiComponent,
-        SettingComponent,
-        PasswordComponent, EventComponent, AcceptorTunnelComponent, TunnelDeviceComponent, ElementDeviceComponent, TemplateProjectComponent, DeviceProjectComponent, ElementTemplateComponent, ProjectEditScriptsComponent, UserGroupComponent, GroupUserComponent,
-    ],
+  declarations: [
+    MainComponent,
+    DashComponent,
+    TunnelComponent, TunnelEditComponent, TunnelDetailComponent, TunnelMonitorComponent,
+    AcceptorComponent, AcceptorDetailComponent,
+    AcceptorEditComponent, AcceptorEditDevicesComponent,
+    ProjectComponent, ProjectDetailComponent,
+    ProjectEditComponent, ProjectEditJobsComponent, ProjectEditCommandsComponent,
+    ProjectEditVariablesComponent, ProjectEditDevicesComponent, ProjectEditStrategiesComponent,
+    DeviceComponent, DeviceDetailComponent,
+    DeviceEditComponent, DeviceEditJobsComponent,
+    TemplateComponent, TemplateDetailComponent,
+    TemplateEditComponent, TemplateEditDevicesComponent,
+    ElementComponent, ElementDetailComponent,
+    ElementEditComponent, ElementEditVariablesComponent, ElementEditCommandsComponent, ElementEditCollectorsComponent,
+    UserComponent, UserEditComponent, UserDetailComponent,
+    GroupComponent, GroupEditComponent, GroupDetailComponent,
+    PluginComponent, PluginDetailComponent,
+    ProtocolComponent, ProtocolDetailComponent,
+    ApiComponent,
+    SettingComponent,
+    PasswordComponent, EventComponent, AcceptorTunnelComponent, TunnelDeviceComponent,
+    ElementDeviceComponent, TemplateProjectComponent, DeviceProjectComponent, ElementTemplateComponent,
+    ProjectEditScriptsComponent, UserGroupComponent, GroupUserComponent,
+    GroupBrowserComponent,
+  ],
   imports: [
     CommonModule,
     FormsModule,
@@ -156,7 +161,8 @@ import {GroupUserComponent} from "./group-user/group-user.component";
     NzTimePickerModule,
     DashModule,
   ],
-  bootstrap: [MainComponent]
+  bootstrap: [MainComponent],
+  providers: [ChooseService]
 })
 export class MainModule {
 }

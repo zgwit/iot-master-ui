@@ -3,6 +3,7 @@ import {NzTableQueryParams} from "ng-zorro-antd/table";
 import {Router} from "@angular/router";
 import {RequestService} from "../../request.service";
 import {parseTableQuery} from "../../helper/lib";
+import {ChooseService} from "../choose.service";
 
 @Component({
   selector: 'app-user-group',
@@ -21,7 +22,7 @@ export class UserGroupComponent implements OnInit {
 
   params: any = {filter: {}};
 
-  constructor(private router: Router, private rs: RequestService) {
+  constructor(private router: Router, private rs: RequestService, private cs: ChooseService) {
   }
 
   ngOnInit(): void {
@@ -54,5 +55,9 @@ export class UserGroupComponent implements OnInit {
 
   remove(i: number) {
 
+  }
+
+  create() {
+    this.cs.chooseGroup().subscribe(console.log);
   }
 }
