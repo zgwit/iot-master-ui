@@ -109,6 +109,11 @@ import {ElementEditValidatorsComponent} from "./element-edit-validators/element-
 import {ProjectEditValidatorsComponent} from "./project-edit-validators/project-edit-validators.component";
 import {JobComponent} from "./job/job.component";
 import {JobEditComponent} from "./job-edit/job-edit.component";
+import {ChooseUserComponent} from "./choose-user/choose-user.component";
+import {ChooseGroupComponent} from "./choose-group/choose-group.component";
+import {ChooseCompanyComponent} from "./choose-company/choose-company.component";
+import {GroupBrowserComponent} from "./group-browser/group-browser.component";
+import {ProjectBrowserComponent} from "./project-browser/project-browser.component";
 
 
 @NgModule({
@@ -124,9 +129,9 @@ import {JobEditComponent} from "./job-edit/job-edit.component";
     ProjectComponent, ProjectDetailComponent,
     ProjectEditComponent, ProjectEditCommandsComponent,
     ProjectEditVariablesComponent, ProjectEditDevicesComponent, ProjectEditStrategiesComponent,
-    ProjectEditValidatorsComponent, ProjectEditScriptsComponent,
+    ProjectEditValidatorsComponent, ProjectEditScriptsComponent, ProjectBrowserComponent,
 
-    GroupDetailComponent, GroupEditComponent, GroupProjectComponent,
+    GroupDetailComponent, GroupEditComponent, GroupProjectComponent, GroupBrowserComponent,
 
     DeviceComponent, DeviceDetailComponent, DeviceEditComponent,
     DeviceProjectComponent, DeviceBrowserComponent, ElementEditValidatorsComponent,
@@ -148,6 +153,7 @@ import {JobEditComponent} from "./job-edit/job-edit.component";
     CompanyGroupComponent, CompanyBrowserComponent,
     CompanyUserComponent,
 
+    JobComponent,
     JobEditComponent,
 
     PluginComponent, PluginDetailComponent,
@@ -158,7 +164,8 @@ import {JobEditComponent} from "./job-edit/job-edit.component";
 
     PasswordComponent, EventComponent,
 
-    ChooseDeviceComponent, ChooseElementComponent, ChooseTemplateComponent, JobComponent,
+    ChooseDeviceComponent, ChooseElementComponent, ChooseTemplateComponent,
+    ChooseUserComponent, ChooseGroupComponent, ChooseCompanyComponent,
 
   ],
   imports: [

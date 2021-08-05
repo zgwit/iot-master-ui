@@ -20,14 +20,16 @@
       <nz-form-item>
         <nz-form-label [nzSpan]="5">企业</nz-form-label>
         <nz-form-control [nzSpan]="12" nzErrorTip="">
-          <input nz-input formControlName="company_id" required/>
+<!--          <input nz-input formControlName="company_id" required/>-->
+          <app-choose-company formControlName="company_id"></app-choose-company>
         </nz-form-control>
       </nz-form-item>
 
       <nz-form-item>
         <nz-form-label [nzSpan]="5">分组</nz-form-label>
         <nz-form-control [nzSpan]="12" nzErrorTip="">
-          <input nz-input formControlName="group_id" required/>
+<!--          <input nz-input formControlName="group_id" required/>-->
+          <app-choose-group formControlName="group_id"></app-choose-group>
         </nz-form-control>
       </nz-form-item>
 
