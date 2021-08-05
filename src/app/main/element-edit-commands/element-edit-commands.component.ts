@@ -35,8 +35,8 @@ export class ElementEditCommandsComponent implements OnInit, ControlValueAccesso
       items: this.formArray = this.fb.array(this.items.map((d: any) => {
         return this.fb.group({
           name: [d.name, [Validators.required]],
-          variable: [d.variable, [Validators.required]],
-          value: [d.value, [Validators.required]],
+          argc: [d.argc, [Validators.required]],
+          script: [d.script, [Validators.required]],
         })
       }))
     })
@@ -45,8 +45,8 @@ export class ElementEditCommandsComponent implements OnInit, ControlValueAccesso
   add() {
     this.formArray.push(this.fb.group({
       name: ['', [Validators.required]],
-      variable: ['', [Validators.required]],
-      value: [undefined, [Validators.required]],
+      argc: [0, [Validators.required]],
+      script: ['', [Validators.required]],
     }))
     //复制controls，让表格可以刷新
     this.formArray.controls = [...this.formArray.controls];

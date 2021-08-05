@@ -11,8 +11,8 @@
   <thead>
   <tr>
     <th>名称</th>
-    <th>标签</th>
-    <th>子命令</th>
+    <th>参数个数</th>
+    <th>脚本</th>
     <th>操作</th>
   </tr>
   </thead>
@@ -22,10 +22,10 @@
       <input nz-input formControlName="name" nzSize="small" (change)="change()" required/>
     </td>
     <td>
-      <nz-select nzAllowClear nzMode="tags" [nzTokenSeparators]="[',', ';', ' ']" formControlName="tags" nzSize="small" (ngModelChange)="change()"></nz-select>
+      <nz-input-number formControlName="argc" [nzMin]="0" [nzMax]="10" [nzStep]="1" nzSize="small" (change)="change()" required></nz-input-number>
     </td>
     <td>
-      <input nz-input formControlName="command" nzSize="small" (change)="change()" required/>
+      <input nz-input formControlName="script" nzSize="small" (change)="change()" required/>
     </td>
     <td>
       <a cdkDragHandle style="cursor: move">排序</a>
