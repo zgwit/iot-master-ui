@@ -11,7 +11,6 @@
   <thead>
   <tr>
     <th>设备</th>
-    <th>名称</th>
     <th>别名</th>
     <th>标签</th>
     <th>操作</th>
@@ -21,9 +20,6 @@
   <tr *ngFor="let data of formArray.controls; let i=index" [formGroupName]="i" cdkDrag>
     <td>
       <app-choose-device formControlName="device_id" (change)="change()"></app-choose-device>
-    </td>
-    <td>
-      <input nz-input formControlName="name" nzSize="small" (change)="change()" required/>
     </td>
     <td>
       <input nz-input formControlName="alias" nzSize="small" (change)="change()" required/>
