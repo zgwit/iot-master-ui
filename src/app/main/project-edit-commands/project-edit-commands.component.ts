@@ -13,7 +13,7 @@ import {ControlValueAccessor, FormArray, FormBuilder, FormGroup, NG_VALUE_ACCESS
     }
   ]
 })
-export class ProjectEditCommandsComponent implements OnInit {
+export class ProjectEditCommandsComponent implements OnInit, ControlValueAccessor {
   onChanged: any = () => {
   }
   onTouched: any = () => {
@@ -35,6 +35,7 @@ export class ProjectEditCommandsComponent implements OnInit {
         return this.fb.group({
           name: [d.name, [Validators.required]],
           command: [d.command, [Validators.required]],
+          tags: [d.tags, []],
         })
       }))
     })
@@ -44,12 +45,12 @@ export class ProjectEditCommandsComponent implements OnInit {
     this.formArray.push(this.fb.group({
           name: ['', [Validators.required]],
           command: ['', [Validators.required]],
+      tags: [[], []],
     }))
     //复制controls，让表格可以刷新
     this.formArray.controls = [...this.formArray.controls];
     this.change();
   }
-
 
   remove(i: number) {
     this.formArray.removeAt(i)

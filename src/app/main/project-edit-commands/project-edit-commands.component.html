@@ -11,6 +11,7 @@
   <thead>
   <tr>
     <th>名称</th>
+    <th>标签</th>
     <th>子命令</th>
     <th>操作</th>
   </tr>
@@ -19,6 +20,9 @@
   <tr *ngFor="let data of formArray.controls; let i=index" [formGroupName]="i" cdkDrag>
     <td>
       <input nz-input formControlName="name" nzSize="small" (change)="change()" required/>
+    </td>
+    <td>
+      <nz-select nzAllowClear nzMode="tags" [nzTokenSeparators]="[',', ';', ' ']" formControlName="tags" nzSize="small" (ngModelChange)="change()"></nz-select>
     </td>
     <td>
       <input nz-input formControlName="command" nzSize="small" (change)="change()" required/>

@@ -25,7 +25,7 @@
       <input nz-input formControlName="alias" nzSize="small" (change)="change()" required/>
     </td>
     <td>
-      <nz-select nzAllowClear nzMode="tags" formControlName="tags" nzSize="small" (ngModelChange)="change()"></nz-select>
+      <nz-select nzAllowClear nzMode="tags" [nzTokenSeparators]="[',', ';', ' ']" formControlName="tags" nzSize="small" (ngModelChange)="change()"></nz-select>
     </td>
     <td>
       <a cdkDragHandle style="cursor: move">排序</a>
