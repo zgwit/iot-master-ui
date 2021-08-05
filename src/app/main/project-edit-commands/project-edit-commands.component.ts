@@ -50,23 +50,6 @@ export class ProjectEditCommandsComponent implements OnInit {
     this.change();
   }
 
-  moveUp(i: number) {
-    if (i > 0) {
-      const c = this.formArray.at(i);
-      this.formArray.removeAt(i);
-      this.formArray.insert(i - 1, c);
-      this.change();
-    }
-  }
-
-  moveDown(i: number) {
-    if (i < this.formArray.length - 1) {
-      const c = this.formArray.at(i);
-      this.formArray.removeAt(i);
-      this.formArray.insert(i + 1, c);
-      this.change();
-    }
-  }
 
   remove(i: number) {
     this.formArray.removeAt(i)

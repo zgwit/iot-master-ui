@@ -17,7 +17,7 @@
     <th>操作</th>
   </tr>
   </thead>
-  <tbody formGroupName="items" cdkDropList (cdkDropListDropped)="drop($event)" style="cursor: move">
+  <tbody formGroupName="items" cdkDropList (cdkDropListDropped)="drop($event)" >
   <tr *ngFor="let data of formArray.controls; let i=index" [formGroupName]="i" cdkDrag>
     <td>
       <input nz-input formControlName="name" nzSize="small" (change)="change()" required/>
@@ -34,9 +34,7 @@
       <nz-switch formControlName="enable"></nz-switch>
     </td>
     <td>
-      <a (click)="moveUp(i)">上移</a>
-      <nz-divider nzType="vertical"></nz-divider>
-      <a (click)="moveDown(i)">下移</a>
+      <a cdkDragHandle style="cursor: move">排序</a>
       <nz-divider nzType="vertical"></nz-divider>
       <a (click)="remove(i)">删除</a>
     </td>
