@@ -54,8 +54,6 @@ export class DeviceComponent implements OnInit {
 
   create(): void {
     this.router.navigate(["admin/device/create"]);
-
-    return;
   }
 
 

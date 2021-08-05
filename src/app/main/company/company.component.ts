@@ -58,8 +58,6 @@ export class CompanyComponent implements OnInit {
 
   create(): void {
     this.router.navigate(["admin/company/create"]);
-
-    return;
   }
 
   enable(i: number) {

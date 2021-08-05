@@ -54,8 +54,6 @@ export class TemplateComponent implements OnInit {
 
   create(): void {
     this.router.navigate(["admin/template/create"]);
-
-    return;
   }
 
 

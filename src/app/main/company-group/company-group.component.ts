@@ -54,9 +54,7 @@ export class CompanyGroupComponent implements OnInit {
   }
 
   create(): void {
-    this.router.navigate(["admin/group/create"]);
-    //TODO 附加参数
-    return;
+    this.router.navigate(["admin/group/create"], {queryParams: {company_id: this._id}});
   }
 
 

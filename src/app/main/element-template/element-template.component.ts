@@ -53,7 +53,7 @@ export class ElementTemplateComponent implements OnInit {
   }
 
   create(): void {
-    this.router.navigate(["admin/template/create"]);
+    this.router.navigate(["admin/template/create"], {queryParams: {template_id: this._id}});
 
     return;
   }

@@ -54,9 +54,7 @@ export class TemplateProjectComponent implements OnInit {
   }
 
   create(): void {
-    this.router.navigate(["admin/project/create"]);
-
-    return;
+    this.router.navigate(["admin/project/create"], {queryParams: {template_id: this._id}});
   }
 
 

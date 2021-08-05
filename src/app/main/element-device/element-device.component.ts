@@ -54,9 +54,7 @@ export class ElementDeviceComponent implements OnInit {
   }
 
   create(): void {
-    this.router.navigate(["admin/device/create"]);
-
-    return;
+    this.router.navigate(["admin/device/create"], {queryParams: {element_id: this._id}});
   }
 
 

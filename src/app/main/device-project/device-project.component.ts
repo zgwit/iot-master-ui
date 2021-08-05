@@ -53,9 +53,14 @@ export class DeviceProjectComponent implements OnInit {
   }
 
   create(): void {
-    this.router.navigate(["admin/project/create"]);
-    //TODO 附加参数
-    return;
+    this.router.navigate(["admin/project/create"], {
+      queryParams:
+        {
+          devices: [{
+            device_id: this._id
+          }]
+        }
+    });
   }
 
 
@@ -68,7 +73,7 @@ export class DeviceProjectComponent implements OnInit {
   }
 
   remove(data: any, i: number) {
-    this.rs.delete(`project/${data._id}/delete`).subscribe(res=>{
+    this.rs.delete(`project/${data._id}/delete`).subscribe(res => {
       this.datum.splice(i, 1);
       //TODO toast
     });

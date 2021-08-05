@@ -54,9 +54,7 @@ export class CompanyProjectComponent implements OnInit {
   }
 
   create(): void {
-    this.router.navigate(["admin/project/create"]);
-    //TODO 附加参数
-    return;
+    this.router.navigate(["admin/project/create"], {queryParams: {company_id: this._id}});
   }
 
 

@@ -54,8 +54,6 @@ export class ElementComponent implements OnInit {
 
   create(): void {
     this.router.navigate(["admin/element/create"]);
-
-    return;
   }
 
   remove(data: any, i: number) {

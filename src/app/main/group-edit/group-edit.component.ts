@@ -25,6 +25,7 @@ export class GroupEditComponent implements OnInit {
     this.id = route.snapshot.paramMap.get('id');
     tab.name = this.id ? "编辑分组" : "新建分组";
     if (this.id) this.load();
+    Object.assign(this.data, this.route.snapshot.queryParams);
     this.buildForm();
   }
 

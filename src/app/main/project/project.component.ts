@@ -54,8 +54,6 @@ export class ProjectComponent implements OnInit {
 
   create(): void {
     this.router.navigate(["admin/project/create"]);
-
-    return;
   }
 
 

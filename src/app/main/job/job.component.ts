@@ -62,7 +62,6 @@ export class JobComponent implements OnInit {
         [this.type + '_id']: this._id
       }
     });
-    return;
   }
 
 

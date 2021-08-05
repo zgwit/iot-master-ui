@@ -29,6 +29,7 @@ export class DeviceEditComponent implements OnInit {
     this.id = route.snapshot.paramMap.get('id');
     tab.name = this.id ? "编辑设备" : "新建设备";
     if (this.id) this.load();
+    Object.assign(this.data, this.route.snapshot.queryParams);
     this.buildForm();
   }
 

@@ -19,6 +19,9 @@ export class ProjectEditComponent implements OnInit {
   data: any = {
     "name": "新建项目",
     "enable": true,
+    "template_id":"",
+    "company_id":"",
+    "group_id":"",
     "commands": [],
     "variables": [],
     "devices": [],
@@ -31,6 +34,7 @@ export class ProjectEditComponent implements OnInit {
     this.id = route.snapshot.paramMap.get('id');
     tab.name = this.id ? "编辑项目" : "新建项目";
     if (this.id) this.load();
+    Object.assign(this.data, this.route.snapshot.queryParams);
     this.buildForm();
   }
 

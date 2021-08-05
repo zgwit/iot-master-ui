@@ -58,8 +58,6 @@ export class AcceptorComponent implements OnInit {
 
   create(): void {
     this.router.navigate(["admin/acceptor/create"]);
-
-    return;
   }
 
   enable(i: number) {
