@@ -43,8 +43,7 @@ export class DeviceProjectComponent implements OnInit {
 
   load(): void {
     this.loading = true;
-    this.params.filter.device_id = this._id; //TODO 此处应该是查询数组
-    this.rs.post('project/list', this.params).subscribe(res => {
+    this.rs.post(`device/${this._id}/project`, this.params).subscribe(res => {
       console.log('res', res);
       this.datum = res.data;
       this.total = res.total;
