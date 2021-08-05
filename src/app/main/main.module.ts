@@ -70,11 +70,9 @@ import {TemplateComponent} from "./template/template.component";
 import {CompanyDetailComponent} from "./company-detail/company-detail.component";
 import {NzDropDownModule} from "ng-zorro-antd/dropdown";
 import {AcceptorEditDevicesComponent} from "./acceptor-edit-devices/acceptor-edit-devices.component";
-import {ProjectEditJobsComponent} from "./project-edit-jobs/project-edit-jobs.component";
 import {ProjectEditVariablesComponent} from "./project-edit-variables/project-edit-variables.component";
 import {ProjectEditDevicesComponent} from "./project-edit-devices/project-edit-devices.component";
 import {ProjectEditStrategiesComponent} from "./project-edit-strategies/project-edit-strategies.component";
-import {DeviceEditJobsComponent} from "./device-edit-jobs/device-edit-jobs.component";
 import {TemplateEditDevicesComponent} from "./template-edit-devices/template-edit-devices.component";
 import {ElementEditVariablesComponent} from "./element-edit-variables/element-edit-variables.component";
 import {ElementEditCommandsComponent} from "./element-edit-commands/element-edit-commands.component";
@@ -122,14 +120,13 @@ import {ProjectEditValidatorsComponent} from "./project-edit-validators/project-
     AcceptorEditComponent, AcceptorEditDevicesComponent, AcceptorTunnelComponent,
 
     ProjectComponent, ProjectDetailComponent,
-    ProjectEditComponent, ProjectEditJobsComponent, ProjectEditCommandsComponent,
+    ProjectEditComponent, ProjectEditCommandsComponent,
     ProjectEditVariablesComponent, ProjectEditDevicesComponent, ProjectEditStrategiesComponent,
     ProjectEditValidatorsComponent, ProjectEditScriptsComponent,
 
     GroupDetailComponent, GroupEditComponent, GroupProjectComponent,
 
-    DeviceComponent, DeviceDetailComponent,
-    DeviceEditComponent, DeviceEditJobsComponent,
+    DeviceComponent, DeviceDetailComponent, DeviceEditComponent,
     DeviceProjectComponent, DeviceBrowserComponent, ElementEditValidatorsComponent,
 
     TemplateComponent, TemplateDetailComponent,

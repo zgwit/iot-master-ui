@@ -23,7 +23,6 @@ export class DeviceEditComponent implements OnInit {
     "tunnel_id": "",
     "slave": 1,
     "enable": true,
-    "jobs": [],
   }
 
   constructor(private fb: FormBuilder, private tab: TabRef, private route: ActivatedRoute, private rs: RequestService, private message: NzMessageService) {
@@ -40,7 +39,6 @@ export class DeviceEditComponent implements OnInit {
       tunnel_id: [this.data.tunnel_id, [Validators.required]],
       slave: [this.data.slave, [Validators.required]],
       enable: [this.data.enable, [Validators.required]],
-      jobs: [this.data.jobs || [], []],
     });
   }
 
