@@ -25,7 +25,7 @@ export class CompanyComponent implements OnInit {
   params: any = {filter: {}};
 
   constructor(private tab: TabRef, private router: Router, private rs: RequestService) {
-    tab.name = "组织"
+    tab.name = "企业"
   }
 
   ngOnInit(): void {

@@ -17,13 +17,13 @@ export class CompanyEditComponent implements OnInit {
   basicForm: FormGroup = new FormGroup({});
 
   data: any = {
-    "name": "新组织",
+    "name": "新企业",
     "enable": true,
   }
 
   constructor(private fb: FormBuilder, private tab: TabRef, private route: ActivatedRoute, private rs: RequestService, private message: NzMessageService) {
     this.id = route.snapshot.paramMap.get('id');
-    tab.name = this.id ? "编辑组织" : "新建组织";
+    tab.name = this.id ? "编辑企业" : "新建企业";
     if (this.id) this.load();
     this.buildForm();
   }

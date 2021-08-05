@@ -59,7 +59,7 @@ export let MainMenu = [
         router: 'user'
       },
       {
-        title: '组织',
+        title: '企业',
         router: 'company'
       },
     ]

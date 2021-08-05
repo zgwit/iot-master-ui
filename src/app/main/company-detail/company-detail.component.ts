@@ -13,7 +13,7 @@ export class CompanyDetailComponent implements OnInit {
   data: any = {};
 
   constructor(private tab: TabRef, private router: ActivatedRoute, private rs: RequestService) {
-    tab.name = '组织详情';
+    tab.name = '企业详情';
     this.id = router.snapshot.params.id;
     this.load();
   }

@@ -16,7 +16,7 @@ export class ChooseService {
 
   chooseCompany(params?: any) {
     const modal = this.ms.create({
-      nzTitle: '选择组织',
+      nzTitle: '选择企业',
       nzContent: CompanyBrowserComponent,
       nzComponentParams: params,
     });
