@@ -15,7 +15,7 @@
     <thead>
     <tr>
       <th nzColumnKey="name" [nzSortFn]="true">名称</th>
-      <th nzColumnKey="tunnel_id">通道ID</th>
+      <th nzColumnKey="tunnel_id">通道</th>
       <th nzColumnKey="slave">从机号</th>
       <th>状态</th>
       <th nzColumnKey="_id" [nzSortFn]="true">创建时间</th>
@@ -25,7 +25,10 @@
     <tbody>
     <tr *ngFor="let data of datum; let i=index">
       <td>{{ data.name }}</td>
-      <td>{{ data.tunnel_id }}</td>
+      <td>
+        <a
+          [routerLink]="'/admin/tunnel/detail/'+data.tunnel_id">{{data.tunnel && (data.tunnel.name || data.tunnel.sn)}}</a>
+      </td>
       <td>{{ data.slave }}</td>
       <td></td>
       <td>{{data._id | objectIdToDate | date:'short'}}</td>

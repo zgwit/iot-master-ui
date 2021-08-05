@@ -17,7 +17,7 @@
     <tr>
       <th [nzShowCheckbox]="multiple" [nzChecked]="checked" [nzIndeterminate]="indeterminate" (nzCheckedChange)="onAllChecked($event)"></th>
       <th nzColumnKey="name" [nzSortFn]="true">名称</th>
-      <th nzColumnKey="tunnel_id">通道ID</th>
+      <th nzColumnKey="tunnel_id">通道</th>
       <th nzColumnKey="slave">从机号</th>
       <th>状态</th>
       <th nzColumnKey="_id" [nzSortFn]="true">创建时间</th>
@@ -29,7 +29,7 @@
           (nzCheckedChange)="onItemChecked(data._id, $event)"
       ></td>
       <td>{{ data.name }}</td>
-      <td>{{ data.tunnel_id }}</td>
+      <td>{{data.tunnel && (data.tunnel.name || data.tunnel.sn)}}</td>
       <td>{{ data.slave }}</td>
       <td></td>
       <td>{{data._id | objectIdToDate | date:'short'}}</td>
