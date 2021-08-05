@@ -107,6 +107,8 @@ import {GroupEditComponent} from "./group-edit/group-edit.component";
 import {GroupProjectComponent} from "./group-project/group-project.component";
 import {ElementEditValidatorsComponent} from "./element-edit-validators/element-edit-validators.component";
 import {ProjectEditValidatorsComponent} from "./project-edit-validators/project-edit-validators.component";
+import {JobComponent} from "./job/job.component";
+import {JobEditComponent} from "./job-edit/job-edit.component";
 
 
 @NgModule({
@@ -146,6 +148,8 @@ import {ProjectEditValidatorsComponent} from "./project-edit-validators/project-
     CompanyGroupComponent, CompanyBrowserComponent,
     CompanyUserComponent,
 
+    JobEditComponent,
+
     PluginComponent, PluginDetailComponent,
     ProtocolComponent, ProtocolDetailComponent,
 
@@ -154,7 +158,7 @@ import {ProjectEditValidatorsComponent} from "./project-edit-validators/project-
 
     PasswordComponent, EventComponent,
 
-    ChooseDeviceComponent, ChooseElementComponent, ChooseTemplateComponent,
+    ChooseDeviceComponent, ChooseElementComponent, ChooseTemplateComponent, JobComponent,
 
   ],
   imports: [

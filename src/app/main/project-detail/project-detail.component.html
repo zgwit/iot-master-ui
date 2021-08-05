@@ -8,6 +8,11 @@
     <ng-template nz-tab>
     </ng-template>
   </nz-tab>
+  <nz-tab nzTitle="定时任务">
+    <ng-template nz-tab>
+      <app-job type="project" [_id]="id"></app-job>
+    </ng-template>
+  </nz-tab>
   <nz-tab nzTitle="告警" nzDisabled>
     <ng-template nz-tab>
     </ng-template>

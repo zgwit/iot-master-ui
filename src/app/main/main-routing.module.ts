@@ -35,6 +35,7 @@ import {PluginDetailComponent} from "./plugin-detail/plugin-detail.component";
 import {ProtocolDetailComponent} from "./protocol-detail/protocol-detail.component";
 import {GroupEditComponent} from "./group-edit/group-edit.component";
 import {GroupDetailComponent} from "./group-detail/group-detail.component";
+import {JobEditComponent} from "./job-edit/job-edit.component";
 
 const routes: Routes = [
   {
@@ -77,6 +78,8 @@ const routes: Routes = [
       {path: 'group/create', component: GroupEditComponent},
       {path: 'group/edit/:id', component: GroupEditComponent},
       {path: 'group/detail/:id', component: GroupDetailComponent},
+      {path: 'job/create', component: JobEditComponent},
+      {path: 'job/edit/:id', component: JobEditComponent},
       {path: 'plugin', component: PluginComponent},
       {path: 'plugin/detail/:id', component: PluginDetailComponent},
       {path: 'protocol', component: ProtocolComponent},
