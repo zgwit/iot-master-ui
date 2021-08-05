@@ -1,6 +1,5 @@
 import {Component, forwardRef, OnInit} from '@angular/core';
 import {ControlValueAccessor, FormArray, FormBuilder, FormGroup, NG_VALUE_ACCESSOR, Validators} from "@angular/forms";
-import {DataTypes} from "../../helper/lib";
 
 @Component({
   selector: 'app-project-edit-variables',
@@ -23,7 +22,6 @@ export class ProjectEditVariablesComponent implements OnInit, ControlValueAccess
   items: any[] = [];
   formGroup = new FormGroup({});
   formArray: FormArray = new FormArray([]);
-  dataTypes = DataTypes;
 
   constructor(private fb: FormBuilder) { }
 
@@ -37,7 +35,6 @@ export class ProjectEditVariablesComponent implements OnInit, ControlValueAccess
         return this.fb.group({
           name: [d.name, [Validators.required]],
           label: [d.label, []],
-          type: [d.type, [Validators.required]],
           default: [d.default, [Validators.required]],
         })
       }))
@@ -48,7 +45,6 @@ export class ProjectEditVariablesComponent implements OnInit, ControlValueAccess
     this.formArray.push(this.fb.group({
       name: ['', [Validators.required]],
       label: ['', []],
-      type: ['word', [Validators.required]],
       default: ['', [Validators.required]],
     }))
     //复制controls，让表格可以刷新
