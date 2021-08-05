@@ -33,6 +33,8 @@ import {UserDetailComponent} from "./user-detail/user-detail.component";
 import {CompanyDetailComponent} from "./company-detail/company-detail.component";
 import {PluginDetailComponent} from "./plugin-detail/plugin-detail.component";
 import {ProtocolDetailComponent} from "./protocol-detail/protocol-detail.component";
+import {GroupEditComponent} from "./group-edit/group-edit.component";
+import {GroupDetailComponent} from "./group-detail/group-detail.component";
 
 const routes: Routes = [
   {
@@ -72,6 +74,9 @@ const routes: Routes = [
       {path: 'company/create', component: CompanyEditComponent},
       {path: 'company/edit/:id', component: CompanyEditComponent},
       {path: 'company/detail/:id', component: CompanyDetailComponent},
+      {path: 'group/create', component: GroupEditComponent},
+      {path: 'group/edit/:id', component: GroupEditComponent},
+      {path: 'group/detail/:id', component: GroupDetailComponent},
       {path: 'plugin', component: PluginComponent},
       {path: 'plugin/detail/:id', component: PluginDetailComponent},
       {path: 'protocol', component: ProtocolComponent},

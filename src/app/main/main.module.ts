@@ -102,6 +102,11 @@ import {DragDropModule} from "@angular/cdk/drag-drop";
 import {ChooseDeviceComponent} from "./choose-device/choose-device.component";
 import {ChooseElementComponent} from "./choose-element/choose-element.component";
 import {ChooseTemplateComponent} from "./choose-template/choose-template.component";
+import {CompanyGroupComponent} from "./company-group/company-group.component";
+import {CompanyProjectComponent} from "./company-project/company-project.component";
+import {GroupDetailComponent} from "./group-detail/group-detail.component";
+import {GroupEditComponent} from "./group-edit/group-edit.component";
+import {GroupProjectComponent} from "./group-project/group-project.component";
 
 
 @NgModule({
@@ -130,7 +135,8 @@ import {ChooseTemplateComponent} from "./choose-template/choose-template.compone
     ElementDeviceComponent, TemplateProjectComponent, DeviceProjectComponent, ElementTemplateComponent,
     ProjectEditScriptsComponent, UserCompanyComponent, CompanyUserComponent,
     CompanyBrowserComponent, UserBrowserComponent, DeviceBrowserComponent, TemplateBrowserComponent, ElementBrowserComponent,
-    ChooseDeviceComponent, ChooseElementComponent, ChooseTemplateComponent,
+    ChooseDeviceComponent, ChooseElementComponent, ChooseTemplateComponent, CompanyGroupComponent, CompanyProjectComponent,
+    GroupDetailComponent, GroupEditComponent, GroupProjectComponent
   ],
   imports: [
     CommonModule,

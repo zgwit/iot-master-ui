@@ -4,19 +4,17 @@
   <nz-tab nzTitle="基本信息">
     <p>{{data|json}}</p>
   </nz-tab>
-  <nz-tab nzTitle="成员">
-    <ng-template nz-tab>
-      <app-company-user [_id]="id"></app-company-user>
-    </ng-template>
-  </nz-tab>
   <nz-tab nzTitle="项目">
     <ng-template nz-tab>
-      <app-company-project [_id]="id"></app-company-project>
+      <app-group-project [_id]="id"></app-group-project>
     </ng-template>
   </nz-tab>
-  <nz-tab nzTitle="分组">
+  <nz-tab nzTitle="告警" nzDisabled>
     <ng-template nz-tab>
-      <app-company-group [_id]="id"></app-company-group>
+    </ng-template>
+  </nz-tab>
+  <nz-tab nzTitle="订阅">
+    <ng-template nz-tab>
     </ng-template>
   </nz-tab>
   <nz-tab nzTitle="日志">
@@ -28,7 +26,7 @@
 </nz-tabset>
 
 <ng-template #extraTemplate>
-  <a [routerLink]="'/admin/company/edit/'+id">
+  <a [routerLink]="'/admin/group/edit/'+id">
     <i nz-icon nzType="form"></i>
   </a>
 </ng-template>
