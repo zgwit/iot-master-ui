@@ -55,7 +55,7 @@ export class CompanyGroupComponent implements OnInit {
 
   create(): void {
     this.router.navigate(["admin/group/create"]);
-    //TODO ¸½¼Ó²ÎÊı
+    //TODO é™„åŠ å‚æ•°
     return;
   }
 

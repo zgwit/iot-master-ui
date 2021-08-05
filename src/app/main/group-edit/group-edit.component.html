@@ -1,1 +1,24 @@
-<p>group-edit works!</p>
+<app-editor [(ngModel)]="data" [submitting]="submitting" (submit)="submit()">
+
+  <nz-tabset nzType="card" nzSize="small" [formGroup]="basicForm" (change)="change()">
+    <nz-tab nzTitle="基本信息">
+      <nz-form-item>
+        <nz-form-label [nzSpan]="5">名称</nz-form-label>
+        <nz-form-control [nzSpan]="12" nzErrorTip="">
+          <input nz-input formControlName="name" required/>
+        </nz-form-control>
+      </nz-form-item>
+
+      <nz-form-item>
+        <nz-form-label [nzSpan]="5">企业</nz-form-label>
+        <nz-form-control [nzSpan]="12" nzErrorTip="">
+          <input nz-input formControlName="company_id" required/>
+        </nz-form-control>
+      </nz-form-item>
+
+    </nz-tab>
+
+  </nz-tabset>
+
+
+</app-editor>

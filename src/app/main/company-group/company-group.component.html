@@ -24,7 +24,19 @@
       <td>{{ data.name }}</td>
       <td>{{data._id | objectIdToDate | date:'short'}}</td>
       <td>
-        <a nz-popconfirm nzPopconfirmTitle="确定删除？" (nzOnConfirm)="remove(data, i)">删除</a>
+        <a [routerLink]="'/admin/group/detail/'+data._id">详情</a>
+        <nz-divider nzType="vertical"></nz-divider>
+        <a [routerLink]="'/admin/group/edit/'+data._id">编辑</a>
+        <nz-divider nzType="vertical"></nz-divider>
+        <a nz-dropdown [nzDropdownMenu]="menu" nzTrigger="click">
+          更多
+          <i nz-icon nzType="down"></i>
+        </a>
+        <nz-dropdown-menu #menu="nzDropdownMenu">
+          <ul nz-menu>
+            <li nz-menu-item nzDanger nz-popconfirm nzPopconfirmTitle="确定删除？" (nzOnConfirm)="remove(data, i)">删除</li>
+          </ul>
+        </nz-dropdown-menu>
       </td>
     </tr>
     </tbody>

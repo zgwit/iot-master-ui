@@ -73,5 +73,6 @@ export class CompanyProjectComponent implements OnInit {
       this.datum.splice(i, 1);
       //TODO toast
     });
+
   }
 }
