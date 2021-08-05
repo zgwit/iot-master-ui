@@ -6,11 +6,11 @@ import {parseTableQuery} from "../../helper/lib";
 import {ChooseService} from "../choose.service";
 
 @Component({
-  selector: 'app-user-group',
-  templateUrl: './user-group.component.html',
-  styleUrls: ['./user-group.component.scss']
+  selector: 'app-user-company',
+  templateUrl: './user-company.component.html',
+  styleUrls: ['./user-company.component.scss']
 })
-export class UserGroupComponent implements OnInit {
+export class UserCompanyComponent implements OnInit {
   @Input() _id = '';
 
   datum: any[] = [];
@@ -44,7 +44,7 @@ export class UserGroupComponent implements OnInit {
 
   load(): void {
     this.loading = true;
-    this.rs.post(`user/${this._id}/group`, this.params).subscribe(res => {
+    this.rs.post(`user/${this._id}/company`, this.params).subscribe(res => {
       console.log('res', res);
       this.datum = res.data;
       this.total = res.total;
@@ -61,13 +61,13 @@ export class UserGroupComponent implements OnInit {
   }
 
   create() {
-    this.cs.chooseGroup({
+    this.cs.chooseCompany({
       multiple: true
-    }).subscribe(groups => {
-      groups.forEach((g: string) => {
+    }).subscribe(companys => {
+      companys.forEach((g: string) => {
         this.rs.post('member/create', {
           user_id: this._id,
-          group_id: g,
+          company_id: g,
         }).subscribe(res => {
           console.log("加入成功")
           //TODO toast

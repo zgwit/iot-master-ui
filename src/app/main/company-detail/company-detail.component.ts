@@ -4,16 +4,16 @@ import {ActivatedRoute} from "@angular/router";
 import {RequestService} from "../../request.service";
 
 @Component({
-  selector: 'app-group-detail',
-  templateUrl: './group-detail.component.html',
-  styleUrls: ['./group-detail.component.scss']
+  selector: 'app-company-detail',
+  templateUrl: './company-detail.component.html',
+  styleUrls: ['./company-detail.component.scss']
 })
-export class GroupDetailComponent implements OnInit {
+export class CompanyDetailComponent implements OnInit {
   id: any = '';
   data: any = {};
 
   constructor(private tab: TabRef, private router: ActivatedRoute, private rs: RequestService) {
-    tab.name = '群组详情';
+    tab.name = '组织详情';
     this.id = router.snapshot.params.id;
     this.load();
   }
@@ -22,7 +22,7 @@ export class GroupDetailComponent implements OnInit {
   }
 
   load(): void {
-    this.rs.get(`group/${this.id}/detail`).subscribe(res=>{
+    this.rs.get(`company/${this.id}/detail`).subscribe(res=>{
       this.data = res.data;
       this.tab.name += '[' + this.data.name + ']';
     });

@@ -6,24 +6,24 @@ import {RequestService} from "../../request.service";
 import {NzMessageService} from "ng-zorro-antd/message";
 
 @Component({
-  selector: 'app-group-edit',
-  templateUrl: './group-edit.component.html',
-  styleUrls: ['./group-edit.component.scss']
+  selector: 'app-company-edit',
+  templateUrl: './company-edit.component.html',
+  styleUrls: ['./company-edit.component.scss']
 })
-export class GroupEditComponent implements OnInit {
+export class CompanyEditComponent implements OnInit {
   id: any;
   submitting = false;
 
   basicForm: FormGroup = new FormGroup({});
 
   data: any = {
-    "name": "新群组",
+    "name": "新组织",
     "enable": true,
   }
 
   constructor(private fb: FormBuilder, private tab: TabRef, private route: ActivatedRoute, private rs: RequestService, private message: NzMessageService) {
     this.id = route.snapshot.paramMap.get('id');
-    tab.name = this.id ? "编辑群组" : "新建群组";
+    tab.name = this.id ? "编辑组织" : "新建组织";
     if (this.id) this.load();
     this.buildForm();
   }
@@ -40,7 +40,7 @@ export class GroupEditComponent implements OnInit {
 
 
   load(): void {
-    this.rs.get('group/' + this.id + '/detail').subscribe(res => {
+    this.rs.get('company/' + this.id + '/detail').subscribe(res => {
       this.data = res.data;
       this.tab.name += '[' + this.data.name + ']';
       this.buildForm();
@@ -49,7 +49,7 @@ export class GroupEditComponent implements OnInit {
 
   submit(): void {
     this.submitting = true
-    const uri = this.id ? 'group/' + this.id + '/setting' : 'group/create';
+    const uri = this.id ? 'company/' + this.id + '/setting' : 'company/create';
     this.rs.post(uri, this.basicForm.value).subscribe(res => {
       this.message.success("提交成功");
       this.tab.Close();

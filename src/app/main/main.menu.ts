@@ -59,8 +59,8 @@ export let MainMenu = [
         router: 'user'
       },
       {
-        title: '群组',
-        router: 'group'
+        title: '组织',
+        router: 'company'
       },
     ]
   },

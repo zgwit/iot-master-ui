@@ -38,7 +38,7 @@ import {MainComponent} from "./main.component";
 import {DashComponent} from "./dash/dash.component";
 import {TunnelComponent} from "./tunnel/tunnel.component";
 import {TunnelEditComponent} from "./tunnel-edit/tunnel-edit.component";
-import {GroupEditComponent} from "./group-edit/group-edit.component";
+import {CompanyEditComponent} from "./company-edit/company-edit.component";
 import {ProjectComponent} from "./project/project.component";
 import {ProtocolComponent} from "./protocol/protocol.component";
 import {SettingComponent} from "./setting/setting.component";
@@ -48,7 +48,7 @@ import {ProjectDetailComponent} from "./project-detail/project-detail.component"
 import {DeviceDetailComponent} from "./device-detail/device-detail.component";
 import {ElementComponent} from "./element/element.component";
 import {DeviceComponent} from "./device/device.component";
-import {GroupComponent} from "./group/group.component";
+import {CompanyComponent} from "./company/company.component";
 import {TemplateEditComponent} from "./template-edit/template-edit.component";
 import {TemplateDetailComponent} from "./template-detail/template-detail.component";
 import {ElementEditComponent} from "./element-edit/element-edit.component";
@@ -67,7 +67,7 @@ import {PluginComponent} from "./plugin/plugin.component";
 import {AcceptorEditComponent} from "./acceptor-edit/acceptor-edit.component";
 import {AcceptorDetailComponent} from "./acceptor-detail/acceptor-detail.component";
 import {TemplateComponent} from "./template/template.component";
-import {GroupDetailComponent} from "./group-detail/group-detail.component";
+import {CompanyDetailComponent} from "./company-detail/company-detail.component";
 import {NzDropDownModule} from "ng-zorro-antd/dropdown";
 import {AcceptorEditDevicesComponent} from "./acceptor-edit-devices/acceptor-edit-devices.component";
 import {ProjectEditJobsComponent} from "./project-edit-jobs/project-edit-jobs.component";
@@ -90,9 +90,9 @@ import {DeviceProjectComponent} from "./device-project/device-project.component"
 import {ElementTemplateComponent} from "./element-template/element-template.component";
 import {DashModule} from "../dash/dash.module";
 import {ProjectEditScriptsComponent} from "./project-edit-scripts/project-edit-scripts.component";
-import {UserGroupComponent} from "./user-group/user-group.component";
-import {GroupUserComponent} from "./group-user/group-user.component";
-import {GroupBrowserComponent} from "./group-browser/group-browser.component";
+import {UserCompanyComponent} from "./user-company/user-company.component";
+import {CompanyUserComponent} from "./company-user/company-user.component";
+import {CompanyBrowserComponent} from "./company-browser/company-browser.component";
 import {ChooseService} from "./choose.service";
 import {UserBrowserComponent} from "./user-browser/user-browser.component";
 import {DeviceBrowserComponent} from "./device-browser/device-browser.component";
@@ -121,15 +121,15 @@ import {ChooseTemplateComponent} from "./choose-template/choose-template.compone
     ElementComponent, ElementDetailComponent,
     ElementEditComponent, ElementEditVariablesComponent, ElementEditCommandsComponent, ElementEditCollectorsComponent,
     UserComponent, UserEditComponent, UserDetailComponent,
-    GroupComponent, GroupEditComponent, GroupDetailComponent,
+    CompanyComponent, CompanyEditComponent, CompanyDetailComponent,
     PluginComponent, PluginDetailComponent,
     ProtocolComponent, ProtocolDetailComponent,
     ApiComponent,
     SettingComponent,
     PasswordComponent, EventComponent, AcceptorTunnelComponent, TunnelDeviceComponent,
     ElementDeviceComponent, TemplateProjectComponent, DeviceProjectComponent, ElementTemplateComponent,
-    ProjectEditScriptsComponent, UserGroupComponent, GroupUserComponent,
-    GroupBrowserComponent, UserBrowserComponent, DeviceBrowserComponent, TemplateBrowserComponent, ElementBrowserComponent,
+    ProjectEditScriptsComponent, UserCompanyComponent, CompanyUserComponent,
+    CompanyBrowserComponent, UserBrowserComponent, DeviceBrowserComponent, TemplateBrowserComponent, ElementBrowserComponent,
     ChooseDeviceComponent, ChooseElementComponent, ChooseTemplateComponent,
   ],
   imports: [

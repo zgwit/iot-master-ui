@@ -26,9 +26,9 @@
       <td></td>
       <td>{{data._id | objectIdToDate | date:'short'}}</td>
       <td>
-        <a [routerLink]="'/admin/group/detail/'+data._id">详情</a>
+        <a [routerLink]="'/admin/company/detail/'+data._id">详情</a>
         <nz-divider nzType="vertical"></nz-divider>
-        <a [routerLink]="'/admin/group/edit/'+data._id">编辑</a>
+        <a [routerLink]="'/admin/company/edit/'+data._id">编辑</a>
         <nz-divider nzType="vertical"></nz-divider>
         <a nz-dropdown [nzDropdownMenu]="menu" nzTrigger="click">
           更多

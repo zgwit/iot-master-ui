@@ -9,7 +9,7 @@ import {DeviceComponent} from "./device/device.component";
 import {TemplateComponent} from "./template/template.component";
 import {ElementComponent} from "./element/element.component";
 import {UserComponent} from "./user/user.component";
-import {GroupComponent} from "./group/group.component";
+import {CompanyComponent} from "./company/company.component";
 import {PluginComponent} from "./plugin/plugin.component";
 import {ProtocolComponent} from "./protocol/protocol.component";
 import {ApiComponent} from "./api/api.component";
@@ -22,7 +22,7 @@ import {DeviceEditComponent} from "./device-edit/device-edit.component";
 import {TemplateEditComponent} from "./template-edit/template-edit.component";
 import {ElementEditComponent} from "./element-edit/element-edit.component";
 import {UserEditComponent} from "./user-edit/user-edit.component";
-import {GroupEditComponent} from "./group-edit/group-edit.component";
+import {CompanyEditComponent} from "./company-edit/company-edit.component";
 import {AcceptorDetailComponent} from "./acceptor-detail/acceptor-detail.component";
 import {ProjectDetailComponent} from "./project-detail/project-detail.component";
 import {TunnelDetailComponent} from "./tunnel-detail/tunnel-detail.component";
@@ -30,7 +30,7 @@ import {DeviceDetailComponent} from "./device-detail/device-detail.component";
 import {TemplateDetailComponent} from "./template-detail/template-detail.component";
 import {ElementDetailComponent} from "./element-detail/element-detail.component";
 import {UserDetailComponent} from "./user-detail/user-detail.component";
-import {GroupDetailComponent} from "./group-detail/group-detail.component";
+import {CompanyDetailComponent} from "./company-detail/company-detail.component";
 import {PluginDetailComponent} from "./plugin-detail/plugin-detail.component";
 import {ProtocolDetailComponent} from "./protocol-detail/protocol-detail.component";
 
@@ -68,10 +68,10 @@ const routes: Routes = [
       {path: 'user/create', component: UserEditComponent},
       {path: 'user/edit/:id', component: UserEditComponent},
       {path: 'user/detail/:id', component: UserDetailComponent},
-      {path: 'group', component: GroupComponent},
-      {path: 'group/create', component: GroupEditComponent},
-      {path: 'group/edit/:id', component: GroupEditComponent},
-      {path: 'group/detail/:id', component: GroupDetailComponent},
+      {path: 'company', component: CompanyComponent},
+      {path: 'company/create', component: CompanyEditComponent},
+      {path: 'company/edit/:id', component: CompanyEditComponent},
+      {path: 'company/detail/:id', component: CompanyDetailComponent},
       {path: 'plugin', component: PluginComponent},
       {path: 'plugin/detail/:id', component: PluginDetailComponent},
       {path: 'protocol', component: ProtocolComponent},

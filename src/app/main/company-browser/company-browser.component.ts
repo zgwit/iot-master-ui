@@ -7,11 +7,11 @@ import {parseTableQuery} from "../../helper/lib";
 import {NzModalRef} from "ng-zorro-antd/modal";
 
 @Component({
-  selector: 'app-group-browser',
-  templateUrl: './group-browser.component.html',
-  styleUrls: ['./group-browser.component.scss']
+  selector: 'app-company-browser',
+  templateUrl: './company-browser.component.html',
+  styleUrls: ['./company-browser.component.scss']
 })
-export class GroupBrowserComponent implements OnInit {
+export class CompanyBrowserComponent implements OnInit {
   datum: any[] = [];
 
   loading = false;
@@ -88,7 +88,7 @@ export class GroupBrowserComponent implements OnInit {
 
   load(): void {
     this.loading = true;
-    this.rs.post('group/list', this.params).subscribe(res => {
+    this.rs.post('company/list', this.params).subscribe(res => {
       console.log('res', res);
       this.datum = res.data;
       this.total = res.total;

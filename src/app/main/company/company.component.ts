@@ -6,11 +6,11 @@ import {RequestService} from "../../request.service";
 import {parseTableQuery} from "../../helper/lib";
 
 @Component({
-  selector: 'app-group',
-  templateUrl: './group.component.html',
-  styleUrls: ['./group.component.scss']
+  selector: 'app-company',
+  templateUrl: './company.component.html',
+  styleUrls: ['./company.component.scss']
 })
-export class GroupComponent implements OnInit {
+export class CompanyComponent implements OnInit {
   datum: any[] = [];
 
   loading = false;
@@ -25,7 +25,7 @@ export class GroupComponent implements OnInit {
   params: any = {filter: {}};
 
   constructor(private tab: TabRef, private router: Router, private rs: RequestService) {
-    tab.name = "群组"
+    tab.name = "组织"
   }
 
   ngOnInit(): void {
@@ -47,7 +47,7 @@ export class GroupComponent implements OnInit {
 
   load(): void {
     this.loading = true;
-    this.rs.post('group/list', this.params).subscribe(res => {
+    this.rs.post('company/list', this.params).subscribe(res => {
       console.log('res', res);
       this.datum = res.data;
       this.total = res.total;
@@ -57,7 +57,7 @@ export class GroupComponent implements OnInit {
   }
 
   create(): void {
-    this.router.navigate(["admin/group/create"]);
+    this.router.navigate(["admin/company/create"]);
 
     return;
   }
@@ -71,7 +71,7 @@ export class GroupComponent implements OnInit {
   }
 
   remove(data: any, i: number) {
-    this.rs.delete(`group/${data._id}/delete`).subscribe(res=>{
+    this.rs.delete(`company/${data._id}/delete`).subscribe(res=>{
       this.datum.splice(i, 1);
     });
   }

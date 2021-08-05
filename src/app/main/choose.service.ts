@@ -1,6 +1,6 @@
 import {Injectable} from '@angular/core';
 import {NzModalService} from "ng-zorro-antd/modal";
-import {GroupBrowserComponent} from "./group-browser/group-browser.component";
+import {CompanyBrowserComponent} from "./company-browser/company-browser.component";
 import {UserBrowserComponent} from "./user-browser/user-browser.component";
 import {TemplateBrowserComponent} from "./template-browser/template-browser.component";
 import {ElementBrowserComponent} from "./element-browser/element-browser.component";
@@ -14,10 +14,10 @@ export class ChooseService {
   constructor(private ms: NzModalService) {
   }
 
-  chooseGroup(params?: any) {
+  chooseCompany(params?: any) {
     const modal = this.ms.create({
-      nzTitle: '选择群组',
-      nzContent: GroupBrowserComponent,
+      nzTitle: '选择组织',
+      nzContent: CompanyBrowserComponent,
       nzComponentParams: params,
     });
     return modal.afterClose
