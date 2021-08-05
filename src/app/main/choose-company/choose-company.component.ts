@@ -39,7 +39,7 @@ export class ChooseCompanyComponent implements OnInit, ControlValueAccessor {
   }
 
   choose() {
-    this.cs.chooseTemplate().subscribe(res=>{
+    this.cs.chooseCompany().subscribe(res=>{
       if (res){
         this._id = res;
         this.onChanged(res);

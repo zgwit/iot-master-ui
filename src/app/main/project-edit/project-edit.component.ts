@@ -83,4 +83,8 @@ export class ProjectEditComponent implements OnInit {
     this.data = this.basicForm.value;
   }
 
+  onCompanyChange() {
+    this.basicForm.get("group_id")?.patchValue('');
+    this.change();
+  }
 }
