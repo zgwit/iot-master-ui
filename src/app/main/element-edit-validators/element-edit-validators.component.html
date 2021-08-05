@@ -1,0 +1,49 @@
+<app-toolbar>
+  <nz-space>
+    <button nz-button *nzSpaceItem nzType="default" (click)="clear()">清空</button>
+    <button nz-button *nzSpaceItem nzType="default" (click)="sort()">排序</button>
+    <button nz-button *nzSpaceItem nzType="primary" (click)="add()">添加</button>
+  </nz-space>
+</app-toolbar>
+
+
+<nz-table [nzData]="formArray.controls" [nzFrontPagination]="false" nzSize="small" [formGroup]="formGroup">
+  <thead>
+  <tr>
+    <th>条件（表达式）</th>
+    <th>告警</th>
+    <th>等级</th>
+    <th>延时</th>
+    <th>启用</th>
+    <th>操作</th>
+  </tr>
+  </thead>
+  <tbody formGroupName="items" cdkDropList (cdkDropListDropped)="drop($event)" >
+  <tr *ngFor="let data of formArray.controls; let i=index" [formGroupName]="i" cdkDrag>
+    <td>
+      <input nz-input formControlName="expression" nzSize="small" placeholder="" (change)="change()" required/>
+    </td>
+    <td>
+      <input nz-input formControlName="alarm" nzSize="small" placeholder="" (change)="change()" required/>
+    </td>
+    <td>
+      <nz-select formControlName="level" (ngModelChange)="change()">
+        <nz-option [nzValue]="1" nzLabel="一般"></nz-option>
+        <nz-option [nzValue]="2" nzLabel="严重"></nz-option>
+        <nz-option [nzValue]="3" nzLabel="灾难"></nz-option>
+      </nz-select>
+    </td>
+    <td>
+      <nz-input-number formControlName="delay" [nzMin]="0" [nzStep]="1" nzSize="small" (change)="change()"></nz-input-number>
+    </td>
+    <td>
+      <nz-switch formControlName="enable"></nz-switch>
+    </td>
+    <td>
+      <a cdkDragHandle style="cursor: move">排序</a>
+      <nz-divider nzType="vertical"></nz-divider>
+      <a (click)="remove(i)">删除</a>
+    </td>
+  </tr>
+  </tbody>
+</nz-table>

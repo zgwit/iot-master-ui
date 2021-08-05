@@ -50,13 +50,18 @@
       <app-element-edit-commands formControlName="commands"></app-element-edit-commands>
     </nz-tab>
 
-    <nz-tab nzTitle="采集器">
+    <nz-tab nzTitle="定时采集">
       <app-element-edit-collectors formControlName="collectors" [codes]="codes"></app-element-edit-collectors>
     </nz-tab>
 
-    <nz-tab nzTitle="脚本">
+    <nz-tab nzTitle="合法检查">
+      <app-element-edit-validators formControlName="validators"></app-element-edit-validators>
+    </nz-tab>
+
+    <nz-tab nzTitle="自动脚本">
       <app-project-edit-scripts formControlName="scripts"></app-project-edit-scripts>
     </nz-tab>
+
   </nz-tabset>
 
 

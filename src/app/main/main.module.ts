@@ -107,6 +107,8 @@ import {CompanyProjectComponent} from "./company-project/company-project.compone
 import {GroupDetailComponent} from "./group-detail/group-detail.component";
 import {GroupEditComponent} from "./group-edit/group-edit.component";
 import {GroupProjectComponent} from "./group-project/group-project.component";
+import {ElementEditValidatorsComponent} from "./element-edit-validators/element-edit-validators.component";
+import {ProjectEditValidatorsComponent} from "./project-edit-validators/project-edit-validators.component";
 
 
 @NgModule({
@@ -114,29 +116,49 @@ import {GroupProjectComponent} from "./group-project/group-project.component";
     MainComponent,
     DashComponent,
     TunnelComponent, TunnelEditComponent, TunnelDetailComponent, TunnelMonitorComponent,
+    TunnelDeviceComponent,
+
     AcceptorComponent, AcceptorDetailComponent,
-    AcceptorEditComponent, AcceptorEditDevicesComponent,
+    AcceptorEditComponent, AcceptorEditDevicesComponent, AcceptorTunnelComponent,
+
     ProjectComponent, ProjectDetailComponent,
     ProjectEditComponent, ProjectEditJobsComponent, ProjectEditCommandsComponent,
     ProjectEditVariablesComponent, ProjectEditDevicesComponent, ProjectEditStrategiesComponent,
+    ProjectEditValidatorsComponent, ProjectEditScriptsComponent,
+
+    GroupDetailComponent, GroupEditComponent, GroupProjectComponent,
+
     DeviceComponent, DeviceDetailComponent,
     DeviceEditComponent, DeviceEditJobsComponent,
+    DeviceProjectComponent, DeviceBrowserComponent, ElementEditValidatorsComponent,
+
     TemplateComponent, TemplateDetailComponent,
     TemplateEditComponent, TemplateEditDevicesComponent,
+    TemplateProjectComponent, TemplateBrowserComponent,
+
+    ElementBrowserComponent,
+    ElementDeviceComponent, ElementTemplateComponent,
     ElementComponent, ElementDetailComponent,
-    ElementEditComponent, ElementEditVariablesComponent, ElementEditCommandsComponent, ElementEditCollectorsComponent,
-    UserComponent, UserEditComponent, UserDetailComponent,
-    CompanyComponent, CompanyEditComponent, CompanyDetailComponent,
+    ElementEditComponent, ElementEditVariablesComponent,
+    ElementEditCommandsComponent, ElementEditCollectorsComponent,
+
+    UserComponent, UserEditComponent, UserDetailComponent, UserCompanyComponent,
+    UserBrowserComponent,
+
+    CompanyComponent, CompanyEditComponent, CompanyDetailComponent, CompanyProjectComponent,
+    CompanyGroupComponent, CompanyBrowserComponent,
+    CompanyUserComponent,
+
     PluginComponent, PluginDetailComponent,
     ProtocolComponent, ProtocolDetailComponent,
+
     ApiComponent,
     SettingComponent,
-    PasswordComponent, EventComponent, AcceptorTunnelComponent, TunnelDeviceComponent,
-    ElementDeviceComponent, TemplateProjectComponent, DeviceProjectComponent, ElementTemplateComponent,
-    ProjectEditScriptsComponent, UserCompanyComponent, CompanyUserComponent,
-    CompanyBrowserComponent, UserBrowserComponent, DeviceBrowserComponent, TemplateBrowserComponent, ElementBrowserComponent,
-    ChooseDeviceComponent, ChooseElementComponent, ChooseTemplateComponent, CompanyGroupComponent, CompanyProjectComponent,
-    GroupDetailComponent, GroupEditComponent, GroupProjectComponent
+
+    PasswordComponent, EventComponent,
+
+    ChooseDeviceComponent, ChooseElementComponent, ChooseTemplateComponent,
+
   ],
   imports: [
     CommonModule,

@@ -24,6 +24,7 @@ export class ProjectEditComponent implements OnInit {
     "devices": [],
     "jobs": [],
     "strategies": [],
+    "validators": [],
     "scripts": [],
   }
 
@@ -38,6 +39,8 @@ export class ProjectEditComponent implements OnInit {
     this.basicForm = this.fb.group({
       name: [this.data.name, [Validators.required]],
       template_id: [this.data.template_id, []],
+      company_id: [this.data.company_id, []],
+      group_id: [this.data.group_id, []],
       enable: [this.data.enable, [Validators.required]],
 
       commands: [this.data.commands || []],
@@ -45,6 +48,7 @@ export class ProjectEditComponent implements OnInit {
       devices: [this.data.devices || []],
       jobs: [this.data.jobs || []],
       strategies: [this.data.strategies || []],
+      validators: [this.data.validators || []],
       scripts: [this.data.scripts || []],
     });
   }

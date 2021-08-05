@@ -26,6 +26,7 @@ export class ElementEditComponent implements OnInit {
     "variables": [],
     "commands": [],
     "collectors": [],
+    "validators": [],
     "scripts": [],
   }
 
@@ -47,6 +48,7 @@ export class ElementEditComponent implements OnInit {
       variables: [this.data.variables || []],
       commands: [this.data.commands || []],
       collectors: [this.data.collectors || []],
+      validators: [this.data.validators || []],
       scripts: [this.data.scripts || []],
     });
   }

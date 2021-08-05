@@ -23,6 +23,7 @@ export class TemplateEditComponent implements OnInit {
     "devices": [],
     "jobs": [],
     "strategies": [],
+    "validators": [],
     "scripts": [],
   }
 
@@ -42,6 +43,7 @@ export class TemplateEditComponent implements OnInit {
       devices: [this.data.devices || []],
       jobs: [this.data.jobs || []],
       strategies: [this.data.strategies || []],
+      validators: [this.data.validators || []],
       scripts: [this.data.scripts || []],
     });
   }
