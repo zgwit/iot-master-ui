@@ -20,7 +20,7 @@
       <th nzColumnKey="name" [nzSortFn]="true">姓名</th>
       <th nzColumnKey="cellphone">手机号</th>
       <th nzColumnKey="email">邮箱</th>
-      <th>状态</th>
+      <th>启用</th>
       <th nzColumnKey="_id" [nzSortFn]="true">创建时间</th>
     </tr>
     </thead>
@@ -33,7 +33,7 @@
       <td>{{ data.name }}</td>
       <td>{{ data.cellphone }}</td>
       <td>{{ data.email }}</td>
-      <td>{{data.enable?'启用':'禁用'}}</td>
+      <td>{{data.enable?'√':'×'}}</td>
       <td>{{data._id | objectIdToDate | date:'short'}}</td>
     </tr>
     </tbody>

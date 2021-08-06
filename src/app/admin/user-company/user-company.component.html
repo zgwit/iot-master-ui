@@ -16,7 +16,7 @@
     <tr>
       <th nzColumnKey="name" [nzSortFn]="true">名称</th>
       <th nzColumnKey="member_id" [nzSortFn]="true">加入时间</th>
-      <th>状态</th>
+      <th>启用</th>
       <th nzWidth="100">操作</th>
     </tr>
     </thead>
@@ -24,7 +24,7 @@
     <tr *ngFor="let data of datum; let i=index">
       <td>{{ data.name }}</td>
       <td>{{data.member_id | objectIdToDate | date:'short'}}</td>
-      <td>{{data.enable?'启用':'禁用'}}</td>
+      <td>{{data.enable?'√':'×'}}</td>
       <td>
         <a [routerLink]="'/admin/company/detail/'+data._id">详情</a>
         <nz-divider nzType="vertical"></nz-divider>
