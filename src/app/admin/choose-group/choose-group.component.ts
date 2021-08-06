@@ -44,7 +44,7 @@ export class ChooseGroupComponent implements OnInit, ControlValueAccessor {
   }
 
   load() {
-    this.name = "";
+    this.name = "加载中...";
     if (this._id)
     this.rs.get(`group/${this._id}/detail`).subscribe(res=>{
       this.name = res.data.name;

@@ -23,7 +23,6 @@ export class ChooseUserComponent implements OnInit, ControlValueAccessor {
   @HostBinding('attr.title')
   _id = "";
   name = "";
-  username = "";
 
   constructor(private cs: ChooseService, private rs: RequestService) { }
 
@@ -44,11 +43,10 @@ export class ChooseUserComponent implements OnInit, ControlValueAccessor {
   }
 
   load() {
-    this.name = "";
+    this.name = "加载中...";
     if (this._id)
     this.rs.get(`user/${this._id}/detail`).subscribe(res=>{
-      this.name = res.data.name;
-      this.username = res.data.username;
+      this.name = res.data.name || res.data.username;
     })
   }
 
