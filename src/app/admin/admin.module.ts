@@ -117,6 +117,8 @@ import {ProjectBrowserComponent} from "./project-browser/project-browser.compone
 import {AlarmComponent} from "./alarm/alarm.component";
 import {SubscribeComponent} from "./subscribe/subscribe.component";
 import {SubscribeEditComponent} from "./subscribe-edit/subscribe-edit.component";
+import {ChooseTunnelComponent} from "./choose-tunnel/choose-tunnel.component";
+import {TunnelBrowserComponent} from "./tunnel-browser/tunnel-browser.component";
 
 
 @NgModule({
@@ -124,7 +126,7 @@ import {SubscribeEditComponent} from "./subscribe-edit/subscribe-edit.component"
     AdminComponent,
     DashComponent,
     TunnelComponent, TunnelEditComponent, TunnelDetailComponent, TunnelMonitorComponent,
-    TunnelDeviceComponent,
+    TunnelDeviceComponent, TunnelBrowserComponent,
 
     AcceptorComponent, AcceptorDetailComponent,
     AcceptorEditComponent, AcceptorEditDevicesComponent, AcceptorTunnelComponent,
@@ -168,7 +170,7 @@ import {SubscribeEditComponent} from "./subscribe-edit/subscribe-edit.component"
     PasswordComponent, EventComponent,
 
     ChooseDeviceComponent, ChooseElementComponent, ChooseTemplateComponent,
-    ChooseUserComponent, ChooseGroupComponent, ChooseCompanyComponent,
+    ChooseUserComponent, ChooseGroupComponent, ChooseCompanyComponent, ChooseTunnelComponent,
 
     AlarmComponent, SubscribeComponent, SubscribeEditComponent,
 

@@ -43,8 +43,8 @@ export class ChooseUserComponent implements OnInit, ControlValueAccessor {
   }
 
   load() {
+    if (!this._id) return;
     this.name = "加载中...";
-    if (this._id)
     this.rs.get(`user/${this._id}/detail`).subscribe(res=>{
       this.name = res.data.name || res.data.username;
     })

@@ -12,15 +12,14 @@
       <nz-form-item>
         <nz-form-label [nzSpan]="5">元件</nz-form-label>
         <nz-form-control [nzSpan]="12" nzErrorTip="">
-<!--          <input nz-input formControlName="element_id" required/>-->
           <app-choose-element formControlName="element_id"></app-choose-element>
         </nz-form-control>
       </nz-form-item>
 
       <nz-form-item>
-        <nz-form-label [nzSpan]="5">通道ID</nz-form-label>
+        <nz-form-label [nzSpan]="5">通道</nz-form-label>
         <nz-form-control [nzSpan]="12" nzErrorTip="">
-          <input nz-input formControlName="tunnel_id" required/>
+          <app-choose-tunnel formControlName="tunnel_id"></app-choose-tunnel>
         </nz-form-control>
       </nz-form-item>
 

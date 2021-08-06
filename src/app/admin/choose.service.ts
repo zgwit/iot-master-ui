@@ -7,6 +7,7 @@ import {ElementBrowserComponent} from "./element-browser/element-browser.compone
 import {DeviceBrowserComponent} from "./device-browser/device-browser.component";
 import {GroupBrowserComponent} from "./group-browser/group-browser.component";
 import {ProjectBrowserComponent} from "./project-browser/project-browser.component";
+import {TunnelBrowserComponent} from "./tunnel-browser/tunnel-browser.component";
 
 @Injectable({
   providedIn: "root"
@@ -47,6 +48,15 @@ export class ChooseService {
     const modal = this.ms.create({
       nzTitle: '选择设备',
       nzContent: DeviceBrowserComponent,
+      nzComponentParams: params,
+    });
+    return modal.afterClose
+  }
+
+  chooseTunnel(params?: any) {
+    const modal = this.ms.create({
+      nzTitle: '选择通道',
+      nzContent: TunnelBrowserComponent,
       nzComponentParams: params,
     });
     return modal.afterClose

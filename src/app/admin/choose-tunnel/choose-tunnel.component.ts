@@ -4,18 +4,18 @@ import {ChooseService} from "../choose.service";
 import {RequestService} from "../../request.service";
 
 @Component({
-  selector: 'app-choose-template',
-  templateUrl: './choose-template.component.html',
-  styleUrls: ['./choose-template.component.scss'],
+  selector: 'app-choose-tunnel',
+  templateUrl: './choose-tunnel.component.html',
+  styleUrls: ['./choose-tunnel.component.scss'],
   providers: [
     {
       provide: NG_VALUE_ACCESSOR,
-      useExisting: forwardRef(() => ChooseTemplateComponent),
+      useExisting: forwardRef(() => ChooseTunnelComponent),
       multi: true
     }
   ]
 })
-export class ChooseTemplateComponent implements OnInit, ControlValueAccessor {
+export class ChooseTunnelComponent implements OnInit, ControlValueAccessor {
   onChanged: any = () => {}
   onTouched: any = () => {}
 
@@ -45,13 +45,13 @@ export class ChooseTemplateComponent implements OnInit, ControlValueAccessor {
   load() {
     if (!this._id) return;
     this.name = "加载中...";
-    this.rs.get(`template/${this._id}/detail`).subscribe(res=>{
-      this.name = res.data.name;
+    this.rs.get(`tunnel/${this._id}/detail`).subscribe(res=>{
+      this.name = res.data.name || res.data.sn;
     })
   }
 
   choose() {
-    this.cs.chooseTemplate().subscribe(res=>{
+    this.cs.chooseTunnel().subscribe(res=>{
       if (res){
         this._id = res;
         this.load();
