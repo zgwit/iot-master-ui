@@ -14,19 +14,17 @@
   >
     <thead>
     <tr>
-      <th>用户</th>
-      <th nzColumnKey="event" [nzSortFn]="true">事件</th>
-      <th>内容</th>
+      <th>设备</th>
+	  <th>内容</th>
       <th nzColumnKey="_id" [nzSortFn]="true">时间</th>
     </tr>
     </thead>
     <tbody>
     <tr *ngFor="let data of datum; let i=index">
       <td>
-        <a [routerLink]="'/admin/user/detail/'+data.user_id">{{data.user?.name}}</a>
+        <a [routerLink]="'/admin/device/detail/'+data.device_id">{{data.device?.name}}</a>
       </td>
-      <td>{{ data.event }}</td>
-      <td>{{ data.data | json }}</td>
+      <td>{{ data.content }}</td>
       <td>{{data._id | objectIdToDate | date:'short'}}</td>
     </tr>
     </tbody>

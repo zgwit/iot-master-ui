@@ -28,7 +28,7 @@
           (nzCheckedChange)="onItemChecked(data._id, $event)"
       ></td>
       <td>{{ data.name }}</td>
-      <td>{{data.template && data.template.name}}</td>
+      <td>{{data.template?.name}}</td>
       <td></td>
       <td>{{data._id | objectIdToDate | date:'short'}}</td>
     </tr>

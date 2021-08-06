@@ -9,8 +9,9 @@
       <app-group-project [_id]="id"></app-group-project>
     </ng-template>
   </nz-tab>
-  <nz-tab nzTitle="告警" nzDisabled>
+  <nz-tab nzTitle="告警">
     <ng-template nz-tab>
+      <app-alarm type="project" [_id]="id"></app-alarm>
     </ng-template>
   </nz-tab>
   <nz-tab nzTitle="订阅">
@@ -19,7 +20,7 @@
   </nz-tab>
   <nz-tab nzTitle="日志">
     <ng-template nz-tab>
-      <app-event type="company" [_id]="id"></app-event>
+      <app-event type="group" [_id]="id"></app-event>
     </ng-template>
   </nz-tab>
 

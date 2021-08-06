@@ -26,7 +26,7 @@
     <tr *ngFor="let data of datum; let i=index">
       <td>{{ data.name }}</td>
       <td>
-        <a [routerLink]="'/admin/element/detail/'+data.element_id">{{data.element && data.element.name}}</a>
+        <a [routerLink]="'/admin/element/detail/'+data.element_id">{{data.element?.name}}</a>
       </td>
       <td>{{ data.slave }}</td>
       <td></td>

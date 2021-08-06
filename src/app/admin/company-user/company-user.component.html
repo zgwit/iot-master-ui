@@ -32,6 +32,8 @@
       <td></td>
       <td>{{data.member_id | objectIdToDate | date:'short'}}</td>
       <td>
+        <a [routerLink]="'/admin/user/detail/'+data._id">详情</a>
+        <nz-divider nzType="vertical"></nz-divider>
         <a nz-popconfirm nzPopconfirmTitle="确定删除？" (nzOnConfirm)="remove(data, i)">删除</a>
       </td>
     </tr>
