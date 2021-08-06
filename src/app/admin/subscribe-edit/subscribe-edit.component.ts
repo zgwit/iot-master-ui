@@ -18,8 +18,8 @@ export class SubscribeEditComponent implements OnInit {
 
   data: any = {
     "user_id": "",
-    "start": "0:00",
-    "end": "23:59",
+    "start": 0,
+    "end": 1439, //23:59
     "level": 1,
     "weixin": true,
     "sms": true,

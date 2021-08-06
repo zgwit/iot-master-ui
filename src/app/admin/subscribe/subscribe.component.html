@@ -31,12 +31,12 @@
       <td>
         <a [routerLink]="'/admin/user/detail/'+data.user_id">{{data.user?.name}}</a>
       </td>
-      <td>{{ data.start || '0:00' }} - {{ data.end || '23:59' }}</td>
+      <td>{{ data.start | minuteToDate | date: 'HH:mm' }} - {{ data.end | minuteToDate | date: 'HH:mm' }}</td>
       <td>{{ data.level }}</td>
-      <td>{{ data.weixin }}</td>
-      <td>{{ data.sms }}</td>
-      <td>{{ data.voice }}</td>
-      <td>{{ data.email }}</td>
+      <td>{{ data.weixin && '√' }}</td>
+      <td>{{ data.sms && '√' }}</td>
+      <td>{{ data.voice && '√' }}</td>
+      <td>{{ data.email && '√' }}</td>
       <td></td>
       <td>{{data._id | objectIdToDate | date:'short'}}</td>
       <td>

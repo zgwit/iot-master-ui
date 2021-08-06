@@ -20,6 +20,7 @@
     "@angular/router": "~12.1.0-",
     "@ctrl/ngx-codemirror": "^5.0.0",
     "codemirror": "^5.62.2",
+    "dayjs": "^1.10.6",
     "ng-zorro-antd": "^12.0.1",
     "ngx-filesize": "^2.0.16",
     "rxjs": "~6.6.0",

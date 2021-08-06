@@ -26,7 +26,7 @@
     <tbody>
     <tr *ngFor="let data of datum; let i=index">
       <td>{{ data.name }}</td>
-      <td>{{ data.time }}</td>
+      <td>{{ data.time | minuteToDate | date: 'HH:mm' }}</td>
       <td>{{ data.command }}</td>
       <td>{{ data.params }}</td>
       <td></td>

@@ -12,10 +12,10 @@
       <nz-form-item>
         <nz-form-label [nzSpan]="5">时间</nz-form-label>
         <nz-form-control [nzSpan]="12" nzErrorTip="">
-          <input nz-input formControlName="time" placeholder="TODO 改成选择时间" required/>
+          <app-minute-time-picker formControlName="time"></app-minute-time-picker>
         </nz-form-control>
       </nz-form-item>
-	  
+
       <nz-form-item>
         <nz-form-label [nzSpan]="5">命令</nz-form-label>
         <nz-form-control [nzSpan]="12" nzErrorTip="">

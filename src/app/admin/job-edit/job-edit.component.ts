@@ -18,7 +18,7 @@ export class JobEditComponent implements OnInit {
 
   data: any = {
     "name": "新建任务",
-    "time": "8:00",
+    "time": 480,
     "command": "",
     "params": "",
     "enable": true,

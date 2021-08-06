@@ -16,6 +16,9 @@ import {PageListComponent} from './page-list/page-list.component';
 import {NzInputModule} from "ng-zorro-antd/input";
 import {ObjectIdToDatePipe} from './object-id-to-date.pipe';
 import {ToolbarComponent} from './toolbar/toolbar.component';
+import { MinuteToDatePipe } from './minute-to-date.pipe';
+import { MinuteTimePickerComponent } from './minute-time-picker/minute-time-picker.component';
+import {NzTimePickerModule} from "ng-zorro-antd/time-picker";
 
 
 @NgModule({
@@ -28,6 +31,8 @@ import {ToolbarComponent} from './toolbar/toolbar.component';
     PageListComponent,
     ObjectIdToDatePipe,
     ToolbarComponent,
+    MinuteToDatePipe,
+    MinuteTimePickerComponent,
   ],
   exports: [
     TabsComponent,
@@ -36,8 +41,10 @@ import {ToolbarComponent} from './toolbar/toolbar.component';
     YamlEditorComponent,
     JsonEditorComponent,
     PageListComponent,
-    ObjectIdToDatePipe,
     ToolbarComponent,
+    ObjectIdToDatePipe,
+    MinuteToDatePipe,
+    MinuteTimePickerComponent,
   ],
   imports: [
     CommonModule,
@@ -48,7 +55,8 @@ import {ToolbarComponent} from './toolbar/toolbar.component';
     NzIconModule,
     RouterModule,
     NzSpaceModule,
-    NzInputModule
+    NzInputModule,
+    NzTimePickerModule
   ]
 })
 export class HelperModule {
