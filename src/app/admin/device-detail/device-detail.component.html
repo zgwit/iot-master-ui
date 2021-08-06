@@ -1,6 +1,6 @@
 
 
-<nz-tabset>
+<nz-tabset [nzTabBarExtraContent]="extraTemplate">
   <nz-tab nzTitle="设备详情">
     <p>{{data|json}}</p>
   </nz-tab>
@@ -30,3 +30,9 @@
   </nz-tab>
 
 </nz-tabset>
+
+<ng-template #extraTemplate>
+  <a [routerLink]="'/admin/device/edit/'+id">
+    <i nz-icon nzType="form"></i>
+  </a>
+</ng-template>

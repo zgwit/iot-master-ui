@@ -1,6 +1,6 @@
 
 
-<nz-tabset>
+<nz-tabset [nzTabBarExtraContent]="extraTemplate">
   <nz-tab nzTitle="项目详情">
     <p>{{data|json}}</p>
   </nz-tab>
