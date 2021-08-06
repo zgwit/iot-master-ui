@@ -35,32 +35,15 @@
       </nz-form-item>
 
       <nz-form-item>
-        <nz-form-label [nzSpan]="5">微信</nz-form-label>
+        <nz-form-label [nzSpan]="5">推送</nz-form-label>
         <nz-form-control [nzSpan]="12" nzErrorTip="">
-          <nz-switch formControlName="weixin"></nz-switch>
+          <label nz-checkbox formControlName="weixin">微信</label>
+          <label nz-checkbox formControlName="sms">短信</label>
+          <label nz-checkbox formControlName="voice">语音</label>
+          <label nz-checkbox formControlName="email">邮件</label>
         </nz-form-control>
       </nz-form-item>
 
-      <nz-form-item>
-        <nz-form-label [nzSpan]="5">短信</nz-form-label>
-        <nz-form-control [nzSpan]="12" nzErrorTip="">
-          <nz-switch formControlName="sms"></nz-switch>
-        </nz-form-control>
-      </nz-form-item>
-
-      <nz-form-item>
-        <nz-form-label [nzSpan]="5">语音电话</nz-form-label>
-        <nz-form-control [nzSpan]="12" nzErrorTip="">
-          <nz-switch formControlName="voice"></nz-switch>
-        </nz-form-control>
-      </nz-form-item>
-
-      <nz-form-item>
-        <nz-form-label [nzSpan]="5">邮件</nz-form-label>
-        <nz-form-control [nzSpan]="12" nzErrorTip="">
-          <nz-switch formControlName="email"></nz-switch>
-        </nz-form-control>
-      </nz-form-item>
 
       <nz-form-item>
         <nz-form-label [nzSpan]="5">启用</nz-form-label>

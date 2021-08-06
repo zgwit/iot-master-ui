@@ -48,6 +48,8 @@ export class MinuteTimePickerComponent implements OnInit, ControlValueAccessor {
 
   writeValue(obj: any): void {
     const date = new Date()
+    if (obj < 0) obj = 0;
+    else if (obj > 1439) obj = 1439;
     date.setHours(Math.floor(obj / 60), obj % 60, 0, 0);
     this._time = date;
   }

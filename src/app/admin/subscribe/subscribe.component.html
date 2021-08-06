@@ -17,10 +17,7 @@
       <th nzColumnKey="user_id" [nzSortFn]="true">用户</th>
       <th nzColumnKey="start" [nzSortFn]="true">起止时间</th>
       <th nzColumnKey="level" [nzSortFn]="true">等级</th>
-      <th nzColumnKey="weixin">微信</th>
-      <th nzColumnKey="sms">短信</th>
-      <th nzColumnKey="voice">语音（电话）</th>
-      <th nzColumnKey="email">邮箱</th>
+      <th>推送</th>
       <th>状态</th>
       <th nzColumnKey="_id" [nzSortFn]="true">创建时间</th>
       <th nzWidth="100">操作</th>
@@ -33,10 +30,12 @@
       </td>
       <td>{{ data.start | minuteToDate | date: 'HH:mm' }} - {{ data.end | minuteToDate | date: 'HH:mm' }}</td>
       <td>{{ data.level }}</td>
-      <td>{{ data.weixin && '√' }}</td>
-      <td>{{ data.sms && '√' }}</td>
-      <td>{{ data.voice && '√' }}</td>
-      <td>{{ data.email && '√' }}</td>
+      <td>
+        <span *ngIf="data.weixin">微信，</span>
+        <span *ngIf="data.sms">短信，</span>
+        <span *ngIf="data.voice">语音，</span>
+        <span *ngIf="data.email">邮件</span>
+      </td>
       <td></td>
       <td>{{data._id | objectIdToDate | date:'short'}}</td>
       <td>
