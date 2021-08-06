@@ -119,6 +119,7 @@ import {SubscribeComponent} from "./subscribe/subscribe.component";
 import {SubscribeEditComponent} from "./subscribe-edit/subscribe-edit.component";
 import {ChooseTunnelComponent} from "./choose-tunnel/choose-tunnel.component";
 import {TunnelBrowserComponent} from "./tunnel-browser/tunnel-browser.component";
+import {PromptComponent} from "./prompt/prompt.component";
 
 
 @NgModule({
@@ -168,6 +169,8 @@ import {TunnelBrowserComponent} from "./tunnel-browser/tunnel-browser.component"
     SettingComponent,
 
     PasswordComponent, EventComponent,
+
+    PromptComponent,
 
     ChooseDeviceComponent, ChooseElementComponent, ChooseTemplateComponent,
     ChooseUserComponent, ChooseGroupComponent, ChooseCompanyComponent, ChooseTunnelComponent,

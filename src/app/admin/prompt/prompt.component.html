@@ -1,0 +1,7 @@
+<p>{{message}}</p>
+<input nz-input [placeholder]="placeholder" [(ngModel)]="default">
+
+<div *nzModalFooter>
+  <button nz-button nzType="default" (click)="cancel()">取消</button>
+  <button nz-button nzType="primary" (click)="ok()">确定</button>
+</div>

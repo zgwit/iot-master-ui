@@ -8,6 +8,7 @@ import {DeviceBrowserComponent} from "./device-browser/device-browser.component"
 import {GroupBrowserComponent} from "./group-browser/group-browser.component";
 import {ProjectBrowserComponent} from "./project-browser/project-browser.component";
 import {TunnelBrowserComponent} from "./tunnel-browser/tunnel-browser.component";
+import {PromptComponent} from "./prompt/prompt.component";
 
 @Injectable({
   providedIn: "root"
@@ -83,6 +84,15 @@ export class ChooseService {
     const modal = this.ms.create({
       nzTitle: '选择项目',
       nzContent: ProjectBrowserComponent,
+      nzComponentParams: params,
+    });
+    return modal.afterClose
+  }
+
+  prompt(params: any) {
+    const modal = this.ms.create({
+      nzTitle: '请输入',
+      nzContent: PromptComponent,
       nzComponentParams: params,
     });
     return modal.afterClose
