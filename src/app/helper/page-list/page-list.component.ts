@@ -1,5 +1,4 @@
 import {Component, OnInit, EventEmitter, Output, Input} from '@angular/core';
-import {TabRef} from "../tabs/tabs.component";
 
 @Component({
   selector: 'app-page-list',
@@ -14,6 +13,7 @@ export class PageListComponent implements OnInit {
   @Input() loading: any = false;
   @Input() noCreate: any = false;
   @Input() createButtonText = "新建";
+  @Input() noSearch: any = false;
 
   keyword = '';
 

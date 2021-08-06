@@ -10,7 +10,7 @@
       {{createButtonText}}
     </button>
 
-    <nz-input-group *nzSpaceItem nzSearch nzPrefixIcon="search" [nzAddOnAfter]="suffixIconButton"
+    <nz-input-group *nzSpaceItem nzSearch nzPrefixIcon="search" [nzAddOnAfter]="suffixIconButton" [hidden]="noSearch"
                     [nzSuffix]="suffixIconClear">
       <input type="text" nz-input placeholder="关键字" [(ngModel)]="keyword" [ngModelOptions]="{standalone: true}"/>
     </nz-input-group>

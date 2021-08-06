@@ -1,4 +1,4 @@
-<app-page-list (create)="create()" createButtonText="添加成员" (refresh)="load()" (search)="search($event)" [loading]="loading">
+<app-page-list (create)="create()" createButtonText="添加成员" (refresh)="load()" noSearch [loading]="loading">
 
   <nz-table
     nzSize="small"
@@ -18,7 +18,7 @@
       <th nzColumnKey="name" [nzSortFn]="true">姓名</th>
       <th nzColumnKey="cellphone">手机号</th>
       <th nzColumnKey="email">邮箱</th>
-      <th>启用</th>
+      <th nzColumnKey="enable" [nzSortFn]="true">启用</th>
       <th nzColumnKey="member_id" [nzSortFn]="true">加入时间</th>
       <th nzWidth="100">操作</th>
     </tr>

@@ -17,7 +17,7 @@
     <tr>
       <th [nzShowCheckbox]="multiple" [nzChecked]="checked" [nzIndeterminate]="indeterminate" (nzCheckedChange)="onAllChecked($event)"></th>
       <th nzColumnKey="name" [nzSortFn]="true">名称</th>
-      <th>启用</th>
+      <th nzColumnKey="enable" [nzSortFn]="true">启用</th>
       <th nzColumnKey="_id" [nzSortFn]="true">创建时间</th>
     </tr>
     </thead>
