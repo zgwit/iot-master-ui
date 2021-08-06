@@ -4,7 +4,7 @@ import {Router} from "@angular/router";
 import {RequestService} from "../../request.service";
 import {parseTableQuery} from "../../helper/lib";
 import {ChooseService} from "../choose.service";
-
+import {NzModalService} from "ng-zorro-antd/modal";
 @Component({
   selector: 'app-group-project',
   templateUrl: './group-project.component.html',
@@ -22,7 +22,7 @@ export class GroupProjectComponent implements OnInit {
 
   params: any = {filter: {}};
 
-  constructor(private router: Router, private rs: RequestService, private cs: ChooseService) {
+  constructor(private router: Router, private rs: RequestService, private cs: ChooseService, private ms: NzModalService) {
   }
 
   ngOnInit(): void {
@@ -73,22 +73,29 @@ export class GroupProjectComponent implements OnInit {
     })
   }
 
-
-  enable(i: number) {
-
-  }
-
-  disable(i: number) {
-
-  }
-
   remove(data: any, i: number) {
-    // this.rs.delete(`project/${data._id}/delete`).subscribe(res => {
-    //   this.datum.splice(i, 1);
-    //   //TODO toast
-    // });
-    this.rs.post(`project/${data._id}/setting`, {group_id: null}).subscribe(res=>{
-      //TODO toast
+    this.rs.delete(`project/${data._id}/delete`).subscribe(res => {
+      this.datum.splice(i, 1);
+    });
+  }
+
+  onEnableChange(data: any, enable: boolean) {
+    if (enable) {
+      this.rs.post(`project/${data._id}/setting`, {enable}).subscribe(res => {
+      });
+      return;
+    }
+    this.ms.confirm({
+      nzTitle: "提示",
+      nzContent: "确认禁用吗?", //TODO 更丰富、人性 的 提醒
+      nzOnOk:()=>{
+        this.rs.post(`project/${data._id}/setting`, {enable}).subscribe(res => {
+        });
+      },
+      nzOnCancel:()=>{
+        data.enable = true;
+      }
     })
   }
+
 }

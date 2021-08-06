@@ -33,7 +33,7 @@
       <td>{{ data.name }}</td>
       <td>{{ data.cellphone }}</td>
       <td>{{ data.email }}</td>
-      <td></td>
+      <td>{{data.enable?'启用':'禁用'}}</td>
       <td>{{data._id | objectIdToDate | date:'short'}}</td>
     </tr>
     </tbody>

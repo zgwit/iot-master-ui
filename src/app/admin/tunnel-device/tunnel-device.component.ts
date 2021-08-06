@@ -3,6 +3,7 @@ import {NzTableQueryParams} from "ng-zorro-antd/table";
 import {Router} from "@angular/router";
 import {RequestService} from "../../request.service";
 import {parseTableQuery} from "../../helper/lib";
+import {NzModalService} from "ng-zorro-antd/modal";
 
 @Component({
   selector: 'app-tunnel-device',
@@ -21,7 +22,7 @@ export class TunnelDeviceComponent implements OnInit {
 
   params: any = {filter: {}};
 
-  constructor(private router: Router, private rs: RequestService) {
+  constructor(private router: Router, private rs: RequestService, private ms: NzModalService) {
   }
 
   ngOnInit(): void {
@@ -58,15 +59,29 @@ export class TunnelDeviceComponent implements OnInit {
   }
 
 
-  enable(i: number) {
-
-  }
-
-  disable(i: number) {
-
-  }
-
   remove(data: any, i: number) {
-
+    this.rs.delete(`device/${data._id}/delete`).subscribe(res => {
+      this.datum.splice(i, 1);
+    });
   }
+
+  onEnableChange(data: any, enable: boolean) {
+    if (enable) {
+      this.rs.post(`device/${data._id}/setting`, {enable}).subscribe(res => {
+      });
+      return;
+    }
+    this.ms.confirm({
+      nzTitle: "提示",
+      nzContent: "确认禁用吗?", //TODO 更丰富、人性 的 提醒
+      nzOnOk:()=>{
+        this.rs.post(`device/${data._id}/setting`, {enable}).subscribe(res => {
+        });
+      },
+      nzOnCancel:()=>{
+        data.enable = true;
+      }
+    })
+  }
+
 }

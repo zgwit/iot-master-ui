@@ -18,8 +18,8 @@
       <th nzColumnKey="time" [nzSortFn]="true">时间</th>
       <th nzColumnKey="command">命令</th>
       <th nzColumnKey="params">参数</th>
-      <th>状态</th>
       <th nzColumnKey="_id" [nzSortFn]="true">创建时间</th>
+      <th nzColumnKey="enable" [nzSortFn]="true">启用</th>
       <th nzWidth="100">操作</th>
     </tr>
     </thead>
@@ -29,8 +29,10 @@
       <td>{{ data.time | minuteToDate | date: 'HH:mm' }}</td>
       <td>{{ data.command }}</td>
       <td>{{ data.params }}</td>
-      <td></td>
       <td>{{data._id | objectIdToDate | date:'short'}}</td>
+      <td>
+        <nz-switch [(ngModel)]="data.enable" nzSize="small" (ngModelChange)="onEnableChange(data, $event)"></nz-switch>
+      </td>
       <td>
         <a [routerLink]="'/admin/job/detail/'+data._id">详情</a>
         <nz-divider nzType="vertical"></nz-divider>
@@ -42,8 +44,6 @@
         </a>
         <nz-dropdown-menu #menu="nzDropdownMenu">
           <ul nz-menu>
-            <li nz-menu-item (click)="enable(i)">启用</li>
-            <li nz-menu-item (click)="disable(i)">禁用</li>
             <li nz-menu-item nzDanger nz-popconfirm nzPopconfirmTitle="确定删除？" (nzOnConfirm)="remove(data, i)">删除</li>
           </ul>
         </nz-dropdown-menu>
