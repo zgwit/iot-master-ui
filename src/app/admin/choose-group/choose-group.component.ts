@@ -1,6 +1,7 @@
-import {Component, forwardRef, Input, OnInit} from '@angular/core';
+import {Component, forwardRef, Input, HostBinding, OnInit} from '@angular/core';
 import {ControlValueAccessor, NG_VALUE_ACCESSOR} from "@angular/forms";
 import {ChooseService} from "../choose.service";
+import {RequestService} from "../../request.service";
 
 @Component({
   selector: 'app-choose-group',
@@ -19,11 +20,12 @@ export class ChooseGroupComponent implements OnInit, ControlValueAccessor {
   onTouched: any = () => {}
 
   //内容
+  @HostBinding('attr.title')
   _id = "";
-
+  name = "";
   @Input() company_id = ''
 
-  constructor(private cs: ChooseService) { }
+  constructor(private cs: ChooseService, private rs: RequestService) { }
 
   ngOnInit(): void {
   }
@@ -38,6 +40,15 @@ export class ChooseGroupComponent implements OnInit, ControlValueAccessor {
 
   writeValue(obj: any): void {
     this._id = obj;
+    this.load();
+  }
+
+  load() {
+    this.name = "";
+    if (this._id)
+    this.rs.get(`group/${this._id}/detail`).subscribe(res=>{
+      this.name = res.data.name;
+    })
   }
 
   choose() {
@@ -46,6 +57,7 @@ export class ChooseGroupComponent implements OnInit, ControlValueAccessor {
     }).subscribe(res=>{
       if (res){
         this._id = res;
+        this.load();
         this.onChanged(res);
         this.onTouched();
       }

@@ -1,6 +1,7 @@
-import {Component, forwardRef, OnInit} from '@angular/core';
+import {Component, forwardRef, HostBinding, OnInit} from '@angular/core';
 import {ControlValueAccessor, NG_VALUE_ACCESSOR} from "@angular/forms";
 import {ChooseService} from "../choose.service";
+import {RequestService} from "../../request.service";
 
 @Component({
   selector: 'app-choose-company',
@@ -19,9 +20,11 @@ export class ChooseCompanyComponent implements OnInit, ControlValueAccessor {
   onTouched: any = () => {}
 
   //内容
+  @HostBinding('attr.title')
   _id = "";
+  name = "";
 
-  constructor(private cs: ChooseService) { }
+  constructor(private cs: ChooseService, private rs: RequestService) { }
 
   ngOnInit(): void {
   }
@@ -36,12 +39,22 @@ export class ChooseCompanyComponent implements OnInit, ControlValueAccessor {
 
   writeValue(obj: any): void {
     this._id = obj;
+    this.load();
+  }
+
+  load() {
+    this.name = "";
+    if (this._id)
+    this.rs.get(`company/${this._id}/detail`).subscribe(res=>{
+      this.name = res.data.name;
+    })
   }
 
   choose() {
     this.cs.chooseCompany().subscribe(res=>{
       if (res){
         this._id = res;
+        this.load();
         this.onChanged(res);
         this.onTouched();
       }
