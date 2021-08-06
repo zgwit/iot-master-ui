@@ -15,8 +15,9 @@
     <thead>
     <tr>
       <th nzColumnKey="name" [nzSortFn]="true">名称</th>
-      <th nzColumnKey="template_id">模板</th>
-      <th>状态</th>
+      <th nzColumnKey="group_id" [nzSortFn]="true">分组</th>
+      <th nzColumnKey="template_id" [nzSortFn]="true">模板</th>
+      <th nzColumnKey="enable" [nzSortFn]="true">状态</th>
       <th nzColumnKey="_id" [nzSortFn]="true">创建时间</th>
       <th nzWidth="100">操作</th>
     </tr>
@@ -24,6 +25,9 @@
     <tbody>
     <tr *ngFor="let data of datum; let i=index">
       <td>{{ data.name }}</td>
+      <td>
+        <a [routerLink]="'/admin/group/detail/'+data.group_id">{{data.group?.name}}</a>
+      </td>
       <td>
         <a [routerLink]="'/admin/template/detail/'+data.template_id">{{data.template?.name}}</a>
       </td>
