@@ -1,7 +1,7 @@
 
 
 <nz-tabset [nzTabBarExtraContent]="extraTemplate">
-  <nz-tab nzTitle="基本信息">
+  <nz-tab nzTitle="公司详情">
     <p>{{data|json}}</p>
   </nz-tab>
   <nz-tab nzTitle="成员">
@@ -19,12 +19,12 @@
       <app-company-group [_id]="id"></app-company-group>
     </ng-template>
   </nz-tab>
-  <nz-tab nzTitle="告警">
+  <nz-tab nzTitle="告警记录">
     <ng-template nz-tab>
       <app-alarm type="company" [_id]="id"></app-alarm>
     </ng-template>
   </nz-tab>
-  <nz-tab nzTitle="订阅">
+  <nz-tab nzTitle="告警订阅">
     <ng-template nz-tab>
       <app-subscribe type="company" [_id]="id"></app-subscribe>
     </ng-template>

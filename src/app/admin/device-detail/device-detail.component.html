@@ -1,7 +1,7 @@
 
 
 <nz-tabset>
-  <nz-tab nzTitle="基本信息">
+  <nz-tab nzTitle="设备详情">
     <p>{{data|json}}</p>
   </nz-tab>
   <nz-tab nzTitle="可视化" nzDisabled>
@@ -18,8 +18,9 @@
       <app-job type="device" [_id]="id"></app-job>
     </ng-template>
   </nz-tab>
-  <nz-tab nzTitle="告警" nzDisabled>
+  <nz-tab nzTitle="告警记录">
     <ng-template nz-tab>
+      <app-alarm type="device" [_id]="id"></app-alarm>
     </ng-template>
   </nz-tab>
   <nz-tab nzTitle="日志">
