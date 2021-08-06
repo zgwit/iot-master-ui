@@ -3,6 +3,7 @@ import {NzTableQueryParams} from "ng-zorro-antd/table";
 import {Router} from "@angular/router";
 import {RequestService} from "../../request.service";
 import {parseTableQuery} from "../../helper/lib";
+import {ChooseService} from "../choose.service";
 
 @Component({
   selector: 'app-group-project',
@@ -21,7 +22,7 @@ export class GroupProjectComponent implements OnInit {
 
   params: any = {filter: {}};
 
-  constructor(private router: Router, private rs: RequestService) {
+  constructor(private router: Router, private rs: RequestService, private cs: ChooseService) {
   }
 
   ngOnInit(): void {
@@ -54,7 +55,22 @@ export class GroupProjectComponent implements OnInit {
   }
 
   create(): void {
-    this.router.navigate(["admin/project/create"], {queryParams: {group_id: this._id}});
+    //this.router.navigate(["admin/project/create"], {queryParams: {group_id: this._id}});
+    //改为选择
+    this.rs.get(`group/${this._id}/detail`).subscribe(res=>{
+      //console.log(res);
+      this.cs.chooseProject({
+        multiple: true,
+        company_id: res.data.company_id,
+      }).subscribe(res => {
+        res.forEach((p: string) => {
+          this.rs.post(`project/${p}/setting`, {group_id: this._id}).subscribe(res=>{
+            //TODO toast
+          })
+        })
+
+      })
+    })
   }
 
 
@@ -67,9 +83,12 @@ export class GroupProjectComponent implements OnInit {
   }
 
   remove(data: any, i: number) {
-    this.rs.delete(`project/${data._id}/delete`).subscribe(res => {
-      this.datum.splice(i, 1);
+    // this.rs.delete(`project/${data._id}/delete`).subscribe(res => {
+    //   this.datum.splice(i, 1);
+    //   //TODO toast
+    // });
+    this.rs.post(`project/${data._id}/setting`, {group_id: null}).subscribe(res=>{
       //TODO toast
-    });
+    })
   }
 }

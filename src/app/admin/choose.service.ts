@@ -6,6 +6,7 @@ import {TemplateBrowserComponent} from "./template-browser/template-browser.comp
 import {ElementBrowserComponent} from "./element-browser/element-browser.component";
 import {DeviceBrowserComponent} from "./device-browser/device-browser.component";
 import {GroupBrowserComponent} from "./group-browser/group-browser.component";
+import {ProjectBrowserComponent} from "./project-browser/project-browser.component";
 
 @Injectable({
   providedIn: "root"
@@ -71,7 +72,7 @@ export class ChooseService {
   chooseProject(params?: any) {
     const modal = this.ms.create({
       nzTitle: '选择项目',
-      nzContent: TemplateBrowserComponent,
+      nzContent: ProjectBrowserComponent,
       nzComponentParams: params,
     });
     return modal.afterClose
