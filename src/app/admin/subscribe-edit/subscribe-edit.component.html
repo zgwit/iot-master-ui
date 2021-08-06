@@ -1,0 +1,76 @@
+<app-editor [(ngModel)]="data" [submitting]="submitting" (submit)="submit()">
+
+  <nz-tabset nzType="card" nzSize="small" [formGroup]="basicForm" (change)="change()">
+    <nz-tab nzTitle="基本信息">
+      <nz-form-item>
+        <nz-form-label [nzSpan]="5">用户</nz-form-label>
+        <nz-form-control [nzSpan]="12" nzErrorTip="">
+          <app-choose-user formControlName="user_id"></app-choose-user>
+        </nz-form-control>
+      </nz-form-item>
+
+      <nz-form-item>
+        <nz-form-label [nzSpan]="5">起始时间</nz-form-label>
+        <nz-form-control [nzSpan]="12" nzErrorTip="">
+          <input nz-input formControlName="start" placeholder="TODO 改成选择时间" required/>
+        </nz-form-control>
+      </nz-form-item>
+
+      <nz-form-item>
+        <nz-form-label [nzSpan]="5">结束时间</nz-form-label>
+        <nz-form-control [nzSpan]="12" nzErrorTip="">
+          <input nz-input formControlName="end" placeholder="TODO 改成选择时间" required/>
+        </nz-form-control>
+      </nz-form-item>
+
+      <nz-form-item>
+        <nz-form-label [nzSpan]="5">等级</nz-form-label>
+        <nz-form-control [nzSpan]="12" nzErrorTip="">
+          <nz-select formControlName="level">
+            <nz-option [nzValue]="1" nzLabel="一般"></nz-option>
+            <nz-option [nzValue]="2" nzLabel="严重"></nz-option>
+            <nz-option [nzValue]="3" nzLabel="灾难"></nz-option>
+          </nz-select>
+        </nz-form-control>
+      </nz-form-item>
+
+      <nz-form-item>
+        <nz-form-label [nzSpan]="5">微信</nz-form-label>
+        <nz-form-control [nzSpan]="12" nzErrorTip="">
+          <nz-switch formControlName="weixin"></nz-switch>
+        </nz-form-control>
+      </nz-form-item>
+
+      <nz-form-item>
+        <nz-form-label [nzSpan]="5">短信</nz-form-label>
+        <nz-form-control [nzSpan]="12" nzErrorTip="">
+          <nz-switch formControlName="sms"></nz-switch>
+        </nz-form-control>
+      </nz-form-item>
+
+      <nz-form-item>
+        <nz-form-label [nzSpan]="5">语音电话</nz-form-label>
+        <nz-form-control [nzSpan]="12" nzErrorTip="">
+          <nz-switch formControlName="voice"></nz-switch>
+        </nz-form-control>
+      </nz-form-item>
+
+      <nz-form-item>
+        <nz-form-label [nzSpan]="5">邮件</nz-form-label>
+        <nz-form-control [nzSpan]="12" nzErrorTip="">
+          <nz-switch formControlName="email"></nz-switch>
+        </nz-form-control>
+      </nz-form-item>
+
+      <nz-form-item>
+        <nz-form-label [nzSpan]="5">启用</nz-form-label>
+        <nz-form-control [nzSpan]="12" nzErrorTip="">
+          <nz-switch formControlName="enable"></nz-switch>
+        </nz-form-control>
+      </nz-form-item>
+    </nz-tab>
+
+  </nz-tabset>
+
+
+</app-editor>

@@ -20,6 +20,7 @@
   </nz-tab>
   <nz-tab nzTitle="订阅">
     <ng-template nz-tab>
+      <app-subscribe type="project" [_id]="id"></app-subscribe>
     </ng-template>
   </nz-tab>
   <nz-tab nzTitle="日志">
@@ -29,3 +30,9 @@
   </nz-tab>
 
 </nz-tabset>
+
+<ng-template #extraTemplate>
+  <a [routerLink]="'/admin/project/edit/'+id">
+    <i nz-icon nzType="form"></i>
+  </a>
+</ng-template>

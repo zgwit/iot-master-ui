@@ -39,7 +39,7 @@ export class ChooseUserComponent implements OnInit, ControlValueAccessor {
   }
 
   choose() {
-    this.cs.chooseTemplate().subscribe(res=>{
+    this.cs.chooseUser().subscribe(res=>{
       if (res){
         this._id = res;
         this.onChanged(res);

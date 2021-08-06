@@ -115,6 +115,8 @@ import {ChooseCompanyComponent} from "./choose-company/choose-company.component"
 import {GroupBrowserComponent} from "./group-browser/group-browser.component";
 import {ProjectBrowserComponent} from "./project-browser/project-browser.component";
 import {AlarmComponent} from "./alarm/alarm.component";
+import {SubscribeComponent} from "./subscribe/subscribe.component";
+import {SubscribeEditComponent} from "./subscribe-edit/subscribe-edit.component";
 
 
 @NgModule({
@@ -166,7 +168,9 @@ import {AlarmComponent} from "./alarm/alarm.component";
     PasswordComponent, EventComponent,
 
     ChooseDeviceComponent, ChooseElementComponent, ChooseTemplateComponent,
-    ChooseUserComponent, ChooseGroupComponent, ChooseCompanyComponent, AlarmComponent,
+    ChooseUserComponent, ChooseGroupComponent, ChooseCompanyComponent,
+
+    AlarmComponent, SubscribeComponent, SubscribeEditComponent,
 
   ],
   imports: [

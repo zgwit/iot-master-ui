@@ -6,27 +6,31 @@ import {RequestService} from "../../request.service";
 import {NzMessageService} from "ng-zorro-antd/message";
 
 @Component({
-  selector: 'app-job-edit',
-  templateUrl: './job-edit.component.html',
-  styleUrls: ['./job-edit.component.scss']
+  selector: 'app-subscribe-edit',
+  templateUrl: './subscribe-edit.component.html',
+  styleUrls: ['./subscribe-edit.component.scss']
 })
-export class JobEditComponent implements OnInit {
+export class SubscribeEditComponent implements OnInit {
   id: any;
   submitting = false;
 
   basicForm: FormGroup = new FormGroup({});
 
   data: any = {
-    "name": "新建任务",
-    "time": "8:00",
-    "command": "",
-    "params": "",
+    "user_id": "",
+    "start": "0:00",
+    "end": "23:59",
+    "level": 1,
+    "weixin": true,
+    "sms": true,
+    "voice": true,
+    "email": true,
     "enable": true,
   }
 
   constructor(private fb: FormBuilder, private tab: TabRef, private route: ActivatedRoute, private rs: RequestService, private message: NzMessageService) {
     this.id = route.snapshot.paramMap.get('id');
-    tab.name = this.id ? "编辑任务" : "新建任务";
+    tab.name = this.id ? "编辑订阅" : "新建订阅";
     if (this.id) this.load();
     this.buildForm();
 
@@ -38,11 +42,16 @@ export class JobEditComponent implements OnInit {
 
   buildForm(): void {
     this.basicForm = this.fb.group({
-      name: [this.data.name, [Validators.required]],
-      time: [this.data.time, [Validators.required]],
-      command: [this.data.command, [Validators.required]],
-      params: [this.data.params, [Validators.required]],
+      user_id: [this.data.user_id, [Validators.required]],
+      start: [this.data.start, []],
+      end: [this.data.end, []],
+      level: [this.data.level, [Validators.required]],
+      weixin: [this.data.weixin, [Validators.required]],
+      sms: [this.data.sms, [Validators.required]],
+      voice: [this.data.voice, [Validators.required]],
+      email: [this.data.email, [Validators.required]],
       enable: [this.data.enable, [Validators.required]],
+
     });
   }
 
@@ -51,7 +60,7 @@ export class JobEditComponent implements OnInit {
 
 
   load(): void {
-    this.rs.get('job/' + this.id + '/detail').subscribe(res => {
+    this.rs.get('subscribe/' + this.id + '/detail').subscribe(res => {
       this.data = res.data;
       this.tab.name += '[' + this.data.name + ']';
       this.buildForm();
@@ -60,7 +69,7 @@ export class JobEditComponent implements OnInit {
 
   submit(): void {
     this.submitting = true
-    const uri = this.id ? 'job/' + this.id + '/setting' : 'job/create';
+    const uri = this.id ? 'subscribe/' + this.id + '/setting' : 'subscribe/create';
     const body = Object.assign({}, this.basicForm.value, this.route.snapshot.queryParams);
     this.rs.post(uri, body).subscribe(res => {
       this.message.success("提交成功");
