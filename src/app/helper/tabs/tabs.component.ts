@@ -9,7 +9,7 @@ import {
 } from '@angular/core';
 import {ActivatedRoute, ActivationEnd, NavigationEnd, Router, RouterLinkWithHref} from '@angular/router';
 import {Subscription} from 'rxjs';
-import {MainComponent} from "../../main/main.component";
+import {AdminComponent} from "../../main/admin.component";
 
 @Component({
   selector: 'app-tabs',
@@ -128,7 +128,7 @@ export class TabsComponent implements OnInit, OnDestroy, AfterViewInit {
       return;
     }
     // 避免初次打开，页面一直嵌套的问题，但是页面会一直处于加载中
-    if (route.component === MainComponent) {
+    if (route.component === AdminComponent) {
       return;
     }
 

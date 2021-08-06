@@ -1,5 +1,5 @@
 
-export let MainMenu = [
+export let SideMenu = [
   {
     title: '控制台',
     icon: 'dashboard',

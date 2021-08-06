@@ -1,6 +1,6 @@
 import {NgModule} from '@angular/core';
 import {Routes, RouterModule} from '@angular/router';
-import {MainComponent} from './main.component';
+import {AdminComponent} from './admin.component';
 import {DashComponent} from "./dash/dash.component";
 import {AcceptorComponent} from "./acceptor/acceptor.component";
 import {TunnelComponent} from "./tunnel/tunnel.component";
@@ -40,7 +40,7 @@ import {JobEditComponent} from "./job-edit/job-edit.component";
 const routes: Routes = [
   {
     path: '',
-    component: MainComponent,
+    component: AdminComponent,
     children: [
       {path: '', redirectTo: 'dash'},
       {path: 'dash', component: DashComponent},
@@ -97,5 +97,5 @@ const routes: Routes = [
   imports: [RouterModule.forChild(routes)],
   exports: [RouterModule]
 })
-export class MainRoutingModule {
+export class AdminRoutingModule {
 }

@@ -6,7 +6,7 @@ import {NzMenuModule} from 'ng-zorro-antd/menu';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {CommonModule} from '@angular/common';
 import {HttpClientModule} from '@angular/common/http';
-import {MainRoutingModule} from './main-routing.module';
+import {AdminRoutingModule} from './admin-routing.module';
 
 import {NzSpaceModule} from 'ng-zorro-antd/space';
 import {NzIconModule} from 'ng-zorro-antd/icon';
@@ -34,7 +34,7 @@ import {NzProgressModule} from 'ng-zorro-antd/progress';
 import {NzCardModule} from 'ng-zorro-antd/card';
 import {NzUploadModule} from 'ng-zorro-antd/upload';
 import {HelperModule} from "../helper/helper.module";
-import {MainComponent} from "./main.component";
+import {AdminComponent} from "./admin.component";
 import {DashComponent} from "./dash/dash.component";
 import {TunnelComponent} from "./tunnel/tunnel.component";
 import {TunnelEditComponent} from "./tunnel-edit/tunnel-edit.component";
@@ -118,7 +118,7 @@ import {ProjectBrowserComponent} from "./project-browser/project-browser.compone
 
 @NgModule({
   declarations: [
-    MainComponent,
+    AdminComponent,
     DashComponent,
     TunnelComponent, TunnelEditComponent, TunnelDetailComponent, TunnelMonitorComponent,
     TunnelDeviceComponent,
@@ -173,7 +173,7 @@ import {ProjectBrowserComponent} from "./project-browser/project-browser.compone
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule,
-    MainRoutingModule,
+    AdminRoutingModule,
     IconsProviderModule,
     NzIconModule,
     NzLayoutModule,
@@ -207,8 +207,8 @@ import {ProjectBrowserComponent} from "./project-browser/project-browser.compone
     DashModule,
     DragDropModule,
   ],
-  bootstrap: [MainComponent],
+  bootstrap: [AdminComponent],
   providers: [ChooseService]
 })
-export class MainModule {
+export class AdminModule {
 }

@@ -2,17 +2,17 @@ import {
   Component,
   OnInit,
 } from '@angular/core';
-import {MainMenu} from './main.menu';
+import {SideMenu} from './side.menu';
 import {RequestService} from '../request.service';
 import {Router} from '@angular/router';
 
 
 @Component({
   selector: 'app-main',
-  templateUrl: './main.component.html',
-  styleUrls: ['./main.component.scss']
+  templateUrl: './admin.component.html',
+  styleUrls: ['./admin.component.scss']
 })
-export class MainComponent implements OnInit {
+export class AdminComponent implements OnInit {
 
   isCollapsed = false;
 
@@ -36,6 +36,6 @@ export class MainComponent implements OnInit {
   }
 
   initMenu(): void {
-    this.menus = MainMenu;
+    this.menus = SideMenu;
   }
 }
