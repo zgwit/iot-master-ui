@@ -23,7 +23,7 @@
       <input nz-input formControlName="name" nzSize="small" placeholder="" (change)="change()" required/>
     </td>
     <td>
-<!--      <input nz-input formControlName="watches" nzSize="small" placeholder="TODO 使用 tree-select" (change)="change()" required/>-->
+<!--      <input nz-input formControlName="watches" nzSize="small" placeholder="TODO 使用 select" (change)="change()" required/>-->
       <nz-select nzAllowClear nzMode="tags" [nzTokenSeparators]="[',', ';', ' ']" formControlName="watches" nzSize="small" (ngModelChange)="change()"></nz-select>
     </td>
     <td>

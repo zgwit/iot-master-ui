@@ -120,6 +120,8 @@ import {SubscribeEditComponent} from "./subscribe-edit/subscribe-edit.component"
 import {ChooseTunnelComponent} from "./choose-tunnel/choose-tunnel.component";
 import {TunnelBrowserComponent} from "./tunnel-browser/tunnel-browser.component";
 import {PromptComponent} from "./prompt/prompt.component";
+import {ProjectEditJobsComponent} from "./project-edit-jobs/project-edit-jobs.component";
+import {ElementEditScriptsComponent} from "./element-edit-scripts/element-edit-scripts.component";
 
 
 @NgModule({
@@ -133,7 +135,7 @@ import {PromptComponent} from "./prompt/prompt.component";
     AcceptorEditComponent, AcceptorEditDevicesComponent, AcceptorTunnelComponent,
 
     ProjectComponent, ProjectDetailComponent,
-    ProjectEditComponent, ProjectEditCommandsComponent,
+    ProjectEditComponent, ProjectEditCommandsComponent, ProjectEditJobsComponent,
     ProjectEditVariablesComponent, ProjectEditDevicesComponent, ProjectEditStrategiesComponent,
     ProjectEditValidatorsComponent, ProjectEditScriptsComponent, ProjectBrowserComponent,
 
@@ -150,7 +152,7 @@ import {PromptComponent} from "./prompt/prompt.component";
     ElementDeviceComponent, ElementTemplateComponent,
     ElementComponent, ElementDetailComponent,
     ElementEditComponent, ElementEditVariablesComponent,
-    ElementEditCommandsComponent, ElementEditCollectorsComponent,
+    ElementEditCommandsComponent, ElementEditCollectorsComponent, ElementEditScriptsComponent,
 
     UserComponent, UserEditComponent, UserDetailComponent, UserCompanyComponent,
     UserBrowserComponent,

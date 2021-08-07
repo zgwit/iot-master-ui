@@ -11,7 +11,7 @@
   <thead>
   <tr>
     <th>名称</th>
-    <th>监听</th>
+    <th>定时</th>
     <th>脚本</th>
     <th>启用</th>
     <th>操作</th>
@@ -23,8 +23,7 @@
       <input nz-input formControlName="name" nzSize="small" placeholder="" (change)="change()" required/>
     </td>
     <td>
-<!--      <input nz-input formControlName="watches" nzSize="small" placeholder="TODO 使用 tree-select" (change)="change()" required/>-->
-      <nz-select nzAllowClear nzMode="tags" [nzTokenSeparators]="[',', ';', ' ']" formControlName="watches" nzSize="small" (ngModelChange)="change()"></nz-select>
+      <input nz-input formControlName="crontab" nzSize="small" placeholder="" (change)="change()" required/>
     </td>
     <td>
       <app-input-script formControlName="script" nzSize="small"></app-input-script>

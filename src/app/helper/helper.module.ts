@@ -19,6 +19,8 @@ import {ToolbarComponent} from './toolbar/toolbar.component';
 import { MinuteToDatePipe } from './minute-to-date.pipe';
 import { MinuteTimePickerComponent } from './minute-time-picker/minute-time-picker.component';
 import {NzTimePickerModule} from "ng-zorro-antd/time-picker";
+import { InputScriptComponent } from './input-script/input-script.component';
+import {NzModalModule} from "ng-zorro-antd/modal";
 
 
 @NgModule({
@@ -33,6 +35,7 @@ import {NzTimePickerModule} from "ng-zorro-antd/time-picker";
     ToolbarComponent,
     MinuteToDatePipe,
     MinuteTimePickerComponent,
+    InputScriptComponent,
   ],
   exports: [
     TabsComponent,
@@ -45,19 +48,21 @@ import {NzTimePickerModule} from "ng-zorro-antd/time-picker";
     ObjectIdToDatePipe,
     MinuteToDatePipe,
     MinuteTimePickerComponent,
+    InputScriptComponent,
   ],
-  imports: [
-    CommonModule,
-    CodemirrorModule,
-    FormsModule,
-    NzTabsModule,
-    NzButtonModule,
-    NzIconModule,
-    RouterModule,
-    NzSpaceModule,
-    NzInputModule,
-    NzTimePickerModule
-  ]
+    imports: [
+        CommonModule,
+        CodemirrorModule,
+        FormsModule,
+        NzTabsModule,
+        NzButtonModule,
+        NzIconModule,
+        RouterModule,
+        NzSpaceModule,
+        NzInputModule,
+        NzTimePickerModule,
+        NzModalModule
+    ]
 })
 export class HelperModule {
 }

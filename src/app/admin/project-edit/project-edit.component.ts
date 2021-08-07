@@ -27,6 +27,7 @@ export class ProjectEditComponent implements OnInit {
     "devices": [],
     "strategies": [],
     "validators": [],
+    "jobs": [],
     "scripts": [],
   }
 
@@ -51,6 +52,7 @@ export class ProjectEditComponent implements OnInit {
       devices: [this.data.devices || []],
       strategies: [this.data.strategies || []],
       validators: [this.data.validators || []],
+      jobs: [this.data.jobs || []],
       scripts: [this.data.scripts || []],
     });
   }

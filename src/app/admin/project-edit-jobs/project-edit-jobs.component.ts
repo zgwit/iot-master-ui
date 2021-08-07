@@ -2,18 +2,18 @@ import {Component, forwardRef, OnInit} from '@angular/core';
 import {ControlValueAccessor, FormArray, FormBuilder, FormGroup, NG_VALUE_ACCESSOR, Validators} from "@angular/forms";
 
 @Component({
-  selector: 'app-project-edit-scripts',
-  templateUrl: './project-edit-scripts.component.html',
-  styleUrls: ['./project-edit-scripts.component.scss'],
+  selector: 'app-project-edit-jobs',
+  templateUrl: './project-edit-jobs.component.html',
+  styleUrls: ['./project-edit-jobs.component.scss'],
   providers: [
     {
       provide: NG_VALUE_ACCESSOR,
-      useExisting: forwardRef(() => ProjectEditScriptsComponent),
+      useExisting: forwardRef(() => ProjectEditJobsComponent),
       multi: true
     }
   ]
 })
-export class ProjectEditScriptsComponent implements OnInit, ControlValueAccessor {
+export class ProjectEditJobsComponent implements OnInit, ControlValueAccessor {
   onChanged: any = () => {
   }
   onTouched: any = () => {
@@ -35,7 +35,7 @@ export class ProjectEditScriptsComponent implements OnInit, ControlValueAccessor
       items: this.formArray = this.fb.array(this.items.map((d: any) => {
         return this.fb.group({
           name: [d.name, [Validators.required]],
-          watches: [d.watches, [Validators.required]],
+          crontab: [d.crontab, [Validators.required]],
           script: [d.script, [Validators.required]],
           enable: [d.enable, [Validators.required]],
         })
@@ -45,10 +45,10 @@ export class ProjectEditScriptsComponent implements OnInit, ControlValueAccessor
 
   add() {
     this.formArray.push(this.fb.group({
-          name: ['新建脚本' + this.formArray.length, [Validators.required]],
-          watches: [[], [Validators.required]],
-          script: ['', [Validators.required]],
-          enable: [true, [Validators.required]],
+          name: ['新建定时任务' + this.formArray.length, [Validators.required]],
+      crontab: ['', [Validators.required]],
+      script: ['', [Validators.required]],
+      enable: [true, [Validators.required]],
     }))
     //复制controls，让表格可以刷新
     this.formArray.controls = [...this.formArray.controls];
@@ -67,7 +67,7 @@ export class ProjectEditScriptsComponent implements OnInit, ControlValueAccessor
 
   sort() {
     this.formArray.controls.sort((a, b) => {
-      return a.value.address - b.value.address;
+      return a.value.crontab - b.value.crontab;
     });
     this.change();
   }
