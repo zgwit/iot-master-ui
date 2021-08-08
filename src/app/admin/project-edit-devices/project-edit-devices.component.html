@@ -22,7 +22,7 @@
       <app-choose-device formControlName="device_id" (change)="change()"></app-choose-device>
     </td>
     <td>
-      <input nz-input formControlName="alias" nzSize="small" (change)="change()" required/>
+      <input nz-input formControlName="name" nzSize="small" (change)="change()" required/>
     </td>
     <td>
       <nz-select nzAllowClear nzMode="tags" [nzTokenSeparators]="[',', ';', ' ']" formControlName="tags" nzSize="small" (ngModelChange)="change()"></nz-select>
