@@ -36,6 +36,10 @@ export class ProjectEditComponent implements OnInit {
     tab.name = this.id ? "编辑项目" : "新建项目";
     if (this.id) this.load();
     Object.assign(this.data, this.route.snapshot.queryParams);
+    if (this.data.device_id) {
+      this.data.devices.push({device_id: this.data.device_id, slave: 1});
+      delete this.data.device_id;
+    }
     this.buildForm();
   }
 

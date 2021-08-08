@@ -20,8 +20,13 @@ import {NzFormModule} from 'ng-zorro-antd/form';
 import {NzCheckboxModule} from 'ng-zorro-antd/checkbox';
 import {NzIconModule} from 'ng-zorro-antd/icon';
 import {NzMessageModule} from 'ng-zorro-antd/message';
+import {JwtModule} from "@auth0/angular-jwt";
 
 registerLocaleData(zh, 'zh');
+
+export function tokenGetter() {
+  return localStorage.getItem('token');
+}
 
 @NgModule({
   declarations: [
@@ -44,6 +49,14 @@ registerLocaleData(zh, 'zh');
     NzIconModule,
     NzMessageModule,
     IconsProviderModule,
+    HttpClientModule,
+    JwtModule.forRoot({
+      config: {
+        tokenGetter: tokenGetter,
+        //allowedDomains: [''],
+        disallowedRoutes: ['/auth/']
+      }
+    })
   ],
   providers: [{ provide: NZ_I18N, useValue: zh_CN }, {provide: LOCALE_ID, useValue: 'zh' }],
   bootstrap: [AppComponent]

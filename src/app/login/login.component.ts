@@ -24,9 +24,10 @@ export class LoginComponent implements OnInit {
       return;
     }
 
-    this.rs.post('login', this.validateForm.value).subscribe(res => {
+    this.rs.post('auth/login', this.validateForm.value).subscribe(res => {
       console.log('res:', res);
       //this.us.setUser(res.data);
+      localStorage.setItem('token', res.data.token);
 
       this.router.navigate(['/admin/dash']);
     }, err => {

@@ -16,7 +16,7 @@ export class UserBrowserComponent implements OnInit {
 
   loading = false;
   total = 1;
-  pageSize = 20;
+  pageSize = 10;
   pageIndex = 1;
 
   params: any = {filter: {}};

@@ -36,6 +36,9 @@ export class RequestService {
       // 统一错误处理
       map((ret: any) => {
         if (ret && ret.error) {
+          if (ret.error === 'Token not found') {
+            this.route.navigate(['/login']);
+          }
           // 有错误统一显示并不是好的做法
           this.message.create('error', ret.error);
           throw ret.error; //不抛出Error类型，方便外面直接处理

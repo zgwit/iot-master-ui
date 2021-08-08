@@ -22,6 +22,7 @@ export class ChooseService {
     const modal = this.ms.create({
       nzTitle: '选择企业',
       nzContent: CompanyBrowserComponent,
+      nzWidth: '80%',
       nzComponentParams: params,
     });
     return modal.afterClose
@@ -31,6 +32,7 @@ export class ChooseService {
     const modal = this.ms.create({
       nzTitle: '选择用户',
       nzContent: UserBrowserComponent,
+      nzWidth: '80%',
       nzComponentParams: params,
     });
     return modal.afterClose
@@ -40,6 +42,7 @@ export class ChooseService {
     const modal = this.ms.create({
       nzTitle: '选择分组',
       nzContent: GroupBrowserComponent,
+      nzWidth: '80%',
       nzComponentParams: params,
     });
     return modal.afterClose
@@ -49,6 +52,7 @@ export class ChooseService {
     const modal = this.ms.create({
       nzTitle: '选择设备',
       nzContent: DeviceBrowserComponent,
+      nzWidth: '80%',
       nzComponentParams: params,
     });
     return modal.afterClose
@@ -58,6 +62,7 @@ export class ChooseService {
     const modal = this.ms.create({
       nzTitle: '选择通道',
       nzContent: TunnelBrowserComponent,
+      nzWidth: '80%',
       nzComponentParams: params,
     });
     return modal.afterClose
@@ -67,6 +72,7 @@ export class ChooseService {
     const modal = this.ms.create({
       nzTitle: '选择元件',
       nzContent: ElementBrowserComponent,
+      nzWidth: '80%',
       nzComponentParams: params,
     });
     return modal.afterClose
@@ -76,6 +82,7 @@ export class ChooseService {
     const modal = this.ms.create({
       nzTitle: '选择模板',
       nzContent: TemplateBrowserComponent,
+      nzWidth: '80%',
     });
     return modal.afterClose
   }
@@ -84,6 +91,7 @@ export class ChooseService {
     const modal = this.ms.create({
       nzTitle: '选择项目',
       nzContent: ProjectBrowserComponent,
+      nzWidth: '80%',
       nzComponentParams: params,
     });
     return modal.afterClose
@@ -93,6 +101,7 @@ export class ChooseService {
     const modal = this.ms.create({
       nzTitle: '请输入',
       nzContent: PromptComponent,
+      nzWidth: '80%',
       nzComponentParams: params,
     });
     return modal.afterClose

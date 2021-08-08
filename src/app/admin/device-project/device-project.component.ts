@@ -55,12 +55,7 @@ export class DeviceProjectComponent implements OnInit {
 
   create(): void {
     this.router.navigate(["admin/project/create"], {
-      queryParams:
-        {
-          devices: [{
-            device_id: this._id
-          }]
-        }
+      queryParams: {device_id: this._id}
     });
   }
 
@@ -79,11 +74,11 @@ export class DeviceProjectComponent implements OnInit {
     this.ms.confirm({
       nzTitle: "提示",
       nzContent: "确认禁用吗?", //TODO 更丰富、人性 的 提醒
-      nzOnOk:()=>{
+      nzOnOk: () => {
         this.rs.post(`project/${data._id}/setting`, {enable}).subscribe(res => {
         });
       },
-      nzOnCancel:()=>{
+      nzOnCancel: () => {
         data.enable = true;
       }
     })

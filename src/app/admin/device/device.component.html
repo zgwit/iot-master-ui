@@ -2,7 +2,7 @@
 
   <nz-table
     nzSize="small"
-    [nzShowPagination]="datum.length > pageSize"
+    [nzShowPagination]="total > pageSize"
     [nzData]="datum"
     [nzFrontPagination]="false"
     [nzLoading]="loading"
