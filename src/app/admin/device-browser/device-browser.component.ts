@@ -72,6 +72,8 @@ export class DeviceBrowserComponent implements OnInit {
   }
 
   search(keyword: string) {
+    this.pageIndex = 1;
+    this.params.skip = 0;
     if (keyword)
       this.params.filter.$or = [{name: {$regex: keyword}}];
     else

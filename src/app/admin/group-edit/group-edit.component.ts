@@ -18,6 +18,7 @@ export class GroupEditComponent implements OnInit {
 
   data: any = {
     "name": "新分组",
+    "user_id": "",
     "company_id": "",
   }
 
@@ -32,6 +33,7 @@ export class GroupEditComponent implements OnInit {
   buildForm(): void {
     this.basicForm = this.fb.group({
       name: [this.data.name, [Validators.required]],
+      user_id: [this.data.user_id, [Validators.required]],
       company_id: [this.data.company_id, [Validators.required]],
     });
   }

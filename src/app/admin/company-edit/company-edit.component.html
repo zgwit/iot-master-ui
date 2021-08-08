@@ -10,6 +10,13 @@
       </nz-form-item>
 
       <nz-form-item>
+        <nz-form-label [nzSpan]="5">用户</nz-form-label>
+        <nz-form-control [nzSpan]="12" nzErrorTip="">
+          <app-choose-user formControlName="user_id"></app-choose-user>
+        </nz-form-control>
+      </nz-form-item>
+
+      <nz-form-item>
         <nz-form-label [nzSpan]="5">启用</nz-form-label>
         <nz-form-control [nzSpan]="12" nzErrorTip="">
           <nz-switch formControlName="enable"></nz-switch>

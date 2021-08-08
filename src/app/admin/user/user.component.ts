@@ -34,6 +34,8 @@ export class UserComponent implements OnInit {
   }
 
   search(keyword: string) {
+    this.pageIndex = 1;
+    this.params.skip = 0;
     if (keyword)
       this.params.filter.$or = [{name: {$regex: keyword}}, {username: {$regex: keyword}}, {cellphone: {$regex: keyword}}, {email: {$regex: keyword}}];
     else

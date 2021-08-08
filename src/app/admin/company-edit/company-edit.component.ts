@@ -18,6 +18,7 @@ export class CompanyEditComponent implements OnInit {
 
   data: any = {
     "name": "新企业",
+    "user_id": "",
     "enable": true,
   }
 
@@ -31,6 +32,7 @@ export class CompanyEditComponent implements OnInit {
   buildForm(): void {
     this.basicForm = this.fb.group({
       name: [this.data.name, [Validators.required]],
+      user_id: [this.data.user_id, [Validators.required]],
       enable: [this.data.enable, [Validators.required]],
     });
   }

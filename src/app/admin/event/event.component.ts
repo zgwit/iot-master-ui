@@ -30,6 +30,8 @@ export class EventComponent implements OnInit {
   }
 
   search(keyword: string) {
+    this.pageIndex = 1;
+    this.params.skip = 0;
     if (keyword)
       this.params.filter.$or = [{event: {$regex: keyword}}];
     else

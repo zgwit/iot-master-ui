@@ -12,7 +12,6 @@
       <nz-form-item>
         <nz-form-label [nzSpan]="5">模板</nz-form-label>
         <nz-form-control [nzSpan]="12" nzErrorTip="">
-<!--          <input nz-input formControlName="template_id" required/>-->
           <app-choose-template formControlName="template_id"></app-choose-template>
         </nz-form-control>
       </nz-form-item>
@@ -20,7 +19,6 @@
       <nz-form-item>
         <nz-form-label [nzSpan]="5">企业</nz-form-label>
         <nz-form-control [nzSpan]="12" nzErrorTip="">
-<!--          <input nz-input formControlName="company_id" required/>-->
           <app-choose-company formControlName="company_id" (ngModelChange)="onCompanyChange()"></app-choose-company>
         </nz-form-control>
       </nz-form-item>
@@ -28,8 +26,14 @@
       <nz-form-item>
         <nz-form-label [nzSpan]="5">分组</nz-form-label>
         <nz-form-control [nzSpan]="12" nzErrorTip="">
-<!--          <input nz-input formControlName="group_id" required/>-->
           <app-choose-group [company_id]="basicForm.value.company_id" formControlName="group_id"></app-choose-group>
+        </nz-form-control>
+      </nz-form-item>
+
+      <nz-form-item>
+        <nz-form-label [nzSpan]="5">用户</nz-form-label>
+        <nz-form-control [nzSpan]="12" nzErrorTip="">
+          <app-choose-user formControlName="user_id"></app-choose-user>
         </nz-form-control>
       </nz-form-item>
 

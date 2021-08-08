@@ -29,6 +29,8 @@ export class CompanyGroupComponent implements OnInit {
   }
 
   search(keyword: string) {
+    this.pageIndex = 1;
+    this.params.skip = 0;
     if (keyword)
       this.params.filter.$or = [{name: {$regex: keyword}}, {type: {$regex: keyword}}];
     else
