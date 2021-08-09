@@ -1,5 +1,6 @@
 import {Component, forwardRef, OnInit} from '@angular/core';
 import {ControlValueAccessor, FormArray, FormBuilder, FormGroup, NG_VALUE_ACCESSOR, Validators} from "@angular/forms";
+import {ChooseService} from "../choose.service";
 
 @Component({
   selector: 'app-project-edit-devices',
@@ -23,7 +24,7 @@ export class ProjectEditDevicesComponent implements OnInit, ControlValueAccessor
   formGroup = new FormGroup({});
   formArray: FormArray = new FormArray([]);
 
-  constructor(private fb: FormBuilder) { }
+  constructor(private fb: FormBuilder, private cs: ChooseService) { }
 
   ngOnInit(): void {
     this.buildForm();
@@ -50,6 +51,24 @@ export class ProjectEditDevicesComponent implements OnInit, ControlValueAccessor
     //复制controls，让表格可以刷新
     this.formArray.controls = [...this.formArray.controls];
     this.change();
+  }
+
+  addMore() {
+    this.cs.chooseDevice({multiple: true}).subscribe(devices=>{
+      if (devices.length) {
+        devices.forEach((d: string)=>{
+          this.formArray.push(this.fb.group({
+            device_id: [d, [Validators.required]],
+            name: ['', [Validators.required]],
+            tags: [[], []],
+          }))
+        });
+
+        //复制controls，让表格可以刷新
+        this.formArray.controls = [...this.formArray.controls];
+        this.change();
+      }
+    })
   }
 
   remove(i: number) {

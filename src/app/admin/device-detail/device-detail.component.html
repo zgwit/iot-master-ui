@@ -3,6 +3,12 @@
 <nz-tabset [nzTabBarExtraContent]="extraTemplate">
   <nz-tab nzTitle="设备详情">
     <p>{{data|json}}</p>
+
+
+    <p>
+      <button nz-button *ngFor="let cmd of element.commands" (click)="exec(cmd)">{{cmd.name}}</button>
+    </p>
+
   </nz-tab>
   <nz-tab nzTitle="可视化" nzDisabled>
     <ng-template nz-tab>

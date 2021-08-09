@@ -11,6 +11,7 @@ import {RequestService} from "../../request.service";
 export class DeviceDetailComponent implements OnInit {
   id: any = '';
   data: any = {};
+  element: any = {};
 
   constructor(private tab: TabRef, private router: ActivatedRoute, private rs: RequestService) {
     tab.name = '设备详情';
@@ -25,7 +26,22 @@ export class DeviceDetailComponent implements OnInit {
     this.rs.get(`device/${this.id}/detail`).subscribe(res=>{
       this.data = res.data;
       this.tab.name += '[' + this.data.name + ']';
+
+      this.rs.get(`element/${this.data.element_id}/detail`).subscribe(res=>{
+        this.element = res.data;
+        //this.tab.name += '[' + this.data.name + ']';
+
+      });
     });
   }
+
+  exec(cmd: any) {
+    this.rs.post(`device/${this.id}/execute`, {
+      command: cmd.name
+    }).subscribe(res=>{
+
+    })
+  }
+
 
 }

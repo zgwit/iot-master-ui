@@ -74,7 +74,7 @@ export class TunnelBrowserComponent implements OnInit {
     this.pageIndex = 1;
     this.params.skip = 0;
     if (keyword)
-      this.params.filter.$or = [{name: {$regex: keyword}}];
+      this.params.filter.$or = [{name: {$regex: keyword}}, {sn: {$regex: keyword}}];
     else
       delete this.params.filter.$or;
     this.load();
