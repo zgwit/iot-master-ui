@@ -1,4 +1,4 @@
-<app-page-list (create)="create()" (refresh)="load()" (search)="search($event)" [loading]="loading">
+<app-page-list (refresh)="load()" noSearch noCreate [loading]="loading">
 
   <nz-table
     nzSize="small"
@@ -14,10 +14,10 @@
   >
     <thead>
     <tr>
-      <th nzColumnKey="company_id" [nzSortFn]="true">企业</th>
-      <th nzColumnKey="user_id" [nzSortFn]="true">用户</th>
-      <th nzColumnKey="template_id" [nzSortFn]="true">模板</th>
       <th nzColumnKey="name" [nzSortFn]="true">名称</th>
+      <th nzColumnKey="element_id">元件</th>
+      <th nzColumnKey="tunnel_id">通道</th>
+      <th nzColumnKey="slave">从机号</th>
       <th nzColumnKey="_id" [nzSortFn]="true">创建时间</th>
       <th>状态</th>
       <th nzColumnKey="enable" [nzSortFn]="true">启用</th>
@@ -26,18 +26,15 @@
     </thead>
     <tbody>
     <tr *ngFor="let data of datum; let i=index">
-      <td>
-        <a [routerLink]="'/admin/company/detail/'+data.company_id">{{data.company?.name}}</a>
-        <a [routerLink]="'/admin/group/detail/'+data.group_id">{{data.group?.name}}</a>
-      </td>
-      <td>
-        <a [routerLink]="'/admin/user/detail/'+data.user_id">{{data.user?.name}}</a>
-      </td>
-      <td>
-        <a [routerLink]="'/admin/template/detail/'+data.template_id">{{data.template?.name}}</a>
-      </td>
-
       <td>{{ data.name }}</td>
+      <td>
+        <a [routerLink]="'/admin/element/detail/'+data.element_id">{{data.element?.name}}</a>
+      </td>
+      <td>
+        <a
+          [routerLink]="'/admin/tunnel/detail/'+data.tunnel_id">{{data.tunnel?.name || data.tunnel?.sn}}</a>
+      </td>
+      <td>{{ data.slave }}</td>
       <td>{{data._id | objectIdToDate | date:'short'}}</td>
       <td>
         <span *ngIf="data.online">
@@ -49,9 +46,9 @@
         <nz-switch [(ngModel)]="data.enable" nzSize="small" (ngModelChange)="onEnableChange(data, $event)"></nz-switch>
       </td>
       <td>
-        <a [routerLink]="'/admin/project/detail/'+data._id">详情</a>
+        <a [routerLink]="'/admin/device/detail/'+data._id">详情</a>
         <nz-divider nzType="vertical"></nz-divider>
-        <a [routerLink]="'/admin/project/edit/'+data._id">编辑</a>
+        <a [routerLink]="'/admin/device/edit/'+data._id">编辑</a>
         <nz-divider nzType="vertical"></nz-divider>
         <a nz-dropdown [nzDropdownMenu]="menu" nzTrigger="click">
           更多

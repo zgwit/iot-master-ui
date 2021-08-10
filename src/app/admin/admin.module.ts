@@ -122,64 +122,66 @@ import {TunnelBrowserComponent} from "./tunnel-browser/tunnel-browser.component"
 import {PromptComponent} from "./prompt/prompt.component";
 import {ProjectEditJobsComponent} from "./project-edit-jobs/project-edit-jobs.component";
 import {ElementEditScriptsComponent} from "./element-edit-scripts/element-edit-scripts.component";
+import {CompanyTunnelComponent} from "./company-tunnel/company-tunnel.component";
+import {CompanyDeviceComponent} from "./company-device/company-device.component";
 
 
 @NgModule({
-  declarations: [
-    AdminComponent,
-    DashComponent,
-    TunnelComponent, TunnelEditComponent, TunnelDetailComponent, TunnelMonitorComponent,
-    TunnelDeviceComponent, TunnelBrowserComponent,
+    declarations: [
+        AdminComponent,
+        DashComponent,
+        TunnelComponent, TunnelEditComponent, TunnelDetailComponent, TunnelMonitorComponent,
+        TunnelDeviceComponent, TunnelBrowserComponent,
 
-    AcceptorComponent, AcceptorDetailComponent,
-    AcceptorEditComponent, AcceptorEditDevicesComponent, AcceptorTunnelComponent,
+        AcceptorComponent, AcceptorDetailComponent,
+        AcceptorEditComponent, AcceptorEditDevicesComponent, AcceptorTunnelComponent,
 
-    ProjectComponent, ProjectDetailComponent,
-    ProjectEditComponent, ProjectEditCommandsComponent, ProjectEditJobsComponent,
-    ProjectEditVariablesComponent, ProjectEditDevicesComponent, ProjectEditStrategiesComponent,
-    ProjectEditValidatorsComponent, ProjectEditScriptsComponent, ProjectBrowserComponent,
+        ProjectComponent, ProjectDetailComponent,
+        ProjectEditComponent, ProjectEditCommandsComponent, ProjectEditJobsComponent,
+        ProjectEditVariablesComponent, ProjectEditDevicesComponent, ProjectEditStrategiesComponent,
+        ProjectEditValidatorsComponent, ProjectEditScriptsComponent, ProjectBrowserComponent,
 
-    GroupDetailComponent, GroupEditComponent, GroupProjectComponent, GroupBrowserComponent,
+        GroupDetailComponent, GroupEditComponent, GroupProjectComponent, GroupBrowserComponent,
 
-    DeviceComponent, DeviceDetailComponent, DeviceEditComponent,
-    DeviceProjectComponent, DeviceBrowserComponent, ElementEditValidatorsComponent,
+        DeviceComponent, DeviceDetailComponent, DeviceEditComponent,
+        DeviceProjectComponent, DeviceBrowserComponent, ElementEditValidatorsComponent,
 
-    TemplateComponent, TemplateDetailComponent,
-    TemplateEditComponent, TemplateEditDevicesComponent,
-    TemplateProjectComponent, TemplateBrowserComponent,
+        TemplateComponent, TemplateDetailComponent,
+        TemplateEditComponent, TemplateEditDevicesComponent,
+        TemplateProjectComponent, TemplateBrowserComponent,
 
-    ElementBrowserComponent,
-    ElementDeviceComponent, ElementTemplateComponent,
-    ElementComponent, ElementDetailComponent,
-    ElementEditComponent, ElementEditVariablesComponent,
-    ElementEditCommandsComponent, ElementEditCollectorsComponent, ElementEditScriptsComponent,
+        ElementBrowserComponent,
+        ElementDeviceComponent, ElementTemplateComponent,
+        ElementComponent, ElementDetailComponent,
+        ElementEditComponent, ElementEditVariablesComponent,
+        ElementEditCommandsComponent, ElementEditCollectorsComponent, ElementEditScriptsComponent,
 
-    UserComponent, UserEditComponent, UserDetailComponent, UserCompanyComponent,
-    UserBrowserComponent,
+        UserComponent, UserEditComponent, UserDetailComponent, UserCompanyComponent,
+        UserBrowserComponent,
 
-    CompanyComponent, CompanyEditComponent, CompanyDetailComponent, CompanyProjectComponent,
-    CompanyGroupComponent, CompanyBrowserComponent,
-    CompanyUserComponent,
+        CompanyComponent, CompanyEditComponent, CompanyDetailComponent, CompanyProjectComponent,
+        CompanyGroupComponent, CompanyBrowserComponent,
+        CompanyUserComponent,
 
-    JobComponent,
-    JobEditComponent,
+        JobComponent,
+        JobEditComponent,
 
-    PluginComponent, PluginDetailComponent,
-    ProtocolComponent, ProtocolDetailComponent,
+        PluginComponent, PluginDetailComponent,
+        ProtocolComponent, ProtocolDetailComponent,
 
-    ApiComponent,
-    SettingComponent,
+        ApiComponent,
+        SettingComponent,
 
-    PasswordComponent, EventComponent,
+        PasswordComponent, EventComponent,
 
-    PromptComponent,
+        PromptComponent,
 
-    ChooseDeviceComponent, ChooseElementComponent, ChooseTemplateComponent,
-    ChooseUserComponent, ChooseGroupComponent, ChooseCompanyComponent, ChooseTunnelComponent,
+        ChooseDeviceComponent, ChooseElementComponent, ChooseTemplateComponent,
+        ChooseUserComponent, ChooseGroupComponent, ChooseCompanyComponent, ChooseTunnelComponent,
 
-    AlarmComponent, SubscribeComponent, SubscribeEditComponent,
+        AlarmComponent, SubscribeComponent, SubscribeEditComponent, CompanyTunnelComponent, CompanyDeviceComponent,
 
-  ],
+    ],
   imports: [
     CommonModule,
     FormsModule,

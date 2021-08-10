@@ -14,7 +14,17 @@
       <app-company-project [_id]="id"></app-company-project>
     </ng-template>
   </nz-tab>
-  <nz-tab nzTitle="分组">
+  <nz-tab nzTitle="设备">
+    <ng-template nz-tab>
+      <app-company-device [_id]="id"></app-company-device>
+    </ng-template>
+  </nz-tab>
+  <nz-tab nzTitle="通道">
+    <ng-template nz-tab>
+      <app-company-tunnel [_id]="id"></app-company-tunnel>
+    </ng-template>
+  </nz-tab>
+  <nz-tab nzTitle="项目分组">
     <ng-template nz-tab>
       <app-company-group [_id]="id"></app-company-group>
     </ng-template>

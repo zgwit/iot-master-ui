@@ -1,4 +1,4 @@
-<app-page-list (create)="create()" (refresh)="load()" (search)="search($event)" [loading]="loading">
+<app-page-list (create)="create()" createButtonText="添加通道" (refresh)="load()" (search)="search($event)" [loading]="loading">
 
   <nz-table
     nzSize="small"
@@ -14,11 +14,12 @@
   >
     <thead>
     <tr>
-      <th nzColumnKey="company_id" [nzSortFn]="true">企业</th>
-      <th nzColumnKey="user_id" [nzSortFn]="true">用户</th>
-      <th nzColumnKey="template_id" [nzSortFn]="true">模板</th>
+      <th nzColumnKey="acceptor_id" [nzSortFn]="true">服务</th>
       <th nzColumnKey="name" [nzSortFn]="true">名称</th>
+      <th nzColumnKey="sn" [nzSortFn]="true">SN</th>
+      <th nzColumnKey="remote">远程地址</th>
       <th nzColumnKey="_id" [nzSortFn]="true">创建时间</th>
+      <th nzColumnKey="last" [nzSortFn]="true">最近上线</th>
       <th>状态</th>
       <th nzColumnKey="enable" [nzSortFn]="true">启用</th>
       <th nzWidth="100">操作</th>
@@ -27,31 +28,21 @@
     <tbody>
     <tr *ngFor="let data of datum; let i=index">
       <td>
-        <a [routerLink]="'/admin/company/detail/'+data.company_id">{{data.company?.name}}</a>
-        <a [routerLink]="'/admin/group/detail/'+data.group_id">{{data.group?.name}}</a>
+        <a [routerLink]="'/admin/acceptor/detail/'+data.acceptor_id">{{data.acceptor?.name}}</a>
       </td>
-      <td>
-        <a [routerLink]="'/admin/user/detail/'+data.user_id">{{data.user?.name}}</a>
-      </td>
-      <td>
-        <a [routerLink]="'/admin/template/detail/'+data.template_id">{{data.template?.name}}</a>
-      </td>
-
       <td>{{ data.name }}</td>
+      <td>{{ data.sn }}</td>
+      <td>{{ data.remote }}</td>
       <td>{{data._id | objectIdToDate | date:'short'}}</td>
-      <td>
-        <span *ngIf="data.online">
-          {{data.closed?'关闭':'启动'}} {{data.error}}
-        </span>
-        <span *ngIf="!data.online">离线</span>
-      </td>
+      <td>{{data.last | date:'short'}}</td>
+      <td>{{data.online ? '在线' : '离线'}}</td>
       <td>
         <nz-switch [(ngModel)]="data.enable" nzSize="small" (ngModelChange)="onEnableChange(data, $event)"></nz-switch>
       </td>
       <td>
-        <a [routerLink]="'/admin/project/detail/'+data._id">详情</a>
+        <a [routerLink]="'/admin/tunnel/detail/'+data._id">详情</a>
         <nz-divider nzType="vertical"></nz-divider>
-        <a [routerLink]="'/admin/project/edit/'+data._id">编辑</a>
+        <a [routerLink]="'/admin/tunnel/edit/'+data._id">编辑</a>
         <nz-divider nzType="vertical"></nz-divider>
         <a nz-dropdown [nzDropdownMenu]="menu" nzTrigger="click">
           更多

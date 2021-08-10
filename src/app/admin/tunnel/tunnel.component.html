@@ -14,8 +14,9 @@
   >
     <thead>
     <tr>
-      <th nzColumnKey="name" [nzSortFn]="true">名称</th>
+      <th nzColumnKey="company_id" [nzSortFn]="true">企业</th>
       <th nzColumnKey="acceptor_id" [nzSortFn]="true">服务</th>
+      <th nzColumnKey="name" [nzSortFn]="true">名称</th>
       <th nzColumnKey="sn" [nzSortFn]="true">SN</th>
       <th nzColumnKey="remote">远程地址</th>
       <th nzColumnKey="_id" [nzSortFn]="true">创建时间</th>
@@ -27,8 +28,11 @@
     </thead>
     <tbody>
     <tr *ngFor="let data of datum; let i=index">
+      <td>
+        <a [routerLink]="'/admin/company/detail/'+data.company_id">{{data.company?.name}}</a>
+      </td>
+      <td><a [routerLink]="'/admin/acceptor/detail/'+data.acceptor_id">{{ data.acceptor?.name }}</a></td>
       <td>{{ data.name }}</td>
-      <td>{{ data.acceptor?.name }}</td>
       <td>{{ data.sn }}</td>
       <td>{{ data.remote }}</td>
       <td>{{data._id | objectIdToDate | date:'short'}}</td>

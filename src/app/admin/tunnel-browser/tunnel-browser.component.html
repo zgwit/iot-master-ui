@@ -17,8 +17,9 @@
     <tr>
       <th [nzShowCheckbox]="multiple" [nzChecked]="checked" [nzIndeterminate]="indeterminate"
           (nzCheckedChange)="onAllChecked($event)"></th>
-      <th nzColumnKey="name" [nzSortFn]="true">名称</th>
+      <th nzColumnKey="company_id" [nzSortFn]="true">企业</th>
       <th nzColumnKey="acceptor_id" [nzSortFn]="true">服务</th>
+      <th nzColumnKey="name" [nzSortFn]="true">名称</th>
       <th nzColumnKey="sn" [nzSortFn]="true">SN</th>
       <th nzColumnKey="remote">远程地址</th>
       <th nzColumnKey="_id" [nzSortFn]="true">创建时间</th>
@@ -32,8 +33,9 @@
       <td [nzChecked]="setCheckedOfId.has(data._id)" [nzDisabled]="!data.enable"
           (nzCheckedChange)="onItemChecked(data._id, $event)"
       ></td>
-      <td>{{ data.name }}</td>
+      <td>{{data.company?.name}}</td>
       <td>{{ data.acceptor?.name }}</td>
+      <td>{{ data.name }}</td>
       <td>{{ data.sn }}</td>
       <td>{{ data.remote }}</td>
       <td>{{data._id | objectIdToDate | date:'short'}}</td>
