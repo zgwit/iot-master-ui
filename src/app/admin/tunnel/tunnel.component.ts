@@ -22,7 +22,7 @@ export class TunnelComponent implements OnInit {
   params: any = {filter: {}};
 
   constructor(private tab: TabRef, private router: Router, private rs: RequestService, private ms: NzModalService) {
-    tab.name = "数据通道"
+    tab.name = "通道"
   }
 
   ngOnInit(): void {

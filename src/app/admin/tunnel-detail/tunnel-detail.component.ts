@@ -13,7 +13,7 @@ export class TunnelDetailComponent implements OnInit {
   data: any = {};
 
   constructor(private tab: TabRef, private router: ActivatedRoute, private rs: RequestService) {
-    tab.name = '数据通道详情';
+    tab.name = '通道详情';
     this.id = router.snapshot.params.id;
     this.load();
   }

@@ -26,7 +26,7 @@ export class AcceptorComponent implements OnInit {
   params: any = {filter: {}};
 
   constructor(private tab: TabRef, private router: Router, private rs: RequestService, private ms: NzModalService) {
-    tab.name = "网络服务"
+    tab.name = "服务"
   }
 
   ngOnInit(): void {

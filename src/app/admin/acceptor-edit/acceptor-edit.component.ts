@@ -49,7 +49,7 @@ export class AcceptorEditComponent implements OnInit {
 
   constructor(private fb: FormBuilder, private tab: TabRef, private route: ActivatedRoute, private rs: RequestService, private message: NzMessageService) {
     this.id = route.snapshot.paramMap.get('id');
-    tab.name = this.id ? "编辑网络服务" : "新建网络服务";
+    tab.name = this.id ? "编辑服务" : "新建服务";
     if (this.id) this.load();
     this.buildForm();
   }

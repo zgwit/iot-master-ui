@@ -17,11 +17,11 @@ export let SideMenu = [
     icon: 'block',
     children: [
       {
-        title: '网络服务',
+        title: '服务',
         router: 'acceptor'
       },
       {
-        title: '数据通道',
+        title: '通道',
         router: 'tunnel'
       },
     ]
