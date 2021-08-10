@@ -22,7 +22,7 @@ export class GroupDetailComponent implements OnInit {
   }
 
   load(): void {
-    this.rs.get(`group/${this.id}/detail`).subscribe(res=>{
+    this.rs.get(`group/${this.id}/compose`).subscribe(res=>{
       this.data = res.data;
       this.tab.name += '[' + this.data.name + ']';
     });

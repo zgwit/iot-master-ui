@@ -22,7 +22,7 @@ export class AcceptorDetailComponent implements OnInit {
   }
 
   load(): void {
-    this.rs.get(`acceptor/${this.id}/detail`).subscribe(res=>{
+    this.rs.get(`acceptor/${this.id}/compose`).subscribe(res=>{
       this.data = res.data;
       this.tab.name += '[' + this.data.name + ']';
     });

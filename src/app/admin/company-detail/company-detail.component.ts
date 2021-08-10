@@ -22,7 +22,7 @@ export class CompanyDetailComponent implements OnInit {
   }
 
   load(): void {
-    this.rs.get(`company/${this.id}/detail`).subscribe(res=>{
+    this.rs.get(`company/${this.id}/compose`).subscribe(res=>{
       this.data = res.data;
       this.tab.name += '[' + this.data.name + ']';
     });
