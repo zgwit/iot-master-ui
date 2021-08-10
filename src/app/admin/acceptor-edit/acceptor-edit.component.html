@@ -91,18 +91,19 @@
         </nz-form-item>
 
         <nz-form-item>
+          <nz-form-label [nzSpan]="5">固定内容</nz-form-label>
+          <nz-form-control [nzSpan]="12" nzErrorTip="">
+            <input nz-input formControlName="text"/>
+          </nz-form-control>
+        </nz-form-item>
+
+        <nz-form-item>
           <nz-form-label [nzSpan]="5">正则表达式</nz-form-label>
           <nz-form-control [nzSpan]="12" nzErrorTip="">
             <input nz-input formControlName="regex"/>
           </nz-form-control>
         </nz-form-item>
 
-        <nz-form-item>
-          <nz-form-label [nzSpan]="5">内容</nz-form-label>
-          <nz-form-control [nzSpan]="12" nzErrorTip="">
-            <input nz-input formControlName="text"/>
-          </nz-form-control>
-        </nz-form-item>
       </div>
     </nz-tab>
 

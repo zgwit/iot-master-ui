@@ -17,6 +17,7 @@
       <th nzColumnKey="name" [nzSortFn]="true">名称</th>
       <th nzColumnKey="template_id" [nzSortFn]="true">模板</th>
       <th nzColumnKey="_id" [nzSortFn]="true">创建时间</th>
+      <th>状态</th>
       <th nzColumnKey="enable" [nzSortFn]="true">启用</th>
       <th nzWidth="100">操作</th>
     </tr>
@@ -28,6 +29,12 @@
         <a [routerLink]="'/admin/template/detail/'+data.template_id">{{data.template?.name}}</a>
       </td>
       <td>{{data._id | objectIdToDate | date:'short'}}</td>
+      <td>
+        <span *ngIf="data.online">
+          {{data.closed?'关闭':'启动'}} {{data.error}}
+        </span>
+        <span *ngIf="!data.online">离线</span>
+      </td>
       <td>
         <nz-switch [(ngModel)]="data.enable" nzSize="small" (ngModelChange)="onEnableChange(data, $event)"></nz-switch>
       </td>

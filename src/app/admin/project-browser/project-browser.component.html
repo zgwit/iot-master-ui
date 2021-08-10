@@ -19,8 +19,9 @@
       <th nzColumnKey="name" [nzSortFn]="true">名称</th>
       <th nzColumnKey="user_id" [nzSortFn]="true">用户</th>
       <th nzColumnKey="template_id">模板</th>
-      <th>启用</th>
       <th nzColumnKey="_id" [nzSortFn]="true">创建时间</th>
+      <th>状态</th>
+      <th>启用</th>
     </tr>
     </thead>
     <tbody>
@@ -31,8 +32,14 @@
       <td>{{ data.name }}</td>
       <td>{{data.user?.name}}</td>
       <td>{{data.template?.name}}</td>
-      <td>{{data.enable?'√':'×'}}</td>
       <td>{{data._id | objectIdToDate | date:'short'}}</td>
+      <td>
+        <span *ngIf="data.online">
+          {{data.closed?'关闭':'启动'}} {{data.error}}
+        </span>
+        <span *ngIf="!data.online">离线</span>
+      </td>
+      <td>{{data.enable?'√':'×'}}</td>
     </tr>
     </tbody>
   </nz-table>

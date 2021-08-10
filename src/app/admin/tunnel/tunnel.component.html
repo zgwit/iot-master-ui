@@ -18,6 +18,7 @@
       <th nzColumnKey="sn" [nzSortFn]="true">SN</th>
       <th nzColumnKey="remote">远程地址</th>
       <th nzColumnKey="_id" [nzSortFn]="true">创建时间</th>
+      <th>状态</th>
       <th nzColumnKey="enable" [nzSortFn]="true">启用</th>
       <th nzWidth="100">操作</th>
     </tr>
@@ -28,6 +29,12 @@
       <td>{{ data.sn }}</td>
       <td>{{ data.remote }}</td>
       <td>{{data._id | objectIdToDate | date:'short'}}</td>
+      <td>
+        <span *ngIf="data.online">
+          {{data.closed?'关闭':'启动'}} {{data.error}}
+        </span>
+        <span *ngIf="!data.online">离线</span>
+      </td>
       <td>
         <nz-switch [(ngModel)]="data.enable" nzSize="small" (ngModelChange)="onEnableChange(data, $event)"></nz-switch>
       </td>
