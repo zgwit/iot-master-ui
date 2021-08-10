@@ -35,7 +35,6 @@ export class TemplateEditDevicesComponent implements OnInit, ControlValueAccesso
         return this.fb.group({
           element_id: [d.element_id, [Validators.required]],
           alias: [d.type, [Validators.required]],
-          tags: [d.tags, []],
         })
       }))
     })
@@ -45,7 +44,6 @@ export class TemplateEditDevicesComponent implements OnInit, ControlValueAccesso
     this.formArray.push(this.fb.group({
       element_id: ['', [Validators.required]],
       alias: ['', [Validators.required]],
-      tags: [[], []],
     }))
     //复制controls，让表格可以刷新
     this.formArray.controls = [...this.formArray.controls];

@@ -12,7 +12,6 @@
   <tr>
     <th>元件</th>
     <th>别名</th>
-    <th>标签</th>
     <th>操作</th>
   </tr>
   </thead>
@@ -23,9 +22,6 @@
     </td>
     <td>
       <input nz-input formControlName="alias" nzSize="small" (change)="change()" required/>
-    </td>
-    <td>
-      <nz-select nzAllowClear nzMode="tags" [nzTokenSeparators]="[',', ';', ' ']" formControlName="tags" nzSize="small" (ngModelChange)="change()"></nz-select>
     </td>
     <td>
       <a cdkDragHandle style="cursor: move">排序</a>
