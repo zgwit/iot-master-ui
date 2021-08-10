@@ -22,7 +22,7 @@ export class TunnelDetailComponent implements OnInit {
   }
 
   load(): void {
-    this.rs.get(`tunnel/${this.id}/detail`).subscribe(res=>{
+    this.rs.get(`tunnel/${this.id}/compose`).subscribe(res=>{
       this.data = res.data;
       this.tab.name += '[' + (this.data.name||this.data.sn) + ']';
     });
