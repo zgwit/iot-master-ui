@@ -50,7 +50,7 @@ export class ProjectEditComponent implements OnInit {
       template_id: [this.data.template_id, []],
       company_id: [this.data.company_id, []],
       group_id: [this.data.group_id, []],
-      user_id: [this.data.group_id, []],
+      user_id: [this.data.user_id, []],
       enable: [this.data.enable, [Validators.required]],
 
       commands: [this.data.commands || []],

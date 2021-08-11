@@ -25,6 +25,9 @@ export class ChooseGroupComponent implements OnInit, ControlValueAccessor {
   name = "";
   @Input() company_id = ''
 
+  @Input()
+  showClear: any = false;
+
   constructor(private cs: ChooseService, private rs: RequestService) { }
 
   ngOnInit(): void {
@@ -62,5 +65,12 @@ export class ChooseGroupComponent implements OnInit, ControlValueAccessor {
         this.onTouched();
       }
     })
+  }
+
+  clear() {
+    this._id = '';
+    this.name = '';
+    this.onChanged('');
+    this.onTouched();
   }
 }

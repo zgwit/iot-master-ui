@@ -1,4 +1,4 @@
-import {Component, forwardRef, HostBinding, OnInit} from '@angular/core';
+import {Component, forwardRef, HostBinding, Input, OnInit} from '@angular/core';
 import {ControlValueAccessor, NG_VALUE_ACCESSOR} from "@angular/forms";
 import {ChooseService} from "../choose.service";
 import {RequestService} from "../../request.service";
@@ -23,6 +23,9 @@ export class ChooseDeviceComponent implements OnInit, ControlValueAccessor {
   @HostBinding('attr.title')
   _id = "";
   name = "";
+
+  @Input()
+  showClear: any = false;
 
   constructor(private cs: ChooseService, private rs: RequestService) { }
 
@@ -67,5 +70,12 @@ export class ChooseDeviceComponent implements OnInit, ControlValueAccessor {
         this.onTouched();
       }
     })
+  }
+
+  clear() {
+    this._id = '';
+    this.name = '';
+    this.onChanged('');
+    this.onTouched();
   }
 }
