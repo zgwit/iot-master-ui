@@ -20,6 +20,7 @@ export class ElementEditComponent implements OnInit {
   data: any = {
     "name": "新建元件",
     "tags": [],
+    "image": "",
     "protocol": "",
     "manufacturer": "",
     "version": "",
@@ -42,6 +43,7 @@ export class ElementEditComponent implements OnInit {
     this.basicForm = this.fb.group({
       name: [this.data.name, [Validators.required]],
       tags: [this.data.tags, []],
+      image: [this.data.image, []],
       protocol: [this.data.protocol, []],
       manufacturer: [this.data.manufacturer, []],
       version: [this.data.version, []],

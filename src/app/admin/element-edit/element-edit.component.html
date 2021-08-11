@@ -18,6 +18,13 @@
       </nz-form-item>
 
       <nz-form-item>
+        <nz-form-label [nzSpan]="5">图片</nz-form-label>
+        <nz-form-control [nzSpan]="12" nzErrorTip="">
+          <input nz-input formControlName="image" required/>
+        </nz-form-control>
+      </nz-form-item>
+
+      <nz-form-item>
         <nz-form-label [nzSpan]="5">协议</nz-form-label>
         <nz-form-control [nzSpan]="12" nzErrorTip="">
           <nz-select formControlName="protocol" (ngModelChange)="onProtocolChange($event)">
