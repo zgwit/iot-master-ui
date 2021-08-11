@@ -1,4 +1,4 @@
-<app-page-list (refresh)="load()" noSearch noCreate [loading]="loading">
+<app-page-list (refresh)="load()"  (search)="search($event)" noCreate [loading]="loading">
 
   <nz-table
     nzSize="small"

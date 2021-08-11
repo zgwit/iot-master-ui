@@ -1,4 +1,4 @@
-<app-page-list (create)="create()" createButtonText="添加成员" (refresh)="load()" noSearch [loading]="loading">
+<app-page-list (create)="create()" createButtonText="添加成员" (refresh)="load()"  (search)="search($event)" [loading]="loading">
 
   <nz-table
     nzSize="small"

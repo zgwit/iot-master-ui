@@ -46,7 +46,7 @@ export class TunnelDeviceComponent implements OnInit {
 
   load(): void {
     this.loading = true;
-    this.params.filter.device_id = this._id;
+    this.params.filter.tunnel_id = this._id;
     this.rs.post('device/list', this.params).subscribe(res => {
       console.log('res', res);
       this.datum = res.data;
