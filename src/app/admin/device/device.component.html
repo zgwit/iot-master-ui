@@ -15,6 +15,7 @@
     <thead>
     <tr>
       <th nzColumnKey="name" [nzSortFn]="true">名称</th>
+      <th>项目</th>
       <th nzColumnKey="element_id">元件</th>
       <th nzColumnKey="tunnel_id">通道</th>
       <th nzColumnKey="slave">从机号</th>
@@ -27,6 +28,7 @@
     <tbody>
     <tr *ngFor="let data of datum; let i=index">
       <td>{{ data.name }}</td>
+      <td>{{ data.project?.join(',') }}</td>
       <td>
         <a [routerLink]="'/admin/element/detail/'+data.element_id">{{data.element?.name}}</a>
       </td>
