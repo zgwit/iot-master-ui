@@ -11,8 +11,9 @@
   <thead>
   <tr>
     <th>条件（表达式）</th>
-    <th>告警记录内容</th>
-    <th>等级</th>
+    <th>告警名称</th>
+    <th>告警内容</th>
+    <th>告警等级</th>
     <th>延时（秒）</th>
     <th>启用</th>
     <th>操作</th>
@@ -24,10 +25,13 @@
       <input nz-input formControlName="expression" nzSize="small" placeholder="" (change)="change()" required/>
     </td>
     <td>
+      <input nz-input formControlName="name" nzSize="small" placeholder="" (change)="change()" required/>
+    </td>
+    <td>
       <input nz-input formControlName="alarm" nzSize="small" placeholder="" (change)="change()" required/>
     </td>
     <td>
-      <nz-select formControlName="level" (ngModelChange)="change()">
+      <nz-select formControlName="level" (ngModelChange)="change()" nzSize="small">
         <nz-option [nzValue]="1" nzLabel="一般"></nz-option>
         <nz-option [nzValue]="2" nzLabel="严重"></nz-option>
         <nz-option [nzValue]="3" nzLabel="灾难"></nz-option>
@@ -37,7 +41,7 @@
       <nz-input-number formControlName="delay" [nzMin]="0" [nzStep]="1" nzSize="small" (change)="change()"></nz-input-number>
     </td>
     <td>
-      <nz-switch formControlName="enable"></nz-switch>
+      <nz-switch formControlName="enable" nzSize="small"></nz-switch>
     </td>
     <td>
       <a cdkDragHandle style="cursor: move">排序</a>

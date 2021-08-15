@@ -10,16 +10,19 @@
       </nz-form-item>
 
       <nz-form-item>
-        <nz-form-label [nzSpan]="5">起始时间</nz-form-label>
+        <nz-form-label [nzSpan]="5">起止时间</nz-form-label>
         <nz-form-control [nzSpan]="12" nzErrorTip="">
           <app-minute-time-picker formControlName="start"></app-minute-time-picker>
+          -
+          <app-minute-time-picker formControlName="end"></app-minute-time-picker>
         </nz-form-control>
       </nz-form-item>
 
       <nz-form-item>
-        <nz-form-label [nzSpan]="5">结束时间</nz-form-label>
+        <nz-form-label [nzSpan]="5">告警名称</nz-form-label>
         <nz-form-control [nzSpan]="12" nzErrorTip="">
-          <app-minute-time-picker formControlName="end"></app-minute-time-picker>
+          <nz-select nzAllowClear nzMode="tags" [nzTokenSeparators]="[',', '，', ';', ' ']" formControlName="names" nzPlaceHolder="TODO：改成选择"
+                     nzSize="small" (ngModelChange)="change()"></nz-select>
         </nz-form-control>
       </nz-form-item>
 
@@ -27,9 +30,10 @@
         <nz-form-label [nzSpan]="5">等级</nz-form-label>
         <nz-form-control [nzSpan]="12" nzErrorTip="">
           <nz-select formControlName="level">
-            <nz-option [nzValue]="1" nzLabel="灾难"></nz-option>
+            <nz-option [nzValue]="0" nzLabel="全部"></nz-option>
+            <nz-option [nzValue]="1" nzLabel="一般"></nz-option>
             <nz-option [nzValue]="2" nzLabel="严重"></nz-option>
-            <nz-option [nzValue]="3" nzLabel="一般"></nz-option>
+            <nz-option [nzValue]="3" nzLabel="灾难"></nz-option>
           </nz-select>
         </nz-form-control>
       </nz-form-item>

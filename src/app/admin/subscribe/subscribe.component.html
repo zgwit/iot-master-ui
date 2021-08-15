@@ -16,6 +16,7 @@
     <tr>
       <th nzColumnKey="user_id" [nzSortFn]="true">用户</th>
       <th nzColumnKey="start" [nzSortFn]="true">起止时间</th>
+      <th nzColumnKey="names">告警名称</th>
       <th nzColumnKey="level" [nzSortFn]="true">等级</th>
       <th>推送</th>
       <th nzColumnKey="_id" [nzSortFn]="true">创建时间</th>
@@ -29,6 +30,7 @@
         <a [routerLink]="'/admin/user/detail/'+data.user_id">{{data.user?.name}}</a>
       </td>
       <td>{{ data.start | minuteToDate | date: 'HH:mm' }} - {{ data.end | minuteToDate | date: 'HH:mm' }}</td>
+      <td>{{ data.names.join(', ') }}</td>
       <td>{{ data.level }}</td>
       <td>
         <span *ngIf="data.weixin">微信，</span>

@@ -10,9 +10,16 @@
       </nz-form-item>
 
       <nz-form-item>
+        <nz-form-label [nzSpan]="5">类型</nz-form-label>
+        <nz-form-control [nzSpan]="12" nzErrorTip="">
+          <input nz-input formControlName="type"/>
+        </nz-form-control>
+      </nz-form-item>
+
+      <nz-form-item>
         <nz-form-label [nzSpan]="5">标签</nz-form-label>
         <nz-form-control [nzSpan]="12" nzErrorTip="">
-          <nz-select nzAllowClear nzMode="tags" [nzTokenSeparators]="[',', ';', ' ']" formControlName="tags"
+          <nz-select nzAllowClear nzMode="tags" [nzTokenSeparators]="[',', '，', ';', ' ']" formControlName="tags"
                      nzSize="small" (ngModelChange)="change()"></nz-select>
         </nz-form-control>
       </nz-form-item>

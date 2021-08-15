@@ -43,6 +43,7 @@ export class ElementEditVariablesComponent implements OnInit, ControlValueAccess
           code: [d.code, [Validators.required]],
           address: [d.address, [Validators.required]],
           type: [d.type, [Validators.required]],
+          le: [d.le, [Validators.required]],
           ratio: [d.ratio, [Validators.required]],
           store: [d.store, [Validators.required]],
         })
@@ -57,6 +58,7 @@ export class ElementEditVariablesComponent implements OnInit, ControlValueAccess
       code: [1, [Validators.required]],
       address: [0, [Validators.required]],
       type: ['word', [Validators.required]],
+      le: [false, [Validators.required]],
       ratio: [1, [Validators.required]],
       store: [true, [Validators.required]],
     }))

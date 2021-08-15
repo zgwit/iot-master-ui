@@ -15,7 +15,8 @@
     <thead>
     <tr>
       <th>设备</th>
-	  <th>内容</th>
+      <th>名称</th>
+      <th>内容</th>
       <th nzColumnKey="_id" [nzSortFn]="true">时间</th>
     </tr>
     </thead>
@@ -24,6 +25,7 @@
       <td>
         <a [routerLink]="'/admin/device/detail/'+data.device_id">{{data.device?.name}}</a>
       </td>
+      <td>{{ data.name }}</td>
       <td>{{ data.content }}</td>
       <td>{{data._id | objectIdToDate | date:'short'}}</td>
     </tr>

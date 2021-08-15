@@ -14,7 +14,8 @@
     <th>名称</th>
     <th>功能码</th>
     <th>地址</th>
-    <th>类型</th>
+    <th>数据类型</th>
+    <th>小端模式</th>
     <th>倍率</th>
     <th>保存</th>
     <th>操作</th>
@@ -41,6 +42,9 @@
       <nz-select formControlName="type" nzSize="small" (ngModelChange)="change()" (change)="change()" required>
         <nz-option *ngFor="let dt of dataTypes" [nzValue]="dt.value" [nzLabel]="dt.name"></nz-option>
       </nz-select>
+    </td>
+    <td>
+      <label nz-checkbox formControlName="le" (change)="change()"></label>
     </td>
     <td>
       <input nz-input type="number" formControlName="ratio" nzSize="small" (ngModelChange)="change()" (change)="change()" required/>

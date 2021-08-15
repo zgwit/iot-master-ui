@@ -19,6 +19,7 @@ export class ElementEditComponent implements OnInit {
   basicForm: FormGroup = new FormGroup({});
   data: any = {
     "name": "新建元件",
+    "type": "",
     "tags": [],
     "image": "",
     "protocol": "",
@@ -42,6 +43,7 @@ export class ElementEditComponent implements OnInit {
   buildForm(): void {
     this.basicForm = this.fb.group({
       name: [this.data.name, [Validators.required]],
+      type: [this.data.type, []],
       tags: [this.data.tags, []],
       image: [this.data.image, []],
       protocol: [this.data.protocol, []],

@@ -20,7 +20,8 @@ export class SubscribeEditComponent implements OnInit {
     "user_id": "",
     "start": 0,
     "end": 1439, //23:59
-    "level": 1,
+    "names": [],
+    "level": 0,
     "weixin": true,
     "sms": true,
     "voice": true,
@@ -45,6 +46,7 @@ export class SubscribeEditComponent implements OnInit {
       user_id: [this.data.user_id, [Validators.required]],
       start: [this.data.start, []],
       end: [this.data.end, []],
+      names: [this.data.names, []],
       level: [this.data.level, [Validators.required]],
       weixin: [this.data.weixin, [Validators.required]],
       sms: [this.data.sms, [Validators.required]],
