@@ -35,7 +35,7 @@ export class ProjectEditValidatorsComponent implements OnInit, ControlValueAcces
         return this.fb.group({
           expression: [d.expression, [Validators.required]],
           name: [d.name, [Validators.required]],
-          alarm: [d.content, [Validators.required]],
+          content: [d.content, [Validators.required]],
           level: [d.level, [Validators.required]],
           delay: [d.delay, [Validators.required]],
           enable: [d.enable, [Validators.required]],
@@ -48,7 +48,7 @@ export class ProjectEditValidatorsComponent implements OnInit, ControlValueAcces
     this.formArray.push(this.fb.group({
       expression: ['', [Validators.required]],
       name: ['', [Validators.required]],
-      alarm: ['', [Validators.required]],
+      content: ['', [Validators.required]],
       level: [1, [Validators.required]],
       delay: [0, [Validators.required]],
       enable: [true, [Validators.required]],

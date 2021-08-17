@@ -14,6 +14,8 @@
   >
     <thead>
     <tr>
+      <th>公司</th>
+      <th>项目</th>
       <th>设备</th>
       <th>名称</th>
       <th>内容</th>
@@ -22,6 +24,13 @@
     </thead>
     <tbody>
     <tr *ngFor="let data of datum; let i=index">
+      <td>
+        <a [routerLink]="'/admin/company/detail/'+data.company_id">{{data.company?.name}}</a>
+        <a [routerLink]="'/admin/group/detail/'+data.group_id">{{data.group?.name}}</a>
+      </td>
+      <td>
+        <a [routerLink]="'/admin/project/detail/'+data.project_id">{{data.project?.name}}</a>
+      </td>
       <td>
         <a [routerLink]="'/admin/device/detail/'+data.device_id">{{data.device?.name}}</a>
       </td>
