@@ -14,7 +14,9 @@
     <th>告警名称</th>
     <th>告警内容</th>
     <th>告警等级</th>
-    <th>延时（秒）</th>
+    <th>延时提醒（秒）</th>
+    <th>重置间隔（秒）</th>
+    <th>重置次数</th>
     <th>启用</th>
     <th>操作</th>
   </tr>
@@ -41,7 +43,13 @@
       <nz-input-number formControlName="delay" [nzMin]="0" [nzStep]="1" nzSize="small" (change)="change()"></nz-input-number>
     </td>
     <td>
-      <nz-switch formControlName="enable" nzSize="small"></nz-switch>
+      <nz-input-number formControlName="resetInterval" [nzMin]="0" [nzStep]="1" nzSize="small" (change)="change()"></nz-input-number>
+    </td>
+    <td>
+      <nz-input-number formControlName="resetTime" [nzMin]="0" [nzStep]="1" nzSize="small" (change)="change()"></nz-input-number>
+    </td>
+    <td>
+      <nz-switch formControlName="enable" nzSize="small" (ngModelChange)="change()"></nz-switch>
     </td>
     <td>
       <a cdkDragHandle style="cursor: move">排序</a>

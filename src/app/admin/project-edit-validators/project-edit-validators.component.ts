@@ -38,6 +38,8 @@ export class ProjectEditValidatorsComponent implements OnInit, ControlValueAcces
           content: [d.content, [Validators.required]],
           level: [d.level, [Validators.required]],
           delay: [d.delay, [Validators.required]],
+          resetInterval: [d.resetInterval, [Validators.required]],
+          resetTimes: [d.resetTimes, [Validators.required]],
           enable: [d.enable, [Validators.required]],
         })
       }))
@@ -51,6 +53,8 @@ export class ProjectEditValidatorsComponent implements OnInit, ControlValueAcces
       content: ['', [Validators.required]],
       level: [1, [Validators.required]],
       delay: [0, [Validators.required]],
+      resetInterval: [0, [Validators.required]],
+      resetTimes: [0, [Validators.required]],
       enable: [true, [Validators.required]],
     }))
     //复制controls，让表格可以刷新
