@@ -45,14 +45,6 @@ export const DataTypes: Array<any> = [
   {name: 'int16', value: 'int16'},
   {name: 'int32', value: 'int32'},
   {name: 'int64', value: 'int64'},
-  {name: '小端浮点', value: 'le-float'},
-  {name: '小端双精度', value: 'le-double'},
-  {name: '小端uint16', value: 'le-uint16'},
-  {name: '小端uint32', value: 'le-uint32'},
-  {name: '小端uint64', value: 'le-uint64'},
-  {name: '小端int16', value: 'le-int16'},
-  {name: '小端int32', value: 'le-int32'},
-  {name: '小端int64', value: 'le-int64'},
 ]
 
 //建立索引

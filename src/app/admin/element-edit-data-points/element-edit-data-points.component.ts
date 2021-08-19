@@ -45,7 +45,10 @@ export class ElementEditDataPointsComponent implements OnInit, ControlValueAcces
           type: [d.type, [Validators.required]],
           le: [d.le, [Validators.required]],
           precision: [d.precision, [Validators.required]],
+          default: [d.default, [Validators.required]],
+          rw: [d.rw, [Validators.required]],
           unit: [d.unit, [Validators.required]],
+          store: [d.store, [Validators.required]],
         })
       }))
     })
@@ -60,18 +63,39 @@ export class ElementEditDataPointsComponent implements OnInit, ControlValueAcces
       type: ['', [Validators.required]],
       le: [false, [Validators.required]],
       precision: [0, [Validators.required]],
+      default: ['', [Validators.required]],
+      rw: [3, [Validators.required]],
       unit: ["", [Validators.required]],
+      store: [false, [Validators.required]],
     }))
     //复制controls，让表格可以刷新
     this.formArray.controls = [...this.formArray.controls];
     this.change();
   }
 
+  copy(i: number) {
+    const group = this.formArray.controls[i];
+
+    this.formArray.controls.splice(i, 0, this.fb.group({
+      name: [group.get('name')?.value, [Validators.required]],
+      label: [group.get('label')?.value, []],
+      code: [group.get('code')?.value, [Validators.required]],
+      address: [group.get('address')?.value, [Validators.required]],
+      type: [group.get('type')?.value, [Validators.required]],
+      le: [group.get('le')?.value, [Validators.required]],
+      precision: [group.get('precision')?.value, [Validators.required]],
+      default: [group.get('default')?.value, [Validators.required]],
+      rw: [group.get('rw')?.value, [Validators.required]],
+      unit: [group.get('unit')?.value, [Validators.required]],
+      store: [group.get('store')?.value, [Validators.required]],
+    }))
+  }
 
   remove(i: number) {
     this.formArray.removeAt(i)
     this.change();
   }
+
 
   clear() {
     this.formArray.clear();

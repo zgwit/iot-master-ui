@@ -13,6 +13,7 @@ import {
   UserOutline,
   FormOutline,
   DragOutline,
+  DeleteOutline,
 } from '@ant-design/icons-angular/icons';
 import {CommonModule} from '@angular/common';
 
@@ -22,7 +23,7 @@ const icons = [
   SettingOutline, AppstoreAddOutline, ClusterOutline, LogoutOutline, UserOutline,
   // 表格操作
   FormOutline,
-  DragOutline,
+  DragOutline,DeleteOutline,
 ];
 
 @NgModule({

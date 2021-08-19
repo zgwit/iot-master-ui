@@ -16,12 +16,14 @@
     <th>地址</th>
     <th>数据类型</th>
     <th>小端模式</th>
-    <th>倍率</th>
+    <th>小数点位</th>
+    <th>默认值</th>
+    <th>读写</th>
     <th>保存</th>
     <th>操作</th>
   </tr>
   </thead>
-  <tbody formGroupName="items" cdkDropList (cdkDropListDropped)="drop($event)" >
+  <tbody formGroupName="items" cdkDropList (cdkDropListDropped)="drop($event)">
   <tr *ngFor="let data of formArray.controls; let i=index" [formGroupName]="i" cdkDrag>
     <td>
       <input nz-input formControlName="name" nzSize="small" (change)="change()" required/>
@@ -30,13 +32,15 @@
       <input nz-input formControlName="label" nzSize="small" (change)="change()"/>
     </td>
     <td>
-      <nz-select formControlName="code" nzSize="small" (ngModelChange)="change()" (change)="change()" required style="width: 100px">
+      <nz-select formControlName="code" nzSize="small" (ngModelChange)="change()" (change)="change()" required
+                 style="width: 100px">
         <nz-option *ngFor="let code of codes"
-          [nzValue]="code.code" [nzLabel]="code.name"></nz-option>
+                   [nzValue]="code.code" [nzLabel]="code.name"></nz-option>
       </nz-select>
     </td>
     <td>
-      <nz-input-number formControlName="address" [nzMin]="0" [nzMax]="65535" [nzStep]="1" nzSize="small" (change)="change()" required></nz-input-number>
+      <nz-input-number formControlName="address" [nzMin]="0" [nzMax]="65535" [nzStep]="1" nzSize="small"
+                       (change)="change()" required></nz-input-number>
     </td>
     <td>
       <nz-select formControlName="type" nzSize="small" (ngModelChange)="change()" (change)="change()" required>
@@ -44,18 +48,42 @@
       </nz-select>
     </td>
     <td>
-      <label nz-checkbox formControlName="le" (change)="change()"></label>
+      <label nz-checkbox formControlName="le" (change)="change()" (ngModelChange)="change()"></label>
     </td>
     <td>
-      <input nz-input type="number" formControlName="ratio" nzSize="small" (ngModelChange)="change()" (change)="change()" required/>
+      <nz-select formControlName="precision" nzSize="small" (ngModelChange)="change()" (change)="change()" required>
+        <nz-option [nzValue]="0" nzLabel="0"></nz-option>
+        <nz-option [nzValue]="1" nzLabel="1"></nz-option>
+        <nz-option [nzValue]="2" nzLabel="2"></nz-option>
+        <nz-option [nzValue]="3" nzLabel="3"></nz-option>
+        <nz-option [nzValue]="4" nzLabel="4"></nz-option>
+      </nz-select>
     </td>
     <td>
-      <nz-switch formControlName="store" nzSize="small" (change)="change()"></nz-switch>
+      <input nz-input formControlName="default" nzSize="small" (change)="change()"/>
     </td>
     <td>
-      <a cdkDragHandle style="cursor: move">排序</a>
+      <nz-select formControlName="rw" nzSize="small" (ngModelChange)="change()" (change)="change()" required>
+        <nz-option [nzValue]="3" nzLabel="读写"></nz-option>
+        <nz-option [nzValue]="2" nzLabel="只读"></nz-option>
+        <nz-option [nzValue]="1" nzLabel="只写"></nz-option>
+      </nz-select>
+    </td>
+    <td>
+      <label nz-checkbox formControlName="store" (change)="change()" (ngModelChange)="change()"></label>
+    </td>
+    <td>
+      <a cdkDragHandle title="移动">
+        <i nz-icon nzType="drag" nzTheme="outline"></i>
+      </a>
       <nz-divider nzType="vertical"></nz-divider>
-      <a (click)="remove(i)">删除</a>
+      <a cdkDragHandle title="复制" (click)="copy(i)">
+        <i nz-icon nzType="copy" nzTheme="outline"></i>
+      </a>
+      <nz-divider nzType="vertical"></nz-divider>
+      <a nz-popconfirm nzPopconfirmTitle="确定删除?" (nzOnConfirm)="remove(i)" title="删除">
+        <i nz-icon nzType="delete" nzTheme="outline"></i>
+      </a>
     </td>
   </tr>
   </tbody>
