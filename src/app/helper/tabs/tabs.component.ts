@@ -9,7 +9,6 @@ import {
 } from '@angular/core';
 import {ActivatedRoute, ActivationEnd, NavigationEnd, Router, RouterLinkWithHref} from '@angular/router';
 import {Subscription} from 'rxjs';
-import {AdminComponent} from "../../admin/admin.component";
 
 @Component({
   selector: 'app-tabs',
@@ -24,6 +23,8 @@ export class TabsComponent implements OnInit, OnDestroy, AfterViewInit {
   current = 0;
 
   tabs: Array<TabRef> = [];
+
+  history: Array<string> = [];
 
   event: any;
   sub: Subscription;
@@ -47,8 +48,14 @@ export class TabsComponent implements OnInit, OnDestroy, AfterViewInit {
       return;
     }
 
-    // TODO 要判断是 /admin/ 起始
-    const path = url.replace(/^\/admin\//, '');
+    // 要判断是 /admin/ 起始
+    let path = url.replace(/^\/admin/, '');
+    path = path.replace(/^\//, ''); //去掉默认页的空白
+
+    //记录历史
+    if (this.tabs.length > 0) {
+      this.history.push(this.tabs[this.current].route);
+    }
 
     // 快速查找
     let index = this.tabs.findIndex(tab => tab.route === path);
@@ -100,12 +107,29 @@ export class TabsComponent implements OnInit, OnDestroy, AfterViewInit {
     if (tab.component) {
       tab.component.destroy();
     }
-    if (this.current > index) {
-      this.current--;
-    } else if (this.current === index) {
-      if (this.current >= this.tabs.length) {
-        this.current = this.tabs.length - 1;
+
+    let target = this.current;
+
+    //找出历史页面，打开
+    if (this.history.length > 0) {
+      const path = this.history.pop();
+      let idx = this.tabs.findIndex(tab => tab.route === path);
+      if (idx > -1)
+        target = idx;
+    }
+
+    //越值判断
+    if (target > index) {
+      target --;
+    } else if (target === index) {
+      if (target >= this.tabs.length) {
+        target = this.tabs.length - 1;
       }
+    }
+
+    //打开标签
+    if (target !== this.current) {
+      this.current = target;
       // 用修改路由的方式触发
       this.router.navigate(['/admin/' + this.tabs[this.current].route]);
       return;
@@ -127,10 +151,13 @@ export class TabsComponent implements OnInit, OnDestroy, AfterViewInit {
     if (!route.component) {
       return;
     }
+
     // 避免初次打开，页面一直嵌套的问题，但是页面会一直处于加载中
-    if (route.component === AdminComponent) {
-      return;
-    }
+    // if (route.component === AdminComponent) {
+    //   route.component = DashComponent;
+    //   //以上改法有点搓，应该跟具体组件（页面）无关
+    //   return;
+    // }
 
     const factory = this.resolver.resolveComponentFactory(route.component);
     const injector = new TabsInjector(this.event, this.location.injector, this.tabs[index]);
