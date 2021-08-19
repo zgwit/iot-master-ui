@@ -62,6 +62,21 @@ export class ElementEditValidatorsComponent implements OnInit, ControlValueAcces
     this.change();
   }
 
+  copy(i: number) {
+    const group = this.formArray.controls[i];
+
+    this.formArray.controls.splice(i, 0, this.fb.group({
+      expression: [group.get('expression')?.value, [Validators.required]],
+      name: [group.get('name')?.value, []],
+      content: [group.get('content')?.value, [Validators.required]],
+      level: [group.get('level')?.value, [Validators.required]],
+      delay: [group.get('delay')?.value, [Validators.required]],
+      resetInterval: [group.get('resetInterval')?.value, [Validators.required]],
+      resetTimes: [group.get('resetTimes')?.value, [Validators.required]],
+      enable: [group.get('enable')?.value, [Validators.required]],
+    }))
+  }
+
   remove(i: number) {
     this.formArray.removeAt(i)
     this.change();
@@ -69,13 +84,6 @@ export class ElementEditValidatorsComponent implements OnInit, ControlValueAcces
 
   clear() {
     this.formArray.clear();
-    this.change();
-  }
-
-  sort() {
-    this.formArray.controls.sort((a, b) => {
-      return a.value.crontab - b.value.crontab;
-    });
     this.change();
   }
 

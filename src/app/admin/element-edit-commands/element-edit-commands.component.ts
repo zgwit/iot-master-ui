@@ -53,6 +53,16 @@ export class ElementEditCommandsComponent implements OnInit, ControlValueAccesso
     this.change();
   }
 
+  copy(i: number) {
+    const group = this.formArray.controls[i];
+
+    this.formArray.controls.splice(i, 0, this.fb.group({
+      name: [group.get('name')?.value, [Validators.required]],
+      argc: [group.get('argc')?.value, [Validators.required]],
+      script: [group.get('script')?.value, [Validators.required]],
+    }))
+  }
+
   remove(i: number) {
     this.formArray.removeAt(i)
     this.change();
@@ -60,13 +70,6 @@ export class ElementEditCommandsComponent implements OnInit, ControlValueAccesso
 
   clear() {
     this.formArray.clear();
-    this.change();
-  }
-
-  sort() {
-    this.formArray.controls.sort((a, b) => {
-      return a.value.slave - b.value.slave;
-    });
     this.change();
   }
 

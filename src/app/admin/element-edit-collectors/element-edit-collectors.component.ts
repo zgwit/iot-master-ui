@@ -60,6 +60,19 @@ export class ElementEditCollectorsComponent implements OnInit, ControlValueAcces
     this.change();
   }
 
+  copy(i: number) {
+    const group = this.formArray.controls[i];
+
+    this.formArray.controls.splice(i, 0, this.fb.group({
+      interval: [group.get('interval')?.value, [Validators.required]],
+      crontab: [group.get('crontab')?.value, []],
+      code: [group.get('code')?.value, [Validators.required]],
+      address: [group.get('address')?.value, [Validators.required]],
+      length: [group.get('length')?.value, [Validators.required]],
+      enable: [group.get('enable')?.value, [Validators.required]],
+    }))
+  }
+
   remove(i: number) {
     this.formArray.removeAt(i)
     this.change();
@@ -67,13 +80,6 @@ export class ElementEditCollectorsComponent implements OnInit, ControlValueAcces
 
   clear() {
     this.formArray.clear();
-    this.change();
-  }
-
-  sort() {
-    this.formArray.controls.sort((a, b) => {
-      return a.value.address - b.value.address;
-    });
     this.change();
   }
 
