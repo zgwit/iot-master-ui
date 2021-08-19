@@ -124,6 +124,7 @@ import {ProjectEditJobsComponent} from "./project-edit-jobs/project-edit-jobs.co
 import {ElementEditScriptsComponent} from "./element-edit-scripts/element-edit-scripts.component";
 import {CompanyTunnelComponent} from "./company-tunnel/company-tunnel.component";
 import {CompanyDeviceComponent} from "./company-device/company-device.component";
+import {ElementEditDataPointsComponent} from "./element-edit-data-points/element-edit-data-points.component";
 
 
 @NgModule({
@@ -179,7 +180,7 @@ import {CompanyDeviceComponent} from "./company-device/company-device.component"
         ChooseDeviceComponent, ChooseElementComponent, ChooseTemplateComponent,
         ChooseUserComponent, ChooseGroupComponent, ChooseCompanyComponent, ChooseTunnelComponent,
 
-        AlarmComponent, SubscribeComponent, SubscribeEditComponent, CompanyTunnelComponent, CompanyDeviceComponent,
+        AlarmComponent, SubscribeComponent, SubscribeEditComponent, CompanyTunnelComponent, CompanyDeviceComponent, ElementEditDataPointsComponent,
 
     ],
   imports: [

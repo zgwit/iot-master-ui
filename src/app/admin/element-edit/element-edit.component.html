@@ -57,12 +57,12 @@
 
     </nz-tab>
 
-    <nz-tab nzTitle="变量映射">
-      <app-element-edit-variables formControlName="variables" [codes]="codes"></app-element-edit-variables>
+    <nz-tab nzTitle="变量">
+      <app-element-edit-variables formControlName="variables"></app-element-edit-variables>
     </nz-tab>
 
-    <nz-tab nzTitle="控制命令">
-      <app-element-edit-commands formControlName="commands"></app-element-edit-commands>
+    <nz-tab nzTitle="数据点">
+      <app-element-edit-data-points formControlName="data_points" [codes]="codes"></app-element-edit-data-points>
     </nz-tab>
 
     <nz-tab nzTitle="定时采集">
@@ -71,6 +71,10 @@
 
     <nz-tab nzTitle="合法检查">
       <app-element-edit-validators formControlName="validators"></app-element-edit-validators>
+    </nz-tab>
+
+    <nz-tab nzTitle="控制命令">
+      <app-element-edit-commands formControlName="commands"></app-element-edit-commands>
     </nz-tab>
 
     <nz-tab nzTitle="定时脚本">
@@ -82,6 +86,5 @@
     </nz-tab>
 
   </nz-tabset>
-
 
 </app-editor>

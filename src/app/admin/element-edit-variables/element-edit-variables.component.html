@@ -12,12 +12,7 @@
   <tr>
     <th>变量</th>
     <th>名称</th>
-    <th>功能码</th>
-    <th>地址</th>
-    <th>数据类型</th>
-    <th>小端模式</th>
-    <th>倍率</th>
-    <th>保存</th>
+    <th>默认</th>
     <th>操作</th>
   </tr>
   </thead>
@@ -30,27 +25,7 @@
       <input nz-input formControlName="label" nzSize="small" (change)="change()"/>
     </td>
     <td>
-      <nz-select formControlName="code" nzSize="small" (ngModelChange)="change()" (change)="change()" required style="width: 100px">
-        <nz-option *ngFor="let code of codes"
-          [nzValue]="code.code" [nzLabel]="code.name"></nz-option>
-      </nz-select>
-    </td>
-    <td>
-      <nz-input-number formControlName="address" [nzMin]="0" [nzMax]="65535" [nzStep]="1" nzSize="small" (change)="change()" required></nz-input-number>
-    </td>
-    <td>
-      <nz-select formControlName="type" nzSize="small" (ngModelChange)="change()" (change)="change()" required>
-        <nz-option *ngFor="let dt of dataTypes" [nzValue]="dt.value" [nzLabel]="dt.name"></nz-option>
-      </nz-select>
-    </td>
-    <td>
-      <label nz-checkbox formControlName="le" (change)="change()"></label>
-    </td>
-    <td>
-      <input nz-input type="number" formControlName="ratio" nzSize="small" (ngModelChange)="change()" (change)="change()" required/>
-    </td>
-    <td>
-      <nz-switch formControlName="store" nzSize="small" (change)="change()"></nz-switch>
+      <input nz-input formControlName="default" nzSize="small" (change)="change()"/>
     </td>
     <td>
       <a cdkDragHandle style="cursor: move">排序</a>

@@ -25,6 +25,7 @@ export class ElementEditComponent implements OnInit {
     "protocol": "",
     "manufacturer": "",
     "version": "",
+    "data_points": [],
     "variables": [],
     "commands": [],
     "collectors": [],
@@ -50,6 +51,7 @@ export class ElementEditComponent implements OnInit {
       manufacturer: [this.data.manufacturer, []],
       version: [this.data.version, []],
 
+      data_points: [this.data.data_points || []],
       variables: [this.data.variables || []],
       commands: [this.data.commands || []],
       collectors: [this.data.collectors || []],

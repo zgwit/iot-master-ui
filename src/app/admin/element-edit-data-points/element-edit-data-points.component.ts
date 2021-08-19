@@ -1,19 +1,22 @@
-import {Component, forwardRef, OnInit} from '@angular/core';
+import {Component, forwardRef, Input, OnInit} from '@angular/core';
 import {ControlValueAccessor, FormArray, FormBuilder, FormGroup, NG_VALUE_ACCESSOR, Validators} from "@angular/forms";
+import {DataTypes} from "../../helper/lib";
 
 @Component({
-  selector: 'app-element-edit-variables',
-  templateUrl: './element-edit-variables.component.html',
-  styleUrls: ['./element-edit-variables.component.scss'],
+  selector: 'app-element-edit-data-points',
+  templateUrl: './element-edit-data-points.component.html',
+  styleUrls: ['./element-edit-data-points.component.scss'],
   providers: [
     {
       provide: NG_VALUE_ACCESSOR,
-      useExisting: forwardRef(() => ElementEditVariablesComponent),
+      useExisting: forwardRef(() => ElementEditDataPointsComponent),
       multi: true
     }
   ]
 })
-export class ElementEditVariablesComponent implements OnInit, ControlValueAccessor {
+export class ElementEditDataPointsComponent implements OnInit, ControlValueAccessor {
+  @Input() codes: any = [];
+
   onChanged: any = () => {
   }
   onTouched: any = () => {
@@ -22,20 +25,27 @@ export class ElementEditVariablesComponent implements OnInit, ControlValueAccess
   items: any[] = [];
   formGroup = new FormGroup({});
   formArray: FormArray = new FormArray([]);
+  dataTypes = DataTypes;
 
-  constructor(private fb: FormBuilder) { }
+  constructor(private fb: FormBuilder) {
+  }
 
   ngOnInit(): void {
     this.buildForm();
   }
 
-  buildForm(): void{
+  buildForm(): void {
     this.formGroup = this.fb.group({
       items: this.formArray = this.fb.array(this.items.map((d: any) => {
         return this.fb.group({
           name: [d.name, [Validators.required]],
           label: [d.label, []],
-          default: [d.default, [Validators.required]],
+          code: [d.code, [Validators.required]],
+          address: [d.address, [Validators.required]],
+          type: [d.type, [Validators.required]],
+          le: [d.le, [Validators.required]],
+          precision: [d.precision, [Validators.required]],
+          unit: [d.unit, [Validators.required]],
         })
       }))
     })
@@ -45,12 +55,18 @@ export class ElementEditVariablesComponent implements OnInit, ControlValueAccess
     this.formArray.push(this.fb.group({
       name: ['', [Validators.required]],
       label: ['', []],
-      default: ['', [Validators.required]],
+      code: [0, [Validators.required]],
+      address: [0, [Validators.required]],
+      type: ['', [Validators.required]],
+      le: [false, [Validators.required]],
+      precision: [0, [Validators.required]],
+      unit: ["", [Validators.required]],
     }))
     //复制controls，让表格可以刷新
     this.formArray.controls = [...this.formArray.controls];
     this.change();
   }
+
 
   remove(i: number) {
     this.formArray.removeAt(i)

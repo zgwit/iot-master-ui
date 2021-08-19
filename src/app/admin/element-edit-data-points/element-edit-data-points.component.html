@@ -1,0 +1,62 @@
+<app-toolbar>
+  <nz-space>
+    <button nz-button *nzSpaceItem nzType="default" (click)="clear()">清空</button>
+    <button nz-button *nzSpaceItem nzType="default" (click)="sort()">排序</button>
+    <button nz-button *nzSpaceItem nzType="primary" (click)="add()">添加</button>
+  </nz-space>
+</app-toolbar>
+
+
+<nz-table [nzData]="formArray.controls" [nzFrontPagination]="false" nzSize="small" [formGroup]="formGroup">
+  <thead>
+  <tr>
+    <th>变量</th>
+    <th>名称</th>
+    <th>功能码</th>
+    <th>地址</th>
+    <th>数据类型</th>
+    <th>小端模式</th>
+    <th>倍率</th>
+    <th>保存</th>
+    <th>操作</th>
+  </tr>
+  </thead>
+  <tbody formGroupName="items" cdkDropList (cdkDropListDropped)="drop($event)" >
+  <tr *ngFor="let data of formArray.controls; let i=index" [formGroupName]="i" cdkDrag>
+    <td>
+      <input nz-input formControlName="name" nzSize="small" (change)="change()" required/>
+    </td>
+    <td>
+      <input nz-input formControlName="label" nzSize="small" (change)="change()"/>
+    </td>
+    <td>
+      <nz-select formControlName="code" nzSize="small" (ngModelChange)="change()" (change)="change()" required style="width: 100px">
+        <nz-option *ngFor="let code of codes"
+          [nzValue]="code.code" [nzLabel]="code.name"></nz-option>
+      </nz-select>
+    </td>
+    <td>
+      <nz-input-number formControlName="address" [nzMin]="0" [nzMax]="65535" [nzStep]="1" nzSize="small" (change)="change()" required></nz-input-number>
+    </td>
+    <td>
+      <nz-select formControlName="type" nzSize="small" (ngModelChange)="change()" (change)="change()" required>
+        <nz-option *ngFor="let dt of dataTypes" [nzValue]="dt.value" [nzLabel]="dt.name"></nz-option>
+      </nz-select>
+    </td>
+    <td>
+      <label nz-checkbox formControlName="le" (change)="change()"></label>
+    </td>
+    <td>
+      <input nz-input type="number" formControlName="ratio" nzSize="small" (ngModelChange)="change()" (change)="change()" required/>
+    </td>
+    <td>
+      <nz-switch formControlName="store" nzSize="small" (change)="change()"></nz-switch>
+    </td>
+    <td>
+      <a cdkDragHandle style="cursor: move">排序</a>
+      <nz-divider nzType="vertical"></nz-divider>
+      <a (click)="remove(i)">删除</a>
+    </td>
+  </tr>
+  </tbody>
+</nz-table>
