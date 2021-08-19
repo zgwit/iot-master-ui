@@ -33,8 +33,8 @@ export class TemplateEditDevicesComponent implements OnInit, ControlValueAccesso
     this.formGroup = this.fb.group({
       items: this.formArray = this.fb.array(this.items.map((d: any) => {
         return this.fb.group({
+          name: [d.name, [Validators.required]],
           element_id: [d.element_id, [Validators.required]],
-          name: [d.type, [Validators.required]],
         })
       }))
     })
@@ -42,12 +42,21 @@ export class TemplateEditDevicesComponent implements OnInit, ControlValueAccesso
 
   add() {
     this.formArray.push(this.fb.group({
-      element_id: ['', [Validators.required]],
       name: ['', [Validators.required]],
+      element_id: ['', [Validators.required]],
     }))
     //复制controls，让表格可以刷新
     this.formArray.controls = [...this.formArray.controls];
     this.change();
+  }
+
+  copy(i: number) {
+    const group = this.formArray.controls[i];
+
+    this.formArray.controls.splice(i, 0, this.fb.group({
+      name: [group.get('name')?.value, [Validators.required]],
+      element_id: [group.get('element_id')?.value, [Validators.required]],
+    }))
   }
 
   remove(i: number) {
@@ -57,13 +66,6 @@ export class TemplateEditDevicesComponent implements OnInit, ControlValueAccesso
 
   clear() {
     this.formArray.clear();
-    this.change();
-  }
-
-  sort() {
-    this.formArray.controls.sort((a, b) => {
-      return a.value.slave - b.value.slave;
-    });
     this.change();
   }
 

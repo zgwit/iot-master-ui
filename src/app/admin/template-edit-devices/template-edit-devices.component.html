@@ -1,7 +1,6 @@
 <app-toolbar>
   <nz-space>
     <button nz-button *nzSpaceItem nzType="default" (click)="clear()">清空</button>
-    <button nz-button *nzSpaceItem nzType="default" (click)="sort()">排序</button>
     <button nz-button *nzSpaceItem nzType="primary" (click)="add()">添加</button>
   </nz-space>
 </app-toolbar>
@@ -24,9 +23,17 @@
       <input nz-input formControlName="name" nzSize="small" (change)="change()" required/>
     </td>
     <td>
-      <a cdkDragHandle style="cursor: move">排序</a>
+      <a cdkDragHandle title="移动">
+        <i nz-icon nzType="drag" nzTheme="outline"></i>
+      </a>
       <nz-divider nzType="vertical"></nz-divider>
-      <a (click)="remove(i)">删除</a>
+      <a cdkDragHandle title="复制" (click)="copy(i)">
+        <i nz-icon nzType="copy" nzTheme="outline"></i>
+      </a>
+      <nz-divider nzType="vertical"></nz-divider>
+      <a nz-popconfirm nzPopconfirmTitle="确定删除?" (nzOnConfirm)="remove(i)" title="删除">
+        <i nz-icon nzType="delete" nzTheme="outline"></i>
+      </a>
     </td>
   </tr>
   </tbody>

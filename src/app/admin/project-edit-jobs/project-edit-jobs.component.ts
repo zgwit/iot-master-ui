@@ -55,6 +55,17 @@ export class ProjectEditJobsComponent implements OnInit, ControlValueAccessor {
     this.change();
   }
 
+  copy(i: number) {
+    const group = this.formArray.controls[i];
+
+    this.formArray.controls.splice(i, 0, this.fb.group({
+      name: [group.get('name')?.value, [Validators.required]],
+      crontab: [group.get('crontab')?.value, [Validators.required]],
+      script: [group.get('script')?.value, [Validators.required]],
+      enable: [group.get('enable')?.value, [Validators.required]],
+    }))
+  }
+
   remove(i: number) {
     this.formArray.removeAt(i)
     this.change();
@@ -62,13 +73,6 @@ export class ProjectEditJobsComponent implements OnInit, ControlValueAccessor {
 
   clear() {
     this.formArray.clear();
-    this.change();
-  }
-
-  sort() {
-    this.formArray.controls.sort((a, b) => {
-      return a.value.crontab - b.value.crontab;
-    });
     this.change();
   }
 

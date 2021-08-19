@@ -51,6 +51,15 @@ export class AcceptorEditDevicesComponent implements OnInit, ControlValueAccesso
     this.change();
   }
 
+  copy(i: number) {
+    const group = this.formArray.controls[i];
+
+    this.formArray.controls.splice(i, 0, this.fb.group({
+      slave: [group.get('slave')?.value, [Validators.required]],
+      element_id: [group.get('element_id')?.value, [Validators.required]],
+    }))
+  }
+
   remove(i: number) {
     this.formArray.removeAt(i)
     this.change();
@@ -58,13 +67,6 @@ export class AcceptorEditDevicesComponent implements OnInit, ControlValueAccesso
 
   clear() {
     this.formArray.clear();
-    this.change();
-  }
-
-  sort() {
-    this.formArray.controls.sort((a, b) => {
-      return a.value.slave - b.value.slave;
-    });
     this.change();
   }
 

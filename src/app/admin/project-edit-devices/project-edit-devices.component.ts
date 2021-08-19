@@ -78,13 +78,6 @@ export class ProjectEditDevicesComponent implements OnInit, ControlValueAccessor
     this.change();
   }
 
-  sort() {
-    this.formArray.controls.sort((a, b) => {
-      return a.value.slave - b.value.slave;
-    });
-    this.change();
-  }
-
   change() {
     this.formArray.markAsDirty();
     this.formArray.updateValueAndValidity();

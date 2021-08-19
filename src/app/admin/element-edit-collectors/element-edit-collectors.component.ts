@@ -53,7 +53,7 @@ export class ElementEditCollectorsComponent implements OnInit, ControlValueAcces
           code: [1, [Validators.required]],
           address: [0, [Validators.required]],
           length: [1, [Validators.required]],
-      enable: [true, [Validators.required]],
+          enable: [true, [Validators.required]],
     }))
     //复制controls，让表格可以刷新
     this.formArray.controls = [...this.formArray.controls];
