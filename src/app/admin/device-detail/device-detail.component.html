@@ -1,12 +1,44 @@
-
-
 <nz-tabset [nzTabBarExtraContent]="extraTemplate">
   <nz-tab nzTitle="设备详情">
-    <p>{{data|json}}</p>
-
-
     <p>
-      <button nz-button *ngFor="let cmd of element.commands" (click)="exec(cmd)">{{cmd.name}}</button>
+      名称：{{data.name}} {{data.online ? '启动' : '离线'}}
+      <nz-switch [ngModel]="data.online" (ngModelChange)="enable($event)"></nz-switch>
+    </p>
+    <p *ngIf="data.element">
+      元件：
+      <a [routerLink]="'/admin/element/detail/'+data.element._id">{{data.element.name}}</a>
+    </p>
+    <p *ngIf="data.project">
+      项目：{{data.project.join(',')}}
+    </p>
+    <p *ngIf="data.tunnel">
+      通道：
+      <a [routerLink]="'/admin/tunnel/detail/'+data.tunnel._id">{{data.tunnel.name || data.tunnel.sn}}</a>
+    </p>
+
+    <div class="values" nz-row [nzGutter]="10" *ngIf="data.element">
+      <div nz-col [nzSpan]="4" [nzXs]="12" [nzSm]="8" [nzMd]="6" [nzLg]="4" [nzXl]="3" [nzXXl]="2"
+           *ngFor="let v of data.element.variables">
+        <nz-card>
+          <nz-statistic [nzValue]="data.values && data.values[v.name] || '--'" [nzTitle]="v.label"
+                        [nzSuffix]="v.unit"></nz-statistic>
+          <div class="history" title="历史" *ngIf="v.store" [routerLink]="'/admin/device/value/'+data._id+'/'+v.name"><i
+            nz-icon nzType="line-chart" nzTheme="outline"></i></div>
+        </nz-card>
+      </div>
+      <div nz-col [nzSpan]="4" *ngFor="let v of data.element.data_points">
+        <nz-card>
+          <nz-statistic [nzValue]="data.values && data.values[v.name] || '--'" [nzTitle]="v.label"
+                        [nzSuffix]="v.unit"></nz-statistic>
+          <div class="refresh" title="刷新" *ngIf="!v.rw || v.rw>1"><i nz-icon nzType="sync" nzTheme="outline"></i></div>
+          <div class="history" title="历史" *ngIf="v.store" [routerLink]="'/admin/device/value/'+data._id+'/'+v.name"><i
+            nz-icon nzType="line-chart" nzTheme="outline"></i></div>
+        </nz-card>
+      </div>
+    </div>
+
+    <p *ngIf="data.element">
+      <button nz-button *ngFor="let cmd of data.element.commands" (click)="exec(cmd)">{{cmd.name}}</button>
     </p>
 
   </nz-tab>
@@ -38,7 +70,11 @@
 </nz-tabset>
 
 <ng-template #extraTemplate>
-  <a [routerLink]="'/admin/device/edit/'+id">
+  <a (click)="load()" title="刷新">
+    <i nz-icon nzType="reload" [nzSpin]="loading"></i>
+  </a>
+  <nz-divider nzType="vertical"></nz-divider>
+  <a title="编辑" [routerLink]="'/admin/device/edit/'+id">
     <i nz-icon nzType="form"></i>
   </a>
 </ng-template>

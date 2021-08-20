@@ -12,6 +12,7 @@ export class DeviceDetailComponent implements OnInit {
   id: any = '';
   data: any = {};
   element: any = {};
+  loading = false;
 
   constructor(private tab: TabRef, private router: ActivatedRoute, private rs: RequestService) {
     tab.name = '设备详情';
@@ -23,15 +24,11 @@ export class DeviceDetailComponent implements OnInit {
   }
 
   load(): void {
+    this.loading = true;
     this.rs.get(`device/${this.id}/compose`).subscribe(res=>{
       this.data = res.data;
-      this.tab.name += '[' + this.data.name + ']';
-
-      this.rs.get(`element/${this.data.element_id}/detail`).subscribe(res=>{
-        this.element = res.data;
-        //this.tab.name += '[' + this.data.name + ']';
-
-      });
+      this.tab.name = '设备详情[' + (this.data.name || this.data.element.name) + ']';
+      this.loading = false;
     });
   }
 
@@ -44,4 +41,7 @@ export class DeviceDetailComponent implements OnInit {
   }
 
 
+  enable($event: any) {
+
+  }
 }

@@ -14,6 +14,8 @@ import {
   FormOutline,
   DragOutline,
   DeleteOutline,
+  LineChartOutline,
+  SyncOutline,
 } from '@ant-design/icons-angular/icons';
 import {CommonModule} from '@angular/common';
 
@@ -24,6 +26,7 @@ const icons = [
   // 表格操作
   FormOutline,
   DragOutline,DeleteOutline,
+  LineChartOutline,SyncOutline,
 ];
 
 @NgModule({

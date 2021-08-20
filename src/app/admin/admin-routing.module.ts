@@ -37,6 +37,7 @@ import {GroupEditComponent} from "./group-edit/group-edit.component";
 import {GroupDetailComponent} from "./group-detail/group-detail.component";
 import {JobEditComponent} from "./job-edit/job-edit.component";
 import {SubscribeEditComponent} from "./subscribe-edit/subscribe-edit.component";
+import {DeviceValueComponent} from "./device-value/device-value.component";
 
 const routes: Routes = [
   {
@@ -60,6 +61,7 @@ const routes: Routes = [
       {path: 'device/create', component: DeviceEditComponent},
       {path: 'device/edit/:id', component: DeviceEditComponent},
       {path: 'device/detail/:id', component: DeviceDetailComponent},
+      {path: 'device/value/:id/:name', component: DeviceValueComponent},
       {path: 'template', component: TemplateComponent},
       {path: 'template/create', component: TemplateEditComponent},
       {path: 'template/edit/:id', component: TemplateEditComponent},

@@ -28,8 +28,6 @@ import {NzInputModule} from 'ng-zorro-antd/input';
 import {NzTabsModule} from 'ng-zorro-antd/tabs';
 import {NzTransferModule} from 'ng-zorro-antd/transfer';
 import {NzRadioModule} from 'ng-zorro-antd/radio';
-// import {NgxEchartsModule} from 'ngx-echarts';
-// import * as echarts from 'echarts';
 import {NzProgressModule} from 'ng-zorro-antd/progress';
 import {NzCardModule} from 'ng-zorro-antd/card';
 import {NzUploadModule} from 'ng-zorro-antd/upload';
@@ -125,6 +123,11 @@ import {ElementEditScriptsComponent} from "./element-edit-scripts/element-edit-s
 import {CompanyTunnelComponent} from "./company-tunnel/company-tunnel.component";
 import {CompanyDeviceComponent} from "./company-device/company-device.component";
 import {ElementEditDataPointsComponent} from "./element-edit-data-points/element-edit-data-points.component";
+import {NgxEchartsModule} from "ngx-echarts";
+import {NzGridModule} from "ng-zorro-antd/grid";
+import {DeviceValueComponent} from "./device-value/device-value.component";
+// import {NgxEchartsModule} from 'ngx-echarts';
+//import * as echarts from 'echarts';
 
 
 @NgModule({
@@ -146,6 +149,7 @@ import {ElementEditDataPointsComponent} from "./element-edit-data-points/element
 
         DeviceComponent, DeviceDetailComponent, DeviceEditComponent,
         DeviceProjectComponent, DeviceBrowserComponent, ElementEditValidatorsComponent,
+      DeviceValueComponent,
 
         TemplateComponent, TemplateDetailComponent,
         TemplateEditComponent, TemplateEditDevicesComponent,
@@ -191,6 +195,7 @@ import {ElementEditDataPointsComponent} from "./element-edit-data-points/element
     AdminRoutingModule,
     IconsProviderModule,
     NzIconModule,
+    NzGridModule,
     NzLayoutModule,
     NzMenuModule,
     NzToolTipModule,
@@ -221,6 +226,10 @@ import {ElementEditDataPointsComponent} from "./element-edit-data-points/element
     NzTimePickerModule,
     DashModule,
     DragDropModule,
+
+    NgxEchartsModule.forRoot({
+      echarts: () => import('echarts')
+    })
   ],
   bootstrap: [AdminComponent],
   providers: [ChooseService]

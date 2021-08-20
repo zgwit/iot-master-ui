@@ -1,7 +1,7 @@
 {
   "/api": {
-    "target2": "http://iot.yyo2.com:8008",
-    "target": "http://localhost:8008",
+    "target": "http://iot.yyo2.com:8008",
+    "target2": "http://localhost:8008",
     "secure": false
   }
 }
