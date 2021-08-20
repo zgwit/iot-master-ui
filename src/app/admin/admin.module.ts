@@ -126,6 +126,7 @@ import {ElementEditDataPointsComponent} from "./element-edit-data-points/element
 import {NgxEchartsModule} from "ngx-echarts";
 import {NzGridModule} from "ng-zorro-antd/grid";
 import {DeviceValueComponent} from "./device-value/device-value.component";
+import {NzDatePickerModule} from "ng-zorro-antd/date-picker";
 // import {NgxEchartsModule} from 'ngx-echarts';
 //import * as echarts from 'echarts';
 
@@ -229,7 +230,8 @@ import {DeviceValueComponent} from "./device-value/device-value.component";
 
     NgxEchartsModule.forRoot({
       echarts: () => import('echarts')
-    })
+    }),
+    NzDatePickerModule
   ],
   bootstrap: [AdminComponent],
   providers: [ChooseService]

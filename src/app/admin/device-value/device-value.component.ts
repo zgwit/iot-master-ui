@@ -16,12 +16,8 @@ export class DeviceValueComponent implements OnInit {
   loading = false;
   options: any = {};
 
-  mode: any = {
-    start: '-30d',
-    end: '0d',
-    window: '5m',
-
-  }
+  window = '5m';
+  date: Date[] = [dayjs().subtract(5, 'day').toDate(), dayjs().toDate()];
 
   constructor(private tab: TabRef, private router: ActivatedRoute, private rs: RequestService) {
     tab.name = '变量历史';
@@ -35,7 +31,11 @@ export class DeviceValueComponent implements OnInit {
 
   load(): void {
     this.loading = true;
-    this.rs.post(`device/${this.id}/values/${this.name}/history`, this.mode).subscribe(res=>{
+    this.rs.post(`device/${this.id}/values/${this.name}/history`, {
+      start: dayjs(this.date[0]).diff(dayjs(), "minute") + 'm',
+      end: dayjs(this.date[1]).diff(dayjs(), "minute") + 'm',
+      window: this.window,
+    }).subscribe(res=>{
       this.data = res.data;
       this.loading = false;
       this.update();
@@ -72,7 +72,7 @@ export class DeviceValueComponent implements OnInit {
       yAxis: {},
       series: [
         {
-          name: 'bar',
+          name: this.name,
           type: 'line',
           data: data1,
           //animationDelay: (idx) => idx * 10,
@@ -81,5 +81,9 @@ export class DeviceValueComponent implements OnInit {
       animationEasing: 'elasticOut',
       //animationDelayUpdate: (idx) => idx * 5,
     };
+  }
+
+  onChange($event: any) {
+    this.load()
   }
 }
