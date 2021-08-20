@@ -54,7 +54,11 @@ export class TabsComponent implements OnInit, OnDestroy, AfterViewInit {
 
     //记录历史
     if (this.tabs.length > 0) {
-      this.history.push(this.tabs[this.current].route);
+      const last = this.tabs[this.current].route;
+      if (!this.history.length || this.history[this.history.length-1] !== last) {
+        //不能重启保存历史
+        this.history.push(last);
+      }
     }
 
     // 快速查找
@@ -112,10 +116,20 @@ export class TabsComponent implements OnInit, OnDestroy, AfterViewInit {
 
     //找出历史页面，打开
     if (this.history.length > 0) {
-      const path = this.history.pop();
-      let idx = this.tabs.findIndex(tab => tab.route === path);
-      if (idx > -1)
-        target = idx;
+      if (target === index) {
+        //找出历史页面
+        const path = this.history.pop();
+        let idx = this.tabs.findIndex(tab => tab.route === path);
+        if (idx > -1)
+          target = idx;
+      } else {
+        //将当前页面的路由从历史中移除
+        for (let i=this.history.length-1; i>=0; i--) {
+          if (this.history[i] === tab.route) {
+            this.history.splice(i, 1)
+          }
+        }
+      }
     }
 
     //越值判断
