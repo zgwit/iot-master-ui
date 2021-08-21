@@ -127,67 +127,72 @@ import {NgxEchartsModule} from "ngx-echarts";
 import {NzGridModule} from "ng-zorro-antd/grid";
 import {DeviceValueComponent} from "./device-value/device-value.component";
 import {NzDatePickerModule} from "ng-zorro-antd/date-picker";
+import {NgxAmapModule} from "ngx-amap";
+import {TunnelMapComponent} from "./tunnel-map/tunnel-map.component";
+import {ProjectMapComponent} from "./project-map/project-map.component";
+import {DeviceMapComponent} from "./device-map/device-map.component";
 // import {NgxEchartsModule} from 'ngx-echarts';
 //import * as echarts from 'echarts';
 
 
 @NgModule({
-    declarations: [
-        AdminComponent,
-        DashComponent,
-        TunnelComponent, TunnelEditComponent, TunnelDetailComponent, TunnelMonitorComponent,
-        TunnelDeviceComponent, TunnelBrowserComponent,
+  declarations: [
+    AdminComponent,
+    DashComponent,
+    TunnelComponent, TunnelEditComponent, TunnelDetailComponent, TunnelMonitorComponent,
+    TunnelDeviceComponent, TunnelBrowserComponent,
 
-        AcceptorComponent, AcceptorDetailComponent,
-        AcceptorEditComponent, AcceptorEditDevicesComponent, AcceptorTunnelComponent,
+    AcceptorComponent, AcceptorDetailComponent,
+    AcceptorEditComponent, AcceptorEditDevicesComponent, AcceptorTunnelComponent,
 
-        ProjectComponent, ProjectDetailComponent,
-        ProjectEditComponent, ProjectEditCommandsComponent, ProjectEditJobsComponent,
-        ProjectEditVariablesComponent, ProjectEditDevicesComponent, ProjectEditStrategiesComponent,
-        ProjectEditValidatorsComponent, ProjectEditScriptsComponent, ProjectBrowserComponent,
+    ProjectComponent, ProjectDetailComponent,
+    ProjectEditComponent, ProjectEditCommandsComponent, ProjectEditJobsComponent,
+    ProjectEditVariablesComponent, ProjectEditDevicesComponent, ProjectEditStrategiesComponent,
+    ProjectEditValidatorsComponent, ProjectEditScriptsComponent, ProjectBrowserComponent,
 
-        GroupDetailComponent, GroupEditComponent, GroupProjectComponent, GroupBrowserComponent,
+    GroupDetailComponent, GroupEditComponent, GroupProjectComponent, GroupBrowserComponent,
 
-        DeviceComponent, DeviceDetailComponent, DeviceEditComponent,
-        DeviceProjectComponent, DeviceBrowserComponent, ElementEditValidatorsComponent,
-      DeviceValueComponent,
+    DeviceComponent, DeviceDetailComponent, DeviceEditComponent,
+    DeviceProjectComponent, DeviceBrowserComponent, ElementEditValidatorsComponent,
+    DeviceValueComponent,
 
-        TemplateComponent, TemplateDetailComponent,
-        TemplateEditComponent, TemplateEditDevicesComponent,
-        TemplateProjectComponent, TemplateBrowserComponent,
+    TemplateComponent, TemplateDetailComponent,
+    TemplateEditComponent, TemplateEditDevicesComponent,
+    TemplateProjectComponent, TemplateBrowserComponent,
 
-        ElementBrowserComponent,
-        ElementDeviceComponent, ElementTemplateComponent,
-        ElementComponent, ElementDetailComponent,
-        ElementEditComponent, ElementEditVariablesComponent,
-        ElementEditCommandsComponent, ElementEditCollectorsComponent, ElementEditScriptsComponent,
+    ElementBrowserComponent,
+    ElementDeviceComponent, ElementTemplateComponent,
+    ElementComponent, ElementDetailComponent,
+    ElementEditComponent, ElementEditVariablesComponent,
+    ElementEditCommandsComponent, ElementEditCollectorsComponent, ElementEditScriptsComponent,
 
-        UserComponent, UserEditComponent, UserDetailComponent, UserCompanyComponent,
-        UserBrowserComponent,
+    UserComponent, UserEditComponent, UserDetailComponent, UserCompanyComponent,
+    UserBrowserComponent,
 
-        CompanyComponent, CompanyEditComponent, CompanyDetailComponent, CompanyProjectComponent,
-        CompanyGroupComponent, CompanyBrowserComponent,
-        CompanyUserComponent,
+    CompanyComponent, CompanyEditComponent, CompanyDetailComponent, CompanyProjectComponent,
+    CompanyGroupComponent, CompanyBrowserComponent,
+    CompanyUserComponent,
 
-        JobComponent,
-        JobEditComponent,
+    JobComponent,
+    JobEditComponent,
 
-        PluginComponent, PluginDetailComponent,
-        ProtocolComponent, ProtocolDetailComponent,
+    PluginComponent, PluginDetailComponent,
+    ProtocolComponent, ProtocolDetailComponent,
 
-        ApiComponent,
-        SettingComponent,
+    ApiComponent,
+    SettingComponent,
 
-        PasswordComponent, EventComponent,
+    PasswordComponent, EventComponent,
 
-        PromptComponent,
+    PromptComponent,
 
-        ChooseDeviceComponent, ChooseElementComponent, ChooseTemplateComponent,
-        ChooseUserComponent, ChooseGroupComponent, ChooseCompanyComponent, ChooseTunnelComponent,
+    ChooseDeviceComponent, ChooseElementComponent, ChooseTemplateComponent,
+    ChooseUserComponent, ChooseGroupComponent, ChooseCompanyComponent, ChooseTunnelComponent,
 
-        AlarmComponent, SubscribeComponent, SubscribeEditComponent, CompanyTunnelComponent, CompanyDeviceComponent, ElementEditDataPointsComponent,
+    AlarmComponent, SubscribeComponent, SubscribeEditComponent, CompanyTunnelComponent, CompanyDeviceComponent, ElementEditDataPointsComponent,
 
-    ],
+    TunnelMapComponent, ProjectMapComponent, DeviceMapComponent,
+  ],
   imports: [
     CommonModule,
     FormsModule,
@@ -228,9 +233,8 @@ import {NzDatePickerModule} from "ng-zorro-antd/date-picker";
     DashModule,
     DragDropModule,
 
-    NgxEchartsModule.forRoot({
-      echarts: () => import('echarts')
-    }),
+    NgxEchartsModule.forRoot({echarts: () => import('echarts')}),
+    NgxAmapModule.forRoot({apiKey: 'e4c1bd11fe1b25d77dae4cf3993f7034', debug: true}),
     NzDatePickerModule
   ],
   bootstrap: [AdminComponent],

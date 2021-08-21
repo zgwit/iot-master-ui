@@ -38,6 +38,12 @@ import {GroupDetailComponent} from "./group-detail/group-detail.component";
 import {JobEditComponent} from "./job-edit/job-edit.component";
 import {SubscribeEditComponent} from "./subscribe-edit/subscribe-edit.component";
 import {DeviceValueComponent} from "./device-value/device-value.component";
+import {AlarmComponent} from "./alarm/alarm.component";
+import {VoiceComponent} from "./voice/voice.component";
+import {SubscribeComponent} from "./subscribe/subscribe.component";
+import {DeviceMapComponent} from "./device-map/device-map.component";
+import {TunnelMapComponent} from "./tunnel-map/tunnel-map.component";
+import {ProjectMapComponent} from "./project-map/project-map.component";
 
 const routes: Routes = [
   {
@@ -49,6 +55,7 @@ const routes: Routes = [
       {path: 'tunnel', component: TunnelComponent},
       {path: 'tunnel/edit/:id', component: TunnelEditComponent},
       {path: 'tunnel/detail/:id', component: TunnelDetailComponent},
+      {path: 'tunnel/map', component: TunnelMapComponent},
       {path: 'acceptor', component: AcceptorComponent},
       {path: 'acceptor/create', component: AcceptorEditComponent},
       {path: 'acceptor/edit/:id', component: AcceptorEditComponent},
@@ -57,11 +64,15 @@ const routes: Routes = [
       {path: 'project/create', component: ProjectEditComponent},
       {path: 'project/edit/:id', component: ProjectEditComponent},
       {path: 'project/detail/:id', component: ProjectDetailComponent},
+      {path: 'project/map', component: ProjectMapComponent},
       {path: 'device', component: DeviceComponent},
       {path: 'device/create', component: DeviceEditComponent},
       {path: 'device/edit/:id', component: DeviceEditComponent},
       {path: 'device/detail/:id', component: DeviceDetailComponent},
       {path: 'device/value/:id/:name', component: DeviceValueComponent},
+      {path: 'device/map', component: DeviceMapComponent},
+      {path: 'alarm', component: AlarmComponent},
+      {path: 'voice', component: VoiceComponent},
       {path: 'template', component: TemplateComponent},
       {path: 'template/create', component: TemplateEditComponent},
       {path: 'template/edit/:id', component: TemplateEditComponent},
@@ -83,6 +94,7 @@ const routes: Routes = [
       {path: 'group/detail/:id', component: GroupDetailComponent},
       {path: 'job/create', component: JobEditComponent},
       {path: 'job/edit/:id', component: JobEditComponent},
+      {path: 'subscribe', component: SubscribeComponent},
       {path: 'subscribe/create', component: SubscribeEditComponent},
       {path: 'subscribe/edit/:id', component: SubscribeEditComponent},
       {path: 'plugin', component: PluginComponent},

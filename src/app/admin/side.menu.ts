@@ -24,6 +24,10 @@ export let SideMenu = [
         title: '通道',
         router: 'tunnel'
       },
+      {
+        title: '通道地图',
+        router: 'tunnel/map'
+      },
     ]
   },
   {
@@ -35,6 +39,20 @@ export let SideMenu = [
         router: 'project'
       },
       {
+        title: '模板库',
+        router: 'template'
+      },
+      {
+        title: '项目地图',
+        router: 'project/map'
+      },
+    ]
+  },
+  {
+    title: '设备管理',
+    icon: 'appstore',
+    children: [
+      {
         title: '设备',
         router: 'device'
       },
@@ -43,8 +61,28 @@ export let SideMenu = [
         router: 'element'
       },
       {
-        title: '模板库',
-        router: 'template'
+        title: '设备地图',
+        router: 'device/map'
+      },
+    ]
+  },
+  {
+    title: '告警管理',
+    icon: 'bell',
+    open: false,
+    disable: true,
+    children: [
+      {
+        title: '告警日志',
+        router: 'alarm'
+      },
+      {
+        title: '告警订阅',
+        router: 'subscribe'
+      },
+      {
+        title: '语音记录',
+        router: 'voice'
       },
     ]
   },
