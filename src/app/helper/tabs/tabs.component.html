@@ -16,7 +16,7 @@
 
 <div class="content">
   <ng-container *ngFor="let tab of tabs; let i=index">
-    <div class="" [hidden]="i!=current">
+    <div class="inner" [hidden]="i!=current">
       <ng-template #container></ng-template>
       <div *ngIf="!tab.component">加载中</div>
     </div>

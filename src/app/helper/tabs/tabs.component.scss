@@ -9,10 +9,17 @@
 
 .content {
   flex: 1;
-
-  padding: 15px;
+  //padding: 15px;
   background: #fff;
-  overflow: auto;
+
+  display: flex;
+  flex-direction: column;
+
+  .inner{
+    flex: 1;
+    padding: 15px;
+    overflow: auto;
+  }
 }
 
 .tabs {
