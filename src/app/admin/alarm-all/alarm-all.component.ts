@@ -1,16 +1,16 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {NzTableQueryParams} from "ng-zorro-antd/table";
+import {TabRef} from "../../helper/tabs/tabs.component";
 import {Router} from "@angular/router";
 import {RequestService} from "../../request.service";
 import {parseTableQuery} from "../../helper/lib";
 
 @Component({
-  selector: 'app-voice',
-  templateUrl: './voice.component.html',
-  styleUrls: ['./voice.component.scss']
+  selector: 'app-alarm-all',
+  templateUrl: './alarm-all.component.html',
+  styleUrls: ['./alarm-all.component.scss']
 })
-export class VoiceComponent implements OnInit {
-  @Input() company_id = '';
+export class AlarmAllComponent implements OnInit {
 
   datum: any[] = [];
 
@@ -21,7 +21,8 @@ export class VoiceComponent implements OnInit {
 
   params: any = {filter: {}};
 
-  constructor(private router: Router, private rs: RequestService) {
+  constructor(private tab: TabRef, private router: Router, private rs: RequestService) {
+    tab.name = "告警记录"
   }
 
   ngOnInit(): void {
@@ -32,7 +33,7 @@ export class VoiceComponent implements OnInit {
     this.pageIndex = 1;
     this.params.skip = 0;
     if (keyword)
-      this.params.filter.$or = [{cellphone: {$regex: keyword}}, {type: {$regex: keyword}}];
+      this.params.filter.$or = [{content: {$regex: keyword}}];
     else
       delete this.params.filter.$or;
     this.load();
@@ -45,8 +46,7 @@ export class VoiceComponent implements OnInit {
 
   load(): void {
     this.loading = true;
-    this.params.filter.company_id = this.company_id;
-    this.rs.post(`voice/list`, this.params).subscribe(res => {
+    this.rs.post('alarm/list', this.params).subscribe(res => {
       console.log('res', res);
       this.datum = res.data;
       this.total = res.total;
@@ -55,4 +55,11 @@ export class VoiceComponent implements OnInit {
     });
   }
 
+
+  remove(data: any, i: number) {
+    this.rs.delete(`alarm/${data._id}/delete`).subscribe(res=>{
+      this.datum.splice(i, 1);
+    });
+
+  }
 }

@@ -46,6 +46,9 @@ import {TunnelMapComponent} from "./tunnel-map/tunnel-map.component";
 import {ProjectMapComponent} from "./project-map/project-map.component";
 import {WelcomeComponent} from "./welcome/welcome.component";
 import {UnknownComponent} from "./unknown/unknown.component";
+import {AlarmAllComponent} from "./alarm-all/alarm-all.component";
+import {SubscribeAllComponent} from "./subscribe-all/subscribe-all.component";
+import {VoiceAllComponent} from "./voice-all/voice-all.component";
 
 const routes: Routes = [
   {
@@ -73,8 +76,8 @@ const routes: Routes = [
       {path: 'device/detail/:id', component: DeviceDetailComponent},
       {path: 'device/value/:id/:name', component: DeviceValueComponent},
       {path: 'device/map', component: DeviceMapComponent},
-      {path: 'alarm', component: AlarmComponent},
-      {path: 'voice', component: VoiceComponent},
+      {path: 'alarm', component: AlarmAllComponent},
+      {path: 'voice', component: VoiceAllComponent},
       {path: 'template', component: TemplateComponent},
       {path: 'template/create', component: TemplateEditComponent},
       {path: 'template/edit/:id', component: TemplateEditComponent},
@@ -96,7 +99,7 @@ const routes: Routes = [
       {path: 'group/detail/:id', component: GroupDetailComponent},
       {path: 'job/create', component: JobEditComponent},
       {path: 'job/edit/:id', component: JobEditComponent},
-      {path: 'subscribe', component: SubscribeComponent},
+      {path: 'subscribe', component: SubscribeAllComponent},
       {path: 'subscribe/create', component: SubscribeEditComponent},
       {path: 'subscribe/edit/:id', component: SubscribeEditComponent},
       {path: 'plugin', component: PluginComponent},

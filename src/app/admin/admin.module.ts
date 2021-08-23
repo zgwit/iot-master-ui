@@ -133,6 +133,10 @@ import {ProjectMapComponent} from "./project-map/project-map.component";
 import {DeviceMapComponent} from "./device-map/device-map.component";
 import {WelcomeComponent} from "./welcome/welcome.component";
 import {UnknownComponent} from "./unknown/unknown.component";
+import {AlarmAllComponent} from "./alarm-all/alarm-all.component";
+import {SubscribeAllComponent} from "./subscribe-all/subscribe-all.component";
+import {VoiceComponent} from "./voice/voice.component";
+import {VoiceAllComponent} from "./voice-all/voice-all.component";
 // import {NgxEchartsModule} from 'ngx-echarts';
 //import * as echarts from 'echarts';
 
@@ -167,7 +171,7 @@ import {UnknownComponent} from "./unknown/unknown.component";
 
     ElementBrowserComponent,
     ElementDeviceComponent, ElementTemplateComponent,
-    ElementComponent, ElementDetailComponent,
+    ElementComponent, ElementDetailComponent, ElementEditDataPointsComponent,
     ElementEditComponent, ElementEditVariablesComponent,
     ElementEditCommandsComponent, ElementEditCollectorsComponent, ElementEditScriptsComponent,
 
@@ -194,7 +198,8 @@ import {UnknownComponent} from "./unknown/unknown.component";
     ChooseDeviceComponent, ChooseElementComponent, ChooseTemplateComponent,
     ChooseUserComponent, ChooseGroupComponent, ChooseCompanyComponent, ChooseTunnelComponent,
 
-    AlarmComponent, SubscribeComponent, SubscribeEditComponent, CompanyTunnelComponent, CompanyDeviceComponent, ElementEditDataPointsComponent,
+    AlarmComponent, SubscribeComponent, SubscribeEditComponent, CompanyTunnelComponent, CompanyDeviceComponent,
+    AlarmAllComponent, SubscribeAllComponent, VoiceComponent, VoiceAllComponent,
 
     TunnelMapComponent, ProjectMapComponent, DeviceMapComponent,
   ],

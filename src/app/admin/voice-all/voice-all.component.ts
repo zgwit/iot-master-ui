@@ -1,16 +1,16 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {NzTableQueryParams} from "ng-zorro-antd/table";
+import {TabRef} from "../../helper/tabs/tabs.component";
 import {Router} from "@angular/router";
 import {RequestService} from "../../request.service";
 import {parseTableQuery} from "../../helper/lib";
 
 @Component({
-  selector: 'app-voice',
-  templateUrl: './voice.component.html',
-  styleUrls: ['./voice.component.scss']
+  selector: 'app-voice-all',
+  templateUrl: './voice-all.component.html',
+  styleUrls: ['./voice-all.component.scss']
 })
-export class VoiceComponent implements OnInit {
-  @Input() company_id = '';
+export class VoiceAllComponent implements OnInit {
 
   datum: any[] = [];
 
@@ -45,7 +45,6 @@ export class VoiceComponent implements OnInit {
 
   load(): void {
     this.loading = true;
-    this.params.filter.company_id = this.company_id;
     this.rs.post(`voice/list`, this.params).subscribe(res => {
       console.log('res', res);
       this.datum = res.data;

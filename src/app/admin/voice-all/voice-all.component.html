@@ -13,6 +13,7 @@
   >
     <thead>
     <tr>
+      <th nzColumnKey="company_id" [nzSortFn]="true">公司</th>
       <th nzColumnKey="cellphone" [nzSortFn]="true">手机</th>
       <th nzColumnKey="fee" [nzSortFn]="true">时长</th>
       <th nzColumnKey="alarm_id">告警</th>
@@ -21,6 +22,9 @@
     </thead>
     <tbody>
     <tr *ngFor="let data of datum; let i=index">
+      <td>
+        <a [routerLink]="'/admin/company/detail/'+data.company_id">{{data.company?.name}}</a>
+      </td>
       <td>{{ data.cellphone }}</td>
       <td>{{ data.fee }}</td>
       <td>{{data.alarm?.name}} {{data.alarm?.content}}</td>
