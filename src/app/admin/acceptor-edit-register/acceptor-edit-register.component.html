@@ -1,0 +1,20 @@
+<form [formGroup]="formGroup" (change)="change()">
+
+  <nz-form-item>
+    <nz-form-label [nzSpan]="5">启用</nz-form-label>
+    <nz-form-control [nzSpan]="12" nzErrorTip="">
+      <nz-switch formControlName="enable" (ngModelChange)="change()"></nz-switch>
+    </nz-form-control>
+  </nz-form-item>
+
+  <div *ngIf="formGroup.value.enable">
+    <nz-form-item>
+      <nz-form-label [nzSpan]="5">正则表达式</nz-form-label>
+      <nz-form-control [nzSpan]="12" nzErrorTip="">
+        <input nz-input formControlName="regex"/>
+      </nz-form-control>
+    </nz-form-item>
+  </div>
+
+</form>
+

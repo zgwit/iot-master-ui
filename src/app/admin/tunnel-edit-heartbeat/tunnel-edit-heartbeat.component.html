@@ -1,0 +1,35 @@
+<form [formGroup]="formGroup" (change)="change()">
+
+  <nz-form-item>
+    <nz-form-label [nzSpan]="5">启用</nz-form-label>
+    <nz-form-control [nzSpan]="12" nzErrorTip="">
+      <nz-switch formControlName="enable" (ngModelChange)="change()"></nz-switch>
+    </nz-form-control>
+  </nz-form-item>
+
+  <div *ngIf="formGroup.value.enable">
+
+        <nz-form-item>
+          <nz-form-label [nzSpan]="5">间隔</nz-form-label>
+          <nz-form-control [nzSpan]="12" nzErrorTip="">
+            <nz-input-number formControlName="interval" [nzMin]="5" [nzMax]="600" [nzStep]="1"></nz-input-number>
+          </nz-form-control>
+        </nz-form-item>
+
+        <nz-form-item>
+          <nz-form-label [nzSpan]="5">固定内容</nz-form-label>
+          <nz-form-control [nzSpan]="12" nzErrorTip="">
+            <input nz-input formControlName="text"/>
+          </nz-form-control>
+        </nz-form-item>
+
+        <nz-form-item>
+          <nz-form-label [nzSpan]="5">正则表达式</nz-form-label>
+          <nz-form-control [nzSpan]="12" nzErrorTip="">
+            <input nz-input formControlName="regex"/>
+          </nz-form-control>
+        </nz-form-item>
+  </div>
+
+</form>
+

@@ -9,6 +9,12 @@
         </nz-form-control>
       </nz-form-item>
 
+      <nz-form-item>
+        <nz-form-label [nzSpan]="5">超时(s)</nz-form-label>
+        <nz-form-control [nzSpan]="12" nzErrorTip="">
+          <nz-input-number formControlName="timeout" [nzMin]="5" [nzMax]="600" [nzStep]="1"></nz-input-number>
+        </nz-form-control>
+      </nz-form-item>
 
       <nz-form-item>
         <nz-form-label [nzSpan]="5">企业</nz-form-label>
@@ -23,10 +29,19 @@
           <nz-switch formControlName="enable"></nz-switch>
         </nz-form-control>
       </nz-form-item>
+
+    </nz-tab>
+
+    <nz-tab nzTitle="心跳包">
+      <app-tunnel-edit-heartbeat formControlName="heartbeat"></app-tunnel-edit-heartbeat>
+    </nz-tab>
+
+    <nz-tab nzTitle="控制包">
+      <app-tunnel-edit-control formControlName="control"></app-tunnel-edit-control>
     </nz-tab>
 
     <nz-tab nzTitle="协议适配">
-	
+      <app-tunnel-edit-adapter formControlName="adapter"></app-tunnel-edit-adapter>
     </nz-tab>
 
   </nz-tabset>

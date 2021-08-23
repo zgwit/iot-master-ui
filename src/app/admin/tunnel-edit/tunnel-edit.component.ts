@@ -18,8 +18,26 @@ export class TunnelEditComponent implements OnInit {
 
   data: any = {
     "name": "",
+    "timeout": 60,
     "enable": true,
     "company_id":"",
+    "heartbeat": {
+      "enable": false,
+      "interval": 30,
+      "text": "",
+      "regex": ""
+    },
+    "control": {
+      "enable": false,
+      "prefix": "",
+      "suffix": "",
+      "script": ""
+    },
+    "adapter": {
+      "enable": false,
+      "type": "",
+      "options": {}
+    },
   }
 
   constructor(private fb: FormBuilder, private tab: TabRef, private route: ActivatedRoute, private rs: RequestService, private message: NzMessageService) {
@@ -33,7 +51,11 @@ export class TunnelEditComponent implements OnInit {
     this.basicForm = this.fb.group({
       name: [this.data.name, [Validators.required]],
       company_id: [this.data.company_id, []],
+      timeout: [this.data.timeout, [Validators.required]],
       enable: [this.data.enable, [Validators.required]],
+      heartbeat: [this.data.heartbeat, []],
+      control: [this.data.control, []],
+      adapter: [this.data.adapter, []],
     });
   }
 

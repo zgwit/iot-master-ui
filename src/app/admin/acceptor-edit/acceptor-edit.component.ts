@@ -21,7 +21,7 @@ export class AcceptorEditComponent implements OnInit {
     "type": "tcp-server",
     "address": "",
     "port": 1843,
-    "timeout": 30,
+    "timeout": 60,
     "enable": true,
     "register": {
       "enable": true,
@@ -62,32 +62,10 @@ export class AcceptorEditComponent implements OnInit {
       port: [this.data.port, [Validators.required]],
       timeout: [this.data.timeout, [Validators.required]],
       enable: [this.data.enable, [Validators.required]],
-
-      register: this.fb.group({
-        enable: [this.data.register.enable, []],
-        regex: [this.data.register.regex, []],
-      }),
-
-      heartbeat: this.fb.group({
-        enable: [this.data.heartbeat.enable, []],
-        interval: [this.data.heartbeat.interval, []],
-        text: [this.data.heartbeat.text, []],
-        regex: [this.data.heartbeat.regex, []],
-      }),
-
-      control: this.fb.group({
-        enable: [this.data.control.enable, []],
-        prefix: [this.data.control.prefix, []],
-        suffix: [this.data.control.suffix, []],
-        script: [this.data.control.script, []],
-      }),
-
-      adapter: this.fb.group({
-        enable: [this.data.adapter.enable, []],
-        type: [this.data.adapter.type, []],
-        options: [this.data.adapter.options, []],
-      }),
-
+      register: [this.data.register, []],
+      heartbeat: [this.data.heartbeat, []],
+      control: [this.data.control, []],
+      adapter: [this.data.adapter, []],
       devices: [this.data.devices, []],
     });
   }

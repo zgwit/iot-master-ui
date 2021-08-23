@@ -53,121 +53,20 @@
     </nz-tab>
 
 
-    <nz-tab nzTitle="注册包" formGroupName="register">
-      <nz-form-item>
-        <nz-form-label [nzSpan]="5">启用</nz-form-label>
-        <nz-form-control [nzSpan]="12" nzErrorTip="">
-          <!--          <input nz-input formControlName="enable" required/>-->
-          <nz-switch formControlName="enable"></nz-switch>
-        </nz-form-control>
-      </nz-form-item>
-
-      <div *ngIf="basicForm.value.register.enable">
-        <nz-form-item>
-          <nz-form-label [nzSpan]="5">正则表达式</nz-form-label>
-          <nz-form-control [nzSpan]="12" nzErrorTip="">
-            <input nz-input formControlName="regex"/>
-          </nz-form-control>
-        </nz-form-item>
-      </div>
+    <nz-tab nzTitle="注册包">
+      <app-acceptor-edit-register formControlName="register"></app-acceptor-edit-register>
     </nz-tab>
 
-    <nz-tab nzTitle="心跳包" formGroupName="heartbeat">
-      <nz-form-item>
-        <nz-form-label [nzSpan]="5">启用</nz-form-label>
-        <nz-form-control [nzSpan]="12" nzErrorTip="">
-          <!--          <input nz-input formControlName="enable" required/>-->
-          <nz-switch formControlName="enable"></nz-switch>
-        </nz-form-control>
-      </nz-form-item>
-
-      <div *ngIf="basicForm.value.heartbeat.enable">
-
-        <nz-form-item>
-          <nz-form-label [nzSpan]="5">间隔</nz-form-label>
-          <nz-form-control [nzSpan]="12" nzErrorTip="">
-            <nz-input-number formControlName="interval" [nzMin]="5" [nzMax]="600" [nzStep]="1"></nz-input-number>
-          </nz-form-control>
-        </nz-form-item>
-
-        <nz-form-item>
-          <nz-form-label [nzSpan]="5">固定内容</nz-form-label>
-          <nz-form-control [nzSpan]="12" nzErrorTip="">
-            <input nz-input formControlName="text"/>
-          </nz-form-control>
-        </nz-form-item>
-
-        <nz-form-item>
-          <nz-form-label [nzSpan]="5">正则表达式</nz-form-label>
-          <nz-form-control [nzSpan]="12" nzErrorTip="">
-            <input nz-input formControlName="regex"/>
-          </nz-form-control>
-        </nz-form-item>
-
-      </div>
+    <nz-tab nzTitle="心跳包">
+      <app-tunnel-edit-heartbeat formControlName="heartbeat"></app-tunnel-edit-heartbeat>
     </nz-tab>
 
-    <nz-tab nzTitle="控制包" formGroupName="control">
-      <nz-form-item>
-        <nz-form-label [nzSpan]="5">启用</nz-form-label>
-        <nz-form-control [nzSpan]="12" nzErrorTip="">
-          <!--          <input nz-input formControlName="enable" required/>-->
-          <nz-switch formControlName="enable"></nz-switch>
-        </nz-form-control>
-      </nz-form-item>
-
-      <div *ngIf="basicForm.value.control.enable">
-        <nz-form-item>
-          <nz-form-label [nzSpan]="5">前缀</nz-form-label>
-          <nz-form-control [nzSpan]="12" nzErrorTip="">
-            <input nz-input formControlName="prefix"/>
-          </nz-form-control>
-        </nz-form-item>
-
-        <nz-form-item>
-          <nz-form-label [nzSpan]="5">后缀</nz-form-label>
-          <nz-form-control [nzSpan]="12" nzErrorTip="">
-            <input nz-input formControlName="suffix"/>
-          </nz-form-control>
-        </nz-form-item>
-
-        <nz-form-item>
-          <nz-form-label [nzSpan]="5">响应脚本</nz-form-label>
-          <nz-form-control [nzSpan]="12" nzErrorTip="">
-            <app-js-editor formControlName="script"></app-js-editor>
-          </nz-form-control>
-        </nz-form-item>
-      </div>
+    <nz-tab nzTitle="控制包">
+      <app-tunnel-edit-control formControlName="control"></app-tunnel-edit-control>
     </nz-tab>
 
-    <nz-tab nzTitle="协议适配" formGroupName="adapter">
-      <nz-form-item>
-        <nz-form-label [nzSpan]="5">启用</nz-form-label>
-        <nz-form-control [nzSpan]="12" nzErrorTip="">
-          <!--          <input nz-input formControlName="enable" required/>-->
-          <nz-switch formControlName="enable"></nz-switch>
-        </nz-form-control>
-      </nz-form-item>
-
-      <div *ngIf="basicForm.value.adapter.enable">
-
-        <nz-form-item>
-          <nz-form-label [nzSpan]="5">协议</nz-form-label>
-          <nz-form-control [nzSpan]="12" nzErrorTip="">
-            <nz-select nzAllowClear formControlName="type" (ngModelChange)="change()" (change)="change()">
-              <nz-option nzValue="modbus-tcp" nzLabel="Modbus TCP"></nz-option>
-              <nz-option nzValue="modbus-rtu" nzLabel="Modbus RTU"></nz-option>
-            </nz-select>
-          </nz-form-control>
-        </nz-form-item>
-
-        <nz-form-item>
-          <nz-form-label [nzSpan]="5">协议参数</nz-form-label>
-          <nz-form-control [nzSpan]="12">
-            <app-yaml-editor formControlName="options"></app-yaml-editor>
-          </nz-form-control>
-        </nz-form-item>
-      </div>
+    <nz-tab nzTitle="协议适配">
+      <app-tunnel-edit-adapter formControlName="adapter"></app-tunnel-edit-adapter>
     </nz-tab>
 
     <nz-tab nzTitle="默认设备">
