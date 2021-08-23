@@ -2,7 +2,16 @@
 
 <nz-tabset [nzTabBarExtraContent]="extraTemplate">
   <nz-tab nzTitle="项目详情">
-    <p>{{data|json}}</p>
+    <p>
+      名称：{{data.name}} {{data.online ? '启动' : '离线'}}
+      <nz-switch [ngModel]="data.online" (ngModelChange)="enable($event)"></nz-switch>
+    </p>
+
+
+    <p *ngIf="data.element">
+      <button nz-button *ngFor="let cmd of data.commands" (click)="exec(cmd)">{{cmd.name}}</button>
+    </p>
+
   </nz-tab>
   <nz-tab nzTitle="可视化" nzDisabled>
     <ng-template nz-tab>

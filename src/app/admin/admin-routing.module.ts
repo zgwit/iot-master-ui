@@ -44,13 +44,15 @@ import {SubscribeComponent} from "./subscribe/subscribe.component";
 import {DeviceMapComponent} from "./device-map/device-map.component";
 import {TunnelMapComponent} from "./tunnel-map/tunnel-map.component";
 import {ProjectMapComponent} from "./project-map/project-map.component";
+import {WelcomeComponent} from "./welcome/welcome.component";
+import {UnknownComponent} from "./unknown/unknown.component";
 
 const routes: Routes = [
   {
     path: '',
     component: AdminComponent,
     children: [
-      {path: '', redirectTo: 'dash'},
+      {path: '', component: WelcomeComponent},
       {path: 'dash', component: DashComponent},
       {path: 'tunnel', component: TunnelComponent},
       {path: 'tunnel/edit/:id', component: TunnelEditComponent},
@@ -105,7 +107,7 @@ const routes: Routes = [
       {path: 'setting', component: SettingComponent},
       {path: 'password', component: PasswordComponent},
 
-      {path: '**', redirectTo: 'dash'},
+      {path: '**', component: UnknownComponent},
     ]
   },
 ];

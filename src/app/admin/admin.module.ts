@@ -131,6 +131,8 @@ import {NgxAmapModule} from "ngx-amap";
 import {TunnelMapComponent} from "./tunnel-map/tunnel-map.component";
 import {ProjectMapComponent} from "./project-map/project-map.component";
 import {DeviceMapComponent} from "./device-map/device-map.component";
+import {WelcomeComponent} from "./welcome/welcome.component";
+import {UnknownComponent} from "./unknown/unknown.component";
 // import {NgxEchartsModule} from 'ngx-echarts';
 //import * as echarts from 'echarts';
 
@@ -138,6 +140,9 @@ import {DeviceMapComponent} from "./device-map/device-map.component";
 @NgModule({
   declarations: [
     AdminComponent,
+    WelcomeComponent,
+    UnknownComponent,
+
     DashComponent,
     TunnelComponent, TunnelEditComponent, TunnelDetailComponent, TunnelMonitorComponent,
     TunnelDeviceComponent, TunnelBrowserComponent,
