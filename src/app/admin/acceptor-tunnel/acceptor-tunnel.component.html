@@ -32,7 +32,7 @@
       <td>{{ data.name }}</td>
       <td>{{ data.sn }}</td>
       <td>{{ data.remote }}</td>
-      <td>{{data._id | objectIdToDate | date:'short'}}</td>
+      <td>{{data._id | objectIdToDateString}}</td>
       <td>{{data.last | date:'short'}}</td>
       <td>{{data.online ? '在线' : '离线'}}</td>
       <td>

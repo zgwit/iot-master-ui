@@ -28,7 +28,7 @@
       <td>{{ data.name }}</td>
       <td>{{ data.cellphone }}</td>
       <td>{{ data.email }}</td>
-      <td>{{data._id | objectIdToDate | date:'short'}}</td>
+      <td>{{data._id | objectIdToDateString}}</td>
       <td>
         <nz-switch [(ngModel)]="data.enable" nzSize="small" (ngModelChange)="onEnableChange(data, $event)"></nz-switch>
       </td>

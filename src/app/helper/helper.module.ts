@@ -16,11 +16,13 @@ import {PageListComponent} from './page-list/page-list.component';
 import {NzInputModule} from "ng-zorro-antd/input";
 import {ObjectIdToDatePipe} from './object-id-to-date.pipe';
 import {ToolbarComponent} from './toolbar/toolbar.component';
-import { MinuteToDatePipe } from './minute-to-date.pipe';
-import { MinuteTimePickerComponent } from './minute-time-picker/minute-time-picker.component';
+import {MinuteToDatePipe} from './minute-to-date.pipe';
+import {MinuteTimePickerComponent} from './minute-time-picker/minute-time-picker.component';
 import {NzTimePickerModule} from "ng-zorro-antd/time-picker";
-import { InputScriptComponent } from './input-script/input-script.component';
+import {InputScriptComponent} from './input-script/input-script.component';
 import {NzModalModule} from "ng-zorro-antd/modal";
+import {ObjectIdToDateStringPipe} from './object-id-to-date-string.pipe';
+import {DateStringPipe} from './date-string.pipe';
 
 
 @NgModule({
@@ -32,6 +34,8 @@ import {NzModalModule} from "ng-zorro-antd/modal";
     JsonEditorComponent,
     PageListComponent,
     ObjectIdToDatePipe,
+    ObjectIdToDateStringPipe,
+    DateStringPipe,
     ToolbarComponent,
     MinuteToDatePipe,
     MinuteTimePickerComponent,
@@ -46,23 +50,25 @@ import {NzModalModule} from "ng-zorro-antd/modal";
     PageListComponent,
     ToolbarComponent,
     ObjectIdToDatePipe,
+    ObjectIdToDateStringPipe,
+    DateStringPipe,
     MinuteToDatePipe,
     MinuteTimePickerComponent,
     InputScriptComponent,
   ],
-    imports: [
-        CommonModule,
-        CodemirrorModule,
-        FormsModule,
-        NzTabsModule,
-        NzButtonModule,
-        NzIconModule,
-        RouterModule,
-        NzSpaceModule,
-        NzInputModule,
-        NzTimePickerModule,
-        NzModalModule
-    ]
+  imports: [
+    CommonModule,
+    CodemirrorModule,
+    FormsModule,
+    NzTabsModule,
+    NzButtonModule,
+    NzIconModule,
+    RouterModule,
+    NzSpaceModule,
+    NzInputModule,
+    NzTimePickerModule,
+    NzModalModule
+  ]
 })
 export class HelperModule {
 }

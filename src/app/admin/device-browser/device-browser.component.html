@@ -33,7 +33,7 @@
       <td>{{data.tunnel && (data.tunnel.name || data.tunnel.sn)}}</td>
       <td>{{ data.slave }}</td>
       <td>{{data.enable?'√':'×'}}</td>
-      <td>{{data._id | objectIdToDate | date:'short'}}</td>
+      <td>{{data._id | objectIdToDateString}}</td>
     </tr>
     </tbody>
   </nz-table>

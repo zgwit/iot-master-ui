@@ -26,7 +26,7 @@
       <td>
         <a [routerLink]="'/admin/user/detail/'+data.user_id">{{data.user?.name}}</a>
       </td>
-      <td>{{data._id | objectIdToDate | date:'short'}}</td>
+      <td>{{data._id | objectIdToDateString}}</td>
       <td>
         <nz-switch [(ngModel)]="data.enable" nzSize="small" (ngModelChange)="onEnableChange(data, $event)"></nz-switch>
       </td>

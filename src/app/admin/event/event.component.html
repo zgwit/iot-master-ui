@@ -26,7 +26,7 @@
       </td>
       <td>{{ data.event }}</td>
       <td>{{ data.data | json }}</td>
-      <td>{{data._id | objectIdToDate | date:'short'}}</td>
+      <td>{{data._id | objectIdToDateString}}</td>
     </tr>
     </tbody>
   </nz-table>

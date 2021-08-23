@@ -27,7 +27,7 @@
       <td>{{ data.tags?.join(',') }}</td>
       <td>{{ data.manufacturer }}</td>
       <td>{{ data.version }}</td>
-      <td>{{data._id | objectIdToDate | date:'short'}}</td>
+      <td>{{data._id | objectIdToDateString}}</td>
       <td>
         <a [routerLink]="'/admin/element/detail/'+data._id">详情</a>
         <nz-divider nzType="vertical"></nz-divider>

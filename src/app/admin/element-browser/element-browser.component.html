@@ -31,7 +31,7 @@
       <td>{{ data.tags?.join(',') }}</td>
       <td>{{ data.manufacturer }}</td>
       <td>{{ data.version }}</td>
-      <td>{{data._id | objectIdToDate | date:'short'}}</td>
+      <td>{{data._id | objectIdToDateString}}</td>
     </tr>
     </tbody>
   </nz-table>

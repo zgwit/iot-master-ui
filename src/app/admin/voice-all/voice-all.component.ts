@@ -21,7 +21,8 @@ export class VoiceAllComponent implements OnInit {
 
   params: any = {filter: {}};
 
-  constructor(private router: Router, private rs: RequestService) {
+  constructor(private tab: TabRef, private router: Router, private rs: RequestService) {
+    tab.name = "语音记录"
   }
 
   ngOnInit(): void {

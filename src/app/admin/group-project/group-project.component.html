@@ -27,7 +27,7 @@
       <td>
         <a [routerLink]="'/admin/template/detail/'+data.template_id">{{data.template?.name}}</a>
       </td>
-      <td>{{data._id | objectIdToDate | date:'short'}}</td>
+      <td>{{data._id | objectIdToDateString}}</td>
       <td>
         <span *ngIf="data.online">
           {{data.closed?'关闭':'启动'}} {{data.error}}

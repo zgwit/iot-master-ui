@@ -25,7 +25,7 @@
       <td>
         <a [routerLink]="'/admin/user/detail/'+data.user_id">{{data.user?.name}}</a>
       </td>
-      <td>{{data._id | objectIdToDate | date:'short'}}</td>
+      <td>{{data._id | objectIdToDateString}}</td>
       <td>
         <a [routerLink]="'/admin/group/detail/'+data._id">详情</a>
         <nz-divider nzType="vertical"></nz-divider>

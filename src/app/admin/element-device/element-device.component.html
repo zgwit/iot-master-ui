@@ -30,7 +30,7 @@
           [routerLink]="'/admin/tunnel/detail/'+data.tunnel_id">{{data.tunnel?.name || data.tunnel?.sn}}</a>
       </td>
       <td>{{ data.slave }}</td>
-      <td>{{data._id | objectIdToDate | date:'short'}}</td>
+      <td>{{data._id | objectIdToDateString}}</td>
       <td>
         <span *ngIf="data.online">
           {{data.closed?'关闭':'启动'}} {{data.error}}

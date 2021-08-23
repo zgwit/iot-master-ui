@@ -24,7 +24,7 @@
       <td>{{ data.cellphone }}</td>
       <td>{{ data.fee }}</td>
       <td>{{data.alarm?.name}} {{data.alarm?.content}}</td>
-      <td>{{data._id | objectIdToDate | date:'short'}}</td>
+      <td>{{data._id | objectIdToDateString}}</td>
 
     </tr>
     </tbody>

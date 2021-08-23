@@ -29,7 +29,7 @@
       <td>{{ data.cellphone }}</td>
       <td>{{ data.email }}</td>
       <td>{{data.enable?'√':'×'}}</td>
-      <td>{{data.member_id | objectIdToDate | date:'short'}}</td>
+      <td>{{data.member_id | objectIdToDateString}}</td>
       <td>
         <a [routerLink]="'/admin/user/detail/'+data._id">详情</a>
         <nz-divider nzType="vertical"></nz-divider>
