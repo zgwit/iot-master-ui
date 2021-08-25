@@ -33,6 +33,7 @@ export class TunnelEditControlComponent implements OnInit, ControlValueAccessor 
     this.formGroup = this.fb.group({
       enable: [this.data.enable, [Validators.required]],
       type: [this.data.type, []],
+      variables: [this.data.variables, []],
     })
   }
 

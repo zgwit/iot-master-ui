@@ -25,19 +25,16 @@ export class AcceptorEditComponent implements OnInit {
     "enable": true,
     "register": {
       "enable": true,
-      "regex": ""
+      "regex": '^\\w+$'
     },
     "heartbeat": {
       "enable": false,
       "interval": 30,
       "text": "",
-      "regex": ""
+      "regex": '^\\w+$'
     },
     "control": {
       "enable": false,
-      "prefix": "",
-      "suffix": "",
-      "script": ""
     },
     "adapter": {
       "enable": false,

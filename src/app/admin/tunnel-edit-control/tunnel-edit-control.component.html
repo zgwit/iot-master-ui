@@ -20,9 +20,20 @@
     </nz-form-item>
 
     <nz-form-item>
-      <nz-form-label [nzSpan]="5">变量检查</nz-form-label>
+      <nz-form-label [nzSpan]="5">读取参数</nz-form-label>
       <nz-form-control [nzSpan]="12">
-	  
+
+        <nz-select formControlName="variables" nzMode="multiple" nzPlaceHolder="">
+          <nz-option nzLabel="固件" nzValue="firmware"></nz-option>
+          <nz-option nzLabel="序列号" nzValue="sn"></nz-option>
+          <nz-option nzLabel="IMEI" nzValue="imei"></nz-option>
+          <nz-option nzLabel="ICCID" nzValue="iccid"></nz-option>
+          <nz-option nzLabel="GPS" nzValue="gps"></nz-option>
+          <nz-option nzLabel="信号强度" nzValue="rssi"></nz-option>
+          <nz-option nzLabel="网络" nzValue="net"></nz-option>
+          <nz-option nzLabel="APN" nzValue="apn"></nz-option>
+        </nz-select>
+
       </nz-form-control>
     </nz-form-item>
   </div>

@@ -87,6 +87,18 @@ export let SideMenu = [
     ]
   },
   {
+    title: '数据分析',
+    icon: 'bar-chart',
+    open: false,
+    disable: true,
+    children: [
+      {
+        title: '数据分析',
+        router: 'statistic'
+      },
+    ]
+  },
+  {
     title: '用户管理',
     icon: 'user',
     open: false,
