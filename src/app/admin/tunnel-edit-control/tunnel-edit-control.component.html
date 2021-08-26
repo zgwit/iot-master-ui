@@ -20,12 +20,18 @@
     </nz-form-item>
 
     <nz-form-item>
+      <nz-form-label [nzSpan]="5">参数</nz-form-label>
+      <nz-form-control [nzSpan]="12" nzErrorTip="">
+        <app-yaml-editor formControlName="options" (ngModelChange)="change()"></app-yaml-editor>
+      </nz-form-control>
+    </nz-form-item>
+
+    <nz-form-item>
       <nz-form-label [nzSpan]="5">读取参数</nz-form-label>
       <nz-form-control [nzSpan]="12">
 
-        <nz-select formControlName="variables" nzMode="multiple" nzPlaceHolder="">
+        <nz-select formControlName="variables" nzMode="multiple" nzPlaceHolder="" (ngModelChange)="change()">
           <nz-option nzLabel="固件" nzValue="firmware"></nz-option>
-          <nz-option nzLabel="序列号" nzValue="sn"></nz-option>
           <nz-option nzLabel="IMEI" nzValue="imei"></nz-option>
           <nz-option nzLabel="ICCID" nzValue="iccid"></nz-option>
           <nz-option nzLabel="GPS" nzValue="gps"></nz-option>

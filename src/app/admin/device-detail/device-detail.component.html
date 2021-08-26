@@ -30,7 +30,7 @@
         <nz-card>
           <nz-statistic [nzValue]="data.values && data.values[v.name] || '--'" [nzTitle]="v.label"
                         [nzSuffix]="v.unit"></nz-statistic>
-          <div class="refresh" title="刷新" *ngIf="!v.rw || v.rw>1"><i nz-icon nzType="sync" nzTheme="outline"></i></div>
+          <div class="refresh" title="刷新" *ngIf="!v.rw || v.rw>1" (click)="refresh(v.name)"><i nz-icon nzType="sync" nzTheme="outline"></i></div>
           <div class="history" title="历史" *ngIf="v.store" [routerLink]="'/admin/device/value/'+data._id+'/'+v.name"><i
             nz-icon nzType="line-chart" nzTheme="outline"></i></div>
         </nz-card>
