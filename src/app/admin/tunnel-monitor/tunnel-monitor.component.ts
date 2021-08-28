@@ -27,7 +27,9 @@ export class TunnelMonitorComponent implements OnInit, OnDestroy {
     const types = {
       read: '收到',
       write: '发送',
-      error: '错误'
+      error: '错误',
+      online: '上线',
+      offline: '下线',
     }
 
     //TODO 此处Angular框架的proxy.conf.json开发模式 不能正常使用
@@ -95,5 +97,14 @@ export class TunnelMonitorComponent implements OnInit, OnDestroy {
       isHex: this.isHex,
       data: this.crlf ? this.text + '\r\n' : this.text
     }));
+  }
+
+  clear(){
+    // this.read?.nativeElement.childNodes.forEach((c: any)=>{
+    //   this.read?.nativeElement.removeChild(c);
+    // })
+
+    // @ts-ignore
+    this.read?.nativeElement.innerHTML = "";
   }
 }

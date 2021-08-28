@@ -3,7 +3,7 @@
   <nz-form-item>
     <nz-form-label [nzSpan]="5">启用</nz-form-label>
     <nz-form-control [nzSpan]="12" nzErrorTip="">
-      <nz-switch formControlName="enable"></nz-switch>
+      <nz-switch formControlName="enable" (ngModelChange)="change()"></nz-switch>
     </nz-form-control>
   </nz-form-item>
 
@@ -14,7 +14,7 @@
         <nz-select nzAllowClear formControlName="type" (ngModelChange)="change()" (change)="change()">
           <nz-option nzValue="usr.cn" nzLabel="有人物联网"></nz-option>
           <nz-option nzValue="tastek" nzLabel="塔石物联网"></nz-option>
-          <nz-option nzValue="config" nzLabel="银尔达（合宙）"></nz-option>
+          <nz-option nzValue="yinerd" nzLabel="银尔达"></nz-option>
         </nz-select>
       </nz-form-control>
     </nz-form-item>
@@ -42,6 +42,7 @@
 
       </nz-form-control>
     </nz-form-item>
+
   </div>
 
 </form>
