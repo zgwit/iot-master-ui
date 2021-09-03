@@ -1,19 +1,20 @@
 import {Component, forwardRef, OnInit} from '@angular/core';
 import {ControlValueAccessor, FormBuilder, FormGroup, NG_VALUE_ACCESSOR, Validators} from "@angular/forms";
+import {RequestService} from "../../request.service";
 
 @Component({
-  selector: 'app-tunnel-edit-adapter',
-  templateUrl: './tunnel-edit-adapter.component.html',
-  styleUrls: ['./tunnel-edit-adapter.component.scss'],
+  selector: 'app-tunnel-edit-protocol',
+  templateUrl: './tunnel-edit-protocol.component.html',
+  styleUrls: ['./tunnel-edit-protocol.component.scss'],
   providers: [
     {
       provide: NG_VALUE_ACCESSOR,
-      useExisting: forwardRef(() => TunnelEditAdapterComponent),
+      useExisting: forwardRef(() => TunnelEditProtocolComponent),
       multi: true
     }
   ]
 })
-export class TunnelEditAdapterComponent implements OnInit, ControlValueAccessor {
+export class TunnelEditProtocolComponent implements OnInit, ControlValueAccessor {
   onChanged: any = () => {
   }
   onTouched: any = () => {
@@ -21,11 +22,15 @@ export class TunnelEditAdapterComponent implements OnInit, ControlValueAccessor 
 
   data: any = {};
   formGroup = new FormGroup({});
+  protocols: any = [];
 
-  constructor(private fb: FormBuilder) {
+  constructor(private fb: FormBuilder, private rs: RequestService) {
   }
 
   ngOnInit(): void {
+    this.rs.get('protocol/list').subscribe(res => {
+      this.protocols = res.data;
+    })
     this.buildForm();
   }
 

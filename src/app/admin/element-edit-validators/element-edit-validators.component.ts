@@ -33,11 +33,13 @@ export class ElementEditValidatorsComponent implements OnInit, ControlValueAcces
     this.formGroup = this.fb.group({
       items: this.formArray = this.fb.array(this.items.map((d: any) => {
         return this.fb.group({
+          interval: [d.interval, []],
+          crontab: [d.crontab, []],
           expression: [d.expression, [Validators.required]],
           name: [d.name, [Validators.required]],
           content: [d.content, [Validators.required]],
           level: [d.level, [Validators.required]],
-          delay: [d.delay, [Validators.required]],
+          delay: [d.delay, []],
           resetInterval: [d.resetInterval, [Validators.required]],
           resetTimes: [d.resetTimes, [Validators.required]],
           enable: [d.enable, [Validators.required]],
@@ -48,11 +50,13 @@ export class ElementEditValidatorsComponent implements OnInit, ControlValueAcces
 
   add() {
     this.formArray.push(this.fb.group({
+      interval: [0, []],
+      crontab: ['', []],
       expression: ['', [Validators.required]],
       name: ['', [Validators.required]],
       content: ['', [Validators.required]],
       level: [1, [Validators.required]],
-      delay: [0, [Validators.required]],
+      delay: [0, []],
       resetInterval: [0, [Validators.required]],
       resetTimes: [0, [Validators.required]],
       enable: [true, [Validators.required]],

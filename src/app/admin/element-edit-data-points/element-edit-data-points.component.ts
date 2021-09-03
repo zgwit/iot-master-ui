@@ -47,7 +47,7 @@ export class ElementEditDataPointsComponent implements OnInit, ControlValueAcces
           precision: [d.precision, [Validators.required]],
           default: [d.default, [Validators.required]],
           rw: [d.rw, [Validators.required]],
-          unit: [d.unit, [Validators.required]],
+          unit: [d.unit, []],
           store: [d.store, [Validators.required]],
         })
       }))
@@ -65,7 +65,7 @@ export class ElementEditDataPointsComponent implements OnInit, ControlValueAcces
       precision: [0, [Validators.required]],
       default: ['', [Validators.required]],
       rw: [3, [Validators.required]],
-      unit: ["", [Validators.required]],
+      unit: ["", []],
       store: [false, [Validators.required]],
     }))
     //复制controls，让表格可以刷新

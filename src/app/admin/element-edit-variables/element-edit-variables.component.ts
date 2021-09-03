@@ -36,6 +36,7 @@ export class ElementEditVariablesComponent implements OnInit, ControlValueAccess
           name: [d.name, [Validators.required]],
           label: [d.label, []],
           default: [d.default, []],
+          unit: [d.unit, []],
         })
       }))
     })
@@ -46,6 +47,7 @@ export class ElementEditVariablesComponent implements OnInit, ControlValueAccess
       name: ['', [Validators.required]],
       label: ['', []],
       default: ['', []],
+      unit: ["", []],
     }))
     //复制controls，让表格可以刷新
     this.formArray.controls = [...this.formArray.controls];

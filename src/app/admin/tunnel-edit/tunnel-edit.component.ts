@@ -33,7 +33,7 @@ export class TunnelEditComponent implements OnInit {
       "suffix": "",
       "script": ""
     },
-    "adapter": {
+    "protocol": {
       "enable": false,
       "type": "",
       "options": {}
@@ -55,7 +55,7 @@ export class TunnelEditComponent implements OnInit {
       enable: [this.data.enable, [Validators.required]],
       heartbeat: [this.data.heartbeat, []],
       control: [this.data.control, []],
-      adapter: [this.data.adapter, []],
+      protocol: [this.data.protocol, []],
     });
   }
 

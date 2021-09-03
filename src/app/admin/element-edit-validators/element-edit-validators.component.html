@@ -9,7 +9,9 @@
 <nz-table [nzData]="formArray.controls" [nzFrontPagination]="false" nzSize="small" [formGroup]="formGroup">
   <thead>
   <tr>
-    <th>条件（表达式）</th>
+    <th>检查间隔</th>
+    <th>定时检查</th>
+    <th>检查条件</th>
     <th>告警名称</th>
     <th>告警内容</th>
     <th>告警等级</th>
@@ -22,6 +24,12 @@
   </thead>
   <tbody formGroupName="items" cdkDropList (cdkDropListDropped)="drop($event)" >
   <tr *ngFor="let data of formArray.controls; let i=index" [formGroupName]="i" cdkDrag>
+    <td>
+      <nz-input-number formControlName="interval" [nzMin]="1" [nzMax]="65535" [nzStep]="1" nzSize="small" (change)="change()"></nz-input-number>
+    </td>
+    <td>
+      <input nz-input formControlName="crontab" nzSize="small" (change)="change()" required/>
+    </td>
     <td>
       <input nz-input formControlName="expression" nzSize="small" placeholder="" (change)="change()" required/>
     </td>

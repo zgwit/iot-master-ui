@@ -139,7 +139,7 @@ import {VoiceComponent} from "./voice/voice.component";
 import {VoiceAllComponent} from "./voice-all/voice-all.component";
 import {TunnelEditHeartbeatComponent} from "./tunnel-edit-heartbeat/tunnel-edit-heartbeat.component";
 import {TunnelEditControlComponent} from "./tunnel-edit-control/tunnel-edit-control.component";
-import {TunnelEditAdapterComponent} from "./tunnel-edit-adapter/tunnel-edit-adapter.component";
+import {TunnelEditProtocolComponent} from "./tunnel-edit-protocol/tunnel-edit-protocol.component";
 import {AcceptorEditRegisterComponent} from "./acceptor-edit-register/acceptor-edit-register.component";
 // import {NgxEchartsModule} from 'ngx-echarts';
 //import * as echarts from 'echarts';
@@ -154,7 +154,7 @@ import {AcceptorEditRegisterComponent} from "./acceptor-edit-register/acceptor-e
     DashComponent,
     TunnelComponent, TunnelEditComponent, TunnelDetailComponent, TunnelMonitorComponent,
     TunnelDeviceComponent, TunnelBrowserComponent,
-    TunnelEditHeartbeatComponent, TunnelEditControlComponent, TunnelEditAdapterComponent,
+    TunnelEditHeartbeatComponent, TunnelEditControlComponent, TunnelEditProtocolComponent,
 
     AcceptorComponent, AcceptorDetailComponent,
     AcceptorEditComponent, AcceptorEditDevicesComponent, AcceptorTunnelComponent, AcceptorEditRegisterComponent,

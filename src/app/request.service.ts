@@ -36,7 +36,7 @@ export class RequestService {
       // 统一错误处理
       map((ret: any) => {
         if (ret && ret.error) {
-          if (ret.error === 'Token not found') {
+          if (ret.error === 'Token not found' || ret.error === 'jwt expired') {
             this.route.navigate(['/login']);
           }
           // 有错误统一显示并不是好的做法

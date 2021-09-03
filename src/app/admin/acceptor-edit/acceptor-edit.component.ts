@@ -17,10 +17,10 @@ export class AcceptorEditComponent implements OnInit {
   basicForm: FormGroup = new FormGroup({});
 
   data: any = {
-    "name": "新建服务",
+    "name": "新建TCP服务",
     "type": "tcp-server",
     "address": "",
-    "port": 1843,
+    "port": 1850,
     "timeout": 60,
     "enable": true,
     "register": {
@@ -36,7 +36,7 @@ export class AcceptorEditComponent implements OnInit {
     "control": {
       "enable": false,
     },
-    "adapter": {
+    "protocol": {
       "enable": false,
       "type": "",
       "options": {}
@@ -62,7 +62,7 @@ export class AcceptorEditComponent implements OnInit {
       register: [this.data.register, []],
       heartbeat: [this.data.heartbeat, []],
       control: [this.data.control, []],
-      adapter: [this.data.adapter, []],
+      protocol: [this.data.protocol, []],
       devices: [this.data.devices, []],
     });
   }

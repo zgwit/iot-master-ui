@@ -12,8 +12,10 @@
       <nz-form-label [nzSpan]="5">协议</nz-form-label>
       <nz-form-control [nzSpan]="12" nzErrorTip="">
         <nz-select nzAllowClear formControlName="type" (ngModelChange)="change()" (change)="change()">
-          <nz-option nzValue="modbus-tcp" nzLabel="Modbus TCP"></nz-option>
-          <nz-option nzValue="modbus-rtu" nzLabel="Modbus RTU"></nz-option>
+
+            <nz-option *ngFor="let p of protocols"
+                       [nzValue]="p.name" [nzLabel]="p.label || p.name"></nz-option>
+
         </nz-select>
       </nz-form-control>
     </nz-form-item>

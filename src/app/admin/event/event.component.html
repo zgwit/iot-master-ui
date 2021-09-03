@@ -17,6 +17,7 @@
       <th nzColumnKey="event" [nzSortFn]="true">事件</th>
       <th>内容</th>
       <th nzColumnKey="_id" [nzSortFn]="true">时间</th>
+      <th nzWidth="100">操作</th>
     </tr>
     </thead>
     <tbody>
@@ -27,6 +28,19 @@
       <td>{{ data.event }}</td>
       <td>{{ data.data | json }}</td>
       <td>{{data._id | objectIdToDateString}}</td>
+      <td>
+        <a [routerLink]="'/admin/alarm/detail/'+data._id">详情</a>
+        <nz-divider nzType="vertical"></nz-divider>
+        <a nz-dropdown [nzDropdownMenu]="menu" nzTrigger="click">
+          更多
+          <i nz-icon nzType="down"></i>
+        </a>
+        <nz-dropdown-menu #menu="nzDropdownMenu">
+          <ul nz-menu>
+            <li nz-menu-item nzDanger nz-popconfirm nzPopconfirmTitle="确定删除？" (nzOnConfirm)="remove(data, i)">删除</li>
+          </ul>
+        </nz-dropdown-menu>
+      </td>
     </tr>
     </tbody>
   </nz-table>
