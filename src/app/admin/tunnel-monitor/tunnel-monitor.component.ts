@@ -1,6 +1,7 @@
 import {Component, ElementRef, Input, OnDestroy, OnInit, ViewChild} from '@angular/core';
 import {RequestService} from "../../request.service";
 import {Router} from "@angular/router";
+import {DomSanitizer, SafeUrl} from "@angular/platform-browser";
 
 @Component({
   selector: 'app-tunnel-monitor',
@@ -16,8 +17,9 @@ export class TunnelMonitorComponent implements OnInit, OnDestroy {
   text = '';
   isHex = false;
   crlf = false;
+  transfer: SafeUrl | undefined;
 
-  constructor(private router: Router, private rs: RequestService) {
+  constructor(private router: Router, private rs: RequestService, private san: DomSanitizer) {
   }
 
 
@@ -25,6 +27,7 @@ export class TunnelMonitorComponent implements OnInit, OnDestroy {
     console.log('init');
 
     const types = {
+      connected: '连接成功',
       read: '收到',
       write: '发送',
       error: '错误',
@@ -37,7 +40,10 @@ export class TunnelMonitorComponent implements OnInit, OnDestroy {
     //const host = 'ws://localhost:8008';
 
     const that = this;
-    this.ws = new WebSocket(`${host}/api/tunnel/${this._id}/watch`);
+    const token = localStorage.getItem('token');
+    this.ws = new WebSocket(`${host}/api/tunnel/${this._id}/monitor?token=${token}`);
+    this.transfer = this.san.bypassSecurityTrustUrl(`open-vcom://${host}/api/tunnel/${this._id}/transfer?token=${token}`);
+
     this.ws.onmessage = function (e: any) {
       console.log('websocket onmessage', e.data)
       const msg: any = JSON.parse(e.data);
@@ -55,20 +61,28 @@ export class TunnelMonitorComponent implements OnInit, OnDestroy {
       // @ts-ignore
       type.append(types[msg.type])
       type.style.margin = '5px 10px';
+      div.append(time, type);
 
-      const size = document.createElement("span");
-      size.append(msg.size, '字节')
-      size.style.margin = '5px 10px';
+      if (msg.size) {
+        const size = document.createElement("span");
+        size.append(msg.size, '字节')
+        size.style.margin = '5px 10px';
+        div.append(size);
+      }
 
-      const hex = document.createElement("span");
-      hex.append(msg.hex)
-      hex.style.margin = '5px 10px';
+      if (msg.hex) {
+        const hex = document.createElement("span");
+        hex.append(msg.hex)
+        hex.style.margin = '5px 10px';
+        div.append(hex);
+      }
 
-      const data = document.createElement("span");
-      data.append('<', msg.data, '>')
-      data.style.margin = '5px 10px';
-
-      div.append(time, type, size, hex, data);
+      if (msg.data) {
+        const data = document.createElement("span");
+        data.append('<', msg.data, '>')
+        data.style.margin = '5px 10px';
+        div.append(data);
+      }
 
       if (that.read) {
         const container = that.read.nativeElement;
