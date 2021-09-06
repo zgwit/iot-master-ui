@@ -61,6 +61,10 @@ export class DeviceProjectComponent implements OnInit {
     });
   }
 
+  open(data: any): void {
+    this.router.navigate(['/admin/project/detail/' + data._id]);
+  }
+
   remove(data: any, i: number) {
     this.rs.delete(`project/${data._id}/delete`).subscribe(res => {
       this.datum.splice(i, 1);

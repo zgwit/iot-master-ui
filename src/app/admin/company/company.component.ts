@@ -63,6 +63,9 @@ export class CompanyComponent implements OnInit {
     this.router.navigate(["admin/company/create"]);
   }
 
+  open(data: any): void {
+    this.router.navigate(['/admin/company/detail/' + data._id]);
+  }
 
   remove(data: any, i: number) {
     this.rs.delete(`company/${data._id}/delete`).subscribe(res => {

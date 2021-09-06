@@ -63,6 +63,9 @@ export class AcceptorComponent implements OnInit {
     this.router.navigate(["admin/acceptor/create"]);
   }
 
+  open(data: any): void {
+    this.router.navigate(['/admin/acceptor/detail/' + data._id]);
+  }
 
   remove(data: any, i: number) {
     this.rs.delete(`acceptor/${data._id}/delete`).subscribe(res => {
@@ -79,11 +82,11 @@ export class AcceptorComponent implements OnInit {
     this.ms.confirm({
       nzTitle: "提示",
       nzContent: "确认禁用吗?", //TODO 更丰富、人性 的 提醒
-      nzOnOk:()=>{
+      nzOnOk: () => {
         this.rs.post(`acceptor/${data._id}/setting`, {enable}).subscribe(res => {
         });
       },
-      nzOnCancel:()=>{
+      nzOnCancel: () => {
         data.enable = true;
       }
     })

@@ -25,7 +25,7 @@
     </tr>
     </thead>
     <tbody>
-    <tr *ngFor="let data of datum; let i=index">
+    <tr *ngFor="let data of datum; let i=index" (dblclick)="open(data)">
       <td>
         <a [routerLink]="'/admin/company/detail/'+data.company_id">{{data.company?.name}}</a>
       </td>

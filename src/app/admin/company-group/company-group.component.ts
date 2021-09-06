@@ -59,6 +59,10 @@ export class CompanyGroupComponent implements OnInit {
     this.router.navigate(["admin/group/create"], {queryParams: {company_id: this._id}});
   }
 
+  open(data: any): void {
+    this.router.navigate(['/admin/group/detail/' + data._id]);
+  }
+
   remove(data: any, i: number) {
     this.rs.delete(`group/${data._id}/delete`).subscribe(res => {
       this.datum.splice(i, 1);

@@ -58,6 +58,10 @@ export class TemplateComponent implements OnInit {
     this.router.navigate(["admin/template/create"]);
   }
 
+  open(data: any): void {
+    this.router.navigate(['/admin/template/detail/' + data._id]);
+  }
+
   remove(data: any, i: number) {
     this.rs.delete(`template/${data._id}/delete`).subscribe(res=>{
       this.datum.splice(i, 1);

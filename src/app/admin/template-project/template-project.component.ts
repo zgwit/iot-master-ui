@@ -60,6 +60,9 @@ export class TemplateProjectComponent implements OnInit {
     this.router.navigate(["admin/project/create"], {queryParams: {template_id: this._id}});
   }
 
+  open(data: any): void {
+    this.router.navigate(['/admin/project/detail/' + data._id]);
+  }
 
   remove(data: any, i: number) {
     this.rs.delete(`project/${data._id}/delete`).subscribe(res => {
