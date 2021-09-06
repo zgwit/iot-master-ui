@@ -18,7 +18,15 @@
 </nz-tabset>
 
 <ng-template #extraTemplate>
-  <a [routerLink]="'/admin/user/edit/'+id">
+  <a (click)="load()" title="刷新">
+    <i nz-icon nzType="reload" [nzSpin]="loading"></i>
+  </a>
+  <nz-divider nzType="vertical"></nz-divider>
+  <a title="原始数据" appViewConfig [config]="data">
+    <i nz-icon nzType="profile"></i>
+  </a>
+  <nz-divider nzType="vertical"></nz-divider>
+  <a title="编辑" [routerLink]="'/admin/user/edit/'+id">
     <i nz-icon nzType="form"></i>
   </a>
 </ng-template>

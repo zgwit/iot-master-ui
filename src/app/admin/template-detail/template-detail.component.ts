@@ -11,6 +11,7 @@ import {RequestService} from "../../request.service";
 export class TemplateDetailComponent implements OnInit {
   id: any = '';
   data: any = {};
+  loading = false;
 
   constructor(private tab: TabRef, private router: ActivatedRoute, private rs: RequestService) {
     tab.name = '模板详情';
@@ -22,9 +23,11 @@ export class TemplateDetailComponent implements OnInit {
   }
 
   load(): void {
+    this.loading = true;
     this.rs.get(`template/${this.id}/detail`).subscribe(res=>{
       this.data = res.data;
-      this.tab.name += '[' + this.data.name + ']';
+      this.tab.name = '模板详情[' + this.data.name + ']';
+      this.loading = false;
     });
   }
 
