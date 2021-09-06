@@ -23,7 +23,8 @@
     <nz-form-item>
       <nz-form-label [nzSpan]="5">协议参数</nz-form-label>
       <nz-form-control [nzSpan]="12">
-        <app-yaml-editor formControlName="options"></app-yaml-editor>
+<!--        <app-yaml-editor formControlName="options"></app-yaml-editor>-->
+        <app-config-editor formControlName="options" (ngModelChange)="change()"></app-config-editor>
       </nz-form-control>
     </nz-form-item>
   </div>

@@ -23,6 +23,10 @@ import {InputScriptComponent} from './input-script/input-script.component';
 import {NzModalModule} from "ng-zorro-antd/modal";
 import {ObjectIdToDateStringPipe} from './object-id-to-date-string.pipe';
 import {DateStringPipe} from './date-string.pipe';
+import {ConfigEditorComponent} from './config-editor/config-editor.component';
+import {NzRadioModule} from "ng-zorro-antd/radio";
+import { ConfigViewerComponent } from './config-viewer/config-viewer.component';
+import { ViewConfigDirective } from './view-config.directive';
 
 
 @NgModule({
@@ -40,6 +44,9 @@ import {DateStringPipe} from './date-string.pipe';
     MinuteToDatePipe,
     MinuteTimePickerComponent,
     InputScriptComponent,
+    ConfigEditorComponent,
+    ConfigViewerComponent,
+    ViewConfigDirective,
   ],
   exports: [
     TabsComponent,
@@ -47,6 +54,7 @@ import {DateStringPipe} from './date-string.pipe';
     JsEditorComponent,
     YamlEditorComponent,
     JsonEditorComponent,
+    ConfigEditorComponent,
     PageListComponent,
     ToolbarComponent,
     ObjectIdToDatePipe,
@@ -55,6 +63,7 @@ import {DateStringPipe} from './date-string.pipe';
     MinuteToDatePipe,
     MinuteTimePickerComponent,
     InputScriptComponent,
+    ViewConfigDirective,
   ],
   imports: [
     CommonModule,
@@ -67,8 +76,10 @@ import {DateStringPipe} from './date-string.pipe';
     NzSpaceModule,
     NzInputModule,
     NzTimePickerModule,
-    NzModalModule
-  ]
+    NzModalModule,
+    NzRadioModule
+  ],
+  providers: []
 })
 export class HelperModule {
 }

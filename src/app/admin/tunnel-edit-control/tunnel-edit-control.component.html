@@ -22,7 +22,8 @@
     <nz-form-item>
       <nz-form-label [nzSpan]="5">参数</nz-form-label>
       <nz-form-control [nzSpan]="12" nzErrorTip="">
-        <app-yaml-editor formControlName="options" (ngModelChange)="change()"></app-yaml-editor>
+<!--        <app-yaml-editor formControlName="options" (ngModelChange)="change()"></app-yaml-editor>-->
+        <app-config-editor formControlName="options" (ngModelChange)="change()"></app-config-editor>
       </nz-form-control>
     </nz-form-item>
 

@@ -18,6 +18,14 @@
 </nz-tabset>
 
 <ng-template #extraTemplate>
+  <a (click)="load()">
+    <i nz-icon nzType="reload"></i>
+  </a>
+  <nz-divider nzType="vertical"></nz-divider>
+  <a appViewConfig [config]="data">
+    <i nz-icon nzType="profile"></i>
+  </a>
+  <nz-divider nzType="vertical"></nz-divider>
   <a [routerLink]="'/admin/acceptor/edit/'+id">
     <i nz-icon nzType="form"></i>
   </a>

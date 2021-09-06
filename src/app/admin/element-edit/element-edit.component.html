@@ -1,4 +1,4 @@
-<app-editor [(ngModel)]="data" [submitting]="submitting" (submit)="submit()">
+<app-editor [(ngModel)]="data" (ngModelChange)="basicForm.patchValue($event)" [submitting]="submitting" (submit)="submit()">
 
   <nz-tabset nzType="card" nzSize="small" [formGroup]="basicForm">
     <nz-tab nzTitle="基本信息">

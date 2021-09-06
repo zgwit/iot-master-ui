@@ -29,7 +29,7 @@ export class LoginComponent implements OnInit {
       //this.us.setUser(res.data);
       localStorage.setItem('token', res.data.token);
 
-      this.router.navigate(['/admin/dash']);
+      this.router.navigate(['/admin']);
     }, err => {
       console.log('err:', err);
     });

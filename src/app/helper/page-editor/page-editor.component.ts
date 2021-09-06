@@ -19,7 +19,6 @@ export class PageEditorComponent implements OnInit, ControlValueAccessor {
   @Output() submit = new EventEmitter<MouseEvent>();
 
   tabIndex = 0;
-  tabIndex2 = 0;
 
   onChanged: any = () => {
   }
@@ -33,7 +32,7 @@ export class PageEditorComponent implements OnInit, ControlValueAccessor {
   }
 
   set val(y) {
-    console.log('val', y)
+    //console.log('val', y)
     this._val = y;
 
     this.onChanged(y);

@@ -1,0 +1,7 @@
+
+<nz-radio-group [(ngModel)]="lang">
+  <label nz-radio-button nzValue="yaml">YAML</label>
+  <label nz-radio-button nzValue="javascript">JSON</label>
+</nz-radio-group>
+
+<ngx-codemirror [(ngModel)]="config" [options]="options"></ngx-codemirror>

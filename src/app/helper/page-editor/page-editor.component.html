@@ -1,24 +1,20 @@
 <nz-tabset class="tabs" [nzTabBarExtraContent]="extraTemplate" [(nzSelectedIndex)]="tabIndex" [nzAnimated]="false">
   <nz-tab nzTitle="标准视图">
-    <ng-content *ngIf="tabIndex === 0"></ng-content>
+    <ng-template nz-tab>
+      <ng-content></ng-content>
+    </ng-template>
   </nz-tab>
   <nz-tab nzTitle="专家模式">
-
-    <nz-tabset nzType="card" [(nzSelectedIndex)]="tabIndex2" *ngIf="tabIndex === 1">
-      <nz-tab nzTitle="YAML">
-        <app-yaml-editor [(ngModel)]="val" *ngIf="tabIndex2 === 0"></app-yaml-editor>
-      </nz-tab>
-      <nz-tab nzTitle="JSON">
-        <app-json-editor [(ngModel)]="val" *ngIf="tabIndex2 === 1"></app-json-editor>
-      </nz-tab>
-    </nz-tabset>
-
+    <ng-template nz-tab>
+      <app-config-editor [(ngModel)]="val"></app-config-editor>
+    </ng-template>
   </nz-tab>
 </nz-tabset>
 <ng-template #extraTemplate>
   <nz-space>
     <button *nzSpaceItem nz-button (click)="cancel()" nzShape="round">取消</button>
-    <button *nzSpaceItem nz-button nzType="primary" nzShape="round" [nzLoading]="submitting" (click)="submit.emit($event)">
+    <button *nzSpaceItem nz-button nzType="primary" nzShape="round" [nzLoading]="submitting"
+            (click)="submit.emit($event)">
       提交
     </button>
   </nz-space>

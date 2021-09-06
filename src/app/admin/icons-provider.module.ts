@@ -19,6 +19,7 @@ import {
   BellOutline,
   AppstoreOutline,
   BarChartOutline,
+  ProfileOutline,
 } from '@ant-design/icons-angular/icons';
 import {CommonModule} from '@angular/common';
 
@@ -31,6 +32,8 @@ const icons = [
   FormOutline,
   DragOutline,DeleteOutline,
   LineChartOutline,SyncOutline,
+
+  ProfileOutline,
 ];
 
 @NgModule({
