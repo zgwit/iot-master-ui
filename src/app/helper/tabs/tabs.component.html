@@ -9,7 +9,7 @@
 <div class="tabs">
   <div class="title" *ngFor="let tab of tabs; let i=index"
        [class.active]="i==current" (click)="onTabsChange(i)" (dblclick)="onTabClose(i)">
-    <a [routerLink]="tab.route">{{tab.name || tab.route}}</a>
+    <a [routerLink]="tab.route">{{tab.name || '加载中'}}</a>
     <i nz-icon nzType="close" nzTheme="outline" (click)="onTabClose(i)" *ngIf="tabs.length>1"></i>
   </div>
 </div>

@@ -38,7 +38,7 @@
         <a [routerLink]="'/admin/user/detail/'+data.user_id">{{data.user?.name}}</a>
       </td>
       <td>{{ data.start | minuteToDate | date: 'HH:mm' }} - {{ data.end | minuteToDate | date: 'HH:mm' }}</td>
-      <td>{{ data.names.join(', ') }}</td>
+      <td>{{ data.names?.join(', ') }}</td>
       <td>{{ data.level }}</td>
       <td>
         <span *ngIf="data.weixin">微信，</span>
