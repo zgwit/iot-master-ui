@@ -25,7 +25,7 @@
       <input nz-input formControlName="crontab" nzSize="small" placeholder="" (change)="change()" required/>
     </td>
     <td>
-      <app-input-script formControlName="script" nzSize="small"></app-input-script>
+      <app-input-script formControlName="script" nzSize="small" (ngModelChange)="change()"></app-input-script>
     </td>
     <td>
       <label nz-checkbox formControlName="enable" (change)="change()" (ngModelChange)="change()"></label>

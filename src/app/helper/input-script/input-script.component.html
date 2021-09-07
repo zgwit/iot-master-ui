@@ -1,7 +1,7 @@
-<input type="text" nz-input [(ngModel)]="script" (click)="isVisible=true" [nzSize]="nzSize"/>
+<input type="text" nz-input [(ngModel)]="js" (click)="isVisible=true" [nzSize]="nzSize"/>
 <nz-modal [(nzVisible)]="isVisible" nzTitle="脚本" (nzOnCancel)="isVisible=false" (nzOnOk)="isVisible=false" [nzFooter]="null">
   <div *nzModalContent>
-    <ngx-codemirror [(ngModel)]="script"
+    <ngx-codemirror [(ngModel)]="js"
                     [options]="{lineNumbers: true,theme: 'material',mode: 'javascript'  }"></ngx-codemirror>
   </div>
 </nz-modal>

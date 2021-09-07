@@ -28,7 +28,8 @@
         <nz-form-label [nzSpan]="5">从机号</nz-form-label>
         <nz-form-control [nzSpan]="12" nzErrorTip="">
           <!--      <input nz-input formControlName="port" type="number" min="1" max="65535"/>-->
-          <nz-input-number formControlName="slave" [nzMin]="1" [nzMax]="65535" [nzStep]="1"></nz-input-number>
+<!--          <nz-input-number formControlName="slave" [nzMin]="1" [nzMax]="65535" [nzStep]="1"></nz-input-number>-->
+          <app-input-yaml formControlName="slave"></app-input-yaml>
         </nz-form-control>
       </nz-form-item>
 

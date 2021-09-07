@@ -27,6 +27,7 @@ import {ConfigEditorComponent} from './config-editor/config-editor.component';
 import {NzRadioModule} from "ng-zorro-antd/radio";
 import { ConfigViewerComponent } from './config-viewer/config-viewer.component';
 import { ViewConfigDirective } from './view-config.directive';
+import { InputYamlComponent } from './input-yaml/input-yaml.component';
 
 
 @NgModule({
@@ -47,6 +48,7 @@ import { ViewConfigDirective } from './view-config.directive';
     ConfigEditorComponent,
     ConfigViewerComponent,
     ViewConfigDirective,
+    InputYamlComponent,
   ],
   exports: [
     TabsComponent,
@@ -64,6 +66,7 @@ import { ViewConfigDirective } from './view-config.directive';
     MinuteTimePickerComponent,
     InputScriptComponent,
     ViewConfigDirective,
+    InputYamlComponent,
   ],
   imports: [
     CommonModule,

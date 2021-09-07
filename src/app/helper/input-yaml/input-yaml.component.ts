@@ -1,38 +1,39 @@
 import {Component, Input, forwardRef, OnInit} from '@angular/core';
 import {ControlValueAccessor, NG_VALUE_ACCESSOR} from "@angular/forms";
 import {NzSizeLDSType} from "ng-zorro-antd/core/types";
+import * as YAML from "yaml";
 
 @Component({
-  selector: 'app-input-script',
-  templateUrl: './input-script.component.html',
-  styleUrls: ['./input-script.component.scss'],
+  selector: 'app-input-yaml',
+  templateUrl: './input-yaml.component.html',
+  styleUrls: ['./input-yaml.component.scss'],
   providers: [
     {
       provide: NG_VALUE_ACCESSOR,
-      useExisting: forwardRef(() => InputScriptComponent),
+      useExisting: forwardRef(() => InputYamlComponent),
       multi: true
     }
   ]
 })
-export class InputScriptComponent implements OnInit, ControlValueAccessor {
+export class InputYamlComponent implements OnInit, ControlValueAccessor {
   onChanged: any = () => {}
   onTouched: any = () => {}
 
   //内容
-  _js = "";
-  get js() {
-    return this._js
+  _val = "";
+  get val() {
+    return this._val
   }
-  set js(y) {
-    console.log('js page-editor', y)
-    this._js = y;
+  set val(y) {
+    console.log('eval page-editor', y)
+    this._val = y;
 
-    this.onChanged(y);
+    this.onChanged(YAML.parse(y));
     this.onTouched();
   }
-  
+
   isVisible = false;
-  
+
   @Input()
   nzSize: NzSizeLDSType = "default";
 
@@ -51,7 +52,7 @@ export class InputScriptComponent implements OnInit, ControlValueAccessor {
   }
 
   writeValue(obj: any): void {
-    this._js = obj;
+    this._val = YAML.stringify(obj)
   }
 
 }

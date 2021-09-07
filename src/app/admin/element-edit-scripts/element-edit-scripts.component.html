@@ -26,7 +26,7 @@
       <nz-select nzAllowClear nzMode="tags" [nzTokenSeparators]="[',', '，', ';', ' ']" formControlName="watches" nzSize="small" (ngModelChange)="change()"></nz-select>
     </td>
     <td>
-      <app-input-script formControlName="script" nzSize="small"></app-input-script>
+      <app-input-script formControlName="script" nzSize="small" (ngModelChange)="change()"></app-input-script>
     </td>
     <td>
       <label nz-checkbox formControlName="enable" (change)="change()" (ngModelChange)="change()"></label>
