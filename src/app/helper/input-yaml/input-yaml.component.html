@@ -1,4 +1,5 @@
-<input type="text" nz-input [(ngModel)]="val" (click)="isVisible=true" [nzSize]="nzSize"/>
+<!--<input type="text" nz-input [(ngModel)]="val" (click)="isVisible=true" [nzSize]="nzSize"/>-->
+<textarea nz-input [(ngModel)]="val" (click)="isVisible=true" [nzSize]="nzSize"></textarea>
 <nz-modal [(nzVisible)]="isVisible" nzTitle="参数" (nzOnCancel)="isVisible=false" (nzOnOk)="isVisible=false" [nzFooter]="null">
   <div *nzModalContent>
     <ngx-codemirror [(ngModel)]="val"

@@ -18,7 +18,7 @@
       <th nzColumnKey="name" [nzSortFn]="true">名称</th>
       <th nzColumnKey="element_id">元件</th>
       <th nzColumnKey="tunnel_id">通道</th>
-      <th nzColumnKey="slave">从机号</th>
+      <th nzColumnKey="slave">从机</th>
       <th nzColumnKey="enable" [nzSortFn]="true">启用</th>
       <th nzColumnKey="_id" [nzSortFn]="true">创建时间</th>
     </tr>
@@ -31,7 +31,7 @@
       <td>{{ data.name }}</td>
       <td>{{data.element?.name}}</td>
       <td>{{data.tunnel && (data.tunnel.name || data.tunnel.sn)}}</td>
-      <td>{{ data.slave }}</td>
+      <td>{{ data.slave | yaml }}</td>
       <td>{{data.enable?'√':'×'}}</td>
       <td>{{data._id | objectIdToDateString}}</td>
     </tr>

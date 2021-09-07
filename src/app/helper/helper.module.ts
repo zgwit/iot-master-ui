@@ -28,6 +28,7 @@ import {NzRadioModule} from "ng-zorro-antd/radio";
 import { ConfigViewerComponent } from './config-viewer/config-viewer.component';
 import { ViewConfigDirective } from './view-config.directive';
 import { InputYamlComponent } from './input-yaml/input-yaml.component';
+import { YamlPipe } from './yaml.pipe';
 
 
 @NgModule({
@@ -49,6 +50,7 @@ import { InputYamlComponent } from './input-yaml/input-yaml.component';
     ConfigViewerComponent,
     ViewConfigDirective,
     InputYamlComponent,
+    YamlPipe,
   ],
   exports: [
     TabsComponent,
@@ -67,6 +69,7 @@ import { InputYamlComponent } from './input-yaml/input-yaml.component';
     InputScriptComponent,
     ViewConfigDirective,
     InputYamlComponent,
+    YamlPipe,
   ],
   imports: [
     CommonModule,
