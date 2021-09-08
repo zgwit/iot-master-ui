@@ -25,7 +25,7 @@ export class DeviceDetailComponent implements OnInit {
 
   load(): void {
     this.loading = true;
-    this.rs.get(`device/${this.id}/compose`).subscribe(res=>{
+    this.rs.get(`device/${this.id}/compose`).subscribe(res => {
       this.data = res.data;
       this.tab.name = '设备详情[' + (this.data.name || this.data.element.name) + ']';
       this.loading = false;
@@ -33,20 +33,26 @@ export class DeviceDetailComponent implements OnInit {
   }
 
   exec(cmd: any) {
+    let params = [];
+    if (cmd.argc > 0) {
+      let param = prompt("请输入值，以逗号间隔", "")
+      if (!param) return;
+      params = eval(`[${param}]`)
+    }
     this.rs.post(`device/${this.id}/execute`, {
-      command: cmd.name
-    }).subscribe(res=>{
+      command: cmd.name,
+      parameters: params,
+    }).subscribe(res => {
 
     })
   }
-
 
   enable($event: any) {
 
   }
 
   refresh(name: any) {
-    this.rs.get(`device/${this.id}/values/${name}/refresh`).subscribe(res=>{
+    this.rs.get(`device/${this.id}/values/${name}/refresh`).subscribe(res => {
       this.data.values[name] = res.data;
     })
   }
