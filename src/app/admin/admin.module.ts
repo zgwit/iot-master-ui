@@ -249,7 +249,7 @@ import {AcceptorEditRegisterComponent} from "./acceptor-edit-register/acceptor-e
     DragDropModule,
 
     NgxEchartsModule.forRoot({echarts: () => import('echarts')}),
-    NgxAmapModule.forRoot({apiKey: 'e4c1bd11fe1b25d77dae4cf3993f7034', debug: true}),
+    NgxAmapModule.forRoot({apiKey: 'e4c1bd11fe1b25d77dae4cf3993f7034', debug: false}),
     NzDatePickerModule
   ],
   bootstrap: [AdminComponent],

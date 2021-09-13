@@ -1,0 +1,6 @@
+<input type="text" nz-input [(ngModel)]="val" (click)="isVisible=true" [nzSize]="nzSize"/>
+<nz-modal [(nzVisible)]="isVisible" nzTitle="选址" (nzOnCancel)="isVisible=false" (nzOnOk)="onOk()">
+  <div *nzModalContent style="height: 400px">
+    <app-gps-picker [(ngModel)]="pickerVal"></app-gps-picker>
+  </div>
+</nz-modal>

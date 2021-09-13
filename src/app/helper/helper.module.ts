@@ -29,6 +29,9 @@ import { ConfigViewerComponent } from './config-viewer/config-viewer.component';
 import { ViewConfigDirective } from './view-config.directive';
 import { InputYamlComponent } from './input-yaml/input-yaml.component';
 import { YamlPipe } from './yaml.pipe';
+import { GpsPickerComponent } from './gps-picker/gps-picker.component';
+import { InputGpsComponent } from './input-gps/input-gps.component';
+import {NgxAmapModule} from "ngx-amap";
 
 
 @NgModule({
@@ -51,40 +54,45 @@ import { YamlPipe } from './yaml.pipe';
     ViewConfigDirective,
     InputYamlComponent,
     YamlPipe,
+    GpsPickerComponent,
+    InputGpsComponent,
   ],
-  exports: [
-    TabsComponent,
-    PageEditorComponent,
-    JsEditorComponent,
-    YamlEditorComponent,
-    JsonEditorComponent,
-    ConfigEditorComponent,
-    PageListComponent,
-    ToolbarComponent,
-    ObjectIdToDatePipe,
-    ObjectIdToDateStringPipe,
-    DateStringPipe,
-    MinuteToDatePipe,
-    MinuteTimePickerComponent,
-    InputScriptComponent,
-    ViewConfigDirective,
-    InputYamlComponent,
-    YamlPipe,
-  ],
-  imports: [
-    CommonModule,
-    CodemirrorModule,
-    FormsModule,
-    NzTabsModule,
-    NzButtonModule,
-    NzIconModule,
-    RouterModule,
-    NzSpaceModule,
-    NzInputModule,
-    NzTimePickerModule,
-    NzModalModule,
-    NzRadioModule
-  ],
+    exports: [
+        TabsComponent,
+        PageEditorComponent,
+        JsEditorComponent,
+        YamlEditorComponent,
+        JsonEditorComponent,
+        ConfigEditorComponent,
+        PageListComponent,
+        ToolbarComponent,
+        ObjectIdToDatePipe,
+        ObjectIdToDateStringPipe,
+        DateStringPipe,
+        MinuteToDatePipe,
+        MinuteTimePickerComponent,
+        InputScriptComponent,
+        ViewConfigDirective,
+        InputYamlComponent,
+        YamlPipe,
+        GpsPickerComponent,
+        InputGpsComponent,
+    ],
+    imports: [
+        CommonModule,
+        CodemirrorModule,
+        FormsModule,
+        NzTabsModule,
+        NzButtonModule,
+        NzIconModule,
+        RouterModule,
+        NzSpaceModule,
+        NzInputModule,
+        NzTimePickerModule,
+        NzModalModule,
+        NzRadioModule,
+        NgxAmapModule
+    ],
   providers: []
 })
 export class HelperModule {

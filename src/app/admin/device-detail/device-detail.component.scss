@@ -1,6 +1,18 @@
 .values{
   position: relative;
 
+  .item {
+    margin: 5px 0;
+  }
+
+  .label{
+    color: #7f7f7f;
+    font-size: 0.9em;
+  }
+
+  .value{
+    font-size: 1.2em;
+  }
 
 
   .refresh{

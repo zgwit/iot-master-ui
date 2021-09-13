@@ -16,8 +16,10 @@
       <a [routerLink]="'/admin/tunnel/detail/'+data.tunnel._id">{{data.tunnel.name || data.tunnel.sn}}</a>
     </p>
 
+    <button nz-button (click)="refreshAll()">刷新全部数据</button>
+
     <div class="values" nz-row [nzGutter]="10" *ngIf="data.element">
-      <div nz-col [nzSpan]="4" [nzXs]="12" [nzSm]="8" [nzMd]="6" [nzLg]="4" [nzXl]="3" [nzXXl]="2"
+      <div class="item" nz-col [nzSpan]="4" [nzXs]="12" [nzSm]="8" [nzMd]="6" [nzLg]="4" [nzXl]="3" [nzXXl]="2"
            *ngFor="let v of data.element.variables">
         <nz-card>
           <nz-statistic [nzValue]="data.values && data.values[v.name] || '--'" [nzTitle]="v.label"
@@ -26,10 +28,10 @@
             nz-icon nzType="line-chart" nzTheme="outline"></i></div>
         </nz-card>
       </div>
-      <div nz-col [nzSpan]="4" *ngFor="let v of data.element.data_points">
+      <div class="item" nz-col [nzSpan]="4" [nzXs]="12" [nzSm]="8" [nzMd]="6" [nzLg]="4" [nzXl]="3" [nzXXl]="2" *ngFor="let v of data.element.data_points">
         <nz-card>
-          <nz-statistic [nzValue]="data.values && data.values[v.name] || '--'" [nzTitle]="v.label"
-                        [nzSuffix]="v.unit"></nz-statistic>
+          <div class="label">{{v.label}} <span *ngIf="v.unit">({{v.unit}})</span> </div>
+          <div class="value">{{data.values && data.values[v.name] | number: '1.0-2'}}</div>
           <div class="refresh" title="刷新" *ngIf="!v.rw || v.rw>1" (click)="refresh(v.name)"><i nz-icon nzType="sync" nzTheme="outline"></i></div>
           <div class="history" title="历史" *ngIf="v.store" [routerLink]="'/admin/device/value/'+data._id+'/'+v.name"><i
             nz-icon nzType="line-chart" nzTheme="outline"></i></div>
