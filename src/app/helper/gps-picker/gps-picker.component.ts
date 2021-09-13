@@ -2,6 +2,8 @@ import {Component, forwardRef, OnInit, ViewChild} from '@angular/core';
 import {ControlValueAccessor, NG_VALUE_ACCESSOR} from "@angular/forms";
 import {NgxAmapComponent} from "ngx-amap";
 
+import gcoord from 'gcoord';
+
 @Component({
   selector: 'app-gps-picker',
   templateUrl: './gps-picker.component.html',
@@ -39,9 +41,15 @@ export class GpsPickerComponent implements OnInit, ControlValueAccessor {
 
   writeValue(obj: any): void {
     //this._val = obj[0] + ',' + obj[1];
+
+    if (!obj) return;
+
+    //GPS坐标 转 高德坐标
+    const loc = gcoord.transform(obj, gcoord.WGS84, gcoord.GCJ02);
+
     // @ts-ignore
-    this.map.center = obj;
-    this.center = obj;
+    this.map.center = loc;
+    this.center = loc;
   }
 
   mapMove() {
@@ -50,7 +58,12 @@ export class GpsPickerComponent implements OnInit, ControlValueAccessor {
     console.log('center', center);
     //console.log('center', this.map.amap.map.getCenter().toString())
 
-    this.onChanged(center.split(',').map((v: string) => parseFloat(v)));
+    let loc = center.split(',').map((v: string) => parseFloat(v));
+
+    //高德坐标 转 GPS坐标
+    loc = gcoord.transform(loc, gcoord.GCJ02, gcoord.WGS84);
+
+    this.onChanged(loc);
     this.onTouched();
   }
 }
