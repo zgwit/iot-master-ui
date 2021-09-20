@@ -91,7 +91,8 @@ import {NgxAmapModule} from "ngx-amap";
         NzTimePickerModule,
         NzModalModule,
         NzRadioModule,
-        NgxAmapModule
+        //NgxAmapModule
+        NgxAmapModule.forRoot({apiKey: 'e4c1bd11fe1b25d77dae4cf3993f7034', debug: true}),
     ],
   providers: []
 })

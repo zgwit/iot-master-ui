@@ -21,6 +21,7 @@ import {NzCheckboxModule} from 'ng-zorro-antd/checkbox';
 import {NzIconModule} from 'ng-zorro-antd/icon';
 import {NzMessageModule} from 'ng-zorro-antd/message';
 import {JwtModule} from "@auth0/angular-jwt";
+import {NgxAmapModule} from "ngx-amap";
 
 registerLocaleData(zh, 'zh');
 
@@ -56,7 +57,8 @@ export function tokenGetter() {
         //allowedDomains: [''],
         disallowedRoutes: ['/auth/']
       }
-    })
+    }),
+    NgxAmapModule.forRoot({apiKey: 'e4c1bd11fe1b25d77dae4cf3993f7034', debug: true}),
   ],
   providers: [{ provide: NZ_I18N, useValue: zh_CN }, {provide: LOCALE_ID, useValue: 'zh' }],
   bootstrap: [AppComponent]

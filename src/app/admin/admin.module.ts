@@ -127,7 +127,6 @@ import {NgxEchartsModule} from "ngx-echarts";
 import {NzGridModule} from "ng-zorro-antd/grid";
 import {DeviceValueComponent} from "./device-value/device-value.component";
 import {NzDatePickerModule} from "ng-zorro-antd/date-picker";
-import {NgxAmapModule} from "ngx-amap";
 import {TunnelMapComponent} from "./tunnel-map/tunnel-map.component";
 import {ProjectMapComponent} from "./project-map/project-map.component";
 import {DeviceMapComponent} from "./device-map/device-map.component";
@@ -141,6 +140,10 @@ import {TunnelEditHeartbeatComponent} from "./tunnel-edit-heartbeat/tunnel-edit-
 import {TunnelEditControlComponent} from "./tunnel-edit-control/tunnel-edit-control.component";
 import {TunnelEditProtocolComponent} from "./tunnel-edit-protocol/tunnel-edit-protocol.component";
 import {AcceptorEditRegisterComponent} from "./acceptor-edit-register/acceptor-edit-register.component";
+import {NgxAmapModule} from "ngx-amap";
+import {DebugComponent} from "./debug/debug.component";
+import {NgTerminalModule} from "ng-terminal";
+import {ShellComponent} from "./shell/shell.component";
 // import {NgxEchartsModule} from 'ngx-echarts';
 //import * as echarts from 'echarts';
 
@@ -195,6 +198,8 @@ import {AcceptorEditRegisterComponent} from "./acceptor-edit-register/acceptor-e
 
     ApiComponent,
     SettingComponent,
+    DebugComponent,
+    ShellComponent,
 
     PasswordComponent, EventComponent,
 
@@ -245,12 +250,14 @@ import {AcceptorEditRegisterComponent} from "./acceptor-edit-register/acceptor-e
     HelperModule,
     NzDropDownModule,
     NzTimePickerModule,
+    NzDatePickerModule,
     DashModule,
     DragDropModule,
 
     NgxEchartsModule.forRoot({echarts: () => import('echarts')}),
-    NgxAmapModule.forRoot({apiKey: 'e4c1bd11fe1b25d77dae4cf3993f7034', debug: false}),
-    NzDatePickerModule
+
+    NgxAmapModule.forRoot({apiKey: 'e4c1bd11fe1b25d77dae4cf3993f7034', debug: true}),
+    NgTerminalModule,
   ],
   bootstrap: [AdminComponent],
   providers: [ChooseService]

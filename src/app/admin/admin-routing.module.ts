@@ -49,6 +49,8 @@ import {UnknownComponent} from "./unknown/unknown.component";
 import {AlarmAllComponent} from "./alarm-all/alarm-all.component";
 import {SubscribeAllComponent} from "./subscribe-all/subscribe-all.component";
 import {VoiceAllComponent} from "./voice-all/voice-all.component";
+import {DebugComponent} from "./debug/debug.component";
+import {ShellComponent} from "./shell/shell.component";
 
 const routes: Routes = [
   {
@@ -108,6 +110,8 @@ const routes: Routes = [
       {path: 'protocol/detail/:id', component: ProtocolDetailComponent},
       {path: 'api', component: ApiComponent},
       {path: 'setting', component: SettingComponent},
+      {path: 'debug', component: DebugComponent},
+      {path: 'shell', component: ShellComponent},
       {path: 'password', component: PasswordComponent},
 
       {path: '**', component: UnknownComponent},

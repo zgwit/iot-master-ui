@@ -143,6 +143,14 @@ export let SideMenu = [
         router: 'setting'
       },
       {
+        title: '系统调试',
+        router: 'debug'
+      },
+      {
+        title: '远程控制',
+        router: 'shell'
+      },
+      {
         title: '修改密码',
         router: 'password'
       },

@@ -25,6 +25,7 @@ export class GpsPickerComponent implements OnInit, ControlValueAccessor {
   @ViewChild('map',{static:true}) map: NgxAmapComponent | undefined;
 
   center: any = [120.312703,31.488752];
+  myCity: any = "";
 
   constructor() { }
 
@@ -65,5 +66,10 @@ export class GpsPickerComponent implements OnInit, ControlValueAccessor {
 
     this.onChanged(loc);
     this.onTouched();
+  }
+
+  onEvent($event: any, naReady: string) {
+    console.log('event', $event, naReady);
+
   }
 }
