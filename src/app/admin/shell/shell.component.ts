@@ -21,8 +21,8 @@ export class ShellComponent implements OnInit {
 
 
     //TODO 此处Angular框架的proxy.conf.json开发模式 不能正常使用
-    //const host = location.origin.replace(/^http/, 'ws');
-    const host = 'ws://localhost:8888';
+    const host = location.origin.replace(/^http/, 'ws');
+    //const host = 'ws://localhost:8888';
 
     const that = this;
     const token = localStorage.getItem('token');
