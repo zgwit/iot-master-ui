@@ -29,20 +29,24 @@ export class ShellComponent implements OnInit {
     this.ws = new WebSocket(`${host}/api/setting/shell?token=${token}`);
 
     this.ws.onmessage = function (e: any) {
-      e.data.text().then((res: any)=>{
-        //console.log('response:', res);
+      console.log(e);
+
+      (new Response(e.data)).text().then(res=>{
+        //console.log(res)
+        //res = res.replace(/\n/, '\r\n');
         that.write.next(res);
-      })
-      // console.log(e.data.text())
-      // that.write.next(e.text);
+      });
+      //console.log('resp', e.data)
+      //that.write.next(e.data);
     }
   }
 
 
   onKeyInput($event: { key: string; domEvent: KeyboardEvent }) {
-    //console.log('input', $event)
+    console.log('input', $event)
+
     if ($event.key == '\r') {
-      $event.key = '\r\n';
+      $event.key = '\n';
     }
 
     this.write.next($event.key);

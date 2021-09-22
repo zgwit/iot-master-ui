@@ -29,12 +29,13 @@ export class DebugComponent implements OnInit {
     this.ws = new WebSocket(`${host}/api/setting/repl?token=${token}`);
 
     this.ws.onmessage = function (e: any) {
-      e.data.text().then((res: any)=>{
-        //console.log('response:', res);
+
+      (new Response(e.data)).text().then(res=>{
+        console.log(res)
         that.write.next(res);
       })
-      // console.log(e.data.text())
-      // that.write.next(e.text);
+      //console.log(e.data)
+      //that.write.next(e.data);
     }
   }
 
