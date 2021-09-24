@@ -4,6 +4,7 @@ import {ActivatedRoute} from "@angular/router";
 import {RequestService} from "../../request.service";
 import {AbstractControl, FormBuilder, FormControl, FormGroup, ValidationErrors, Validators} from "@angular/forms";
 import {NzMessageService} from "ng-zorro-antd/message";
+import {Md5} from "ts-md5/dist/md5";
 
 @Component({
   selector: 'app-password',
@@ -33,7 +34,11 @@ export class PasswordComponent implements OnInit {
   submit(): void {
     //const val = this.basicForm.value;
     if(!this.basicForm.valid) return;
-    this.rs.post('my/password', this.basicForm.value).subscribe(res=>{
+
+    this.rs.post('my/password', {
+      old: Md5.hashStr(this.basicForm.value.old),
+      new: Md5.hashStr(this.basicForm.value.new),
+    }).subscribe(res=>{
       this.ms.success("修改成功");
     })
   }
