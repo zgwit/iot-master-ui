@@ -1,6 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {RequestService} from '../request.service';
+import {UserService} from "../user.service";
 import {Router} from '@angular/router';
 
 import {Md5} from 'ts-md5/dist/md5';
@@ -13,7 +14,7 @@ import {Md5} from 'ts-md5/dist/md5';
 export class LoginComponent implements OnInit {
   validateForm!: FormGroup;
 
-  constructor(private fb: FormBuilder, private rs: RequestService, private router: Router) {
+  constructor(private fb: FormBuilder, private rs: RequestService, private us: UserService, private router: Router) {
   }
 
   submitForm(): void {
@@ -32,6 +33,8 @@ export class LoginComponent implements OnInit {
       console.log('res:', res);
       //this.us.setUser(res.data);
       localStorage.setItem('token', res.data.token);
+      //更新用户
+      this.us.setUser(res.data.user);
 
       this.router.navigate(['/admin']);
     }, err => {

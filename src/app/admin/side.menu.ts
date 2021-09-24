@@ -159,5 +159,6 @@ export let SideMenu = [
   {
     title: '退出',
     icon: 'logout',
+    router: 'logout'
   }
 ];

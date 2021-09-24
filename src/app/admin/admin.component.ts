@@ -4,6 +4,7 @@ import {
 } from '@angular/core';
 import {SideMenu} from './side.menu';
 import {RequestService} from '../request.service';
+import {UserService} from "../user.service";
 import {Router} from '@angular/router';
 
 
@@ -18,7 +19,7 @@ export class AdminComponent implements OnInit {
 
   menus: Array<any> = [];
 
-  constructor(private rs: RequestService, private route: Router) {
+  constructor(private rs: RequestService, public us: UserService, private route: Router) {
     this.initMenu();
   }
 

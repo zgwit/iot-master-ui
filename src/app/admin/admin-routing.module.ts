@@ -38,9 +38,6 @@ import {GroupDetailComponent} from "./group-detail/group-detail.component";
 import {JobEditComponent} from "./job-edit/job-edit.component";
 import {SubscribeEditComponent} from "./subscribe-edit/subscribe-edit.component";
 import {DeviceValueComponent} from "./device-value/device-value.component";
-import {AlarmComponent} from "./alarm/alarm.component";
-import {VoiceComponent} from "./voice/voice.component";
-import {SubscribeComponent} from "./subscribe/subscribe.component";
 import {DeviceMapComponent} from "./device-map/device-map.component";
 import {TunnelMapComponent} from "./tunnel-map/tunnel-map.component";
 import {ProjectMapComponent} from "./project-map/project-map.component";
@@ -51,6 +48,7 @@ import {SubscribeAllComponent} from "./subscribe-all/subscribe-all.component";
 import {VoiceAllComponent} from "./voice-all/voice-all.component";
 import {DebugComponent} from "./debug/debug.component";
 import {ShellComponent} from "./shell/shell.component";
+import {LogoutGuard} from "./logout.guard";
 
 const routes: Routes = [
   {
@@ -113,6 +111,11 @@ const routes: Routes = [
       {path: 'debug', component: DebugComponent},
       {path: 'shell', component: ShellComponent},
       {path: 'password', component: PasswordComponent},
+      {
+        path: 'logout',
+        canActivate: [LogoutGuard],
+        //redirectTo: 'login'
+      },
 
       {path: '**', component: UnknownComponent},
     ]
