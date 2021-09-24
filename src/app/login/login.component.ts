@@ -3,6 +3,8 @@ import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {RequestService} from '../request.service';
 import {Router} from '@angular/router';
 
+import {Md5} from 'ts-md5/dist/md5';
+
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -24,7 +26,9 @@ export class LoginComponent implements OnInit {
       return;
     }
 
-    this.rs.post('auth/login', this.validateForm.value).subscribe(res => {
+    const password = Md5.hashStr(this.validateForm.value.password);
+
+    this.rs.post('auth/login', {username: this.validateForm.value.username, password}).subscribe(res => {
       console.log('res:', res);
       //this.us.setUser(res.data);
       localStorage.setItem('token', res.data.token);
