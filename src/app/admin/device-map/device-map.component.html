@@ -1,1 +1,4 @@
-<p>device-map works!</p>
+<ngx-amap class="device-map" #map (naReady)="mapReady()" mapStyle="amap://styles/a761542898e90d2d6071353e148af475">
+  <amap-tool-bar></amap-tool-bar>
+  <amap-marker [title]="data.name" [position]="data.location" *ngFor="let data of datum" (naClick)="open(data)"></amap-marker>
+</ngx-amap>

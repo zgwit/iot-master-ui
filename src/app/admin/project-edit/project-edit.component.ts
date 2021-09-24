@@ -18,6 +18,7 @@ export class ProjectEditComponent implements OnInit {
 
   data: any = {
     "name": "新建项目",
+    "location": [],
     "enable": true,
     "template_id":"",
     "company_id":"",
@@ -51,6 +52,7 @@ export class ProjectEditComponent implements OnInit {
       company_id: [this.data.company_id, []],
       group_id: [this.data.group_id, []],
       user_id: [this.data.user_id, []],
+      location: [this.data.location, []],
       enable: [this.data.enable, [Validators.required]],
 
       commands: [this.data.commands || []],

@@ -34,6 +34,13 @@
       </nz-form-item>
 
       <nz-form-item>
+        <nz-form-label [nzSpan]="5">位置</nz-form-label>
+        <nz-form-control [nzSpan]="12" nzErrorTip="">
+          <app-input-gps formControlName="location"></app-input-gps>
+        </nz-form-control>
+      </nz-form-item>
+
+      <nz-form-item>
         <nz-form-label [nzSpan]="5">启用</nz-form-label>
         <nz-form-control [nzSpan]="12" nzErrorTip="">
           <nz-switch formControlName="enable"></nz-switch>

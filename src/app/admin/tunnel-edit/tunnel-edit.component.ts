@@ -20,7 +20,8 @@ export class TunnelEditComponent implements OnInit {
     "name": "",
     "timeout": 60,
     "enable": true,
-    "company_id":"",
+    "company_id": "",
+    "location": [],
     "heartbeat": {
       "enable": false,
       "interval": 30,
@@ -52,6 +53,7 @@ export class TunnelEditComponent implements OnInit {
       name: [this.data.name, [Validators.required]],
       company_id: [this.data.company_id, []],
       timeout: [this.data.timeout, [Validators.required]],
+      location: [this.data.location, []],
       enable: [this.data.enable, [Validators.required]],
       heartbeat: [this.data.heartbeat, []],
       control: [this.data.control, []],
