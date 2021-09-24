@@ -36,7 +36,10 @@ export class LoginComponent implements OnInit {
       //更新用户
       this.us.setUser(res.data.user);
 
-      this.router.navigate(['/admin']);
+      if (res.data.user.admin)
+        this.router.navigate(['/admin']);
+      else
+        this.router.navigate(['/console']);
     }, err => {
       console.log('err:', err);
     });

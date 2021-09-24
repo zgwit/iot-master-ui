@@ -2,7 +2,7 @@ import {
   AfterViewInit,
   Component,
   ComponentFactoryResolver, ComponentRef,
-  Injector, OnDestroy,
+  Injector, Input, OnDestroy,
   OnInit,
   QueryList, ViewChildren,
   ViewContainerRef
@@ -16,6 +16,8 @@ import {Subscription} from 'rxjs';
   styleUrls: ['./tabs.component.scss']
 })
 export class TabsComponent implements OnInit, OnDestroy, AfterViewInit {
+
+  @Input() prefix = '/admin';
 
   @ViewChildren(RouterLinkWithHref) links: QueryList<RouterLinkWithHref> | undefined;
   @ViewChildren('container', {read: ViewContainerRef}) containers: QueryList<ViewContainerRef> | undefined;
@@ -48,8 +50,8 @@ export class TabsComponent implements OnInit, OnDestroy, AfterViewInit {
       return;
     }
 
-    // 要判断是 /admin/ 起始
-    let path = url.replace(/^\/admin/, '');
+    // 去掉前缀
+    let path = url.replace(this.prefix, '');
     path = path.replace(/^\//, ''); //去掉默认页的空白
 
     //记录历史
@@ -145,7 +147,7 @@ export class TabsComponent implements OnInit, OnDestroy, AfterViewInit {
     if (target !== this.current) {
       this.current = target;
       // 用修改路由的方式触发
-      this.router.navigate(['/admin/' + this.tabs[this.current].route]);
+      this.router.navigate([this.prefix +'/' + this.tabs[this.current].route]);
       return;
     }
   }

@@ -6,11 +6,11 @@ import {Router} from '@angular/router';
 
 
 @Component({
-  selector: 'app-main',
-  templateUrl: './admin.component.html',
-  styleUrls: ['./admin.component.scss']
+  selector: 'app-console',
+  templateUrl: './console.component.html',
+  styleUrls: ['./console.component.scss']
 })
-export class AdminComponent implements OnInit {
+export class ConsoleComponent implements OnInit {
 
   isCollapsed = false;
 

@@ -1,0 +1,58 @@
+<nz-layout class="app-layout">
+  <nz-sider class="menu-sidebar"
+            nzCollapsible
+            nzBreakpoint="md"
+            [(nzCollapsed)]="isCollapsed"
+            [nzTrigger]="null">
+
+    <div class="sidebar-logo">
+      <a (click)="noop()">
+        <img src="assets/iot.svg" alt="logo">
+        <h1>物联大师</h1>
+      </a>
+    </div>
+
+    <ul nz-menu nzTheme="dark" nzMode="inline" [nzInlineCollapsed]="isCollapsed">
+      <ng-container *ngFor="let menu of menus">
+        <li nz-menu-item *ngIf="!menu.children" [routerLink]="menu.router" [nzDisabled]="menu.disabled"
+            nz-tooltip
+            nzTooltipPlacement="right"
+            [nzTooltipTitle]="isCollapsed ? menu.title : ''"
+            [nzMatchRouter]="menu.router" nzMatchRouterExact>
+          <i nz-icon [nzType]="menu.icon" nzTheme="outline" *ngIf="menu.icon"></i>
+          <span>{{menu.title}}</span>
+        </li>
+        <li nz-submenu *ngIf="menu.children" [nzTitle]="menu.title" [nzIcon]="menu.icon" [nzOpen]="menu.open"
+            [nzDisabled]="menu.disabled">
+          <ul>
+            <li nz-menu-item *ngFor="let m of menu.children" [routerLink]="m.router" [nzDisabled]="m.disabled"
+                [nzMatchRouter]="menu.router" nzMatchRouterExact>
+              <i nz-icon [nzType]="m.icon" nzTheme="outline" *ngIf="m.icon"></i>
+              {{m.title}}
+            </li>
+          </ul>
+        </li>
+      </ng-container>
+
+
+    </ul>
+  </nz-sider>
+  <nz-layout>
+    <nz-header>
+      <div class="app-header">
+        <span class="header-trigger" (click)="isCollapsed = !isCollapsed">
+            <i class="trigger"
+               nz-icon
+               [nzType]="isCollapsed ? 'menu-unfold' : 'menu-fold'"
+            ></i>
+        </span>
+        <span class="header-user">
+          {{us.user?.name}}
+        </span>
+      </div>
+    </nz-header>
+    <nz-content>
+      <app-tabs prefix="/console"></app-tabs>
+    </nz-content>
+  </nz-layout>
+</nz-layout>
