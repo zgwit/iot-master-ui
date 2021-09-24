@@ -3,6 +3,7 @@ import {NgxAmapComponent} from "ngx-amap";
 import {RequestService} from "../../request.service";
 import {Router} from "@angular/router";
 import {TabRef} from "../../helper/tabs/tabs.component";
+import gcoord from "gcoord";
 
 declare var AMap: any
 
@@ -44,6 +45,9 @@ export class ProjectMapComponent implements OnInit, AfterViewInit {
     }).subscribe(res => {
       console.log('res', res);
       this.datum = res.data;
+      this.datum.forEach((d: any)=>{
+        d.location = gcoord.transform(d.location, gcoord.WGS84, gcoord.GCJ02);
+      })
     }).add(() => {
       //this.loading = false;
     });
