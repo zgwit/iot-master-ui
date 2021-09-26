@@ -1,0 +1,84 @@
+<nz-tabset [nzTabBarExtraContent]="extraTemplate">
+  <nz-tab nzTitle="设备详情">
+    <p>
+      名称：{{data.name}} {{data.online ? '启动' : '离线'}}
+      <nz-switch [ngModel]="data.online" (ngModelChange)="enable($event)"></nz-switch>
+    </p>
+    <p *ngIf="data.element">
+      元件：{{data.element.name}}
+    </p>
+    <p *ngIf="data.project">
+      项目：{{data.project.join(',')}}
+    </p>
+    <p *ngIf="data.tunnel">
+      通道：{{data.tunnel.name || data.tunnel.sn}}
+    </p>
+
+    <button nz-button (click)="refreshAll()">刷新全部数据</button>
+
+    <div class="values" nz-row [nzGutter]="10" *ngIf="data.element">
+      <div class="item" nz-col [nzSpan]="4" [nzXs]="12" [nzSm]="8" [nzMd]="6" [nzLg]="4" [nzXl]="3" [nzXXl]="2"
+           *ngFor="let v of data.element.variables">
+        <nz-card>
+          <nz-statistic [nzValue]="data.values && data.values[v.name] || '--'" [nzTitle]="v.label"
+                        [nzSuffix]="v.unit"></nz-statistic>
+          <div class="history" title="历史" *ngIf="v.store" [routerLink]="'/console/device/value/'+data._id+'/'+v.name"><i
+            nz-icon nzType="line-chart" nzTheme="outline"></i></div>
+        </nz-card>
+      </div>
+      <div class="item" nz-col [nzSpan]="4" [nzXs]="12" [nzSm]="8" [nzMd]="6" [nzLg]="4" [nzXl]="3" [nzXXl]="2" *ngFor="let v of data.element.data_points">
+        <nz-card>
+          <div class="label">{{v.label}} <span *ngIf="v.unit">({{v.unit}})</span> </div>
+          <div class="value">{{data.values && data.values[v.name] | number: '1.0-2'}}</div>
+          <div class="refresh" title="刷新" *ngIf="!v.rw || v.rw>1" (click)="refresh(v.name)"><i nz-icon nzType="sync" nzTheme="outline"></i></div>
+          <div class="history" title="历史" *ngIf="v.store" [routerLink]="'/console/device/value/'+data._id+'/'+v.name"><i
+            nz-icon nzType="line-chart" nzTheme="outline"></i></div>
+        </nz-card>
+      </div>
+    </div>
+
+    <p *ngIf="data.element">
+      <button nz-button *ngFor="let cmd of data.element.commands" (click)="exec(cmd)">{{cmd.name}}</button>
+    </p>
+
+  </nz-tab>
+  <nz-tab nzTitle="可视化" nzDisabled>
+    <ng-template nz-tab>
+    </ng-template>
+  </nz-tab>
+  <nz-tab nzTitle="相关项目">
+    <ng-template nz-tab>
+      <app-device-project [_id]="id"></app-device-project>
+    </ng-template>
+  </nz-tab>
+  <nz-tab nzTitle="定时任务">
+    <ng-template nz-tab>
+      <app-job type="device" [_id]="id"></app-job>
+    </ng-template>
+  </nz-tab>
+  <nz-tab nzTitle="告警记录">
+    <ng-template nz-tab>
+      <app-alarm type="device" [_id]="id"></app-alarm>
+    </ng-template>
+  </nz-tab>
+  <nz-tab nzTitle="日志">
+    <ng-template nz-tab>
+      <app-event type="device" [_id]="id"></app-event>
+    </ng-template>
+  </nz-tab>
+
+</nz-tabset>
+
+<ng-template #extraTemplate>
+  <a (click)="load()" title="刷新">
+    <i nz-icon nzType="reload" [nzSpin]="loading"></i>
+  </a>
+  <nz-divider nzType="vertical"></nz-divider>
+  <a title="原始数据" appViewConfig [config]="data">
+    <i nz-icon nzType="profile"></i>
+  </a>
+  <nz-divider nzType="vertical"></nz-divider>
+  <a title="编辑" [routerLink]="'/console/device/edit/'+id">
+    <i nz-icon nzType="form"></i>
+  </a>
+</ng-template>

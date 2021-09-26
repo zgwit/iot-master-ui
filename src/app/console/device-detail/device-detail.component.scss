@@ -1,0 +1,39 @@
+.values{
+  position: relative;
+
+  .item {
+    margin: 5px 0;
+  }
+
+  .label{
+    color: #7f7f7f;
+    font-size: 0.9em;
+  }
+
+  .value{
+    font-size: 1.2em;
+  }
+
+
+  .refresh{
+    position: absolute;
+    padding: 10px;
+    right: 0;
+    bottom: 0;
+    color: #d9d9d9;
+    :hover{
+      color: #666666;
+    }
+  }
+
+  .history{
+    position: absolute;
+    padding: 10px;
+    right: 0;
+    top: 0;
+    color: #d9d9d9;
+    :hover{
+      color: #666666;
+    }
+  }
+}

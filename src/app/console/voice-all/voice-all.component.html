@@ -1,0 +1,38 @@
+<app-page-list noCreate (refresh)="load()" (search)="search($event)" [loading]="loading">
+
+  <nz-table
+    nzSize="small"
+        [nzData]="datum"
+    [nzFrontPagination]="false"
+    [nzLoading]="loading"
+    [nzTotal]="total"
+    [nzPageSize]="pageSize"
+    [nzPageIndex]="pageIndex"
+
+    (nzQueryParams)="onQuery($event)"
+  >
+    <thead>
+    <tr>
+      <th nzColumnKey="group_id" [nzSortFn]="true">分组</th>
+      <th nzColumnKey="cellphone" [nzSortFn]="true">手机</th>
+      <th nzColumnKey="fee" [nzSortFn]="true">时长</th>
+      <th nzColumnKey="alarm_id">告警</th>
+      <th nzColumnKey="_id" [nzSortFn]="true">创建时间</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let data of datum; let i=index">
+      <td>
+        {{data.company?.name}}
+      </td>
+      <td>{{ data.cellphone }}</td>
+      <td>{{ data.fee }}</td>
+      <td>{{data.alarm?.name}} {{data.alarm?.content}}</td>
+      <td>{{data._id | objectIdToDateString}}</td>
+
+    </tr>
+    </tbody>
+  </nz-table>
+
+
+</app-page-list>

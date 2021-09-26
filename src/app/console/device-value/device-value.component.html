@@ -1,0 +1,19 @@
+
+<div nz-row nzJustify="center" nzAlign="middle">
+  <div nz-col nzSpan="2">日期范围：</div>
+  <div nz-col nzSpan="8">
+    <nz-range-picker [nzShowTime]="{ nzFormat: 'HH:mm' }" nzFormat="yyyy-MM-dd HH:mm" [(ngModel)]="date"
+                     (ngModelChange)="load()"></nz-range-picker>
+  </div>
+  <div nz-col nzSpan="2">时间粒度：</div>
+  <div nz-col nzSpan="8">
+    <nz-select [(ngModel)]="window" (ngModelChange)="load()">
+      <nz-option nzValue="1m" nzLabel="1分钟"></nz-option>
+      <nz-option nzValue="5m" nzLabel="5分钟"></nz-option>
+      <nz-option nzValue="30m" nzLabel="30分钟"></nz-option>
+      <nz-option nzValue="1h" nzLabel="1小时"></nz-option>
+    </nz-select>
+  </div>
+</div>
+
+<div echarts [options]="options"></div>

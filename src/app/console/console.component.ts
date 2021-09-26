@@ -4,11 +4,11 @@ import {RequestService} from '../request.service';
 import {UserService} from "../user.service";
 import {Router} from '@angular/router';
 
-
 @Component({
   selector: 'app-console',
   templateUrl: './console.component.html',
-  styleUrls: ['./console.component.scss']
+  styleUrls: ['./console.component.scss'],
+  providers: [ConsoleComponent]
 })
 export class ConsoleComponent implements OnInit {
 

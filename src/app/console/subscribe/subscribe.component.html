@@ -1,0 +1,64 @@
+<app-page-list (create)="create()" (refresh)="load()" (search)="search($event)" [loading]="loading">
+
+  <nz-table
+    nzSize="small"
+        [nzData]="datum"
+    [nzFrontPagination]="false"
+    [nzLoading]="loading"
+    [nzTotal]="total"
+    [nzPageSize]="pageSize"
+    [nzPageIndex]="pageIndex"
+
+    (nzQueryParams)="onQuery($event)"
+  >
+    <thead>
+    <tr>
+      <th nzColumnKey="user_id" [nzSortFn]="true">用户</th>
+      <th nzColumnKey="start" [nzSortFn]="true">起止时间</th>
+      <th nzColumnKey="names">告警名称</th>
+      <th nzColumnKey="level" [nzSortFn]="true">等级</th>
+      <th>推送</th>
+      <th nzColumnKey="_id" [nzSortFn]="true">创建时间</th>
+      <th nzColumnKey="enable" [nzSortFn]="true">启用</th>
+      <th nzWidth="100">操作</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let data of datum; let i=index">
+      <td>
+        <a [routerLink]="'/console/user/detail/'+data.user_id">{{data.user?.name}}</a>
+      </td>
+      <td>{{ data.start | minuteToDate | date: 'HH:mm' }} - {{ data.end | minuteToDate | date: 'HH:mm' }}</td>
+      <td>{{ data.names?.join(', ') }}</td>
+      <td>{{ data.level }}</td>
+      <td>
+        <span *ngIf="data.weixin">微信，</span>
+        <span *ngIf="data.sms">短信，</span>
+        <span *ngIf="data.voice">语音，</span>
+        <span *ngIf="data.email">邮件</span>
+      </td>
+      <td>{{data._id | objectIdToDateString}}</td>
+      <td>
+        <nz-switch [(ngModel)]="data.enable" nzSize="small" (ngModelChange)="onEnableChange(data, $event)"></nz-switch>
+      </td>
+      <td>
+        <a [routerLink]="'/console/subscribe/detail/'+data._id">详情</a>
+        <nz-divider nzType="vertical"></nz-divider>
+        <a [routerLink]="'/console/subscribe/edit/'+data._id">编辑</a>
+        <nz-divider nzType="vertical"></nz-divider>
+        <a nz-dropdown [nzDropdownMenu]="menu" nzTrigger="click">
+          更多
+          <i nz-icon nzType="down"></i>
+        </a>
+        <nz-dropdown-menu #menu="nzDropdownMenu">
+          <ul nz-menu>
+            <li nz-menu-item nzDanger nz-popconfirm nzPopconfirmTitle="确定删除？" (nzOnConfirm)="remove(data, i)">删除</li>
+          </ul>
+        </nz-dropdown-menu>
+      </td>
+    </tr>
+    </tbody>
+  </nz-table>
+
+
+</app-page-list>

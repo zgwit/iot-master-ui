@@ -1,0 +1,57 @@
+<app-page-list noCreate (refresh)="load()" (search)="search($event)" [loading]="loading">
+
+  <nz-table
+    nzSize="small"
+        [nzData]="datum"
+    [nzFrontPagination]="false"
+    [nzLoading]="loading"
+    [nzTotal]="total"
+    [nzPageSize]="pageSize"
+    [nzPageIndex]="pageIndex"
+
+    (nzQueryParams)="onQuery($event)"
+  >
+    <thead>
+    <tr>
+      <th>分组</th>
+      <th>项目</th>
+      <th>设备</th>
+      <th>名称</th>
+      <th>内容</th>
+      <th nzColumnKey="_id" [nzSortFn]="true">时间</th>
+      <th nzWidth="100">操作</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let data of datum; let i=index">
+      <td>
+        <a [routerLink]="'/console/group/detail/'+data.group_id">{{data.group?.name}}</a>
+      </td>
+      <td>
+        <a [routerLink]="'/console/project/detail/'+data.project_id">{{data.project?.name}}</a>
+      </td>
+      <td>
+        <a [routerLink]="'/console/device/detail/'+data.device_id">{{data.device?.name}}</a>
+      </td>
+      <td>{{ data.name }}</td>
+      <td>{{ data.content }}</td>
+      <td>{{data._id | objectIdToDateString}}</td>
+      <td>
+        <a [routerLink]="'/console/alarm/detail/'+data._id">详情</a>
+        <nz-divider nzType="vertical"></nz-divider>
+        <a nz-dropdown [nzDropdownMenu]="menu" nzTrigger="click">
+          更多
+          <i nz-icon nzType="down"></i>
+        </a>
+        <nz-dropdown-menu #menu="nzDropdownMenu">
+          <ul nz-menu>
+            <li nz-menu-item nzDanger nz-popconfirm nzPopconfirmTitle="确定删除？" (nzOnConfirm)="remove(data, i)">删除</li>
+          </ul>
+        </nz-dropdown-menu>
+      </td>
+    </tr>
+    </tbody>
+  </nz-table>
+
+
+</app-page-list>

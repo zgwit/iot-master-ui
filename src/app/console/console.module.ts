@@ -37,11 +37,45 @@ import {NzDatePickerModule} from "ng-zorro-antd/date-picker";
 import {NgxEchartsModule} from "ngx-echarts";
 import {HelperModule} from "../helper/helper.module";
 
+import {DragDropModule} from "@angular/cdk/drag-drop";
 import {ConsoleRoutingModule} from './console-routing.module';
 import {WelcomeComponent} from "./welcome/welcome.component";
 import {UnknownComponent} from "./unknown/unknown.component";
 import {ConsoleComponent} from "./console.component";
-import {DragDropModule} from "@angular/cdk/drag-drop";
+import {ProjectComponent} from "./project/project.component";
+import {DeviceComponent} from "./device/device.component";
+import {SubscribeComponent} from "./subscribe/subscribe.component";
+import {AlarmComponent} from "./alarm/alarm.component";
+import {VoiceComponent} from "./voice/voice.component";
+import {PasswordComponent} from "./password/password.component";
+import {UserComponent} from "./user/user.component";
+import {ProjectDetailComponent} from "./project-detail/project-detail.component";
+import {DeviceDetailComponent} from "./device-detail/device-detail.component";
+import {UserDetailComponent} from "./user-detail/user-detail.component";
+import {DeviceValueComponent} from "./device-value/device-value.component";
+import {AlarmAllComponent} from "./alarm-all/alarm-all.component";
+import {VoiceAllComponent} from "./voice-all/voice-all.component";
+import {SubscribeAllComponent} from "./subscribe-all/subscribe-all.component";
+import {SubscribeEditComponent} from "./subscribe-edit/subscribe-edit.component";
+import {UserEditComponent} from "./user-edit/user-edit.component";
+import {GroupProjectComponent} from "./group-project/group-project.component";
+import {GroupComponent} from "./group/group.component";
+import {GroupDetailComponent} from "./group-detail/group-detail.component";
+import {GroupEditComponent} from "./group-edit/group-edit.component";
+import {EventComponent} from "./event/event.component";
+import {JobComponent} from "./job/job.component";
+import {JobEditComponent} from "./job-edit/job-edit.component";
+import {ChooseService} from "./choose.service";
+import {ChooseDeviceComponent} from "./choose-device/choose-device.component";
+import {ChooseGroupComponent} from "./choose-group/choose-group.component";
+import {ChooseUserComponent} from "./choose-user/choose-user.component";
+import {DeviceBrowserComponent} from "./device-browser/device-browser.component";
+import {GroupBrowserComponent} from "./group-browser/group-browser.component";
+import {UserBrowserComponent} from "./user-browser/user-browser.component";
+import {DeviceProjectComponent} from "./device-project/device-project.component";
+import {ProjectBrowserComponent} from "./project-browser/project-browser.component";
+import {PromptComponent} from "./prompt/prompt.component";
+
 
 
 @NgModule({
@@ -49,6 +83,42 @@ import {DragDropModule} from "@angular/cdk/drag-drop";
     ConsoleComponent,
     WelcomeComponent,
     UnknownComponent,
+    EventComponent,
+    ProjectComponent,
+    ProjectDetailComponent,
+    DeviceComponent,
+    DeviceDetailComponent,
+    DeviceValueComponent,
+    DeviceProjectComponent,
+    JobComponent,
+    JobEditComponent,
+    SubscribeComponent,
+    SubscribeAllComponent,
+    SubscribeEditComponent,
+    AlarmComponent,
+    AlarmAllComponent,
+    VoiceComponent,
+    VoiceAllComponent,
+    UserComponent,
+    UserDetailComponent,
+    UserEditComponent,
+    GroupComponent,
+    GroupDetailComponent,
+    GroupEditComponent,
+    GroupProjectComponent,
+    PasswordComponent,
+
+    ChooseDeviceComponent,
+    ChooseGroupComponent,
+    ChooseUserComponent,
+
+    ProjectBrowserComponent,
+    DeviceBrowserComponent,
+    GroupBrowserComponent,
+    UserBrowserComponent,
+
+    PromptComponent,
+    EventComponent,
   ],
   imports: [
     CommonModule,
@@ -83,16 +153,16 @@ import {DragDropModule} from "@angular/cdk/drag-drop";
     NzProgressModule,
     NzCardModule,
     NzUploadModule,
-    HelperModule,
     NzDropDownModule,
     NzTimePickerModule,
     NzDatePickerModule,
     DragDropModule,
 
-    NgxEchartsModule.forRoot({echarts: () => import('echarts')}),
+    HelperModule,
 
+    NgxEchartsModule.forRoot({echarts: () => import('echarts')}),
   ],
   bootstrap: [ConsoleComponent],
-  providers: []
+  providers: [ChooseService]
 })
 export class ConsoleModule { }

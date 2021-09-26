@@ -17,11 +17,6 @@ export let SideMenu = [
         title: '设备',
         router: 'device'
       },
-      {
-        title: '通道',
-        router: 'tunnel'
-      },
-
     ]
   },
   {

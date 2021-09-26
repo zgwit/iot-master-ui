@@ -1,0 +1,42 @@
+
+
+<nz-tabset [nzTabBarExtraContent]="extraTemplate">
+  <nz-tab nzTitle="分组详情">
+    <p>{{data|json}}</p>
+  </nz-tab>
+  <nz-tab nzTitle="绑定项目">
+    <ng-template nz-tab>
+      <app-group-project [_id]="id"></app-group-project>
+    </ng-template>
+  </nz-tab>
+  <nz-tab nzTitle="告警记录">
+    <ng-template nz-tab>
+      <app-alarm type="group" [_id]="id"></app-alarm>
+    </ng-template>
+  </nz-tab>
+  <nz-tab nzTitle="告警订阅">
+    <ng-template nz-tab>
+      <app-subscribe type="group" [_id]="id"></app-subscribe>
+    </ng-template>
+  </nz-tab>
+  <nz-tab nzTitle="日志">
+    <ng-template nz-tab>
+      <app-event type="group" [_id]="id"></app-event>
+    </ng-template>
+  </nz-tab>
+
+</nz-tabset>
+
+<ng-template #extraTemplate>
+  <a (click)="load()" title="刷新">
+    <i nz-icon nzType="reload" [nzSpin]="loading"></i>
+  </a>
+  <nz-divider nzType="vertical"></nz-divider>
+  <a title="原始数据" appViewConfig [config]="data">
+    <i nz-icon nzType="profile"></i>
+  </a>
+  <nz-divider nzType="vertical"></nz-divider>
+  <a title="编辑" [routerLink]="'/console/group/edit/'+id">
+    <i nz-icon nzType="form"></i>
+  </a>
+</ng-template>

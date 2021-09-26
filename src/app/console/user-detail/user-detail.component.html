@@ -1,0 +1,26 @@
+
+
+<nz-tabset [nzTabBarExtraContent]="extraTemplate">
+  <nz-tab nzTitle="用户详情">
+    <p>{{data|json}}</p>
+  </nz-tab>
+  <nz-tab nzTitle="日志">
+    <ng-template nz-tab>
+      <app-event type="user" [_id]="id"></app-event>
+    </ng-template>
+  </nz-tab>
+</nz-tabset>
+
+<ng-template #extraTemplate>
+  <a (click)="load()" title="刷新">
+    <i nz-icon nzType="reload" [nzSpin]="loading"></i>
+  </a>
+  <nz-divider nzType="vertical"></nz-divider>
+  <a title="原始数据" appViewConfig [config]="data">
+    <i nz-icon nzType="profile"></i>
+  </a>
+  <nz-divider nzType="vertical"></nz-divider>
+  <a title="编辑" [routerLink]="'/console/user/edit/'+id">
+    <i nz-icon nzType="form"></i>
+  </a>
+</ng-template>

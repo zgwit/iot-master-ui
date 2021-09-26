@@ -1,0 +1,51 @@
+<app-page-list noCreate (refresh)="load()" (search)="search($event)" [loading]="loading">
+
+  <nz-table
+    nzSize="small"
+        [nzData]="datum"
+    [nzFrontPagination]="false"
+    [nzLoading]="loading"
+    [nzTotal]="total"
+    [nzPageSize]="pageSize"
+    [nzPageIndex]="pageIndex"
+
+    (nzQueryParams)="onQuery($event)"
+    (nzCurrentPageDataChange)="onCurrentPageDataChange($event)"
+  >
+    <thead>
+    <tr>
+      <th [nzShowCheckbox]="multiple" [nzChecked]="checked" [nzIndeterminate]="indeterminate" (nzCheckedChange)="onAllChecked($event)"></th>
+      <th nzColumnKey="username" [nzSortFn]="true">用户名</th>
+      <th nzColumnKey="name" [nzSortFn]="true">姓名</th>
+      <th nzColumnKey="cellphone">手机号</th>
+      <th nzColumnKey="email">邮箱</th>
+      <th nzColumnKey="enable" [nzSortFn]="true">启用</th>
+      <th nzColumnKey="_id" [nzSortFn]="true">创建时间</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let data of datum; let i=index" (click)="onItemClick(data)">
+      <td [nzChecked]="setCheckedOfId.has(data._id)" [nzDisabled]="!data.enable"
+          (nzCheckedChange)="onItemChecked(data._id, $event)"
+      ></td>
+      <td>{{ data.username }}</td>
+      <td>{{ data.name }}</td>
+      <td>{{ data.cellphone }}</td>
+      <td>{{ data.email }}</td>
+      <td>{{data.enable?'√':'×'}}</td>
+      <td>{{data._id | objectIdToDateString}}</td>
+    </tr>
+    </tbody>
+  </nz-table>
+
+  <div *ngIf="multiple && setCheckedOfId.size">
+    已经选择了 {{ setCheckedOfId.size }} 项
+  </div>
+
+
+</app-page-list>
+
+<div *nzModalFooter>
+  <button nz-button nzType="default" (click)="cancel()">取消</button>
+  <button nz-button nzType="primary" (click)="ok()">确定</button>
+</div>

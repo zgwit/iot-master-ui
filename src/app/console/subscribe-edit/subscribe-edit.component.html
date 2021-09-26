@@ -1,0 +1,63 @@
+<app-editor [(ngModel)]="data" (ngModelChange)="basicForm.patchValue($event)" [submitting]="submitting" (submit)="submit()">
+
+  <nz-tabset nzType="card" nzSize="small" [formGroup]="basicForm" (change)="change()">
+    <nz-tab nzTitle="基本信息">
+      <nz-form-item>
+        <nz-form-label [nzSpan]="5">用户</nz-form-label>
+        <nz-form-control [nzSpan]="12" nzErrorTip="">
+          <app-choose-user formControlName="user_id"></app-choose-user>
+        </nz-form-control>
+      </nz-form-item>
+
+      <nz-form-item>
+        <nz-form-label [nzSpan]="5">起止时间</nz-form-label>
+        <nz-form-control [nzSpan]="12" nzErrorTip="">
+          <app-minute-time-picker formControlName="start"></app-minute-time-picker>
+          -
+          <app-minute-time-picker formControlName="end"></app-minute-time-picker>
+        </nz-form-control>
+      </nz-form-item>
+
+      <nz-form-item>
+        <nz-form-label [nzSpan]="5">告警名称</nz-form-label>
+        <nz-form-control [nzSpan]="12" nzErrorTip="">
+          <nz-select nzAllowClear nzMode="tags" [nzTokenSeparators]="[',', '，', ';', ' ']" formControlName="names" nzPlaceHolder="TODO：改成选择"
+                     nzSize="small" (ngModelChange)="change()"></nz-select>
+        </nz-form-control>
+      </nz-form-item>
+
+      <nz-form-item>
+        <nz-form-label [nzSpan]="5">等级</nz-form-label>
+        <nz-form-control [nzSpan]="12" nzErrorTip="">
+          <nz-select formControlName="level">
+            <nz-option [nzValue]="0" nzLabel="全部"></nz-option>
+            <nz-option [nzValue]="1" nzLabel="一般"></nz-option>
+            <nz-option [nzValue]="2" nzLabel="严重"></nz-option>
+            <nz-option [nzValue]="3" nzLabel="灾难"></nz-option>
+          </nz-select>
+        </nz-form-control>
+      </nz-form-item>
+
+      <nz-form-item>
+        <nz-form-label [nzSpan]="5">推送</nz-form-label>
+        <nz-form-control [nzSpan]="12" nzErrorTip="">
+          <label nz-checkbox formControlName="weixin">微信</label>
+          <label nz-checkbox formControlName="sms">短信</label>
+          <label nz-checkbox formControlName="voice">语音</label>
+          <label nz-checkbox formControlName="email">邮件</label>
+        </nz-form-control>
+      </nz-form-item>
+
+
+      <nz-form-item>
+        <nz-form-label [nzSpan]="5">启用</nz-form-label>
+        <nz-form-control [nzSpan]="12" nzErrorTip="">
+          <nz-switch formControlName="enable"></nz-switch>
+        </nz-form-control>
+      </nz-form-item>
+    </nz-tab>
+
+  </nz-tabset>
+
+
+</app-editor>

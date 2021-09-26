@@ -1,0 +1,25 @@
+<app-editor [(ngModel)]="data" (ngModelChange)="basicForm.patchValue($event)" [submitting]="submitting" (submit)="submit()">
+
+  <nz-tabset nzType="card" nzSize="small" [formGroup]="basicForm" (change)="change()">
+    <nz-tab nzTitle="基本信息">
+      <nz-form-item>
+        <nz-form-label [nzSpan]="5">名称</nz-form-label>
+        <nz-form-control [nzSpan]="12" nzErrorTip="">
+          <input nz-input formControlName="name" required/>
+        </nz-form-control>
+      </nz-form-item>
+
+      <nz-form-item>
+        <nz-form-label [nzSpan]="5">用户</nz-form-label>
+        <nz-form-control [nzSpan]="12" nzErrorTip="">
+          <app-choose-user formControlName="user_id" [showClear]="true"></app-choose-user>
+        </nz-form-control>
+      </nz-form-item>
+
+      <input type="hidden" formControlName="company_id">
+    </nz-tab>
+
+  </nz-tabset>
+
+
+</app-editor>
