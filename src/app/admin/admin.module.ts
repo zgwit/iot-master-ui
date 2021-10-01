@@ -241,7 +241,6 @@ import {ShellComponent} from "./shell/shell.component";
     NzStatisticModule,
     NzTabsModule,
     NzCollapseModule,
-    // NgxEchartsModule.forRoot({echarts}),
     NzTransferModule,
     NzRadioModule,
     NzProgressModule,
