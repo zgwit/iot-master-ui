@@ -26,16 +26,17 @@
 
   .title {
     display: inline-block;
-    border: 1px solid #d9d9d9;
-    border-radius: 2px;
+    border: 1px solid #434343;
+    //border-radius: 2px;
     padding: 5px 10px;
     margin: 2px;
-    background-color: #fafafa;
+    //background-color: #fafafa;
     font-size: 14px;
     //color: rgba(0, 0, 0, 0.65);
 
     a {
-      color: rgba(0, 0, 0, 0.65);
+      //color: rgba(0, 0, 0, 0.65);
+      color: inherit;
       text-decoration: none;
     }
 
