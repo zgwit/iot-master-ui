@@ -1,40 +1,40 @@
 <app-editor [(ngModel)]="data" (ngModelChange)="basicForm.patchValue($event)" [submitting]="submitting" (submit)="submit()">
 
-  <nz-tabset nzType="card" nzSize="small" [formGroup]="basicForm" (change)="change()">
-    <nz-tab nzTitle="基本信息">
+  <nz-collapse [formGroup]="basicForm" (change)="change()">
+    <nz-collapse-panel nzHeader="基本信息" nzActive>
       <nz-form-item>
         <nz-form-label [nzSpan]="5">名称</nz-form-label>
         <nz-form-control [nzSpan]="12" nzErrorTip="">
           <input nz-input formControlName="name" required/>
         </nz-form-control>
       </nz-form-item>
-    </nz-tab>
+    </nz-collapse-panel>
 
-    <nz-tab nzTitle="参数变量">
+    <nz-collapse-panel nzHeader="参数变量">
       <app-project-edit-variables formControlName="variables"></app-project-edit-variables>
-    </nz-tab>
+    </nz-collapse-panel>
 
-    <nz-tab nzTitle="初始设备">
+    <nz-collapse-panel nzHeader="初始设备">
       <app-template-edit-devices formControlName="devices"></app-template-edit-devices>
-    </nz-tab>
+    </nz-collapse-panel>
 
-    <nz-tab nzTitle="控制命令">
+    <nz-collapse-panel nzHeader="控制命令">
       <app-project-edit-commands formControlName="commands"></app-project-edit-commands>
-    </nz-tab>
+    </nz-collapse-panel>
 
-    <nz-tab nzTitle="控制策略">
+    <nz-collapse-panel nzHeader="控制策略">
       <app-project-edit-strategies formControlName="strategies"></app-project-edit-strategies>
-    </nz-tab>
+    </nz-collapse-panel>
 
-    <nz-tab nzTitle="合法检查">
+    <nz-collapse-panel nzHeader="合法检查">
       <app-project-edit-validators formControlName="validators"></app-project-edit-validators>
-    </nz-tab>
+    </nz-collapse-panel>
 
-    <nz-tab nzTitle="自动脚本">
+    <nz-collapse-panel nzHeader="自动脚本">
       <app-project-edit-scripts formControlName="scripts"></app-project-edit-scripts>
-    </nz-tab>
+    </nz-collapse-panel>
 
-  </nz-tabset>
+  </nz-collapse>
 
 
 </app-editor>

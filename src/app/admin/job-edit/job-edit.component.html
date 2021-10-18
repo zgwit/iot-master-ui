@@ -1,7 +1,7 @@
 <app-editor [(ngModel)]="data" (ngModelChange)="basicForm.patchValue($event)" [submitting]="submitting" (submit)="submit()">
 
-  <nz-tabset nzType="card" nzSize="small" [formGroup]="basicForm" (change)="change()">
-    <nz-tab nzTitle="基本信息">
+  <nz-collapse [formGroup]="basicForm" (change)="change()">
+    <nz-collapse-panel nzHeader="基本信息" nzActive>
       <nz-form-item>
         <nz-form-label [nzSpan]="5">名称</nz-form-label>
         <nz-form-control [nzSpan]="12" nzErrorTip="">
@@ -36,9 +36,9 @@
           <nz-switch formControlName="enable"></nz-switch>
         </nz-form-control>
       </nz-form-item>
-    </nz-tab>
+    </nz-collapse-panel>
 
-  </nz-tabset>
+  </nz-collapse>
 
 
 </app-editor>

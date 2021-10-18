@@ -1,7 +1,7 @@
 <app-editor [(ngModel)]="data" (ngModelChange)="basicForm.patchValue($event)" [submitting]="submitting" (submit)="submit()">
 
-  <nz-tabset nzType="card" nzSize="small" [formGroup]="basicForm">
-    <nz-tab nzTitle="基本信息">
+  <nz-collapse [formGroup]="basicForm">
+    <nz-collapse-panel nzHeader="基本信息" nzActive>
       <nz-form-item>
         <nz-form-label [nzSpan]="5">名称</nz-form-label>
         <nz-form-control [nzSpan]="12" nzErrorTip="">
@@ -55,36 +55,36 @@
         </nz-form-control>
       </nz-form-item>
 
-    </nz-tab>
+    </nz-collapse-panel>
 
-    <nz-tab nzTitle="变量">
+    <nz-collapse-panel nzHeader="变量">
       <app-element-edit-variables formControlName="variables"></app-element-edit-variables>
-    </nz-tab>
+    </nz-collapse-panel>
 
-    <nz-tab nzTitle="数据点">
+    <nz-collapse-panel nzHeader="数据点">
       <app-element-edit-data-points formControlName="data_points" [codes]="codes"></app-element-edit-data-points>
-    </nz-tab>
+    </nz-collapse-panel>
 
-    <nz-tab nzTitle="定时采集">
+    <nz-collapse-panel nzHeader="定时采集">
       <app-element-edit-collectors formControlName="collectors" [codes]="codes"></app-element-edit-collectors>
-    </nz-tab>
+    </nz-collapse-panel>
 
-    <nz-tab nzTitle="合法检查">
+    <nz-collapse-panel nzHeader="合法检查">
       <app-element-edit-validators formControlName="validators"></app-element-edit-validators>
-    </nz-tab>
+    </nz-collapse-panel>
 
-    <nz-tab nzTitle="控制命令">
+    <nz-collapse-panel nzHeader="控制命令">
       <app-element-edit-commands formControlName="commands"></app-element-edit-commands>
-    </nz-tab>
+    </nz-collapse-panel>
 
-    <nz-tab nzTitle="定时脚本">
+    <nz-collapse-panel nzHeader="定时脚本">
       <app-project-edit-jobs formControlName="jobs"></app-project-edit-jobs>
-    </nz-tab>
+    </nz-collapse-panel>
 
-    <nz-tab nzTitle="自动脚本">
+    <nz-collapse-panel nzHeader="自动脚本">
       <app-element-edit-scripts formControlName="scripts"></app-element-edit-scripts>
-    </nz-tab>
+    </nz-collapse-panel>
 
-  </nz-tabset>
+  </nz-collapse>
 
 </app-editor>
