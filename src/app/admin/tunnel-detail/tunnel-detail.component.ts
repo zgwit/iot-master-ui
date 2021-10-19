@@ -31,5 +31,9 @@ export class TunnelDetailComponent implements OnInit {
     });
     //TODO 监听
   }
+  
+  enable($event: any) {
+
+  }
 
 }
