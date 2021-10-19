@@ -30,5 +30,9 @@ export class GroupDetailComponent implements OnInit {
       this.loading = false;
     });
   }
+  
+  enable($event: any) {
+
+  }
 
 }

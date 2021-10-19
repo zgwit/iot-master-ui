@@ -30,5 +30,9 @@ export class CompanyDetailComponent implements OnInit {
       this.loading = false;
     });
   }
+  
+  enable($event: any) {
+
+  }
 
 }

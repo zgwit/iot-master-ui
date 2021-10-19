@@ -2,7 +2,27 @@
 
 <nz-tabset [nzTabBarExtraContent]="extraTemplate">
   <nz-tab nzTitle="服务详情">
-    <p>{{data|json}}</p>
+    <p>
+      名称：{{data.name}} {{data.online ? '启动' : '停止'}}
+      <nz-switch [ngModel]="data.enable" (ngModelChange)="enable($event)"></nz-switch>
+    </p>
+
+    <p>
+      类型：{{data.type}} {{data.address}} {{data.port}}
+    </p>
+
+    <p *ngIf="data.register.enable">
+      注册包：{{data.regex}}
+    </p>
+
+    <p *ngIf="data.heartbeat">
+      心跳包：{{data.regex}} {{data.interval}}
+    </p>
+
+    <p *ngIf="data.protocol.enable">
+      协议：{{data.type}}
+    </p>
+
   </nz-tab>
   <nz-tab nzTitle="通道">
     <ng-template nz-tab>

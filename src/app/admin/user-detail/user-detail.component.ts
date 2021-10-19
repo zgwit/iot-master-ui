@@ -30,5 +30,9 @@ export class UserDetailComponent implements OnInit {
       this.loading = false;
     });
   }
+  
+  enable($event: any) {
+
+  }
 
 }

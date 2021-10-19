@@ -2,7 +2,88 @@
 
 <nz-tabset [nzTabBarExtraContent]="extraTemplate">
   <nz-tab nzTitle="元件详情">
-    <p>{{data|json}}</p>
+    
+    <p>
+      名称：{{data.name}}
+    </p>
+
+    <p>
+      类型：{{data.type}}
+    </p>
+
+    <p>
+      协议：{{data.protocol}}
+    </p>
+
+    <p>
+      生产商：{{data.manufacturer}}
+    </p>
+
+    <p>
+      版本号：{{data.version}}
+    </p>
+
+<p>
+  数据点：
+<nz-table
+  #dataPointsTable
+  nzSize="small"
+  [nzData]="data.data_points"
+
+>
+  <thead>
+  <tr>
+    <th>变量</th>
+    <th>名称</th>
+    <th>类型</th>
+    <th>精度</th>
+    <th>单位</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr *ngFor="let data of pluginTable.data; let i=index">
+    <td>{{ data.name }}</td>
+    <td>{{ data.label }}</td>
+    <td>{{ data.type }}</td>
+    <td>{{ data.precision }}</td>
+    <td>{{ data.unit }}</td>
+  </tr>
+  </tbody>
+</nz-table>
+
+</p>
+
+<p>
+  采集器：
+<nz-table
+  #collectorsTable
+  nzSize="small"
+  [nzData]="data.data_points"
+>
+  <thead>
+  <tr>
+    <th>间隔</th>
+    <th>定时</th>
+    <th>功能码</th>
+    <th>地址</th>
+    <th>长度</th>
+    <th>启用</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr *ngFor="let data of collectorsTable.data; let i=index">
+    <td>{{ data.interval }}</td>
+    <td>{{ data.crontab }}</td>
+    <td>{{ data.code }}</td>
+    <td>{{ data.address }}</td>
+    <td>{{ data.length }}</td>
+    <td>{{ data.enable }}</td>
+  </tr>
+  </tbody>
+</nz-table>
+
+</p>
+
   </nz-tab>
   <nz-tab nzTitle="设备实例">
     <ng-template nz-tab>

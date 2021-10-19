@@ -2,7 +2,15 @@
 
 <nz-tabset [nzTabBarExtraContent]="extraTemplate">
   <nz-tab nzTitle="公司详情">
-    <p>{{data|json}}</p>
+    <p>
+      名称：{{data.name}}
+      {{data.enable ? '启用' : '禁用'}}
+      <nz-switch [ngModel]="data.enable" (ngModelChange)="enable($event)"></nz-switch>
+    </p>
+    <p *ngIf="data.user">
+      用户：<a [routerLink]="'/admin/user/detail/'+data.user._id">{{data.user.name}}</a>
+    </p>
+
   </nz-tab>
   <nz-tab nzTitle="成员">
     <ng-template nz-tab>

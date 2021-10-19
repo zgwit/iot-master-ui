@@ -31,4 +31,7 @@ export class ElementDetailComponent implements OnInit {
     });
   }
 
+  enable($event: any) {
+
+  }
 }
