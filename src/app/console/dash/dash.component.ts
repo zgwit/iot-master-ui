@@ -13,6 +13,8 @@ export class DashComponent implements OnInit {
   deviceOpen = 0;
 
   projects: any[] = [];
+  //win = (window as any);
+  doc = (window as any).document;
 
   constructor(private rs: RequestService, private cs: CompanyService, private er: ElementRef) {
     this.load();
@@ -22,8 +24,11 @@ export class DashComponent implements OnInit {
     //this.load();
   }
 
-  fullscreen(){
+  enterFullscreen() {
     this.er.nativeElement.requestFullscreen();
+  }
+  exitFullscreen() {
+    this.doc.exitFullscreen();
   }
 
   load() {

@@ -1,4 +1,6 @@
-<button nz-button (click)="fullscreen()">全屏</button>
+<button nz-button (click)="enterFullscreen()" *ngIf="!doc.fullscreen">进入全屏</button>
+<button nz-button (click)="exitFullscreen()" *ngIf="doc.fullscreen">退出全屏</button>
+
 
 <nz-row [nzGutter]="16">
   <nz-col [nzSpan]="8">
