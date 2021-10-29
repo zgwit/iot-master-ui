@@ -20,8 +20,11 @@ import {NzFormModule} from 'ng-zorro-antd/form';
 import {NzCheckboxModule} from 'ng-zorro-antd/checkbox';
 import {NzIconModule} from 'ng-zorro-antd/icon';
 import {NzMessageModule} from 'ng-zorro-antd/message';
+import { NzListModule } from 'ng-zorro-antd/list';
+import { NzModalModule } from 'ng-zorro-antd/modal';
 import {JwtModule} from "@auth0/angular-jwt";
 import {NgxAmapModule} from "ngx-amap";
+import { SelectCompanyComponent } from './select-company/select-company.component';
 
 registerLocaleData(zh, 'zh');
 
@@ -33,7 +36,8 @@ export function tokenGetter() {
   declarations: [
     AppComponent,
     LoginComponent,
-    PageNotFoundComponent
+    PageNotFoundComponent,
+    SelectCompanyComponent,
   ],
   imports: [
     BrowserModule,
@@ -49,6 +53,8 @@ export function tokenGetter() {
     NzCheckboxModule,
     NzIconModule,
     NzMessageModule,
+    NzModalModule,
+    NzListModule,
     IconsProviderModule,
     HttpClientModule,
     JwtModule.forRoot({

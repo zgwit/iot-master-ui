@@ -1,5 +1,6 @@
-import {Component, OnInit} from '@angular/core';
-import {RequestService} from "../../request.service";
+import { Component, OnInit } from '@angular/core';
+import { RequestService } from "../../request.service";
+import { CompanyService } from '../company.service';
 
 @Component({
   selector: 'app-dash',
@@ -13,16 +14,16 @@ export class DashComponent implements OnInit {
 
   projects: any[] = [];
 
-  constructor(private rs: RequestService) {
+  constructor(private rs: RequestService, private cs: CompanyService) {
     this.load();
   }
 
   ngOnInit(): void {
-    this.load();
+    //this.load();
   }
 
   load() {
-    this.rs.get('/company/{id}/project').subscribe(res => {
+    this.rs.get('company/' + this.cs.company_id + '/project').subscribe(res => {
       this.projects = res.data;
       // 计算总数
       this.projectTotal = this.projects.length;

@@ -5,19 +5,20 @@ import {Observable, Subject} from "rxjs";
   providedIn: 'root'
 })
 export class CompanyService {
-  private sub = new Subject();
+  private sub = new Subject<string>();
   private readonly ob = this.sub.asObservable();
 
-  public company_id = 0;
+  public company_id: string = '';
 
   constructor() {
   }
 
-  change() {
-    this.sub.next();
+  change(id: string) {
+    this.company_id = id;
+    this.sub.next(id);
   }
 
-  onChange(): Observable<any> {
+  onChange(): Observable<string> {
     return this.ob;
   }
 

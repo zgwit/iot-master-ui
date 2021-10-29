@@ -39,7 +39,7 @@ export class LoginComponent implements OnInit {
       if (res.data.user.admin)
         this.router.navigate(['/admin']);
       else
-        this.router.navigate(['/console']);
+        this.router.navigate(['/select-company']);
     }, err => {
       console.log('err:', err);
     });
