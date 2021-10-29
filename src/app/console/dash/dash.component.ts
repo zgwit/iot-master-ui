@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, ElementRef, OnInit } from '@angular/core';
 import { RequestService } from "../../request.service";
 import { CompanyService } from '../company.service';
 
@@ -14,12 +14,16 @@ export class DashComponent implements OnInit {
 
   projects: any[] = [];
 
-  constructor(private rs: RequestService, private cs: CompanyService) {
+  constructor(private rs: RequestService, private cs: CompanyService, private er: ElementRef) {
     this.load();
   }
 
   ngOnInit(): void {
     //this.load();
+  }
+
+  fullscreen(){
+    this.er.nativeElement.requestFullscreen();
   }
 
   load() {
