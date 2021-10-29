@@ -1,0 +1,21 @@
+<nz-row [nzGutter]="16">
+  <nz-col [nzSpan]="8">
+    <nz-statistic [nzValue]="(20 | number)!" [nzTitle]="'总项目数'"></nz-statistic>
+  </nz-col>
+  <nz-col [nzSpan]="8">
+    <nz-statistic [nzValue]="(75 | number)!" [nzTitle]="'总设备数'"></nz-statistic>
+  </nz-col>
+  <nz-col [nzSpan]="8">
+    <nz-statistic [nzValue]="(60 | number)!" [nzTitle]="'开机设备数'"></nz-statistic>
+  </nz-col>
+</nz-row>
+<div class="projects" *ngFor="let prj of projects">
+  <div class="project">
+    <div>NAME</div>
+    <div class="devices">
+      <div class="device" *ngFor="let dev of prj.devices">
+        DEV
+      </div>
+    </div>
+  </div>
+</div>

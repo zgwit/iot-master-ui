@@ -22,6 +22,7 @@ import {GroupDetailComponent} from "./group-detail/group-detail.component";
 import {JobEditComponent} from "./job-edit/job-edit.component";
 import {SubscribeAllComponent} from "./subscribe-all/subscribe-all.component";
 import {SubscribeEditComponent} from "./subscribe-edit/subscribe-edit.component";
+import {DashComponent} from "./dash/dash.component";
 
 const routes: Routes = [
   {
@@ -29,6 +30,7 @@ const routes: Routes = [
     component: ConsoleComponent,
     children: [
       {path: '', component: WelcomeComponent},
+      {path: 'dash', component: DashComponent},
       {path: 'project', component: ProjectComponent},
       {path: 'project/detail/:id', component: ProjectDetailComponent},
       {path: 'device', component: DeviceComponent},

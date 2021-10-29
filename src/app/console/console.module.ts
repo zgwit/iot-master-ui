@@ -75,12 +75,15 @@ import {UserBrowserComponent} from "./user-browser/user-browser.component";
 import {DeviceProjectComponent} from "./device-project/device-project.component";
 import {ProjectBrowserComponent} from "./project-browser/project-browser.component";
 import {PromptComponent} from "./prompt/prompt.component";
+import {DashComponent} from "./dash/dash.component";
 
 
 
 @NgModule({
   declarations: [
     ConsoleComponent,
+
+    DashComponent,
     WelcomeComponent,
     UnknownComponent,
     EventComponent,
