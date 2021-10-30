@@ -1,6 +1,6 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {NzTableQueryParams} from "ng-zorro-antd/table";
-import {Router} from "@angular/router";
+import {Router, ActivatedRoute} from "@angular/router";
 import {RequestService} from "../../request.service";
 import {parseTableQuery} from "../../helper/lib";
 import {NzModalService} from "ng-zorro-antd/modal";
@@ -11,6 +11,8 @@ import {NzModalService} from "ng-zorro-antd/modal";
   styleUrls: ['./device-project.component.scss']
 })
 export class DeviceProjectComponent implements OnInit {
+  cid = '';
+  
   @Input() _id = '';
 
   datum: any[] = [];
@@ -22,7 +24,8 @@ export class DeviceProjectComponent implements OnInit {
 
   params: any = {filter: {}};
 
-  constructor(private router: Router, private rs: RequestService, private ms: NzModalService) {
+  constructor(private router: Router, private route: ActivatedRoute, private rs: RequestService, private ms: NzModalService) {
+    this.cid = route.snapshot.parent?.params?.cid;
   }
 
   ngOnInit(): void {
@@ -56,7 +59,7 @@ export class DeviceProjectComponent implements OnInit {
   }
 
   open(data: any): void {
-    this.router.navigate(['/console/project/detail/' + data._id]);
+    this.router.navigate(['/console/'+this.cid+'/project/detail/' + data._id]);
   }
 
   remove(data: any, i: number) {

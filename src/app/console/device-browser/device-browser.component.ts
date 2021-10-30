@@ -1,5 +1,6 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {NzTableQueryParams} from "ng-zorro-antd/table";
+import {Router, ActivatedRoute} from "@angular/router";
 import {RequestService} from "../../request.service";
 import {parseTableQuery} from "../../helper/lib";
 import {NzModalRef} from "ng-zorro-antd/modal";
@@ -10,6 +11,9 @@ import {NzModalRef} from "ng-zorro-antd/modal";
   styleUrls: ['./device-browser.component.scss']
 })
 export class DeviceBrowserComponent implements OnInit {
+  cid = '';
+  
+
   datum: any[] = [];
 
   loading = false;
@@ -64,7 +68,9 @@ export class DeviceBrowserComponent implements OnInit {
       this.onItemChecked(data._id, !this.setCheckedOfId.has(data._id))
   }
 
-  constructor(private rs: RequestService, private mr: NzModalRef) {
+  constructor(private rs: RequestService, private route: ActivatedRoute, private mr: NzModalRef) {
+    this.cid = this.route.snapshot.parent?.params?.cid;
+    this.params.filter.company_id = this.cid;
   }
 
   ngOnInit(): void {

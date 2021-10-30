@@ -23,13 +23,13 @@
     <tbody>
     <tr *ngFor="let data of datum; let i=index">
       <td>
-        <a [routerLink]="'/console/user/detail/'+data.user_id">{{data.user?.name}}</a>
+        <a [routerLink]="'/console/'+cid+'/user/detail/'+data.user_id">{{data.user?.name}}</a>
       </td>
       <td>{{ data.event }}</td>
       <td>{{ data.data | json }}</td>
       <td>{{data._id | objectIdToDateString}}</td>
       <td>
-        <a [routerLink]="'/console/alarm/detail/'+data._id">详情</a>
+        <a [routerLink]="'/console/'+cid+'/event/detail/'+data._id">详情</a>
         <nz-divider nzType="vertical"></nz-divider>
         <a nz-dropdown [nzDropdownMenu]="menu" nzTrigger="click">
           更多

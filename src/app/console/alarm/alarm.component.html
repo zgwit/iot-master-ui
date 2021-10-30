@@ -25,19 +25,19 @@
     <tbody>
     <tr *ngFor="let data of datum; let i=index">
       <td>
-        <a [routerLink]="'/console/group/detail/'+data.group_id">{{data.group?.name}}</a>
+        <a [routerLink]="'/console/'+cid+'/group/detail/'+data.group_id">{{data.group?.name}}</a>
       </td>
       <td>
-        <a [routerLink]="'/console/project/detail/'+data.project_id">{{data.project?.name}}</a>
+        <a [routerLink]="'/console/'+cid+'/project/detail/'+data.project_id">{{data.project?.name}}</a>
       </td>
       <td>
-        <a [routerLink]="'/console/device/detail/'+data.device_id">{{data.device?.name}}</a>
+        <a [routerLink]="'/console/'+cid+'/device/detail/'+data.device_id">{{data.device?.name}}</a>
       </td>
       <td>{{ data.name }}</td>
       <td>{{ data.content }}</td>
       <td>{{data._id | objectIdToDateString}}</td>
       <td>
-        <a [routerLink]="'/console/alarm/detail/'+data._id">详情</a>
+        <a [routerLink]="'/console/'+cid+'/alarm/detail/'+data._id">详情</a>
         <nz-divider nzType="vertical"></nz-divider>
         <a nz-dropdown [nzDropdownMenu]="menu" nzTrigger="click">
           更多

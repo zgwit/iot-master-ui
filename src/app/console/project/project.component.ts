@@ -1,7 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {NzTableQueryParams} from "ng-zorro-antd/table";
 import {TabRef} from "../../helper/tabs/tabs.component";
-import {Router} from "@angular/router";
+import {Router, ActivatedRoute} from "@angular/router";
 import {RequestService} from "../../request.service";
 import {parseTableQuery} from "../../helper/lib";
 import {NzModalService} from "ng-zorro-antd/modal";
@@ -12,6 +12,9 @@ import {NzModalService} from "ng-zorro-antd/modal";
   styleUrls: ['./project.component.scss']
 })
 export class ProjectComponent implements OnInit {
+  cid = '';
+  
+
   datum: any[] = [];
 
   loading = false;
@@ -21,8 +24,10 @@ export class ProjectComponent implements OnInit {
 
   params: any = {filter: {}};
 
-  constructor(private tab: TabRef, private router: Router, private rs: RequestService, private ms: NzModalService) {
+  constructor(private tab: TabRef, private router: Router, private route: ActivatedRoute, private rs: RequestService, private ms: NzModalService) {
     tab.name = "项目"
+    this.cid = this.route.snapshot.parent?.params?.cid;
+    this.params.filter.company_id = this.cid;
   }
 
   ngOnInit(): void {
@@ -56,7 +61,7 @@ export class ProjectComponent implements OnInit {
   }
 
   open(data: any): void {
-    this.router.navigate(['/console/project/detail/' + data._id]);
+    this.router.navigate(['/console/'+this.cid+'/project/detail/' + data._id]);
   }
 
   remove(data: any, i: number) {

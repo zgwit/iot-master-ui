@@ -9,13 +9,16 @@ import {RequestService} from "../../request.service";
   styleUrls: ['./group-detail.component.scss']
 })
 export class GroupDetailComponent implements OnInit {
+  cid = '';
+  
   id: any = '';
   data: any = {};
   loading = false;
 
-  constructor(private tab: TabRef, private router: ActivatedRoute, private rs: RequestService) {
+  constructor(private tab: TabRef, private route: ActivatedRoute, private rs: RequestService) {
     tab.name = '分组详情';
-    this.id = router.snapshot.params.id;
+    this.id = route.snapshot.params.id;
+    this.cid = route.snapshot.parent?.params?.cid;
     this.load();
   }
 

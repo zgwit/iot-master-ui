@@ -1,6 +1,6 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {NzTableQueryParams} from "ng-zorro-antd/table";
-import {Router} from "@angular/router";
+import {Router, ActivatedRoute} from "@angular/router";
 import {RequestService} from "../../request.service";
 import {parseTableQuery} from "../../helper/lib";
 import {NzModalService} from "ng-zorro-antd/modal";
@@ -11,6 +11,8 @@ import {NzModalService} from "ng-zorro-antd/modal";
   styleUrls: ['./job.component.scss']
 })
 export class JobComponent implements OnInit {
+  cid = '';
+  
   @Input() _id = '';
   @Input() type = '';
 
@@ -23,7 +25,8 @@ export class JobComponent implements OnInit {
 
   params: any = {filter: {}};
 
-  constructor(private router: Router, private rs: RequestService, private ms: NzModalService) {
+  constructor(private router: Router, private route: ActivatedRoute, private rs: RequestService, private ms: NzModalService) {
+    this.cid = route.snapshot.parent?.params?.cid;
   }
 
   ngOnInit(): void {

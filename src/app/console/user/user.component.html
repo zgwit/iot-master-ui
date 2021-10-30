@@ -33,9 +33,9 @@
         <nz-switch [(ngModel)]="data.enable" nzSize="small" (ngModelChange)="onEnableChange(data, $event)"></nz-switch>
       </td>
       <td>
-        <a [routerLink]="'/console/user/detail/'+data._id">详情</a>
+        <a [routerLink]="'/console/'+cid+'/user/detail/'+data._id">详情</a>
         <nz-divider nzType="vertical"></nz-divider>
-        <a [routerLink]="'/console/user/edit/'+data._id">编辑</a>
+        <a [routerLink]="'/console/'+cid+'/user/edit/'+data._id">编辑</a>
         <nz-divider nzType="vertical"></nz-divider>
         <a nz-dropdown [nzDropdownMenu]="menu" nzTrigger="click">
           更多

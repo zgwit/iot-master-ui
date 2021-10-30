@@ -1,7 +1,7 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {NzTableQueryParams} from "ng-zorro-antd/table";
 import {TabRef} from "../../helper/tabs/tabs.component";
-import {Router} from "@angular/router";
+import {Router, ActivatedRoute} from "@angular/router";
 import {RequestService} from "../../request.service";
 import {parseTableQuery} from "../../helper/lib";
 import {NzModalRef} from "ng-zorro-antd/modal";
@@ -12,6 +12,9 @@ import {NzModalRef} from "ng-zorro-antd/modal";
   styleUrls: ['./user-browser.component.scss']
 })
 export class UserBrowserComponent implements OnInit {
+  cid = '';
+  
+
   datum: any[] = [];
 
   loading = false;
@@ -66,7 +69,9 @@ export class UserBrowserComponent implements OnInit {
       this.onItemChecked(data._id, !this.setCheckedOfId.has(data._id))
   }
 
-  constructor(private rs: RequestService, private mr: NzModalRef) {
+  constructor(private rs: RequestService, private route: ActivatedRoute, private mr: NzModalRef) {
+    this.cid = this.route.snapshot.parent?.params?.cid;
+    //this.params.filter.company_id = this.cid;
   }
 
   ngOnInit(): void {
@@ -90,7 +95,7 @@ export class UserBrowserComponent implements OnInit {
 
   load(): void {
     this.loading = true;
-    this.rs.post('user/list', this.params).subscribe(res => {
+    this.rs.post('company/'+this.cid+'/user', this.params).subscribe(res => {
       console.log('res', res);
       this.datum = res.data;
       this.total = res.total;

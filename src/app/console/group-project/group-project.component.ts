@@ -1,6 +1,6 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {NzTableQueryParams} from "ng-zorro-antd/table";
-import {Router} from "@angular/router";
+import {Router, ActivatedRoute} from "@angular/router";
 import {RequestService} from "../../request.service";
 import {parseTableQuery} from "../../helper/lib";
 import {ChooseService} from "../choose.service";
@@ -11,6 +11,8 @@ import {NzModalService} from "ng-zorro-antd/modal";
   styleUrls: ['./group-project.component.scss']
 })
 export class GroupProjectComponent implements OnInit {
+  cid = '';
+  
   @Input() _id = '';
 
   datum: any[] = [];
@@ -22,7 +24,8 @@ export class GroupProjectComponent implements OnInit {
 
   params: any = {filter: {}};
 
-  constructor(private router: Router, private rs: RequestService, private cs: ChooseService, private ms: NzModalService) {
+  constructor(private router: Router, private route: ActivatedRoute, private rs: RequestService, private cs: ChooseService, private ms: NzModalService) {
+    this.cid = route.snapshot.parent?.params?.cid;
   }
 
   ngOnInit(): void {
@@ -76,7 +79,7 @@ export class GroupProjectComponent implements OnInit {
   }
 
   open(data: any): void {
-    this.router.navigate(['/console/project/detail/' + data._id]);
+    this.router.navigate(['/console/'+this.cid+'/project/detail/' + data._id]);
   }
 
   remove(data: any, i: number) {

@@ -1,5 +1,6 @@
 import { Component, ElementRef, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import {TabRef} from "../../helper/tabs/tabs.component";
+import {Router, ActivatedRoute} from "@angular/router";
 import { RequestService } from "../../request.service";
 
 @Component({
@@ -18,7 +19,8 @@ export class DashComponent implements OnInit {
   //win = (window as any);
   doc = (window as any).document;
 
-  constructor(private rs: RequestService, private route: ActivatedRoute, private er: ElementRef) {
+  constructor(private tab: TabRef, private router: Router, private route: ActivatedRoute, private rs: RequestService, private er: ElementRef) {
+    tab.name = "控制台"
     this.cid = this.route.snapshot.parent?.params?.cid;
     this.load();
   }

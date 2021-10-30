@@ -13,7 +13,7 @@
   >
     <thead>
     <tr>
-      <th nzColumnKey="company_id" [nzSortFn]="true">企业</th>
+      <th nzColumnKey="group_id" [nzSortFn]="true">分组</th>
       <th nzColumnKey="user_id" [nzSortFn]="true">用户</th>
       <th nzColumnKey="template_id" [nzSortFn]="true">模板</th>
       <th nzColumnKey="name" [nzSortFn]="true">名称</th>
@@ -26,10 +26,10 @@
     <tbody>
     <tr *ngFor="let data of datum; let i=index" (dblclick)="open(data)">
       <td>
-        <a [routerLink]="'/console/group/detail/'+data.group_id">{{data.group?.name}}</a>
+        <a [routerLink]="'/console/'+cid+'/group/detail/'+data.group_id">{{data.group?.name}}</a>
       </td>
       <td>
-        <a [routerLink]="'/console/user/detail/'+data.user_id">{{data.user?.name}}</a>
+        <a [routerLink]="'/console/'+cid+'/user/detail/'+data.user_id">{{data.user?.name}}</a>
       </td>
       <td>
         {{data.template?.name}}
@@ -47,9 +47,9 @@
         <nz-switch [(ngModel)]="data.enable" nzSize="small" (ngModelChange)="onEnableChange(data, $event)"></nz-switch>
       </td>
       <td>
-        <a [routerLink]="'/console/project/detail/'+data._id">详情</a>
+        <a [routerLink]="'/console/'+cid+'/project/detail/'+data._id">详情</a>
         <nz-divider nzType="vertical"></nz-divider>
-        <a [routerLink]="'/console/project/edit/'+data._id">编辑</a>
+        <a [routerLink]="'/console/'+cid+'/project/edit/'+data._id">编辑</a>
         <nz-divider nzType="vertical"></nz-divider>
         <a nz-dropdown [nzDropdownMenu]="menu" nzTrigger="click">
           更多

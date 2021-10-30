@@ -22,7 +22,7 @@
         <nz-card>
           <nz-statistic [nzValue]="data.values && data.values[v.name] || '--'" [nzTitle]="v.label"
                         [nzSuffix]="v.unit"></nz-statistic>
-          <div class="history" title="历史" *ngIf="v.store" [routerLink]="'/console/device/value/'+data._id+'/'+v.name"><i
+          <div class="history" title="历史" *ngIf="v.store" [routerLink]="'/console/'+cid+'/device/value/'+data._id+'/'+v.name"><i
             nz-icon nzType="line-chart" nzTheme="outline"></i></div>
         </nz-card>
       </div>
@@ -31,7 +31,7 @@
           <div class="label">{{v.label}} <span *ngIf="v.unit">({{v.unit}})</span> </div>
           <div class="value">{{data.values && data.values[v.name] | number: '1.0-2'}}</div>
           <div class="refresh" title="刷新" *ngIf="!v.rw || v.rw>1" (click)="refresh(v.name)"><i nz-icon nzType="sync" nzTheme="outline"></i></div>
-          <div class="history" title="历史" *ngIf="v.store" [routerLink]="'/console/device/value/'+data._id+'/'+v.name"><i
+          <div class="history" title="历史" *ngIf="v.store" [routerLink]="'/console/'+cid+'/device/value/'+data._id+'/'+v.name"><i
             nz-icon nzType="line-chart" nzTheme="outline"></i></div>
         </nz-card>
       </div>
@@ -78,7 +78,7 @@
     <i nz-icon nzType="profile"></i>
   </a>
   <nz-divider nzType="vertical"></nz-divider>
-  <a title="编辑" [routerLink]="'/console/device/edit/'+id">
+  <a title="编辑" [routerLink]="'/console/'+cid+'/device/edit/'+id">
     <i nz-icon nzType="form"></i>
   </a>
 </ng-template>

@@ -2,7 +2,7 @@ import {Component,  OnInit} from '@angular/core';
 import {SideMenu} from './side.menu';
 import {RequestService} from '../request.service';
 import {UserService} from "../user.service";
-import {Router} from '@angular/router';
+import {ActivatedRoute, Router} from '@angular/router';
 
 @Component({
   selector: 'app-console',
@@ -11,12 +11,15 @@ import {Router} from '@angular/router';
   providers: [ConsoleComponent]
 })
 export class ConsoleComponent implements OnInit {
+  //cid = '';
+  prefix = '/console'
 
   isCollapsed = false;
 
   menus: Array<any> = [];
 
-  constructor(private rs: RequestService, public us: UserService, private route: Router) {
+  constructor(private rs: RequestService, public us: UserService, private route: Router, private activedRoute: ActivatedRoute) {
+    this.prefix += '/' + this.activedRoute.snapshot.params.cid;
     this.initMenu();
   }
 

@@ -1,5 +1,6 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {NzTableQueryParams} from "ng-zorro-antd/table";
+import {Router, ActivatedRoute} from "@angular/router";
 import {RequestService} from "../../request.service";
 import {parseTableQuery} from "../../helper/lib";
 import {NzModalRef} from "ng-zorro-antd/modal";
@@ -10,7 +11,8 @@ import {NzModalRef} from "ng-zorro-antd/modal";
   styleUrls: ['./group-browser.component.scss']
 })
 export class GroupBrowserComponent implements OnInit {
-  @Input() company_id = '';
+  cid = '';
+  
   datum: any[] = [];
 
   loading = false;
@@ -64,7 +66,9 @@ export class GroupBrowserComponent implements OnInit {
     this.onItemChecked(data._id, !this.setCheckedOfId.has(data._id))
   }
 
-  constructor(private rs: RequestService, private mr: NzModalRef) {
+  constructor(private rs: RequestService, private route: ActivatedRoute, private mr: NzModalRef) {
+    this.cid = this.route.snapshot.parent?.params?.cid;
+    this.params.filter.company_id = this.cid;
   }
 
   ngOnInit(): void {
@@ -88,7 +92,6 @@ export class GroupBrowserComponent implements OnInit {
 
   load(): void {
     this.loading = true;
-    if (this.company_id) this.params.filter.company_id = this.company_id;
     this.rs.post('group/list', this.params).subscribe(res => {
       console.log('res', res);
       this.datum = res.data;

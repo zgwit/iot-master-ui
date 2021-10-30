@@ -61,6 +61,10 @@ export let SideMenu = [
         router: 'user'
       },
       {
+        title: '分组',
+        router: 'group'
+      },
+      {
         title: '修改密码',
         router: 'password'
       },

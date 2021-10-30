@@ -1,6 +1,6 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {NzTableQueryParams} from "ng-zorro-antd/table";
-import {Router} from "@angular/router";
+import {Router, ActivatedRoute} from "@angular/router";
 import {RequestService} from "../../request.service";
 import {parseTableQuery} from "../../helper/lib";
 
@@ -10,6 +10,8 @@ import {parseTableQuery} from "../../helper/lib";
   styleUrls: ['./event.component.scss']
 })
 export class EventComponent implements OnInit {
+  cid = '';
+  
   @Input() type = '';
   @Input() _id = '';
 
@@ -22,7 +24,8 @@ export class EventComponent implements OnInit {
 
   params: any = {filter: {}};
 
-  constructor(private router: Router, private rs: RequestService) {
+  constructor(private router: Router, private route: ActivatedRoute, private rs: RequestService) {
+    this.cid = route.snapshot.parent?.params?.cid;
   }
 
   ngOnInit(): void {

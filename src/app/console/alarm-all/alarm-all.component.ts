@@ -1,7 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {NzTableQueryParams} from "ng-zorro-antd/table";
 import {TabRef} from "../../helper/tabs/tabs.component";
-import {Router} from "@angular/router";
+import {Router, ActivatedRoute} from "@angular/router";
 import {RequestService} from "../../request.service";
 import {parseTableQuery} from "../../helper/lib";
 
@@ -11,6 +11,8 @@ import {parseTableQuery} from "../../helper/lib";
   styleUrls: ['./alarm-all.component.scss']
 })
 export class AlarmAllComponent implements OnInit {
+  cid = '';
+  
 
   datum: any[] = [];
 
@@ -21,8 +23,10 @@ export class AlarmAllComponent implements OnInit {
 
   params: any = {filter: {}};
 
-  constructor(private tab: TabRef, private router: Router, private rs: RequestService) {
+  constructor(private tab: TabRef, private router: Router, private route: ActivatedRoute, private rs: RequestService) {
     tab.name = "告警记录"
+    this.cid = this.route.snapshot.parent?.params?.cid;
+    this.params.filter.company_id = this.cid;
   }
 
   ngOnInit(): void {

@@ -1,6 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {TabRef} from "../../helper/tabs/tabs.component";
-import {ActivatedRoute} from "@angular/router";
+import {Router, ActivatedRoute} from "@angular/router";
 import {RequestService} from "../../request.service";
 
 @Component({
@@ -9,13 +9,16 @@ import {RequestService} from "../../request.service";
   styleUrls: ['./project-detail.component.scss']
 })
 export class ProjectDetailComponent implements OnInit {
+  cid = '';
+  
   id: any = '';
   data: any = {};
   loading = false;
 
-  constructor(private tab: TabRef, private router: ActivatedRoute, private rs: RequestService) {
+  constructor(private tab: TabRef, private route: ActivatedRoute, private rs: RequestService) {
     tab.name = '项目详情';
-    this.id = router.snapshot.params.id;
+    this.id = route.snapshot.params.id;
+    this.cid = this.route.snapshot.parent?.params?.cid;
     this.load();
   }
 

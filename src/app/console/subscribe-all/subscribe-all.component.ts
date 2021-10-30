@@ -1,7 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {NzTableQueryParams} from "ng-zorro-antd/table";
 import {TabRef} from "../../helper/tabs/tabs.component";
-import {Router} from "@angular/router";
+import {Router, ActivatedRoute} from "@angular/router";
 import {RequestService} from "../../request.service";
 import {parseTableQuery} from "../../helper/lib";
 import {NzModalService} from "ng-zorro-antd/modal";
@@ -12,6 +12,8 @@ import {NzModalService} from "ng-zorro-antd/modal";
   styleUrls: ['./subscribe-all.component.scss']
 })
 export class SubscribeAllComponent implements OnInit {
+  cid = '';
+  
 
   datum: any[] = [];
 
@@ -22,8 +24,10 @@ export class SubscribeAllComponent implements OnInit {
 
   params: any = {filter: {}};
 
-  constructor(private tab: TabRef, private router: Router, private rs: RequestService, private ms: NzModalService) {
+  constructor(private tab: TabRef, private router: Router, private route: ActivatedRoute, private rs: RequestService, private ms: NzModalService) {
     tab.name = "告警订阅"
+    this.cid = this.route.snapshot.parent?.params?.cid;
+    this.params.filter.company_id = this.cid;
   }
 
   ngOnInit(): void {
