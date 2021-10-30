@@ -1,25 +1,53 @@
-<button nz-button (click)="enterFullscreen()" *ngIf="!doc.fullscreen">进入全屏</button>
-<button nz-button (click)="exitFullscreen()" *ngIf="doc.fullscreen">退出全屏</button>
+<div class="toolbar">
+  <button nz-button (click)="enterFullscreen()" *ngIf="!doc.fullscreen">
+    进入全屏
+  </button>
+  <button nz-button (click)="exitFullscreen()" *ngIf="doc.fullscreen">
+    退出全屏
+  </button>
+</div>
 
+<div class="figure">
+  <nz-row [nzGutter]="16" nzJustify="space-around">
+    <nz-col [nzSpan]="6">
+      <nz-statistic
+        [nzValue]="projectTotal"
+        [nzTitle]="'项目总数'"
+      ></nz-statistic>
+    </nz-col>
+    <nz-col [nzSpan]="6">
+      <nz-statistic
+        [nzValue]="deviceTotal"
+        [nzTitle]="'设备总数'"
+      ></nz-statistic>
+    </nz-col>
+    <nz-col [nzSpan]="6">
+      <nz-statistic
+        [nzValue]="deviceOpen"
+        [nzTitle]="'开机数量'"
+      ></nz-statistic>
+    </nz-col>
+  </nz-row>
+</div>
 
-<nz-row [nzGutter]="16">
-  <nz-col [nzSpan]="8">
-    <nz-statistic [nzValue]="projectTotal" [nzTitle]="'项目总数'"></nz-statistic>
-  </nz-col>
-  <nz-col [nzSpan]="8">
-    <nz-statistic [nzValue]="deviceTotal" [nzTitle]="'设备总数'"></nz-statistic>
-  </nz-col>
-  <nz-col [nzSpan]="8">
-    <nz-statistic [nzValue]="deviceOpen" [nzTitle]="'开机数量'"></nz-statistic>
+<nz-row [nzGutter]="16" nzJustify="space-around">
+  <nz-col
+    [nzXs]="24"
+    [nzMd]="12"
+    [nzLg]="8"
+    [nzXl]="6"
+    [nzXXl]="4"
+    *ngFor="let prj of projects"
+  >
+    <div class="project">
+      <div class="title">{{ prj.name }}</div>
+      <nz-row [nzGutter]="16" nzJustify="space-around">
+        <nz-col [nzSpan]="6" *ngFor="let dev of prj.devices">
+          <div class="device">
+            {{ dev.instance.name || dev.instance.element.name }}
+          </div>
+        </nz-col>
+      </nz-row>
+    </div>
   </nz-col>
 </nz-row>
-<div class="projects" *ngFor="let prj of projects">
-  <div class="project">
-    <div>{{prj.name}}</div>
-    <div class="devices">
-      <div class="device" *ngFor="let dev of prj.devices">
-        DEV
-      </div>
-    </div>
-  </div>
-</div>

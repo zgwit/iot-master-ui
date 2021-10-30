@@ -1,0 +1,35 @@
+:host{
+    
+    display: block;
+  background-image: url(/assets/bk2.jpg);
+  background-size: cover;
+  //background-color: pink;
+}
+
+.toolbar{
+    text-align: right;
+}
+
+.figure{
+    padding: 40px 10px;
+}
+
+.project {
+  //background-color: pink;
+  border: 1px solid #434343;
+  //border-radius: 10px;
+  padding: 10px;
+
+  .title {
+    text-align: center;
+    padding: 10px 0;
+  }
+}
+.device {
+  //background-color: blue;
+  border: 1px solid #434343;
+  border-radius: 5px;
+  padding: 10px 0;
+  text-align: center;
+
+}

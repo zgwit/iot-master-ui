@@ -1,6 +1,6 @@
 import { Component, ElementRef, OnInit } from '@angular/core';
-import {TabRef} from "../../helper/tabs/tabs.component";
-import {Router, ActivatedRoute} from "@angular/router";
+import { TabRef } from "../../helper/tabs/tabs.component";
+import { Router, ActivatedRoute } from "@angular/router";
 import { RequestService } from "../../request.service";
 
 @Component({
@@ -46,9 +46,12 @@ export class DashComponent implements OnInit {
       this.deviceOpen = 0;
       this.projects.forEach(p => {
         this.deviceTotal += p.device.length;
-        p.device.forEach((d: any) => {
+        p.devices && p.devices.forEach((d: any) => {
           if (d.state == 1) this.deviceOpen++;
-
+          const dvc = p.device.find((dd: any) => dd._id === d.device_id);
+          d.instance = dvc;
+          const ele = p.element.find((ee: any)=> ee._id === dvc.element_id);
+          dvc.element = ele;
         })
       })
     })
