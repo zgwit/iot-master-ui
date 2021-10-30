@@ -9,7 +9,7 @@ const routes: Routes = [
   {path: 'login', pathMatch: 'full', component: LoginComponent},
   {path: 'select-company', pathMatch: 'full', component: SelectCompanyComponent},
   {path: 'admin', loadChildren: () => import('./admin/admin.module').then(m => m.AdminModule)},
-  {path: 'console', loadChildren: () => import('./console/console.module').then(m => m.ConsoleModule)},
+  {path: 'console/:cid', loadChildren: () => import('./console/console.module').then(m => m.ConsoleModule)},
   //{path: 'admin', loadChildren: './admin/admin.module#AdminModule'},
   {path: '**', component: PageNotFoundComponent},
 ];

@@ -1,6 +1,6 @@
 import { Component, ElementRef, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 import { RequestService } from "../../request.service";
-import { CompanyService } from '../company.service';
 
 @Component({
   selector: 'app-dash',
@@ -8,6 +8,8 @@ import { CompanyService } from '../company.service';
   styleUrls: ['./dash.component.scss']
 })
 export class DashComponent implements OnInit {
+  cid = '';
+
   projectTotal = 0;
   deviceTotal = 0;
   deviceOpen = 0;
@@ -16,12 +18,14 @@ export class DashComponent implements OnInit {
   //win = (window as any);
   doc = (window as any).document;
 
-  constructor(private rs: RequestService, private cs: CompanyService, private er: ElementRef) {
+  constructor(private rs: RequestService, private route: ActivatedRoute, private er: ElementRef) {
+    this.cid = this.route.snapshot.parent?.params?.cid;
     this.load();
   }
 
   ngOnInit(): void {
     //this.load();
+    //console.log('cid: ', this.route.snapshot.parent?.params?.cid)
   }
 
   enterFullscreen() {
@@ -32,7 +36,7 @@ export class DashComponent implements OnInit {
   }
 
   load() {
-    this.rs.get('company/' + this.cs.company_id + '/project').subscribe(res => {
+    this.rs.get('company/' + this.cid + '/project').subscribe(res => {
       this.projects = res.data;
       // 计算总数
       this.projectTotal = this.projects.length;
@@ -42,6 +46,7 @@ export class DashComponent implements OnInit {
         this.deviceTotal += p.device.length;
         p.device.forEach((d: any) => {
           if (d.state == 1) this.deviceOpen++;
+
         })
       })
     })
