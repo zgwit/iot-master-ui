@@ -46,6 +46,10 @@
                [nzType]="isCollapsed ? 'menu-unfold' : 'menu-fold'"
             ></i>
         </span>
+        <span class="header-company">
+          {{company.name}}
+          <a [routerLink]="[ '/select-company' ]">切换</a>
+        </span>
         <span class="header-user">
           {{us.user?.name}}
         </span>

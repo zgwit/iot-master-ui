@@ -11,16 +11,20 @@ import {ActivatedRoute, Router} from '@angular/router';
   providers: [ConsoleComponent]
 })
 export class ConsoleComponent implements OnInit {
-  //cid = '';
+  cid = '';
   prefix = '/console'
+
+  company: any = {};
 
   isCollapsed = false;
 
   menus: Array<any> = [];
 
   constructor(private rs: RequestService, public us: UserService, private route: Router, private activedRoute: ActivatedRoute) {
-    this.prefix += '/' + this.activedRoute.snapshot.params.cid;
+    this.cid = this.activedRoute.snapshot.params.cid;
+    this.prefix += '/' + this.cid;
     this.initMenu();
+    this.load();
   }
 
   ngOnInit(): void {
@@ -28,6 +32,12 @@ export class ConsoleComponent implements OnInit {
   }
 
   noop(): void {
+  }
+
+  load() {
+    this.rs.get('company/'+this.cid+'/detail').subscribe((res: any)=>{
+      this.company = res.data;
+    })
   }
 
 
