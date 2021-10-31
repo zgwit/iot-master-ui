@@ -56,9 +56,9 @@ export class DashComponent implements OnInit, OnDestroy {
       this.projects.forEach(p => {
         this.deviceTotal += p.device.length;
         p.devices && p.devices.forEach((d: any) => {
-          if (d.state == 1) this.deviceOpen++;
           const dvc = p.device.find((dd: any) => dd._id === d.device_id);
           d.instance = dvc;
+          if (d.values.state == 1) this.deviceOpen++;
           const ele = p.element.find((ee: any)=> ee._id === dvc.element_id);
           dvc.element = ele;
         })
