@@ -46,6 +46,11 @@ export class DashComponent implements OnInit, OnDestroy {
     this.doc.exitFullscreen();
   }
 
+  openDev(dev: any){
+    this.exitFullscreen();
+    this.router.navigate(['/console/'+this.cid+'/device/detail/' + dev._id]);
+  }
+
   load() {
     this.rs.get('company/' + this.cid + '/project').subscribe(res => {
       this.projects = res.data;

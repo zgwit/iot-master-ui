@@ -43,8 +43,9 @@
       <div class="title">{{ prj.name }}</div>
       <nz-row [nzGutter]="16" nzJustify="space-around">
         <nz-col [nzSpan]="6" *ngFor="let dev of prj.devices">
-          <div class="device" [ngClass]="dev.instance.online ? (dev.instance.values?.state==1?'running':'stopped'):'offline'">
-            {{ dev.instance.name || dev.instance.element.name }}
+          <div class="device" (click)="openDev(dev.instance)"
+           [ngClass]="dev.instance.online ? (dev.instance.values?.state==1?'running':'stopped'):'offline'">
+            {{ dev.instance.name || (dev.instance.element.name+dev.instance.slave.device) }}
           </div>
         </nz-col>
       </nz-row>
