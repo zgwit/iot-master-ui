@@ -86,4 +86,17 @@ export class DeviceValueComponent implements OnInit {
   onChange($event: any) {
     this.load()
   }
+
+  download() {
+    let token = localStorage.getItem('token');
+    let start = dayjs(this.date[0]).diff(dayjs(), "minute") + 'm'
+    let end = dayjs(this.date[1]).diff(dayjs(), "minute") + 'm'
+    window.open(`/api/device/${this.id}/values/${this.name}/history-export-xlsx?window=${this.window}&start=${start}&end=${end}&token=${token}`)
+    // let url =`device/${this.id}/values/${this.name}/history-export-xlsx?window=${this.window}&start=${start}&end=${end}`
+    // this.rs.get(url).subscribe(res => {
+    //   //this.data = res.data;
+    //   console.log(res)
+    // });
+
+  }
 }
