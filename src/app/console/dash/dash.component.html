@@ -1,4 +1,8 @@
 <div class="toolbar">
+  <button nz-button>
+    报警中心
+  </button>
+
   <button nz-button (click)="enterFullscreen()" *ngIf="!doc.fullscreen">
     进入全屏
   </button>
@@ -30,25 +34,39 @@
   </nz-row>
 </div>
 
-<nz-row [nzGutter]="16" nzJustify="space-around">
-  <nz-col
-    [nzXs]="24"
-    [nzMd]="12"
-    [nzLg]="8"
-    [nzXl]="6"
-    [nzXXl]="4"
-    *ngFor="let prj of projects"
-  >
-    <div class="project">
-      <div class="title">{{ prj.name }}</div>
-      <nz-row [nzGutter]="16" nzJustify="space-around">
-        <nz-col [nzSpan]="6" *ngFor="let dev of prj.devices">
-          <div class="device" (click)="openDev(dev.instance)"
-           [ngClass]="dev.instance?.online ? (dev.instance?.values?.state==1?'running':'stopped'):'offline'">
-            {{ dev.instance?.name || (dev.instance?.element?.name+dev.instance?.slave?.device) }}
-          </div>
-        </nz-col>
-      </nz-row>
-    </div>
+<nz-row>
+  <nz-col [nzSpan]="16">
+
+    <nz-row [nzGutter]="16" nzJustify="space-around">
+      <nz-col
+        [nzXs]="24"
+        [nzMd]="24"
+        [nzLg]="24"
+        [nzXl]="12"
+        [nzXXl]="8"
+        *ngFor="let prj of projects"
+      >
+        <div class="project">
+          <div class="title">{{ prj.name }}</div>
+          <nz-row [nzGutter]="16" nzJustify="space-around">
+            <nz-col [nzSpan]="6" *ngFor="let dev of prj.devices">
+              <div class="device" (click)="openDev(dev.instance)"
+                   [ngClass]="dev.instance?.online ? (dev.instance?.values?.state==1?'running':'stopped'):'offline'">
+                {{ dev.instance?.name || (dev.instance?.element?.name+dev.instance?.slave?.device) }}
+                <div *ngIf="dev.instance?.values?.power">{{dev.instance?.values?.power}}W</div>
+                <div *ngIf="dev.instance?.values?.speed">{{dev.instance?.values?.speed}}RPM</div>
+                <div *ngIf="dev.instance?.values?.o2">{{dev.instance?.values?.o2}}mg/L</div>
+                <div *ngIf="dev.instance?.values?.ph">PH:{{dev.instance?.values?.ph}}</div>
+              </div>
+            </nz-col>
+          </nz-row>
+        </div>
+      </nz-col>
+    </nz-row>
+
+  </nz-col>
+  <nz-col [nzSpan]="8">
+      显示曲线
+    请选择鱼塘
   </nz-col>
 </nz-row>
