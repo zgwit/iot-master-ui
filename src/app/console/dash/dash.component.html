@@ -1,5 +1,9 @@
 <div class="toolbar">
-  <button nz-button>
+  <button nz-button (click)="refresh()">
+    刷新数据
+  </button>
+
+  <button nz-button (click)="openAlarm()">
     报警中心
   </button>
 
@@ -46,7 +50,7 @@
         [nzXXl]="8"
         *ngFor="let prj of projects"
       >
-        <div class="project">
+        <div class="project" (click)="openProject(prj)">
           <div class="title">{{ prj.name }}</div>
           <nz-row [nzGutter]="16" nzJustify="space-around">
             <nz-col [nzSpan]="6" *ngFor="let dev of prj.devices">
@@ -66,7 +70,27 @@
 
   </nz-col>
   <nz-col [nzSpan]="8">
-      显示曲线
-    请选择鱼塘
+    <div *ngIf="!currentProject.device">请选择鱼塘</div>
+
+    <div>
+      <div>温度℃</div>
+      <div class="chart" echarts [options]="temperatureOptions"></div>
+    </div>
+
+    <div>
+      <div>溶氧量</div>
+      <div class="chart" echarts [options]="o2Options"></div>
+    </div>
+
+    <div>
+      <div>PH</div>
+      <div class="chart" echarts [options]="phOptions"></div>
+    </div>
+
+    <div>
+      <div>功率W</div>
+      <div class="chart" echarts [options]="powerOptions"></div>
+    </div>
+
   </nz-col>
 </nz-row>
