@@ -35,7 +35,7 @@ export class DeviceValueComponent implements OnInit {
       start: dayjs(this.date[0]).diff(dayjs(), "minute") + 'm',
       end: dayjs(this.date[1]).diff(dayjs(), "minute") + 'm',
       window: this.window,
-    }).subscribe(res=>{
+    }).subscribe(res => {
       this.data = res.data;
       this.loading = false;
       this.update();
@@ -46,7 +46,7 @@ export class DeviceValueComponent implements OnInit {
     const xAxisData: string[] = [];
     const data1: number[] = [];
 
-    this.data.forEach((d:any)=>{
+    this.data.forEach((d: any) => {
       xAxisData.push(dayjs(d.time).format('M-D HH:mm'));
       data1.push(d[this.name])
     })
@@ -85,5 +85,18 @@ export class DeviceValueComponent implements OnInit {
 
   onChange($event: any) {
     this.load()
+  }
+
+  download() {
+    let token = localStorage.getItem('token');
+    let start = dayjs(this.date[0]).diff(dayjs(), "minute") + 'm'
+    let end = dayjs(this.date[1]).diff(dayjs(), "minute") + 'm'
+    window.open(`/api/device/${this.id}/values/${this.name}/history-export-xlsx?window=${this.window}&start=${start}&end=${end}&token=${token}`)
+    // let url =`device/${this.id}/values/${this.name}/history-export-xlsx?window=${this.window}&start=${start}&end=${end}`
+    // this.rs.get(url).subscribe(res => {
+    //   //this.data = res.data;
+    //   console.log(res)
+    // });
+
   }
 }
