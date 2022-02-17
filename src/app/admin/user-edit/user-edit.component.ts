@@ -4,6 +4,7 @@ import {TabRef} from "../../helper/tabs/tabs.component";
 import {ActivatedRoute} from "@angular/router";
 import {RequestService} from "../../request.service";
 import {NzMessageService} from "ng-zorro-antd/message";
+import {Md5} from "ts-md5";
 
 @Component({
   selector: 'app-user-edit',
@@ -21,6 +22,7 @@ export class UserEditComponent implements OnInit {
     "name": "新用户",
     "cellphone":"",
     "email":"",
+    "password":"",
     "enable": true,
   }
 
@@ -37,6 +39,7 @@ export class UserEditComponent implements OnInit {
       name: [this.data.name, [Validators.required]],
       cellphone: [this.data.cellphone, []],
       email: [this.data.email, [Validators.email]],
+      password: ["", []],
       enable: [this.data.enable, [Validators.required]],
     });
   }
@@ -56,7 +59,12 @@ export class UserEditComponent implements OnInit {
   submit(): void {
     this.submitting = true
     const uri = this.id ? 'user/' + this.id + '/setting' : 'user/create';
-    this.rs.post(uri, this.basicForm.value).subscribe(res => {
+    let data = this.basicForm.value;
+    if (data.password) {
+      //二次加密
+      data.password = Md5.hashStr(Md5.hashStr(data.password))
+    }
+    this.rs.post(uri, data).subscribe(res => {
       this.message.success("提交成功");
       this.tab.Close();
     }).add(() => {
